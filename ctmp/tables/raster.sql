@@ -5,18 +5,20 @@
 -- DROP TABLE ctmp.raster;
 
 CREATE TABLE ctmp.raster (
-	id serial4 NOT NULL, -- Identificativo univoco della tabella
-	comune varchar(4) NOT NULL, -- Codice catastale del Comune
-	sezione varchar(1) NOT NULL, -- Codice sezione censuaria
-	foglio varchar(4) NOT NULL, -- Codice identificativo del foglio
-	allegato varchar(1) NULL, -- Eventuale codice allegato
-	sviluppo varchar(1) NULL, -- Eventuale codice sviluppo
-	nome_file varchar(80) NULL, -- Nome del file raster
-	geom geometry NOT NULL, -- Geometria del riquadro rappresentante il posizionamento georiferito del raster
-	CONSTRAINT raster_pkey PRIMARY KEY (id)
+    id serial4 NOT NULL, -- Identificativo univoco della tabella
+    comune varchar(4) NOT NULL, -- Codice catastale del Comune
+    sezione varchar(1) NOT NULL, -- Codice sezione censuaria
+    foglio varchar(4) NOT NULL, -- Codice identificativo del foglio
+    allegato varchar(1) NULL, -- Eventuale codice allegato
+    sviluppo varchar(1) NULL, -- Eventuale codice sviluppo
+    nome_file varchar(80) NULL, -- Nome del file raster
+    geom geometry NOT NULL, -- Geometria del riquadro rappresentante il posizionamento georiferito del raster
+    CONSTRAINT raster_pkey PRIMARY KEY (id)
 );
-CREATE INDEX raster_i1 ON ctmp.raster USING btree (comune, sezione, foglio, allegato, sviluppo);
-CREATE INDEX raster_si1 ON ctmp.raster USING gist (geom);
+CREATE INDEX raster_i1 ON ctmp.raster USING btree(
+    comune, sezione, foglio, allegato, sviluppo
+);
+CREATE INDEX raster_si1 ON ctmp.raster USING gist(geom);
 COMMENT ON TABLE ctmp.raster IS 'File raster';
 
 -- Column comments

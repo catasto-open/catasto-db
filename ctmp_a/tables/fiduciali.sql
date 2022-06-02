@@ -5,25 +5,29 @@
 -- DROP TABLE ctmp_a.fiduciali;
 
 CREATE TABLE ctmp_a.fiduciali (
-	id int4 NOT NULL, -- Identificativo univoco della tabella
-	comune varchar(4) NOT NULL, -- Codice catastale del Comune
-	sezione varchar(1) NOT NULL, -- Codice sezione censuaria
-	foglio varchar(4) NOT NULL, -- Codice identificativo del foglio
-	allegato varchar(1) NULL, -- Eventuale codice allegato
-	sviluppo varchar(1) NULL, -- Eventuale codice sviluppo
-	prog int4 NOT NULL, -- Numero identificativo del fiduciale
-	codice int4 NOT NULL, -- Codice del tipo di fiduciale
-	esterno int4 NOT NULL, -- Indica se l'elemento si trova all'esterno del confine della mappa
-	t_pt_ins geometry NULL, -- Punto di inserimento del numero identificativo associato al fiduciale
-	geom geometry NOT NULL, -- Punto di inserimento del fiduciale
-	data_gen varchar(10) NOT NULL, -- Data di generazione della mappa
-	stato int4 NOT NULL, -- Stato del record, valori: 1, 2; 1 per record modificato in seguito ad una trasformazione, 2 per record cancellato in seguito ad una nuova importazione
-	data_crea timestamp NOT NULL, -- Data di creazione del record
-	CONSTRAINT fiduciali_pkey PRIMARY KEY (id, stato)
+    id int4 NOT NULL, -- Identificativo univoco della tabella
+    comune varchar(4) NOT NULL, -- Codice catastale del Comune
+    sezione varchar(1) NOT NULL, -- Codice sezione censuaria
+    foglio varchar(4) NOT NULL, -- Codice identificativo del foglio
+    allegato varchar(1) NULL, -- Eventuale codice allegato
+    sviluppo varchar(1) NULL, -- Eventuale codice sviluppo
+    prog int4 NOT NULL, -- Numero identificativo del fiduciale
+    codice int4 NOT NULL, -- Codice del tipo di fiduciale
+    -- Indica se l'elemento si trova all'esterno del confine della mappa
+    esterno int4 NOT NULL,
+    -- Punto di inserimento del numero identificativo associato al fiduciale
+    t_pt_ins geometry NULL,
+    geom geometry NOT NULL, -- Punto di inserimento del fiduciale
+    data_gen varchar(10) NOT NULL, -- Data di generazione della mappa
+    stato int4 NOT NULL, -- Stato del record, valori: 1, 2; 1 per record modificato in seguito ad una trasformazione, 2 per record cancellato in seguito ad una nuova importazione
+    data_crea timestamp NOT NULL, -- Data di creazione del record
+    CONSTRAINT fiduciali_pkey PRIMARY KEY (id, stato)
 );
-CREATE INDEX fiduciali_i1 ON ctmp_a.fiduciali USING btree (comune, sezione, foglio, allegato, sviluppo);
-CREATE INDEX fiduciali_si1 ON ctmp_a.fiduciali USING gist (geom);
-CREATE INDEX fiduciali_si2 ON ctmp_a.fiduciali USING gist (t_pt_ins);
+CREATE INDEX fiduciali_i1 ON ctmp_a.fiduciali USING btree(
+    comune, sezione, foglio, allegato, sviluppo
+);
+CREATE INDEX fiduciali_si1 ON ctmp_a.fiduciali USING gist(geom);
+CREATE INDEX fiduciali_si2 ON ctmp_a.fiduciali USING gist(t_pt_ins);
 COMMENT ON TABLE ctmp_a.fiduciali IS 'Punti fiduciali';
 
 -- Column comments

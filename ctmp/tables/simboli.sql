@@ -5,20 +5,24 @@
 -- DROP TABLE ctmp.simboli;
 
 CREATE TABLE ctmp.simboli (
-	id serial4 NOT NULL, -- Identificativo univoco della tabella
-	comune varchar(4) NOT NULL, -- Codice catastale del Comune
-	sezione varchar(1) NOT NULL, -- Codice sezione censuaria
-	foglio varchar(4) NOT NULL, -- Codice identificativo del foglio
-	allegato varchar(1) NULL, -- Eventuale codice allegato
-	sviluppo varchar(1) NULL, -- Eventuale codice sviluppo
-	codice int4 NOT NULL, -- Codice del tipo di simbolo
-	angolo numeric(12, 2) NULL, -- Angolo in gradi che il simbolo forma con l'asse orizzontale
-	esterno int4 NOT NULL, -- Indica se l'elemento si trova all'esterno del confine della mappa
-	geom geometry NOT NULL, -- Punto di inserimento del simbolo
-	CONSTRAINT simboli_pkey PRIMARY KEY (id)
+    id serial4 NOT NULL, -- Identificativo univoco della tabella
+    comune varchar(4) NOT NULL, -- Codice catastale del Comune
+    sezione varchar(1) NOT NULL, -- Codice sezione censuaria
+    foglio varchar(4) NOT NULL, -- Codice identificativo del foglio
+    allegato varchar(1) NULL, -- Eventuale codice allegato
+    sviluppo varchar(1) NULL, -- Eventuale codice sviluppo
+    codice int4 NOT NULL, -- Codice del tipo di simbolo
+    -- Angolo in gradi che il simbolo forma con l'asse orizzontale
+    angolo numeric(12, 2) NULL,
+    -- Indica se l'elemento si trova all'esterno del confine della mappa
+    esterno int4 NOT NULL,
+    geom geometry NOT NULL, -- Punto di inserimento del simbolo
+    CONSTRAINT simboli_pkey PRIMARY KEY (id)
 );
-CREATE INDEX simboli_i1 ON ctmp.simboli USING btree (comune, sezione, foglio, allegato, sviluppo);
-CREATE INDEX simboli_si1 ON ctmp.simboli USING gist (geom);
+CREATE INDEX simboli_i1 ON ctmp.simboli USING btree(
+    comune, sezione, foglio, allegato, sviluppo
+);
+CREATE INDEX simboli_si1 ON ctmp.simboli USING gist(geom);
 COMMENT ON TABLE ctmp.simboli IS 'Simboli';
 
 -- Column comments

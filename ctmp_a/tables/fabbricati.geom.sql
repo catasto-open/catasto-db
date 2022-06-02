@@ -5,23 +5,25 @@
 -- DROP TABLE ctmp_a."fabbricati.geom";
 
 CREATE TABLE ctmp_a."fabbricati.geom" (
-	id_0 serial4 NOT NULL,
-	geom geometry(polygon, 25833) NULL,
-	id int4 NULL, -- Identificativo univoco della tabella
-	comune varchar(4) NULL, -- Codice catastale del Comune
-	sezione varchar(1) NULL, -- Codice sezione censuaria
-	foglio varchar(4) NULL, -- Codice identificativo del foglio
-	allegato varchar(1) NULL, -- Eventuale codice allegato
-	sviluppo varchar(1) NULL, -- Eventuale codice sviluppo
-	numero varchar(9) NULL, -- Codice identificativo della particella contenente il fabbricato
-	t_altezza float8 NULL, -- Altezza in metri del testo associato
-	t_angolo float8 NULL, -- Angolo in gradi che il testo associato forma con l'asse orizzontale
-	t_pt_ins varchar NULL, -- Punto di inserimento del testo associato
-	t_ln_anc varchar NULL, -- Eventuale linea di ancoraggio tra il punto di inserimento del testo ed un punto interno al fabbricato
-	data_gen varchar(10) NULL, -- Data di generazione della mappa
-	stato int4 NULL, -- Stato del record, valori: 1, 2; 1 per record modificato in seguito ad una trasformazione, 2 per record cancellato in seguito ad una nuova importazione
-	data_crea timestamp NULL, -- Data di creazione del record
-	CONSTRAINT "fabbricati.geom_pkey" PRIMARY KEY (id_0)
+    id_0 serial4 NOT NULL,
+    geom GEOMETRY(POLYGON, 25833) NULL,
+    id int4 NULL, -- Identificativo univoco della tabella
+    comune varchar(4) NULL, -- Codice catastale del Comune
+    sezione varchar(1) NULL, -- Codice sezione censuaria
+    foglio varchar(4) NULL, -- Codice identificativo del foglio
+    allegato varchar(1) NULL, -- Eventuale codice allegato
+    sviluppo varchar(1) NULL, -- Eventuale codice sviluppo
+    -- Codice identificativo della particella contenente il fabbricato
+    numero varchar(9) NULL,
+    t_altezza float8 NULL, -- Altezza in metri del testo associato
+    -- Angolo in gradi che il testo associato forma con l'asse orizzontale
+    t_angolo float8 NULL,
+    t_pt_ins varchar NULL, -- Punto di inserimento del testo associato
+    t_ln_anc varchar NULL, -- Eventuale linea di ancoraggio tra il punto di inserimento del testo ed un punto interno al fabbricato
+    data_gen varchar(10) NULL, -- Data di generazione della mappa
+    stato int4 NULL, -- Stato del record, valori: 1, 2; 1 per record modificato in seguito ad una trasformazione, 2 per record cancellato in seguito ad una nuova importazione
+    data_crea timestamp NULL, -- Data di creazione del record
+    CONSTRAINT "fabbricati.geom_pkey" PRIMARY KEY (id_0)
 );
 
 -- Column comments

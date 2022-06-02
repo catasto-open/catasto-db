@@ -5,9 +5,9 @@
 -- DROP TABLE ctmp.tipo_simbolo;
 
 CREATE TABLE ctmp.tipo_simbolo (
-	codice int4 NOT NULL, -- Codice del tipo di simobolo
-	descrizione varchar(100) NULL, -- Descrizione del tipo di simobolo
-	CONSTRAINT tipo_simbolo_pkey PRIMARY KEY (codice)
+    codice int4 NOT NULL, -- Codice del tipo di simobolo
+    descrizione varchar(100) NULL, -- Descrizione del tipo di simobolo
+    CONSTRAINT tipo_simbolo_pkey PRIMARY KEY (codice)
 );
 COMMENT ON TABLE ctmp.tipo_simbolo IS 'Descrizioni dei tipi di simobolo';
 

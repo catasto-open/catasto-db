@@ -5,24 +5,27 @@
 -- DROP TABLE ctmp.particelle;
 
 CREATE TABLE ctmp.particelle (
-	id serial4 NOT NULL, -- Identificativo univoco della tabella
-	comune varchar(4) NOT NULL, -- Codice catastale del Comune
-	sezione varchar(1) NOT NULL, -- Codice sezione censuaria
-	foglio varchar(4) NOT NULL, -- Codice identificativo del foglio
-	allegato varchar(1) NULL, -- Eventuale codice allegato
-	sviluppo varchar(1) NULL, -- Eventuale codice sviluppo
-	numero varchar(9) NULL, -- Codice identificativo della particella
-	t_altezza numeric(12, 2) NULL, -- Altezza in metri del testo associato
-	t_angolo numeric(12, 2) NULL, -- Angolo in gradi che il testo associato forma con l'asse orizzontale
-	t_pt_ins geometry NULL, -- Punto di inserimento del testo associato
-	t_ln_anc geometry NULL, -- Eventuale linea di ancoraggio tra il punto di inserimento del testo ed un punto interno alla particella
-	geom geometry NOT NULL, -- Geometria della particella
-	CONSTRAINT particelle_pkey PRIMARY KEY (id)
+    id serial4 NOT NULL, -- Identificativo univoco della tabella
+    comune varchar(4) NOT NULL, -- Codice catastale del Comune
+    sezione varchar(1) NOT NULL, -- Codice sezione censuaria
+    foglio varchar(4) NOT NULL, -- Codice identificativo del foglio
+    allegato varchar(1) NULL, -- Eventuale codice allegato
+    sviluppo varchar(1) NULL, -- Eventuale codice sviluppo
+    numero varchar(9) NULL, -- Codice identificativo della particella
+    t_altezza numeric(12, 2) NULL, -- Altezza in metri del testo associato
+    -- Angolo in gradi che il testo associato forma con l'asse orizzontale
+    t_angolo numeric(12, 2) NULL,
+    t_pt_ins geometry NULL, -- Punto di inserimento del testo associato
+    t_ln_anc geometry NULL, -- Eventuale linea di ancoraggio tra il punto di inserimento del testo ed un punto interno alla particella
+    geom geometry NOT NULL, -- Geometria della particella
+    CONSTRAINT particelle_pkey PRIMARY KEY (id)
 );
-CREATE INDEX particelle_i1 ON ctmp.particelle USING btree (comune, sezione, foglio, allegato, sviluppo, numero);
-CREATE INDEX particelle_si1 ON ctmp.particelle USING gist (geom);
-CREATE INDEX particelle_si2 ON ctmp.particelle USING gist (t_pt_ins);
-CREATE INDEX particelle_si3 ON ctmp.particelle USING gist (t_ln_anc);
+CREATE INDEX particelle_i1 ON ctmp.particelle USING btree(
+    comune, sezione, foglio, allegato, sviluppo, numero
+);
+CREATE INDEX particelle_si1 ON ctmp.particelle USING gist(geom);
+CREATE INDEX particelle_si2 ON ctmp.particelle USING gist(t_pt_ins);
+CREATE INDEX particelle_si3 ON ctmp.particelle USING gist(t_ln_anc);
 COMMENT ON TABLE ctmp.particelle IS 'Particelle';
 
 -- Column comments

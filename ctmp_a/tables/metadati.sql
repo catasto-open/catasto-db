@@ -5,30 +5,36 @@
 -- DROP TABLE ctmp_a.metadati;
 
 CREATE TABLE ctmp_a.metadati (
-	id int4 NOT NULL, -- Identificativo univoco della tabella
-	tipo_mappa varchar(100) NOT NULL, -- Tipo di mappa, valori: MAPPA, MAPPA FONDIARIO, QUADRO D'UNIONE
-	nome_mappa varchar(11) NOT NULL, -- Nome della mappa, coincide con il nome del file CXF
-	scala varchar(12) NOT NULL, -- Fattore di scala della mappa cartacea originaria
-	data_gen varchar(10) NOT NULL, -- Data di generazione del file SUP
-	n_fabbric varchar(10) NULL, -- Numero totale di fabbricati
-	n_partic varchar(10) NULL, -- Numero totale di particelle
-	n_strade varchar(10) NULL, -- Numero totale di strade
-	n_acque varchar(10) NULL, -- Numero totale di acque
-	n_svil_all varchar(10) NULL, -- Numero totale di buchi relativi a sviluppi e allegati
-	fabbric varchar(10) NULL, -- Area totale di tutti i fabbricati
-	partic varchar(10) NULL, -- Area totale di tutte le particelle
-	strade varchar(10) NULL, -- Area totale di tutte le strade
-	acque varchar(10) NULL, -- Area totale di tutte le acque
-	svil_all varchar(10) NULL, -- Area totale di tutti i buchi relativi a sviluppi e allegati
-	totale varchar(10) NULL, -- Area somma delle aree di particelle, strade, acque, sviluppi e allegati
-	confine varchar(10) NULL, -- Area totale del confine della mappa
-	sbilancio varchar(10) NULL, -- Differenza tra totale e il confine
-	data_elab timestamp NOT NULL, -- Data di eleborazione della mappa
-	stato int4 NOT NULL, -- Stato del record, valori: 1, 2; 1 per record modificato in seguito ad una trasformazione, 2 per record cancellato in seguito ad una nuova importazione
-	data_crea timestamp NOT NULL, -- Data di creazione del record
-	CONSTRAINT metadati_pkey PRIMARY KEY (id, stato)
+    id int4 NOT NULL, -- Identificativo univoco della tabella
+    -- Tipo di mappa, valori: MAPPA, MAPPA FONDIARIO, QUADRO D'UNIONE
+    tipo_mappa varchar(100) NOT NULL,
+    -- Nome della mappa, coincide con il nome del file CXF
+    nome_mappa varchar(11) NOT NULL,
+    -- Fattore di scala della mappa cartacea originaria
+    scala varchar(12) NOT NULL,
+    data_gen varchar(10) NOT NULL, -- Data di generazione del file SUP
+    n_fabbric varchar(10) NULL, -- Numero totale di fabbricati
+    n_partic varchar(10) NULL, -- Numero totale di particelle
+    n_strade varchar(10) NULL, -- Numero totale di strade
+    n_acque varchar(10) NULL, -- Numero totale di acque
+    -- Numero totale di buchi relativi a sviluppi e allegati
+    n_svil_all varchar(10) NULL,
+    fabbric varchar(10) NULL, -- Area totale di tutti i fabbricati
+    partic varchar(10) NULL, -- Area totale di tutte le particelle
+    strade varchar(10) NULL, -- Area totale di tutte le strade
+    acque varchar(10) NULL, -- Area totale di tutte le acque
+    -- Area totale di tutti i buchi relativi a sviluppi e allegati
+    svil_all varchar(10) NULL,
+    -- Area somma delle aree di particelle, strade, acque, sviluppi e allegati
+    totale varchar(10) NULL,
+    confine varchar(10) NULL, -- Area totale del confine della mappa
+    sbilancio varchar(10) NULL, -- Differenza tra totale e il confine
+    data_elab timestamp NOT NULL, -- Data di eleborazione della mappa
+    stato int4 NOT NULL, -- Stato del record, valori: 1, 2; 1 per record modificato in seguito ad una trasformazione, 2 per record cancellato in seguito ad una nuova importazione
+    data_crea timestamp NOT NULL, -- Data di creazione del record
+    CONSTRAINT metadati_pkey PRIMARY KEY (id, stato)
 );
-CREATE INDEX metadati_i1 ON ctmp_a.metadati USING btree (nome_mappa, data_elab);
+CREATE INDEX metadati_i1 ON ctmp_a.metadati USING btree(nome_mappa, data_elab);
 COMMENT ON TABLE ctmp_a.metadati IS 'Dati riferiti alle importazioni dai file CXF e dai file SUP';
 
 -- Column comments

@@ -5,24 +5,28 @@
 -- DROP TABLE ctmp.fabbricati;
 
 CREATE TABLE ctmp.fabbricati (
-	id serial4 NOT NULL, -- Identificativo univoco della tabella
-	comune varchar(4) NOT NULL, -- Codice catastale del Comune
-	sezione varchar(1) NOT NULL, -- Codice sezione censuaria
-	foglio varchar(4) NOT NULL, -- Codice identificativo del foglio
-	allegato varchar(1) NULL, -- Eventuale codice allegato
-	sviluppo varchar(1) NULL, -- Eventuale codice sviluppo
-	numero varchar(9) NULL, -- Codice identificativo della particella contenente il fabbricato
-	t_altezza numeric(12, 2) NULL, -- Altezza in metri del testo associato
-	t_angolo numeric(12, 2) NULL, -- Angolo in gradi che il testo associato forma con l'asse orizzontale
-	t_pt_ins geometry NULL, -- Punto di inserimento del testo associato
-	t_ln_anc geometry NULL, -- Eventuale linea di ancoraggio tra il punto di inserimento del testo ed un punto interno al fabbricato
-	geom geometry NOT NULL, -- Geometria del fabbricato
-	CONSTRAINT fabbricati_pkey PRIMARY KEY (id)
+    id serial4 NOT NULL, -- Identificativo univoco della tabella
+    comune varchar(4) NOT NULL, -- Codice catastale del Comune
+    sezione varchar(1) NOT NULL, -- Codice sezione censuaria
+    foglio varchar(4) NOT NULL, -- Codice identificativo del foglio
+    allegato varchar(1) NULL, -- Eventuale codice allegato
+    sviluppo varchar(1) NULL, -- Eventuale codice sviluppo
+    -- Codice identificativo della particella contenente il fabbricato
+    numero varchar(9) NULL,
+    t_altezza numeric(12, 2) NULL, -- Altezza in metri del testo associato
+    -- Angolo in gradi che il testo associato forma con l'asse orizzontale
+    t_angolo numeric(12, 2) NULL,
+    t_pt_ins geometry NULL, -- Punto di inserimento del testo associato
+    t_ln_anc geometry NULL, -- Eventuale linea di ancoraggio tra il punto di inserimento del testo ed un punto interno al fabbricato
+    geom geometry NOT NULL, -- Geometria del fabbricato
+    CONSTRAINT fabbricati_pkey PRIMARY KEY (id)
 );
-CREATE INDEX fabbricati_i1 ON ctmp.fabbricati USING btree (comune, sezione, foglio, allegato, sviluppo, numero);
-CREATE INDEX fabbricati_si1 ON ctmp.fabbricati USING gist (geom);
-CREATE INDEX fabbricati_si2 ON ctmp.fabbricati USING gist (t_pt_ins);
-CREATE INDEX fabbricati_si3 ON ctmp.fabbricati USING gist (t_ln_anc);
+CREATE INDEX fabbricati_i1 ON ctmp.fabbricati USING btree(
+    comune, sezione, foglio, allegato, sviluppo, numero
+);
+CREATE INDEX fabbricati_si1 ON ctmp.fabbricati USING gist(geom);
+CREATE INDEX fabbricati_si2 ON ctmp.fabbricati USING gist(t_pt_ins);
+CREATE INDEX fabbricati_si3 ON ctmp.fabbricati USING gist(t_ln_anc);
 COMMENT ON TABLE ctmp.fabbricati IS 'Fabbricati';
 
 -- Column comments

@@ -5,19 +5,21 @@
 -- DROP TABLE ctmp.libretti;
 
 CREATE TABLE ctmp.libretti (
-	id serial4 NOT NULL, -- Identificativo univoco della tabella
-	comune varchar(4) NOT NULL, -- Codice catastale del Comune
-	sezione varchar(1) NOT NULL, -- Codice sezione censuaria
-	foglio varchar(4) NOT NULL, -- Codice identificativo del foglio
-	allegato varchar(1) NULL, -- Eventuale codice allegato
-	sviluppo varchar(1) NULL, -- Eventuale codice sviluppo
-	protocollo varchar(80) NULL, -- Numero di protocollo del libretto
-	codice int4 NOT NULL, -- Codice del tipo di tratto della linea
-	geom geometry NOT NULL, -- Geometria del libretto
-	CONSTRAINT libretti_pkey PRIMARY KEY (id)
+    id serial4 NOT NULL, -- Identificativo univoco della tabella
+    comune varchar(4) NOT NULL, -- Codice catastale del Comune
+    sezione varchar(1) NOT NULL, -- Codice sezione censuaria
+    foglio varchar(4) NOT NULL, -- Codice identificativo del foglio
+    allegato varchar(1) NULL, -- Eventuale codice allegato
+    sviluppo varchar(1) NULL, -- Eventuale codice sviluppo
+    protocollo varchar(80) NULL, -- Numero di protocollo del libretto
+    codice int4 NOT NULL, -- Codice del tipo di tratto della linea
+    geom geometry NOT NULL, -- Geometria del libretto
+    CONSTRAINT libretti_pkey PRIMARY KEY (id)
 );
-CREATE INDEX libretti_i1 ON ctmp.libretti USING btree (comune, sezione, foglio, allegato, sviluppo);
-CREATE INDEX libretti_si1 ON ctmp.libretti USING gist (geom);
+CREATE INDEX libretti_i1 ON ctmp.libretti USING btree(
+    comune, sezione, foglio, allegato, sviluppo
+);
+CREATE INDEX libretti_si1 ON ctmp.libretti USING gist(geom);
 COMMENT ON TABLE ctmp.libretti IS 'Libretti';
 
 -- Column comments

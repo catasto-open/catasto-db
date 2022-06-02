@@ -5,9 +5,10 @@
 -- DROP TABLE ctmp.tipo_trasformazioni;
 
 CREATE TABLE ctmp.tipo_trasformazioni (
-	codice varchar(20) NOT NULL, -- Codice del tipo di trasformazione
-	descrizione varchar(1000) NOT NULL, -- Descrizione del tipo di trasformazione
-	CONSTRAINT tipo_trasformazioni_pkey PRIMARY KEY (codice)
+    codice varchar(20) NOT NULL, -- Codice del tipo di trasformazione
+    -- Descrizione del tipo di trasformazione
+    descrizione varchar(1000) NOT NULL,
+    CONSTRAINT tipo_trasformazioni_pkey PRIMARY KEY (codice)
 );
 COMMENT ON TABLE ctmp.tipo_trasformazioni IS 'Tipologie di trasformazioni geometriche';
 
