@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "catasto-db"
+version = "0.1.0"
+description = "Catasto open schemas to support the storage of the Sister data from the Italian cadaster"
+authors = ["Francesco Bartoli <francesco.bartoli@geobeyond.it>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+poetry-pyinvoke-plugin = "^0.1.2"
+sqlfluff = "^0.13.2"
+
+[tool.poetry.dev-dependencies]
+flake8 = "^4.0.1"
+black = "^22.3.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
