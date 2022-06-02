@@ -10,6 +10,11 @@ def lint(ctx):
     ctx.run("black --check .")
 
 
+@task
+def check_database(ctx):
+    ctx.run("alembic current")
+
+
 @task(optional=['start', 'stop', 'clean', 'logs'])
 #@task
 def docker_compose_postgis(
