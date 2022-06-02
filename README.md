@@ -21,3 +21,9 @@ If the database is ready and the connection is established then you will receive
 INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
 INFO  [alembic.runtime.migration] Will assume transactional DDL.
 ```
+
+### Initialize the database
+
+```shell
+poetry run inv init-database
+```
