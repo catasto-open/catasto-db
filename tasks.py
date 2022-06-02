@@ -15,6 +15,11 @@ def check_database(ctx):
     ctx.run("alembic current")
 
 
+@task
+def init_database(ctx):
+    ctx.run("alembic revision -m 'init catasto-db'")
+
+
 @task(optional=['start', 'stop', 'clean', 'logs'])
 #@task
 def docker_compose_postgis(
