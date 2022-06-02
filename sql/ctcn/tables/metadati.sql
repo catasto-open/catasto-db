@@ -8,7 +8,7 @@ CREATE TABLE ctcn.metadati (
     estrazione varchar(20) NULL, -- Nome del file della fornitura
     comune varchar(4) NULL, -- Comune richiesto
     sezione varchar(4) NULL, -- Sezione del comune richiesto
-    data_rich varchar(10) NULL, -- Data della richista
+    data_rich varchar(10) NULL, -- Data della richiesta
     data_elab varchar(10) NULL, -- Data di elaborazione della fornitura
     tipo_estr varchar(100) NULL, -- Tipologia di estrazione della richiesta
     -- Data di riferimento per la selezione (solo per attualita)

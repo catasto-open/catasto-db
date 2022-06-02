@@ -29,7 +29,7 @@ CREATE TABLE ctmp.metadati (
 	data_elab timestamp NOT NULL, -- Data di eleborazione della mappa
 	CONSTRAINT metadati_pkey PRIMARY KEY (id)
 );
-CREATE INDEX metadati_i1 ON ctmp.metadati USING btree (nome_mappa, data_elab);
+CREATE INDEX metadati_i1 ON ctmp.metadati USING btree(nome_mappa, data_elab);
 COMMENT ON TABLE ctmp.metadati IS 'Dati riferiti alle importazioni dai file CXF e dai file SUP';
 
 -- Column comments
