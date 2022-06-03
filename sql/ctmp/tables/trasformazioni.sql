@@ -5,16 +5,16 @@
 -- DROP TABLE ctmp.trasformazioni;
 
 CREATE TABLE ctmp.trasformazioni (
-	comune varchar(4) NOT NULL, -- Codice catastale del Comune
-	sezione varchar(1) NOT NULL, -- Codice sezione censuaria
-	foglio varchar(4) NOT NULL, -- Codice identificativo del foglio
-	allegato varchar(1) NOT NULL, -- Eventuale codice allegato
-	sviluppo varchar(1) NOT NULL, -- Eventuale codice sviluppo
-	n_trasf int4 NOT NULL, -- Numero ordinale della trasformazione
-	tipo_trasf varchar(20) NOT NULL, -- Codice del tipo di trasformazione
-	punti_contr _float8 NOT NULL, -- Punti di controllo usati per creare la matrice di trasformazione
-	matrice_trasf _float8 NOT NULL, -- Matrice di trasformazione
-	CONSTRAINT trasformazioni_pkey PRIMARY KEY (comune, sezione, foglio, allegato, sviluppo, n_trasf)
+    comune varchar(4) NOT NULL, -- Codice catastale del Comune
+    sezione varchar(1) NOT NULL, -- Codice sezione censuaria
+    foglio varchar(4) NOT NULL, -- Codice identificativo del foglio
+    allegato varchar(1) NOT NULL, -- Eventuale codice allegato
+    sviluppo varchar(1) NOT NULL, -- Eventuale codice sviluppo
+    n_trasf int4 NOT NULL, -- Numero ordinale della trasformazione
+    tipo_trasf varchar(20) NOT NULL, -- Codice del tipo di trasformazione
+    punti_contr _float8 NOT NULL, -- Punti di controllo usati per creare la matrice di trasformazione
+    matrice_trasf _float8 NOT NULL, -- Matrice di trasformazione
+    CONSTRAINT trasformazioni_pkey PRIMARY KEY (comune, sezione, foglio, allegato, sviluppo, n_trasf)
 );
 COMMENT ON TABLE ctmp.trasformazioni IS 'Trasformazioni eseguite sui fogli';
 
