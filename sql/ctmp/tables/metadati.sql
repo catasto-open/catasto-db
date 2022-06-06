@@ -1,6 +1,3 @@
-INSERT INTO ctmp.fabbricati
-(comune, sezione, foglio, allegato, sviluppo, numero, t_altezza, t_angolo, t_pt_ins, t_ln_anc, geom)
-VALUES('', '', '', '', '', '', 0, 0, ?, ?, ?);
 -- ctmp.metadati definition
 
 -- Drop table
