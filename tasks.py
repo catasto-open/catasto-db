@@ -1,5 +1,7 @@
 import os
+import time
 from invoke import task
+# from invoke.exceptions import UnexpectedExit
 from pathlib import Path
 
 
@@ -30,13 +32,27 @@ def show_database_history(ctx):
     ctx.run("alembic history")
 
 
-@task(optional=['start', 'stop', 'clean', 'logs'])
+@task
+def wait_for_database(ctx):
+    base_path = Path(__file__).resolve()
+    docker_compose_path = base_path.parent / "scripts" / "docker" / "postgis"
+    with ctx.cd(os.fspath(docker_compose_path)):
+        ready = ctx.run(
+            "docker-compose exec -T db pg_isready -d catasto" #,
+            # asynchronous=True
+        )
+        while not ready:
+            time.sleep(1)
+
+
+@task(optional=['start', 'stop', 'clean', 'logs', 'isready'])
 def docker_compose_postgis(
     ctx, 
     start=False,
     stop=False,
     clean=False,
-    logs=False
+    logs=False,
+    isready=False
 ):
     base_path = Path(__file__).resolve()
     docker_compose_path = base_path.parent / "scripts" / "docker" / "postgis"
@@ -50,6 +66,8 @@ def docker_compose_postgis(
             cmd = f"{cmd} logs -f"
         elif clean:
             cmd = f"{cmd} down -v --remove-orphans"
+        elif isready:
+            cmd = f"{cmd} exec db pg_isready -d catasto"
         else:
             cmd = f"{cmd} ps -a"
         ctx.run(f"{cmd}")

@@ -85,7 +85,16 @@ jobs:
       #   run: |
       #     source .venv/bin/activate
       #     pip install "Django==${{ matrix.django-version }}"
+      - name: Start a clean database PostGIS
+        run: |
+          source .venv/bin/activate
+          invoke docker-compose-postgis --clean
+          invoke docker-compose-postgis --start
       - name: Run tests
         run: |
           source .venv/bin/activate
+          invoke wait-for-database
+          invoke init-database
+          invoke migrate-database
+          invoke show-database-history
           invoke lint
