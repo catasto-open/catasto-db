@@ -20,8 +20,17 @@ def init_database(ctx):
     ctx.run("alembic revision -m 'init catasto-db'")
 
 
+@task
+def migrate_database(ctx):
+    ctx.run("alembic upgrade head")
+
+
+@task
+def show_database_history(ctx):
+    ctx.run("alembic history")
+
+
 @task(optional=['start', 'stop', 'clean', 'logs'])
-#@task
 def docker_compose_postgis(
     ctx, 
     start=False,

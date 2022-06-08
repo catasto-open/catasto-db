@@ -18,4 +18,4 @@ services:
       - FORCE_SSL=TRUE
     restart: on-failure
     healthcheck:
-      test: "pg_isready -d gis"
+      test: "pg_isready -d catasto"
