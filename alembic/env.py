@@ -12,7 +12,7 @@ config = context.config
 # 
 config.set_main_option(
     'sqlalchemy.url',
-    'postgresql://docker:docker@localhost:5433/catasto'
+    'postgresql://docker:docker@127.0.0.1:5433/catasto'
 )
 
 # Interpret the config file for Python logging.
