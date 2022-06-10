@@ -9,7 +9,7 @@ services:
     volumes:
       - geo-db-data:/var/lib/postgresql
     ports:
-      - "5433:5432"
+      - "0.0.0.0:5433:5432"
     environment:
       - POSTGRES_DB=catasto
       - POSTGRES_USER=docker
