@@ -1,5 +1,5 @@
 from logging.config import fileConfig
-
+from app.utils.alembic import * # noqa
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 
@@ -9,7 +9,7 @@ from alembic import context
 # access to the values within the .ini file in use.
 config = context.config
 
-# 
+#
 config.set_main_option(
     'sqlalchemy.url',
     'postgresql://docker:docker@localhost:5433/catasto'
