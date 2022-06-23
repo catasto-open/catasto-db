@@ -86,13 +86,14 @@ jobs:
           source .venv/bin/activate
           invoke docker-compose-postgis --clean --ci
           invoke docker-compose-postgis --start --ci
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
+      # - name: Setup tmate session
+      #   uses: mxschmitt/action-tmate@v3
       - name: Run tests in ci
         run: |
           source .venv/bin/activate
           invoke docker-compose-postgis --clean --ci
           invoke docker-compose-postgis --start --ci
+          sleep 10
           invoke wait-for-database
           invoke init-database
           invoke migrate-database
