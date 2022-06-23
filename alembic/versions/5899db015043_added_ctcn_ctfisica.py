@@ -37,7 +37,8 @@ def upgrade() -> None:
                     schema='ctcn', postgresql_using='btree')
     op.create_index('ctfisica_i2', 'ctfisica', [text("codfiscale varchar_pattern_ops")],
                     schema='ctcn', postgresql_using='btree')
-    op.create_index('ctfisica_i3', 'ctfisica', [text("((((cognome)::text || ' '::text) || (nome)::text)) varchar_pattern_ops")],
+    op.create_index('ctfisica_i3', 'ctfisica', [text("((((cognome)::text || ' '::text) || (nome)::text)) "
+                                                     "varchar_pattern_ops")],
                     schema='ctcn', postgresql_using='btree')
     op.create_index('ctfisica_index01', 'ctfisica', ["luogo"],
                     schema='ctcn', postgresql_using='btree')
