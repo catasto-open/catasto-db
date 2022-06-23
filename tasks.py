@@ -1,6 +1,7 @@
 import os
 import time
 from invoke import task
+
 # from invoke.exceptions import UnexpectedExit
 from pathlib import Path
 
@@ -8,7 +9,7 @@ from pathlib import Path
 @task
 def lint(ctx):
     ctx.run("sqlfluff lint ./sql --config ./sql/.sqlfluff")
-    ctx.run("flake8")
+    ctx.run("flake8 --exclude ./alembic/versions")
     ctx.run("black --check .")
 
 
@@ -32,7 +33,7 @@ def show_database_history(ctx):
     ctx.run("alembic history")
 
 
-@task(optional=['ci'])
+@task(optional=["ci"])
 def wait_for_database(ctx, ci=False):
     base_path = Path(__file__).resolve()
     docker_compose_path = base_path.parent / "scripts" / "docker" / "postgis"
@@ -41,22 +42,22 @@ def wait_for_database(ctx, ci=False):
         if ci:
             cmd = f"{cmd} -f docker-compose-ci.yml"
         ready = ctx.run(
-            f"{cmd} exec -T db pg_isready -d catasto" #,
+            f"{cmd} exec -T db pg_isready -d catasto"  # ,
             # asynchronous=True
         )
         while not ready:
             time.sleep(1)
 
 
-@task(optional=['start', 'stop', 'clean', 'logs', 'isready', 'ci'])
+@task(optional=["start", "stop", "clean", "logs", "isready", "ci"])
 def docker_compose_postgis(
-    ctx, 
+    ctx,
     start=False,
     stop=False,
     clean=False,
     logs=False,
     isready=False,
-    ci=False
+    ci=False,
 ):
     base_path = Path(__file__).resolve()
     docker_compose_path = base_path.parent / "scripts" / "docker" / "postgis"

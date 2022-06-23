@@ -9,8 +9,8 @@ from alembic import op
 
 
 # revision identifiers, used by Alembic.
-revision = 'fa5b6e5e49d9'
-down_revision = '6157bae19f10'
+revision = "fa5b6e5e49d9"
+down_revision = "6157bae19f10"
 branch_labels = None
 depends_on = None
 
