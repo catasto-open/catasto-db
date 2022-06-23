@@ -32,32 +32,38 @@ def show_database_history(ctx):
     ctx.run("alembic history")
 
 
-@task
-def wait_for_database(ctx):
+@task(optional=['ci'])
+def wait_for_database(ctx, ci=False):
     base_path = Path(__file__).resolve()
     docker_compose_path = base_path.parent / "scripts" / "docker" / "postgis"
     with ctx.cd(os.fspath(docker_compose_path)):
+        cmd = "docker compose"
+        if ci:
+            cmd = f"{cmd} -f docker-compose-ci.yml"
         ready = ctx.run(
-            "docker-compose exec -T db pg_isready -d catasto" #,
+            f"{cmd} exec -T db pg_isready -d catasto" #,
             # asynchronous=True
         )
         while not ready:
             time.sleep(1)
 
 
-@task(optional=['start', 'stop', 'clean', 'logs', 'isready'])
+@task(optional=['start', 'stop', 'clean', 'logs', 'isready', 'ci'])
 def docker_compose_postgis(
     ctx, 
     start=False,
     stop=False,
     clean=False,
     logs=False,
-    isready=False
+    isready=False,
+    ci=False
 ):
     base_path = Path(__file__).resolve()
     docker_compose_path = base_path.parent / "scripts" / "docker" / "postgis"
     with ctx.cd(os.fspath(docker_compose_path)):
         cmd = "docker compose"
+        if ci:
+            cmd = "docker compose -f docker-compose-ci.yml"
         if start:
             cmd = f"{cmd} up -d"
         elif stop:

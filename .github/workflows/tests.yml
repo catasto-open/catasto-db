@@ -81,16 +81,16 @@ jobs:
       #----------------------------------------------
       # Test all the backend components of catasto-db
       #----------------------------------------------
-      - name: Run a clean database start
+      - name: Run a clean database in ci
         run: |
           source .venv/bin/activate
-          invoke docker-compose-postgis --clean
-          invoke docker-compose-postgis --start
-      - name: Run tests
+          invoke docker-compose-postgis --clean --ci
+          invoke docker-compose-postgis --start --ci
+      - name: Run tests in ci
         run: |
           source .venv/bin/activate
-          invoke docker-compose-postgis --clean
-          invoke docker-compose-postgis --start
+          invoke docker-compose-postgis --clean --ci
+          invoke docker-compose-postgis --start --ci
           invoke wait-for-database
           invoke init-database
           invoke migrate-database
