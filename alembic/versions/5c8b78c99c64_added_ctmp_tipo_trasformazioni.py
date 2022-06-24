@@ -10,23 +10,32 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '5c8b78c99c64'
-down_revision = 'adc22a22b83a'
+revision = "5c8b78c99c64"
+down_revision = "adc22a22b83a"
 branch_labels = None
 depends_on = None
 
 
 def upgrade() -> None:
-    op.create_table('tipo_trasformazioni',
-                    sa.Column('codice', sa.String(length=20), nullable=False,
-                              comment='Codice del tipo di trasformazione'),
-                    sa.Column('descrizione', sa.String(length=1000), nullable=False,
-                              comment='Descrizione del tipo di trasformazione'),
-                    sa.PrimaryKeyConstraint('codice', name='tipo_trasformazioni_pkey'),
-                    schema='ctmp',
-                    comment='Tipologie di trasformazioni geometriche'
-                    )
+    op.create_table(
+        "tipo_trasformazioni",
+        sa.Column(
+            "codice",
+            sa.String(length=20),
+            nullable=False,
+            comment="Codice del tipo di trasformazione",
+        ),
+        sa.Column(
+            "descrizione",
+            sa.String(length=1000),
+            nullable=False,
+            comment="Descrizione del tipo di trasformazione",
+        ),
+        sa.PrimaryKeyConstraint("codice", name="tipo_trasformazioni_pkey"),
+        schema="ctmp",
+        comment="Tipologie di trasformazioni geometriche",
+    )
 
 
 def downgrade() -> None:
-    op.drop_table('tipo_trasformazioni', schema='ctmp')
+    op.drop_table("tipo_trasformazioni", schema="ctmp")

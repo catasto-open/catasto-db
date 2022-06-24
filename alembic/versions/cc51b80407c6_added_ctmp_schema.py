@@ -9,8 +9,8 @@ from alembic import op
 
 
 # revision identifiers, used by Alembic.
-revision = 'cc51b80407c6'
-down_revision = '1f81a8a100e8'
+revision = "cc51b80407c6"
+down_revision = "1f81a8a100e8"
 branch_labels = None
 depends_on = None
 
@@ -21,4 +21,3 @@ def upgrade() -> None:
 
 def downgrade() -> None:
     op.execute("drop schema ctmp")
-

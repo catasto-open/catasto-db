@@ -34,6 +34,14 @@ Run the following command:
 poetry run inv docker-compose-postgis --logs
 ```
 
+### Check PostGIS database availability
+
+Run the following command:
+
+```shell
+poetry run inv docker-compose-postgis --isready
+```
+
 ### Reset PostGIS data
 
 Run the following command:

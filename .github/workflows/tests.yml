@@ -79,13 +79,23 @@ jobs:
       - name: Install library
         run: poetry install --no-interaction
       #----------------------------------------------
-      #    add matrix specifics and run test suite
+      # Test all the backend components of catasto-db
       #----------------------------------------------
-      # - name: Install django ${{ matrix.django-version }}
-      #   run: |
-      #     source .venv/bin/activate
-      #     pip install "Django==${{ matrix.django-version }}"
-      - name: Run tests
+      - name: Run a clean database in ci
         run: |
           source .venv/bin/activate
-          invoke lint
+          invoke docker-compose-postgis --clean --ci
+          invoke docker-compose-postgis --start --ci
+      # - name: Setup tmate session
+      #   uses: mxschmitt/action-tmate@v3
+      - name: Run tests in ci
+        run: |
+          source .venv/bin/activate
+          invoke docker-compose-postgis --clean --ci
+          invoke docker-compose-postgis --start --ci
+          sleep 10
+          invoke wait-for-database
+          invoke init-database
+          invoke migrate-database
+          invoke show-database-history
+          invoke lint --ci

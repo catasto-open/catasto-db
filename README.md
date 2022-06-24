@@ -27,3 +27,15 @@ INFO  [alembic.runtime.migration] Will assume transactional DDL.
 ```shell
 poetry run inv init-database
 ```
+
+### Apply database migrations
+
+```shell
+poetry run inv migrate-database
+```
+
+### Show database migrations
+
+```shell
+poetry run inv show-database-migrations
+```

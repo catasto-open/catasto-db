@@ -9,10 +9,9 @@ from alembic import context
 # access to the values within the .ini file in use.
 config = context.config
 
-# 
+# this is database connection settings
 config.set_main_option(
-    'sqlalchemy.url',
-    'postgresql://docker:docker@localhost:5433/catasto'
+    "sqlalchemy.url", "postgresql://docker:docker@127.0.0.1:5433/catasto"
 )
 
 # Interpret the config file for Python logging.

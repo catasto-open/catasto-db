@@ -4,7 +4,7 @@
 
 -- DROP TABLE ctmp.trasformazioni;
 
-CREATE TABLE ctmp.trasformazioni (
+CREATE TABLE ctmp.trasformazioni ( -- noqa: PRS
     comune varchar(4) NOT NULL, -- Codice catastale del Comune
     sezione varchar(1) NOT NULL, -- Codice sezione censuaria
     foglio varchar(4) NOT NULL, -- Codice identificativo del foglio
