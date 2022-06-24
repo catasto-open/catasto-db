@@ -6,10 +6,13 @@ from invoke import task
 from pathlib import Path
 
 
-@task
-def lint(ctx):
+@task(optional=["ci"])
+def lint(ctx, ci=False):
     ctx.run("sqlfluff lint ./sql --config ./sql/.sqlfluff")
-    ctx.run("flake8 --exclude ./alembic/versions")
+    flake8_cmd = "flake8 --exclude ./alembic/versions"
+    if ci:
+        flake8_cmd = f"{flake8_cmd},./.venv/*"
+    ctx.run(f"{flake8_cmd}")
     ctx.run("black --check .")
 
 
