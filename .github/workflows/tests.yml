@@ -98,4 +98,5 @@ jobs:
           invoke init-database
           invoke migrate-database
           invoke show-database-history
+          invoke test-database
           invoke lint --ci
