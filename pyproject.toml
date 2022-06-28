@@ -12,6 +12,7 @@ sqlfluff = "^0.13.2"
 alembic = "^1.8.0"
 psycopg2 = "^2.9.3"
 GeoAlchemy2 = "^0.12.1"
+pydantic = {extras = ["dotenv"], version = "^1.9.1"}
 
 [tool.poetry.dev-dependencies]
 flake8 = "^4.0.1"
