@@ -1,8 +1,8 @@
 import datetime
 import unittest
 
-from app.tests import CONN_STRING
-from app.tests.db import dal
+from app.configs import cnf
+from app.utils.db import dal
 from app.tests.fixtures import prep_db
 import geoalchemy2  # noqa
 
@@ -24,7 +24,13 @@ from app.tests.queries import (
 class TestApp(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        dal.db_init(CONN_STRING)
+        conn_string = (
+            f"postgresql://"
+            f"{cnf.POSTGRES_USER}:{cnf.POSTGRES_PASS}"
+            f"@{cnf.POSTGRES_HOST}:{cnf.POSTGRES_PORT}/"
+            f"{cnf.POSTGRES_DB}"
+        )
+        dal.db_init(conn_string)
         prep_db()
 
     @classmethod

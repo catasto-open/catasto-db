@@ -5,6 +5,8 @@ from invoke import task
 # from invoke.exceptions import UnexpectedExit
 from pathlib import Path
 
+from app.configs import cnf
+
 
 @task(optional=["ci"])
 def lint(ctx, ci=False):
@@ -45,12 +47,13 @@ def show_database_history(ctx):
 def wait_for_database(ctx, ci=False):
     base_path = Path(__file__).resolve()
     docker_compose_path = base_path.parent / "scripts" / "docker" / "postgis"
+    database_env_setup()
     with ctx.cd(os.fspath(docker_compose_path)):
         cmd = "docker compose"
         if ci:
             cmd = f"{cmd} -f docker-compose-ci.yml"
         ready = ctx.run(
-            f"{cmd} exec -T db pg_isready -d catasto"  # ,
+            f"{cmd} exec -T db pg_isready -d {cnf.POSTGRES_DB}"  # ,
             # asynchronous=True
         )
         while not ready:
@@ -69,6 +72,7 @@ def docker_compose_postgis(
 ):
     base_path = Path(__file__).resolve()
     docker_compose_path = base_path.parent / "scripts" / "docker" / "postgis"
+    database_env_setup()
     with ctx.cd(os.fspath(docker_compose_path)):
         cmd = "docker compose"
         if ci:
@@ -82,7 +86,16 @@ def docker_compose_postgis(
         elif clean:
             cmd = f"{cmd} down -v --remove-orphans"
         elif isready:
-            cmd = f"{cmd} exec db pg_isready -d catasto"
+            cmd = f"{cmd} exec db pg_isready -d {cnf.POSTGRES_DB}"
         else:
             cmd = f"{cmd} ps -a"
         ctx.run(f"{cmd}")
+
+
+def database_env_setup():
+    os.environ["POSTGIS_VERSION_TAG"] = cnf.APP_CONFIG.POSTGIS_VERSION_TAG
+    os.environ["POSTGRES_DB"] = cnf.POSTGRES_DB
+    os.environ["POSTGRES_USER"] = cnf.POSTGRES_USER
+    os.environ["POSTGRES_PASS"] = cnf.POSTGRES_PASS
+    os.environ["POSTGRES_HOST"] = cnf.POSTGRES_HOST
+    os.environ["POSTGRES_PORT"] = str(cnf.POSTGRES_PORT)

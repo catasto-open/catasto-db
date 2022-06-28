@@ -84,6 +84,7 @@ jobs:
       - name: Run a clean database in ci
         run: |
           source .venv/bin/activate
+          export ENV_STATE=dev
           invoke docker-compose-postgis --clean --ci
           invoke docker-compose-postgis --start --ci
       # - name: Setup tmate session
@@ -91,11 +92,11 @@ jobs:
       - name: Run tests in ci
         run: |
           source .venv/bin/activate
+          export ENV_STATE=dev
           invoke docker-compose-postgis --clean --ci
           invoke docker-compose-postgis --start --ci
           sleep 10
           invoke wait-for-database
-          invoke init-database
           invoke migrate-database
           invoke show-database-history
           invoke test-database

@@ -13,9 +13,9 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
     environment:
-      - POSTGRES_DB=catasto
-      - POSTGRES_USER=docker
-      - POSTGRES_PASS=docker
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASS=${POSTGRES_PASS}
       - ALLOW_IP_RANGE=0.0.0.0/0
       - FORCE_SSL=TRUE
     restart: on-failure

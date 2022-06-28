@@ -1,20 +1,5 @@
-from app.tests import (
-    CITIES,
-    CTCN_SCHEMA,
-    CTMP_SCHEMA,
-    SHEETS,
-    BUILDINGS,
-    CUIDENTI,
-    CUARCUIU,
-    LANDS,
-    CTPARTIC,
-    CTQUALIT,
-    CTTITOLA,
-    CTNONFIS,
-    CTTITOLI,
-    CTFISICA,
-)
-from app.tests.db import dal
+from app.configs import cnf
+from app.utils.db import dal
 
 
 def prep_db():
@@ -29,7 +14,9 @@ def prep_db():
 
 
 def load_cities():
-    ins = dal.get_table(CITIES, CTCN_SCHEMA).insert()
+    ins = dal.get_table(
+        cnf.APP_CONFIG.CITIES, cnf.APP_CONFIG.CTCN_SCHEMA
+    ).insert()
     city_list = [
         {"provincia": "RM", "comune": "ROMA", "codice": "H501"},
         {"provincia": "RI", "comune": "RIETI", "codice": "H282"},
@@ -38,7 +25,9 @@ def load_cities():
 
 
 def load_sheets():
-    ins = dal.get_table(SHEETS, CTMP_SCHEMA).insert()
+    ins = dal.get_table(
+        cnf.APP_CONFIG.SHEETS, cnf.APP_CONFIG.CTMP_SCHEMA
+    ).insert()
     sheet_list = [
         {
             "id": 149279,
@@ -975,7 +964,9 @@ def load_sheets():
 
 
 def load_buildings():
-    ins = dal.get_table(BUILDINGS, CTMP_SCHEMA).insert()
+    ins = dal.get_table(
+        cnf.APP_CONFIG.BUILDINGS, cnf.APP_CONFIG.CTMP_SCHEMA
+    ).insert()
     building_list = [
         {
             "id": 17362946,
@@ -1020,7 +1011,9 @@ def load_buildings():
 
 
 def load_lands():
-    ins = dal.get_table(LANDS, CTMP_SCHEMA).insert()
+    ins = dal.get_table(
+        cnf.APP_CONFIG.LANDS, cnf.APP_CONFIG.CTMP_SCHEMA
+    ).insert()
     land_list = [
         {
             "id": 49316454,
@@ -1048,7 +1041,9 @@ def load_lands():
 
 
 def load_cuidenti():
-    ins = dal.get_table(CUIDENTI, CTCN_SCHEMA).insert()
+    ins = dal.get_table(
+        cnf.APP_CONFIG.CUIDENTI, cnf.APP_CONFIG.CTCN_SCHEMA
+    ).insert()
     cuidenti_list = [
         {
             "codice": "H501",
@@ -1081,7 +1076,9 @@ def load_cuidenti():
 
 
 def load_cuarcuiu():
-    ins = dal.get_table(CUARCUIU, CTCN_SCHEMA).insert()
+    ins = dal.get_table(
+        cnf.APP_CONFIG.CUARCUIU, cnf.APP_CONFIG.CTCN_SCHEMA
+    ).insert()
     cuarcuiu_list = [
         {
             "codice": "H501",
@@ -1180,7 +1177,9 @@ def load_cuarcuiu():
 
 
 def load_ctpartic():
-    ins = dal.get_table(CTPARTIC, CTCN_SCHEMA).insert()
+    ins = dal.get_table(
+        cnf.APP_CONFIG.CTPARTIC, cnf.APP_CONFIG.CTCN_SCHEMA
+    ).insert()
     ctpartic_list = [
         {
             "codice": "H501",
@@ -1231,13 +1230,17 @@ def load_ctpartic():
 
 
 def load_ctqualit():
-    ins = dal.get_table(CTQUALIT, CTCN_SCHEMA).insert()
+    ins = dal.get_table(
+        cnf.APP_CONFIG.CTQUALIT, cnf.APP_CONFIG.CTCN_SCHEMA
+    ).insert()
     ctqualit_list = [{"codice": 279, "qualita": "fabb rurale"}]
     dal.connection.execute(ins, ctqualit_list)
 
 
 def load_cttitola():
-    ins = dal.get_table(CTTITOLA, CTCN_SCHEMA).insert()
+    ins = dal.get_table(
+        cnf.APP_CONFIG.CTTITOLA, cnf.APP_CONFIG.CTCN_SCHEMA
+    ).insert()
     cttitola_list = [
         {
             "codice": "H501",
@@ -1346,7 +1349,9 @@ def load_cttitola():
 
 
 def load_ctnonfis():
-    ins = dal.get_table(CTNONFIS, CTCN_SCHEMA).insert()
+    ins = dal.get_table(
+        cnf.APP_CONFIG.CTNONFIS, cnf.APP_CONFIG.CTCN_SCHEMA
+    ).insert()
     ctnonfis_list = [
         {
             "codice": "H501",
@@ -1371,7 +1376,9 @@ def load_ctnonfis():
 
 
 def load_ctfisica():
-    ins = dal.get_table(CTFISICA, CTCN_SCHEMA).insert()
+    ins = dal.get_table(
+        cnf.APP_CONFIG.CTFISICA, cnf.APP_CONFIG.CTCN_SCHEMA
+    ).insert()
     ctfisica_list = [
         {
             "codice": "H501",
@@ -1391,7 +1398,9 @@ def load_ctfisica():
 
 
 def load_cttitoli():
-    ins = dal.get_table(CTTITOLI, CTCN_SCHEMA).insert()
+    ins = dal.get_table(
+        cnf.APP_CONFIG.CTTITOLI, cnf.APP_CONFIG.CTCN_SCHEMA
+    ).insert()
     cttitoli_list = [
         {"codice": "10", "titolo": "Proprieta'"},
         {"codice": "80", "titolo": "Usufrutto"},

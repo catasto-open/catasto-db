@@ -5,6 +5,7 @@ from sqlalchemy import pool
 
 from alembic import context
 
+from app.configs import cnf
 from app.utils.alembic import * # noqa
 
 # this is the Alembic Config object, which provides
@@ -13,7 +14,10 @@ config = context.config
 
 # this is database connection settings
 config.set_main_option(
-    "sqlalchemy.url", "postgresql://docker:docker@127.0.0.1:5433/catasto"
+    "sqlalchemy.url", f"postgresql://"
+                      f"{cnf.POSTGRES_USER}:{cnf.POSTGRES_PASS}"
+                      f"@{cnf.POSTGRES_HOST}:{cnf.POSTGRES_PORT}/"
+                      f"{cnf.POSTGRES_DB}"
 )
 
 # Interpret the config file for Python logging.
