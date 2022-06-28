@@ -22,6 +22,11 @@ def check_database(ctx):
 
 
 @task
+def test_database(ctx):
+    ctx.run("python -m unittest app/tests/app.py")
+
+
+@task
 def init_database(ctx):
     ctx.run("alembic revision -m 'init catasto-db'")
 
