@@ -92,6 +92,33 @@ def docker_compose_postgis(
         ctx.run(f"{cmd}")
 
 
+@task(optional=["start", "stop", "clean", "logs", "isready", "ci"])
+def catasto_open(
+    ctx,
+    start=False,
+    stop=False,
+    clean=False,
+    logs=False
+):
+    base_path = Path(__file__).resolve()
+    docker_compose_path = base_path.parent / "scripts" / "docker"
+    database_env_setup()
+    geoserver_env_setup()
+    with ctx.cd(os.fspath(docker_compose_path)):
+        cmd = "docker compose"
+        if start:
+            cmd = f"{cmd} up -d"
+        elif stop:
+            cmd = f"{cmd} stop"
+        elif logs:
+            cmd = f"{cmd} logs -f"
+        elif clean:
+            cmd = f"{cmd} down -v --remove-orphans"
+        else:
+            cmd = f"{cmd} ps -a"
+        ctx.run(f"{cmd}")
+
+
 def database_env_setup():
     os.environ["POSTGIS_VERSION_TAG"] = cnf.APP_CONFIG.POSTGIS_VERSION_TAG
     os.environ["POSTGRES_DB"] = cnf.POSTGRES_DB
@@ -99,3 +126,14 @@ def database_env_setup():
     os.environ["POSTGRES_PASS"] = cnf.POSTGRES_PASS
     os.environ["POSTGRES_HOST"] = cnf.POSTGRES_HOST
     os.environ["POSTGRES_PORT"] = str(cnf.POSTGRES_PORT)
+
+
+def geoserver_env_setup():
+    os.environ["GS_VERSION"] = cnf.APP_CONFIG.GS_VERSION
+    os.environ["GEOSERVER_PORT"] = cnf.GEOSERVER_PORT
+    os.environ["GEOSERVER_DATA_DIR"] = cnf.GEOSERVER_DATA_DIR
+    os.environ["GEOSERVER_ADMIN_USER"] = cnf.GEOSERVER_ADMIN_USER
+    os.environ["GEOSERVER_ADMIN_PASSWORD"] = cnf.GEOSERVER_ADMIN_PASSWORD
+    os.environ["GEOWEBCACHE_CACHE_DIR"] = cnf.GEOWEBCACHE_CACHE_DIR
+    os.environ["INITIAL_MEMORY"] = cnf.INITIAL_MEMORY
+    os.environ["MAXIMUM_MEMORY"] = cnf.MAXIMUM_MEMORY

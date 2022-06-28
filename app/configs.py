@@ -14,6 +14,7 @@ class AppConfig(BaseModel):
     """Application configurations."""
 
     POSTGIS_VERSION_TAG: str = "14-3.1"
+    GS_VERSION: str = "2.20.4"
 
     CTCN_SCHEMA: str = "ctcn"
     CITIES: str = "comuni"
@@ -49,6 +50,14 @@ class GlobalConfig(BaseSettings):
     POSTGRES_USER: Optional[str] = None
     POSTGRES_PASS: Optional[str] = None
     POSTGRES_DB: Optional[str] = None
+
+    GEOSERVER_PORT: Optional[str] = None
+    GEOSERVER_DATA_DIR: Optional[str] = None
+    GEOWEBCACHE_CACHE_DIR: Optional[str] = None
+    GEOSERVER_ADMIN_PASSWORD: Optional[str] = None
+    GEOSERVER_ADMIN_USER: Optional[str] = None
+    INITIAL_MEMORY: Optional[str] = None
+    MAXIMUM_MEMORY: Optional[str] = None
 
 
 class DevConfig(GlobalConfig):
