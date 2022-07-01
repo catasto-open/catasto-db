@@ -6,6 +6,13 @@ from invoke import task
 from pathlib import Path
 
 from app.configs import cnf
+from app.geoserver.fixtures import (
+    load_workspaces,
+    load_data_stores,
+    load_layers,
+    load_settings,
+)
+from app.tests.app import TestApp
 
 
 @task(optional=["ci"])
@@ -36,6 +43,12 @@ def init_database(ctx):
 @task
 def migrate_database(ctx):
     ctx.run("alembic upgrade head")
+
+
+@task
+def load_database_fixtures(ctx):
+    test_app = TestApp()
+    test_app.setUpClass()
 
 
 @task
@@ -92,18 +105,21 @@ def docker_compose_postgis(
         ctx.run(f"{cmd}")
 
 
-@task(optional=["start", "stop", "clean", "logs", "isready", "ci"])
+@task(optional=["start", "setup", "loadfixtures", "stop", "clean", "logs"])
 def catasto_open(
-    ctx,
-    start=False,
-    stop=False,
-    clean=False,
-    logs=False
+    ctx, start=False, setup=False, loadfixtures=False, stop=False, clean=False, logs=False
 ):
     base_path = Path(__file__).resolve()
     docker_compose_path = base_path.parent / "scripts" / "docker"
     database_env_setup()
     geoserver_env_setup()
+    if setup:
+        migrate_database(ctx)
+        geoserver_setup()
+        return
+    elif loadfixtures:
+        load_database_fixtures(ctx)
+        return
     with ctx.cd(os.fspath(docker_compose_path)):
         cmd = "docker compose"
         if start:
@@ -119,18 +135,27 @@ def catasto_open(
         ctx.run(f"{cmd}")
 
 
+def geoserver_setup():
+    load_workspaces()
+    load_data_stores()
+    load_layers()
+    load_settings()
+
+
 def database_env_setup():
     os.environ["POSTGIS_VERSION_TAG"] = cnf.APP_CONFIG.POSTGIS_VERSION_TAG
     os.environ["POSTGRES_DB"] = cnf.POSTGRES_DB
     os.environ["POSTGRES_USER"] = cnf.POSTGRES_USER
     os.environ["POSTGRES_PASS"] = cnf.POSTGRES_PASS
     os.environ["POSTGRES_HOST"] = cnf.POSTGRES_HOST
-    os.environ["POSTGRES_PORT"] = str(cnf.POSTGRES_PORT)
+    os.environ["POSTGRES_HOST_PORT"] = str(cnf.POSTGRES_HOST_PORT)
+    os.environ["POSTGRES_CONTAINER_PORT"] = str(cnf.POSTGRES_CONTAINER_PORT)
 
 
 def geoserver_env_setup():
     os.environ["GS_VERSION"] = cnf.APP_CONFIG.GS_VERSION
-    os.environ["GEOSERVER_PORT"] = cnf.GEOSERVER_PORT
+    os.environ["GEOSERVER_HOST_PORT"] = cnf.GEOSERVER_HOST_PORT
+    os.environ["GEOSERVER_CONTAINER_PORT"] = cnf.GEOSERVER_CONTAINER_PORT
     os.environ["GEOSERVER_DATA_DIR"] = cnf.GEOSERVER_DATA_DIR
     os.environ["GEOSERVER_ADMIN_USER"] = cnf.GEOSERVER_ADMIN_USER
     os.environ["GEOSERVER_ADMIN_PASSWORD"] = cnf.GEOSERVER_ADMIN_PASSWORD

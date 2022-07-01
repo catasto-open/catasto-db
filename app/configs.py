@@ -13,6 +13,8 @@ load_dotenv(dotenv_path=env_file_path)
 class AppConfig(BaseModel):
     """Application configurations."""
 
+    COMPOSE_PROJECT_NAME: str = "catasto-open"
+
     POSTGIS_VERSION_TAG: str = "14-3.1"
     GS_VERSION: str = "2.20.4"
 
@@ -46,12 +48,19 @@ class GlobalConfig(BaseSettings):
 
     # environment specific variables do not need the Field class
     POSTGRES_HOST: Optional[str] = None
-    POSTGRES_PORT: Optional[int] = None
+    POSTGRES_HOST_PORT: Optional[int] = None
+    POSTGRES_CONTAINER_PORT: Optional[int] = None
     POSTGRES_USER: Optional[str] = None
     POSTGRES_PASS: Optional[str] = None
     POSTGRES_DB: Optional[str] = None
 
-    GEOSERVER_PORT: Optional[str] = None
+    CATASTO_OPEN_GS_WORKSPACE: Optional[str] = None
+    CATASTO_OPEN_GS_WORKSPACE_NAMESPACE: Optional[str] = None
+    CATASTO_OPEN_GS_DATASTORE: Optional[str] = None
+
+    GEOSERVER_HOST: Optional[str] = None
+    GEOSERVER_HOST_PORT: Optional[str] = None
+    GEOSERVER_CONTAINER_PORT: Optional[str] = None
     GEOSERVER_DATA_DIR: Optional[str] = None
     GEOWEBCACHE_CACHE_DIR: Optional[str] = None
     GEOSERVER_ADMIN_PASSWORD: Optional[str] = None

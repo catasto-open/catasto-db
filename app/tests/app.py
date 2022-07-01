@@ -27,7 +27,7 @@ class TestApp(unittest.TestCase):
         conn_string = (
             f"postgresql://"
             f"{cnf.POSTGRES_USER}:{cnf.POSTGRES_PASS}"
-            f"@{cnf.POSTGRES_HOST}:{cnf.POSTGRES_PORT}/"
+            f"@{cnf.POSTGRES_HOST}:{cnf.POSTGRES_HOST_PORT}/"
             f"{cnf.POSTGRES_DB}"
         )
         dal.db_init(conn_string)
