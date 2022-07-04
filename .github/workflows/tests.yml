@@ -95,6 +95,7 @@ jobs:
           export ENV_STATE=dev
           invoke catasto-open --clean
           invoke catasto-open --start
+          sleep 10
           invoke catasto-open --setup
           invoke test-catasto-open
           invoke lint --ci
