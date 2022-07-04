@@ -2,7 +2,7 @@ from datetime import date
 
 from sqlalchemy import text
 
-from app.tests.db import dal
+from app.utils.db import dal
 
 
 def get_city_by_name(name: str = ""):

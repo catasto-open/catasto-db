@@ -1,8 +1,11 @@
 import datetime
+import json
 import unittest
 
-from app.tests import CONN_STRING
-from app.tests.db import dal
+import requests
+
+from app.configs import cnf
+from app.utils.db import dal
 from app.tests.fixtures import prep_db
 import geoalchemy2  # noqa
 
@@ -24,7 +27,13 @@ from app.tests.queries import (
 class TestApp(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        dal.db_init(CONN_STRING)
+        conn_string = (
+            f"postgresql://"
+            f"{cnf.POSTGRES_USER}:{cnf.POSTGRES_PASS}"
+            f"@{cnf.POSTGRES_HOST}:{cnf.POSTGRES_HOST_PORT}/"
+            f"{cnf.POSTGRES_DB}"
+        )
+        dal.db_init(conn_string)
         prep_db()
 
     @classmethod
@@ -263,3 +272,636 @@ class TestApp(unittest.TestCase):
             ("411567", "G", "FOO SPA", "11111111111", "ROMA"),
         ]
         self.assertEqual(results, expected_results)
+
+    def test_gs_get_city_by_name(self):
+        params = {
+            "service": "WFS",
+            "version": cnf.APP_CONFIG.GS_WFS_VERSION,
+            "request": "GetFeature",
+            "outputFormat": "application/json",
+            "typename": cnf.APP_CONFIG.CATASTO_OPEN_CITY_LAYER,
+            "viewparams": "city:R",
+        }
+        response = requests.get(
+            f"{cnf.GEOSERVER_HOST}:"
+            f"{cnf.GEOSERVER_HOST_PORT}"
+            f"/geoserver/ows",
+            params,
+        )
+
+        self.assertEqual(response.status_code, 200)
+        payload = json.loads(response.text)
+        self.assertEqual(payload["totalFeatures"], 2)
+        feature_properties = [
+            feature["properties"] for feature in payload["features"]
+        ]
+        self.assertEqual(
+            feature_properties,
+            [
+                {"name": "RIETI", "code": "H282"},
+                {"name": "ROMA", "code": "H501"},
+            ],
+        )
+
+    def test_gs_get_section_by_city_code(self):
+        params = {
+            "service": "WFS",
+            "version": cnf.APP_CONFIG.GS_WFS_VERSION,
+            "request": "GetFeature",
+            "outputFormat": "application/json",
+            "typename": cnf.APP_CONFIG.CATASTO_OPEN_SECTION_LAYER,
+            "viewparams": "cityCode:H501",
+        }
+        response = requests.get(
+            f"{cnf.GEOSERVER_HOST}:"
+            f"{cnf.GEOSERVER_HOST_PORT}"
+            f"/geoserver/ows",
+            params,
+        )
+        self.assertEqual(response.status_code, 200)
+        payload = json.loads(response.text)
+        self.assertEqual(payload["totalFeatures"], 4)
+        feature_properties = [
+            feature["properties"] for feature in payload["features"]
+        ]
+        self.assertEqual(
+            feature_properties,
+            [{"name": "A"}, {"name": "B"}, {"name": "C"}, {"name": "D"}],
+        )
+
+    def test_gs_get_sheet_by_city_code(self):
+        params = {
+            "service": "WFS",
+            "version": cnf.APP_CONFIG.GS_WFS_VERSION,
+            "request": "GetFeature",
+            "outputFormat": "application/json",
+            "typename": cnf.APP_CONFIG.CATASTO_OPEN_SHEET_LAYER,
+            "viewparams": "cityCode:H501",
+        }
+        response = requests.get(
+            f"{cnf.GEOSERVER_HOST}:"
+            f"{cnf.GEOSERVER_HOST_PORT}"
+            f"/geoserver/ows",
+            params,
+        )
+        self.assertEqual(response.status_code, 200)
+        payload = json.loads(response.text)
+        self.assertEqual(payload["totalFeatures"], 5)
+        feature_properties = [
+            feature["properties"] for feature in payload["features"]
+        ]
+        self.assertEqual(
+            [
+                {
+                    "citycode": "H501",
+                    "section": "A",
+                    "sheet": "130",
+                    "number": 130,
+                    "extent": {
+                        "type": "Polygon",
+                        "coordinates": [
+                            [
+                                [1389747.88537074, 5153992.94910091],
+                                [1389747.88537074, 5155264.60924713],
+                                [1390436.39932959, 5155264.60924713],
+                                [1390436.39932959, 5153992.94910091],
+                                [1389747.88537074, 5153992.94910091],
+                            ]
+                        ],
+                    },
+                },
+                {
+                    "citycode": "H501",
+                    "section": "D",
+                    "sheet": "172",
+                    "number": 172,
+                    "extent": {
+                        "type": "Polygon",
+                        "coordinates": [
+                            [
+                                [1369900.39056724, 5155038.92977726],
+                                [1369900.39056724, 5157504.7637019],
+                                [1373255.91403264, 5157504.7637019],
+                                [1373255.91403264, 5155038.92977726],
+                                [1369900.39056724, 5155038.92977726],
+                            ]
+                        ],
+                    },
+                },
+                {
+                    "citycode": "H501",
+                    "section": "A",
+                    "sheet": "233",
+                    "number": 233,
+                    "extent": {
+                        "type": "Polygon",
+                        "coordinates": [
+                            [
+                                [1387128.67536244, 5152884.72421506],
+                                [1387128.67536244, 5153763.78376202],
+                                [1388353.80966146, 5153763.78376202],
+                                [1388353.80966146, 5152884.72421506],
+                                [1387128.67536244, 5152884.72421506],
+                            ]
+                        ],
+                    },
+                },
+                {
+                    "citycode": "H501",
+                    "section": "C",
+                    "sheet": "1022",
+                    "number": 1022,
+                    "extent": {
+                        "type": "Polygon",
+                        "coordinates": [
+                            [
+                                [1408471.24163237, 5141920.13648909],
+                                [1408471.24163237, 5143296.38146633],
+                                [1410776.99180655, 5143296.38146633],
+                                [1410776.99180655, 5141920.13648909],
+                                [1408471.24163237, 5141920.13648909],
+                            ]
+                        ],
+                    },
+                },
+                {
+                    "citycode": "H501",
+                    "section": "B",
+                    "sheet": "1093",
+                    "number": 1093,
+                    "extent": {
+                        "type": "Polygon",
+                        "coordinates": [
+                            [
+                                [1363775.89813331, 5121687.23708723],
+                                [1363775.89813331, 5122200.09092516],
+                                [1364657.0169756, 5122200.09092516],
+                                [1364657.0169756, 5121687.23708723],
+                                [1363775.89813331, 5121687.23708723],
+                            ]
+                        ],
+                    },
+                },
+            ],
+            feature_properties,
+        )
+        bboxes = [feature["bbox"] for feature in payload["features"]]
+        self.assertEqual(
+            [
+                [
+                    1389747.88537074,
+                    5153992.94910091,
+                    1390436.39932959,
+                    5155264.60924713,
+                ],
+                [
+                    1369900.39056724,
+                    5155038.92977726,
+                    1373255.91403264,
+                    5157504.7637019,
+                ],
+                [
+                    1387128.67536244,
+                    5152884.72421506,
+                    1388353.80966146,
+                    5153763.78376202,
+                ],
+                [
+                    1408471.24163237,
+                    5141920.13648909,
+                    1410776.99180655,
+                    5143296.38146633,
+                ],
+                [
+                    1363775.89813331,
+                    5121687.23708723,
+                    1364657.0169756,
+                    5122200.09092516,
+                ],
+            ],
+            bboxes,
+        )
+
+    def test_gs_get_land_by_city_code_and_sheet_number(self):
+        params = {
+            "service": "WFS",
+            "version": cnf.APP_CONFIG.GS_WFS_VERSION,
+            "request": "GetFeature",
+            "outputFormat": "application/json",
+            "typename": cnf.APP_CONFIG.CATASTO_OPEN_LAND_LAYER,
+            "viewparams": f"cityCode:H501;"
+            f"citySheet:130;"
+            f"checkDate:"
+            f"{datetime.datetime.today().strftime('%Y-%m-%d')}",
+        }
+        response = requests.get(
+            f"{cnf.GEOSERVER_HOST}:"
+            f"{cnf.GEOSERVER_HOST_PORT}"
+            f"/geoserver/ows",
+            params,
+        )
+        self.assertEqual(response.status_code, 200)
+        payload = json.loads(response.text)
+        self.assertEqual(payload["totalFeatures"], 1)
+        feature_properties = [
+            feature["properties"] for feature in payload["features"]
+        ]
+        self.assertEqual(
+            [
+                {
+                    "citycode": "H501",
+                    "section": "A",
+                    "sheet": 130,
+                    "number": "00150",
+                    "extent": {
+                        "type": "Polygon",
+                        "coordinates": [
+                            [
+                                [1390037.3900468, 5155336.31281264],
+                                [1390037.3900468, 5155378.49996879],
+                                [1390078.61684301, 5155378.49996879],
+                                [1390078.61684301, 5155336.31281264],
+                                [1390037.3900468, 5155336.31281264],
+                            ]
+                        ],
+                    },
+                }
+            ],
+            feature_properties,
+        )
+
+    def test_gs_get_building_by_city_code_and_sheet_number(self):
+        params = {
+            "service": "WFS",
+            "version": cnf.APP_CONFIG.GS_WFS_VERSION,
+            "request": "GetFeature",
+            "outputFormat": "application/json",
+            "typename": cnf.APP_CONFIG.CATASTO_OPEN_BUILDING_LAYER,
+            "viewparams": f"cityCode:H501;"
+            f"citySheet:130;"
+            f"checkDate:"
+            f"{datetime.datetime.today().strftime('%Y-%m-%d')}",
+        }
+        response = requests.get(
+            f"{cnf.GEOSERVER_HOST}:"
+            f"{cnf.GEOSERVER_HOST_PORT}"
+            f"/geoserver/ows",
+            params,
+        )
+        self.assertEqual(response.status_code, 200)
+        payload = json.loads(response.text)
+        self.assertEqual(payload["totalFeatures"], 1)
+        feature_properties = [
+            feature["properties"] for feature in payload["features"]
+        ]
+        self.assertEqual(
+            [
+                {
+                    "citycode": "H501",
+                    "section": "A",
+                    "sheet": "130",
+                    "number": "00164",
+                    "extent": {
+                        "type": "Polygon",
+                        "coordinates": [
+                            [
+                                [1389909.59459946, 5154195.76117928],
+                                [1389909.59459946, 5154203.54981311],
+                                [1389922.00287766, 5154203.54981311],
+                                [1389922.00287766, 5154195.76117928],
+                                [1389909.59459946, 5154195.76117928],
+                            ]
+                        ],
+                    },
+                }
+            ],
+            feature_properties,
+        )
+
+    def test_gs_get_natural_subject_by_name(self):
+        params = {
+            "service": "WFS",
+            "version": cnf.APP_CONFIG.GS_WFS_VERSION,
+            "request": "GetFeature",
+            "outputFormat": "application/json",
+            "typename": cnf.APP_CONFIG.CATASTO_OPEN_NATURAL_SUBJECT_LAYER,
+            "viewparams": "firstName:'John';lastName:'Doe'",
+        }
+        response = requests.get(
+            f"{cnf.GEOSERVER_HOST}:"
+            f"{cnf.GEOSERVER_HOST_PORT}"
+            f"/geoserver/ows",
+            params,
+        )
+        self.assertEqual(response.status_code, 200)
+        payload = json.loads(response.text)
+        self.assertEqual(payload["totalFeatures"], 1)
+        feature_properties = [
+            feature["properties"] for feature in payload["features"]
+        ]
+        self.assertEqual(
+            [
+                {
+                    "subjects": "234428",
+                    "subjecttype": "P",
+                    "firstname": "John",
+                    "lastname": "Doe",
+                    "fiscalcode": "AAAAAAAAAAAAAAAA",
+                    "dateofbirth": "1900-01-01",
+                    "cityofbirth": "ROMA (RM)",
+                    "gender": "Maschio",
+                }
+            ],
+            feature_properties,
+        )
+
+    def test_gs_get_natural_subject_by_fiscal_code(self):
+        params = {
+            "service": "WFS",
+            "version": cnf.APP_CONFIG.GS_WFS_VERSION,
+            "request": "GetFeature",
+            "outputFormat": "application/json",
+            "typename": cnf.APP_CONFIG.CATASTO_OPEN_NATURAL_SUBJECT_LAYER,
+            "viewparams": "fiscalCode:'AAAAAAAAAAAAAAAA';",
+        }
+        response = requests.get(
+            f"{cnf.GEOSERVER_HOST}:"
+            f"{cnf.GEOSERVER_HOST_PORT}"
+            f"/geoserver/ows",
+            params,
+        )
+        self.assertEqual(response.status_code, 200)
+        payload = json.loads(response.text)
+        self.assertEqual(payload["totalFeatures"], 1)
+        feature_properties = [
+            feature["properties"] for feature in payload["features"]
+        ]
+        self.assertEqual(
+            [
+                {
+                    "subjects": "234428",
+                    "subjecttype": "P",
+                    "firstname": "John",
+                    "lastname": "Doe",
+                    "fiscalcode": "AAAAAAAAAAAAAAAA",
+                    "dateofbirth": "1900-01-01",
+                    "cityofbirth": "ROMA (RM)",
+                    "gender": "Maschio",
+                }
+            ],
+            feature_properties,
+        )
+
+    def test_gs_get_legal_subject_by_vat_number(self):
+        params = {
+            "service": "WFS",
+            "version": cnf.APP_CONFIG.GS_WFS_VERSION,
+            "request": "GetFeature",
+            "outputFormat": "application/json",
+            "typename": cnf.APP_CONFIG.CATASTO_OPEN_LEGAL_SUBJECT_LAYER,
+            "viewparams": "vatNumber:'00000000000';",
+        }
+        response = requests.get(
+            f"{cnf.GEOSERVER_HOST}:"
+            f"{cnf.GEOSERVER_HOST_PORT}"
+            f"/geoserver/ows",
+            params,
+        )
+        self.assertEqual(response.status_code, 200)
+        payload = json.loads(response.text)
+        self.assertEqual(payload["totalFeatures"], 1)
+        feature_properties = [
+            feature["properties"] for feature in payload["features"]
+        ]
+        self.assertEqual(
+            [
+                {
+                    "subjects": "290560",
+                    "subjecttype": "G",
+                    "businessname": "FOO SRL",
+                    "vatnumber": "00000000000",
+                    "branch": "ROMA",
+                }
+            ],
+            feature_properties,
+        )
+
+    def test_gs_get_legal_subject_by_business_name(self):
+        params = {
+            "service": "WFS",
+            "version": cnf.APP_CONFIG.GS_WFS_VERSION,
+            "request": "GetFeature",
+            "outputFormat": "application/json",
+            "typename": cnf.APP_CONFIG.CATASTO_OPEN_LEGAL_SUBJECT_LAYER,
+            "viewparams": "businessName:'Foo';",
+        }
+        response = requests.get(
+            f"{cnf.GEOSERVER_HOST}:"
+            f"{cnf.GEOSERVER_HOST_PORT}"
+            f"/geoserver/ows",
+            params,
+        )
+        self.assertEqual(response.status_code, 200)
+        payload = json.loads(response.text)
+        self.assertEqual(payload["totalFeatures"], 2)
+        feature_properties = [
+            feature["properties"] for feature in payload["features"]
+        ]
+        self.assertEqual(
+            [
+                {
+                    "subjects": "290560",
+                    "subjecttype": "G",
+                    "businessname": "FOO SRL",
+                    "vatnumber": "00000000000",
+                    "branch": "ROMA",
+                },
+                {
+                    "subjects": "411567",
+                    "subjecttype": "G",
+                    "businessname": "FOO SPA",
+                    "vatnumber": "11111111111",
+                    "branch": "ROMA",
+                },
+            ],
+            feature_properties,
+        )
+
+    def test_gs_get_property_by_subject(self):
+        params = {
+            "service": "WFS",
+            "version": cnf.APP_CONFIG.GS_WFS_VERSION,
+            "request": "GetFeature",
+            "outputFormat": "application/json",
+            "typename": cnf.APP_CONFIG.CATASTO_OPEN_SUBJECT_PROPERTY_LAYER,
+            "viewparams": "subjects:234428;subjectType:P",
+        }
+        response = requests.get(
+            f"{cnf.GEOSERVER_HOST}:"
+            f"{cnf.GEOSERVER_HOST_PORT}"
+            f"/geoserver/ows",
+            params,
+        )
+        self.assertEqual(response.status_code, 200)
+        payload = json.loads(response.text)
+        self.assertEqual(payload["totalFeatures"], 1)
+        feature_properties = [
+            feature["properties"] for feature in payload["features"]
+        ]
+        self.assertEqual(
+            [
+                {
+                    "citycode": "H501",
+                    "section": "A",
+                    "sheet": "233",
+                    "number": "205",
+                    "extent": {
+                        "type": "Polygon",
+                        "coordinates": [
+                            [
+                                [1387738.23529883, 5153275.83513206],
+                                [1387738.23529883, 5153314.46997197],
+                                [1387766.23739714, 5153314.46997197],
+                                [1387766.23739714, 5153275.83513206],
+                                [1387738.23529883, 5153275.83513206],
+                            ]
+                        ],
+                    },
+                    "city": "ROMA (RM) (H501)",
+                    "subordinate": "12",
+                    "right": "Usufrutto",
+                    "part": "1/2",
+                    "classification": "zona 4, cat. C/6",
+                    "class": "6",
+                    "consistency": "13 mq",
+                    "income": "93,32",
+                    "lot": "1669321",
+                    "propertytype": "Fabbricati",
+                }
+            ],
+            feature_properties,
+        )
+
+    def test_gs_get_land_details(self):
+        params = {
+            "service": "WFS",
+            "version": cnf.APP_CONFIG.GS_WFS_VERSION,
+            "request": "GetFeature",
+            "outputFormat": "application/json",
+            "typename": cnf.APP_CONFIG.CATASTO_OPEN_LAND_DETAIL_LAYER,
+            "viewparams": f"cityCode:H501;"
+            f"citySheet:130;"
+            f"landNumber:00150;"
+            f"checkDate:"
+            f"{datetime.datetime.today().strftime('%Y-%m-%d')}",
+        }
+        response = requests.get(
+            f"{cnf.GEOSERVER_HOST}:"
+            f"{cnf.GEOSERVER_HOST_PORT}"
+            f"/geoserver/ows",
+            params,
+        )
+        self.assertEqual(response.status_code, 200)
+        payload = json.loads(response.text)
+        self.assertEqual(payload["numberReturned"], 1)
+        feature_properties = [
+            feature["properties"] for feature in payload["features"]
+        ]
+        self.assertEqual(
+            [
+                {
+                    "property": 2598,
+                    "propertytype": "T",
+                    "subordinate": None,
+                    "quality": "FABB RURALE",
+                    "class": "",
+                    "hectares": 0,
+                    "are": 3,
+                    "centiare": 67,
+                    "lot": "103625",
+                    "cadastralrent": "0",
+                    "agriculturalrent": "0",
+                }
+            ],
+            feature_properties,
+        )
+
+    def test_gs_get_building_details(self):
+        params = {
+            "service": "WFS",
+            "version": cnf.APP_CONFIG.GS_WFS_VERSION,
+            "request": "GetFeature",
+            "outputFormat": "application/json",
+            "typename": cnf.APP_CONFIG.CATASTO_OPEN_BUILDING_DETAIL_LAYER,
+            "viewparams": f"cityCode:H501;"
+            f"citySheet:130;"
+            f"buildingNumber:00164;"
+            f"checkDate:"
+            f"{datetime.datetime.today().strftime('%Y-%m-%d')}",
+        }
+        response = requests.get(
+            f"{cnf.GEOSERVER_HOST}:"
+            f"{cnf.GEOSERVER_HOST_PORT}"
+            f"/geoserver/ows",
+            params,
+        )
+        self.assertEqual(response.status_code, 200)
+        payload = json.loads(response.text)
+        self.assertEqual(payload["totalFeatures"], 1)
+        feature_properties = [
+            feature["properties"] for feature in payload["features"]
+        ]
+        self.assertEqual(
+            [
+                {
+                    "subordinate": None,
+                    "property": 68609,
+                    "propertytype": "F",
+                    "censuszone": "6",
+                    "category": "C/6",
+                    "_class": "14",
+                    "consistency": "40 mq",
+                    "rent": "218,98",
+                    "lot": "2409126",
+                }
+            ],
+            feature_properties,
+        )
+
+    def test_gs_get_property_owner(self):
+        params = {
+            "service": "WFS",
+            "version": cnf.APP_CONFIG.GS_WFS_VERSION,
+            "request": "GetFeature",
+            "outputFormat": "application/json",
+            "typename": cnf.APP_CONFIG.CATASTO_OPEN_PROPERTY_OWNER_LAYER,
+            "viewparams": f"cityCode:H501;"
+            f"property:68609;"
+            f"propertyType:F;"
+            f"checkDate:"
+            f"{datetime.datetime.today().strftime('%Y-%m-%d')}",
+        }
+        response = requests.get(
+            f"{cnf.GEOSERVER_HOST}:"
+            f"{cnf.GEOSERVER_HOST_PORT}"
+            f"/geoserver/ows",
+            params,
+        )
+        self.assertEqual(response.status_code, 200)
+        payload = json.loads(response.text)
+        self.assertEqual(payload["totalFeatures"], 1)
+        feature_properties = [
+            feature["properties"] for feature in payload["features"]
+        ]
+        self.assertEqual(
+            [
+                {
+                    "nominative": "FOO SRL",
+                    "fiscalcode": "00000000000",
+                    "city": "ROMA",
+                    "right": "Proprieta'",
+                    "part": "",
+                }
+            ],
+            feature_properties,
+        )
