@@ -85,8 +85,8 @@ datastore = {
 layers = [
     {
         "featureType": {
-            "name": "catasto_comuni",
-            "nativeName": "catasto_comuni",
+            "name": cnf.APP_CONFIG.CATASTO_OPEN_CITY_LAYER,
+            "nativeName": cnf.APP_CONFIG.CATASTO_OPEN_CITY_LAYER,
             "namespace": {
                 "name": f"{cnf.CATASTO_OPEN_GS_WORKSPACE}",
                 "href": f"{cnf.GEOSERVER_HOST}:"
@@ -94,8 +94,10 @@ layers = [
                 f"/geoserver/rest/namespaces"
                 f"/{cnf.CATASTO_OPEN_GS_WORKSPACE}.json",
             },
-            "title": "catasto_comuni",
-            "keywords": {"string": ["features", "catasto_comuni"]},
+            "title": cnf.APP_CONFIG.CATASTO_OPEN_CITY_LAYER,
+            "keywords": {
+                "string": ["features", cnf.APP_CONFIG.CATASTO_OPEN_CITY_LAYER]
+            },
             "nativeCRS": {
                 "@class": "projected",
                 "$": 'PROJCS["WGS 84 / '
@@ -146,7 +148,7 @@ layers = [
                 "entry": {
                     "@key": "JDBC_VIRTUAL_TABLE",
                     "virtualTable": {
-                        "name": "catasto_comuni",
+                        "name": cnf.APP_CONFIG.CATASTO_OPEN_CITY_LAYER,
                         "sql": """select distinct c.comune as name,
                                c.codice as code from ctcn.comuni c
                                inner join ctmp.fogli f on
@@ -202,16 +204,21 @@ layers = [
     },
     {
         "featureType": {
-            "name": "catasto_sezioni",
-            "nativeName": "catasto_sezioni",
+            "name": cnf.APP_CONFIG.CATASTO_OPEN_SECTION_LAYER,
+            "nativeName": cnf.APP_CONFIG.CATASTO_OPEN_SECTION_LAYER,
             "namespace": {
                 "name": "CatastoOpenDev",
                 "href": f"{cnf.GEOSERVER_HOST}:{cnf.GEOSERVER_HOST_PORT}"
                 f"/geoserver/rest"
                 f"/namespaces/{cnf.CATASTO_OPEN_GS_WORKSPACE}.json",
             },
-            "title": "catasto_sezioni",
-            "keywords": {"string": ["features", "catasto_sezioni"]},
+            "title": cnf.APP_CONFIG.CATASTO_OPEN_SECTION_LAYER,
+            "keywords": {
+                "string": [
+                    "features",
+                    cnf.APP_CONFIG.CATASTO_OPEN_SECTION_LAYER,
+                ]
+            },
             "nativeCRS": {
                 "@class": "projected",
                 "$": 'PROJCS["WGS 84  / Pseudo-Mercator", \n  '
@@ -258,7 +265,7 @@ layers = [
                 "entry": {
                     "@key": "JDBC_VIRTUAL_TABLE",
                     "virtualTable": {
-                        "name": "catasto_sezioni",
+                        "name": cnf.APP_CONFIG.CATASTO_OPEN_SECTION_LAYER,
                         "sql": """SELECT f.sezione as name
                                FROM  ctcn.comuni c
                                INNER JOIN ctmp.fogli f

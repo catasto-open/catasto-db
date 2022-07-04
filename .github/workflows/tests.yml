@@ -93,11 +93,8 @@ jobs:
         run: |
           source .venv/bin/activate
           export ENV_STATE=dev
-          invoke docker-compose-postgis --clean --ci
-          invoke docker-compose-postgis --start --ci
-          sleep 10
-          invoke wait-for-database
-          invoke migrate-database
-          invoke show-database-history
-          invoke test-database
+          invoke catasto-open --clean
+          invoke catasto-open --start
+          invoke catasto-open --setup
+          invoke test-catasto-open
           invoke lint --ci

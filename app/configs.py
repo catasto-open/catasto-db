@@ -17,6 +17,19 @@ class AppConfig(BaseModel):
 
     POSTGIS_VERSION_TAG: str = "14-3.1"
     GS_VERSION: str = "2.20.4"
+    GS_WFS_VERSION: str = "1.0.0"
+
+    CATASTO_OPEN_CITY_LAYER = "catasto_comuni"
+    CATASTO_OPEN_SECTION_LAYER = "catasto_sezioni"
+    CATASTO_OPEN_SHEET_LAYER = "catasto_fogli"
+    CATASTO_OPEN_LAND_LAYER = "catasto_terreni"
+    CATASTO_OPEN_BUILDING_LAYER = "catasto_fabbricati"
+    CATASTO_OPEN_NATURAL_SUBJECT_LAYER = "catasto_persone_fisiche"
+    CATASTO_OPEN_LEGAL_SUBJECT_LAYER = "catasto_persone_giuridiche"
+    CATASTO_OPEN_SUBJECT_PROPERTY_LAYER = "catasto_particelle_soggetto"
+    CATASTO_OPEN_LAND_DETAIL_LAYER = "catasto_dettagli_terreno"
+    CATASTO_OPEN_BUILDING_DETAIL_LAYER = "catasto_dettagli_fabbricato"
+    CATASTO_OPEN_PROPERTY_OWNER_LAYER = "catasto_titolari_immobile"
 
     CTCN_SCHEMA: str = "ctcn"
     CITIES: str = "comuni"

@@ -31,7 +31,7 @@ def check_database(ctx):
 
 
 @task
-def test_database(ctx):
+def test_catasto_open(ctx):
     ctx.run("python -m unittest app/tests/app.py")
 
 
@@ -107,7 +107,13 @@ def docker_compose_postgis(
 
 @task(optional=["start", "setup", "loadfixtures", "stop", "clean", "logs"])
 def catasto_open(
-    ctx, start=False, setup=False, loadfixtures=False, stop=False, clean=False, logs=False
+    ctx,
+    start=False,
+    setup=False,
+    loadfixtures=False,
+    stop=False,
+    clean=False,
+    logs=False,
 ):
     base_path = Path(__file__).resolve()
     docker_compose_path = base_path.parent / "scripts" / "docker"
