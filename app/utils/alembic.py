@@ -63,6 +63,19 @@ class DropViewOp(ReversibleOp):
         return CreateViewOp(self.target)
 
 
+@Operations.register_operation("create_sp", "invoke_for_target")
+@Operations.register_operation("replace_sp", "replace")
+class CreateSPOp(ReversibleOp):
+    def reverse(self):
+        return DropSPOp(self.target)
+
+
+@Operations.register_operation("drop_sp", "invoke_for_target")
+class DropSPOp(ReversibleOp):
+    def reverse(self):
+        return CreateSPOp(self.target)
+
+
 @Operations.implementation_for(CreateViewOp)
 def create_view(operations, operation):
     operations.execute(
@@ -74,3 +87,16 @@ def create_view(operations, operation):
 @Operations.implementation_for(DropViewOp)
 def drop_view(operations, operation):
     operations.execute("DROP VIEW %s" % operation.target.name)
+
+
+@Operations.implementation_for(CreateSPOp)
+def create_sp(operations, operation):
+    operations.execute(
+        "CREATE FUNCTION %s %s"
+        % (operation.target.name, operation.target.sql_text)
+    )
+
+
+@Operations.implementation_for(DropSPOp)
+def drop_sp(operations, operation):
+    operations.execute("DROP FUNCTION %s" % operation.target.name)
