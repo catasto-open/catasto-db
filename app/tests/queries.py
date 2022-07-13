@@ -290,3 +290,48 @@ def get_legal_subject(vat_number: str = "null", business_name: str = "null"):
         """
     )
     return dal.connection.execute(statement).fetchall()
+
+
+def get_cttitola():
+    statement = text("select * from ctcn.cuindiri")
+    return dal.connection.execute(statement).fetchall()
+
+
+def get_cuidenti():
+    statement = text("select * from ctcn.cuidenti")
+    return dal.connection.execute(statement).fetchall()
+
+
+def get_cuindiri():
+    statement = text("select * from ctcn.cuindiri")
+    return dal.connection.execute(statement).fetchall()
+
+
+def get_cuutilit():
+    statement = text("select * from ctcn.cuutilit")
+    return dal.connection.execute(statement).fetchall()
+
+
+def get_cuarcuiu():
+    statement = text("select * from ctcn.cuarcuiu")
+    return dal.connection.execute(statement).fetchall()
+
+
+def get_curiserv():
+    statement = text("select * from ctcn.curiserv")
+    return dal.connection.execute(statement).fetchall()
+
+
+def get_ctpartic():
+    statement = text("select * from ctcn.ctpartic")
+    return dal.connection.execute(statement).fetchall()
+
+
+def get_ctdeduzi():
+    statement = text("select * from ctcn.ctdeduzi")
+    return dal.connection.execute(statement).fetchall()
+
+
+def get_ctporzio():
+    statement = text("select * from ctcn.ctporzio")
+    return dal.connection.execute(statement).fetchall()

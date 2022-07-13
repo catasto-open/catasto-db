@@ -1,3 +1,5 @@
+from sqlalchemy import text
+
 from app.configs import cnf
 from app.utils.db import dal
 
@@ -11,6 +13,10 @@ def prep_db():
     load_cttitoli()
     load_ctnonfis()
     load_ctfisica()
+    load_record_fab()
+    load_record_sog()
+    load_record_tit()
+    load_record_ter()
 
 
 def load_cities():
@@ -1406,3 +1412,70 @@ def load_cttitoli():
         {"codice": "80", "titolo": "Usufrutto"},
     ]
     dal.connection.execute(ins, cttitoli_list)
+
+
+def load_record_fab():
+    record_fab_func = "ctcn.elabora_record_fab"
+    fab_record_list = [
+        "A054| |41189|F|4|1||A02|04|5,"
+        "5||742500|383,47||||||T||||18032003|"
+        "18032003|V|003770|001|2003|||||||||1821413||||"
+        "VTO|VARIAZIONE DI TOPONOMASTICA||||",
+        "A054| |41189|F|4|2||0002|00058||0001||",
+        "A054| |41189|F|4|3|236|PRENESTINA||||68|",
+        "A054| |41320|F|2|4||0003|00205||0001|",
+        "A054| |41450|F|3|5|1|1000942|",
+    ]
+    for record in fab_record_list:
+        dal.engine.execute(
+            text(f"SELECT {record_fab_func}('{record}');").execution_options(
+                autocommit=True
+            )
+        )
+
+
+def load_record_sog():
+    record_sog_func = "ctcn.elabora_record_sog"
+    fab_record_list = [
+        "A054| |2593|P|Doe|John|2|22081951|H501|BBBBBBBBBBBBBBBB||",
+        "A054| |41528|G|FOO SRLS|H501|22222222222|",
+    ]
+    for record in fab_record_list:
+        dal.engine.execute(
+            text(f"SELECT {record_sog_func}('{record}');").execution_options(
+                autocommit=True
+            )
+        )
+
+
+def load_record_tit():
+    record_tit_func = "ctcn.elabora_record_tit"
+    tit_record_list = [
+        "A054| |2593|P|796676|F|10||36|96|P||18112009"
+        "|N|013512|001|2016|21072016||||||||3502894||"
+        "15355675|VUF|RETTIFICA QUOTE DI POSSESSO|||",
+    ]
+    for record in tit_record_list:
+        dal.engine.execute(
+            text(f"SELECT {record_tit_func}('{record}');").execution_options(
+                autocommit=True
+            )
+        )
+
+
+def load_record_ter():
+    record_ter_func = "ctcn.elabora_record_ter"
+    ter_record_list = [
+        "A054| |62761|T|1|1|1|00001||||1|04|0|52|10|"
+        "0|0|0|8857|8857|4,57|4,57|01010001|20091975|"
+        "I||000||||||||0000172||264837||||||",
+        "D452| |1467499|T|4|2|A1|",
+        "A054| |1467484|T|4|3|1||",
+        "A054| |1467478|T|3|4|AA|36|02|0|12|0|5,58|2,79|AB|1|00|0|0|98|0|0|",
+    ]
+    for record in ter_record_list:
+        dal.engine.execute(
+            text(f"SELECT {record_ter_func}('{record}');").execution_options(
+                autocommit=True
+            )
+        )
