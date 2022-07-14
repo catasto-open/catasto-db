@@ -3,6 +3,7 @@ import json
 import unittest
 
 import requests
+from sqlalchemy import text
 
 from app.configs import cnf
 from app.utils.db import dal
@@ -30,6 +31,13 @@ from app.tests.queries import (
     get_ctpartic,
     get_ctdeduzi,
     get_ctporzio,
+    get_metadata,
+    get_waters,
+    get_trusts,
+    get_dress_lines,
+    get_texts,
+    get_symbols,
+    get_streets,
 )
 
 
@@ -1302,3 +1310,49 @@ class TestApp(unittest.TestCase):
             ("A054", " ", 1467478, "T", 3, "AB", 1, "00", 0, 0, 98, "0", "0"),
         ]
         self.assertEqual(results, expected_results)
+
+    def test_archive_map(self):
+        archive_map_func = "ctmp.archivia_mappa"
+        water_result = get_waters("ctmp_a")
+        self.assertEqual(0, len(water_result))
+        trust_result = get_trusts("ctmp_a")
+        self.assertEqual(0, len(trust_result))
+        dress_line_result = get_dress_lines("ctmp_a")
+        self.assertEqual(0, len(dress_line_result))
+        text_result = get_texts("ctmp_a")
+        self.assertEqual(0, len(text_result))
+        symbol_result = get_symbols("ctmp_a")
+        self.assertEqual(0, len(symbol_result))
+        street_result = get_streets("ctmp_a")
+        self.assertEqual(0, len(street_result))
+        metadata_result = get_metadata("ctmp_a")
+        self.assertEqual(0, len(metadata_result))
+        dal.engine.execute(
+            text(
+                f"SELECT {archive_map_func}('H501', 'A', '130', '0', '0', 2);"
+            ).execution_options(autocommit=True)
+        )
+        water_result = get_waters("ctmp_a")
+        self.assertEqual(1, len(water_result))
+        trust_result = get_trusts("ctmp_a")
+        self.assertEqual(1, len(trust_result))
+        dress_line_result = get_dress_lines("ctmp_a")
+        self.assertEqual(1, len(dress_line_result))
+        text_result = get_texts("ctmp_a")
+        self.assertEqual(1, len(text_result))
+        symbol_result = get_symbols("ctmp_a")
+        self.assertEqual(1, len(symbol_result))
+        street_result = get_streets("ctmp_a")
+        self.assertEqual(1, len(street_result))
+        metadata_result = get_metadata("ctmp_a")
+        self.assertEqual(1, len(metadata_result))
+
+        metadata_result = get_metadata("ctmp")
+        self.assertEqual(2, len(metadata_result))
+        dal.engine.execute(
+            text(
+                f"SELECT {archive_map_func}('AAAA', 'A', '130', '0', '0', 1);"
+            ).execution_options(autocommit=True)
+        )
+        metadata_result = get_metadata("ctmp")
+        self.assertEqual(1, len(metadata_result))

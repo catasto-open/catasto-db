@@ -335,3 +335,38 @@ def get_ctdeduzi():
 def get_ctporzio():
     statement = text("select * from ctcn.ctporzio")
     return dal.connection.execute(statement).fetchall()
+
+
+def get_metadata(schema):
+    statement = text(f"select * from {schema}.metadati")
+    return dal.connection.execute(statement).fetchall()
+
+
+def get_waters(schema):
+    statement = text(f"select * from {schema}.acque")
+    return dal.connection.execute(statement).fetchall()
+
+
+def get_trusts(schema):
+    statement = text(f"select * from {schema}.fiduciali")
+    return dal.connection.execute(statement).fetchall()
+
+
+def get_dress_lines(schema):
+    statement = text(f"select * from {schema}.linee_vest")
+    return dal.connection.execute(statement).fetchall()
+
+
+def get_texts(schema):
+    statement = text(f"select * from {schema}.testi")
+    return dal.connection.execute(statement).fetchall()
+
+
+def get_symbols(schema):
+    statement = text(f"select * from {schema}.simboli")
+    return dal.connection.execute(statement).fetchall()
+
+
+def get_streets(schema):
+    statement = text(f"select * from {schema}.strade")
+    return dal.connection.execute(statement).fetchall()
