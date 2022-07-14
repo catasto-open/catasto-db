@@ -3,6 +3,7 @@ import json
 import unittest
 
 import requests
+from sqlalchemy import text
 
 from app.configs import cnf
 from app.utils.db import dal
@@ -21,6 +22,22 @@ from app.tests.queries import (
     get_subject_by_property,
     get_natural_subject,
     get_legal_subject,
+    get_cttitola,
+    get_cuindiri,
+    get_cuutilit,
+    get_cuidenti,
+    get_cuarcuiu,
+    get_curiserv,
+    get_ctpartic,
+    get_ctdeduzi,
+    get_ctporzio,
+    get_metadata,
+    get_waters,
+    get_trusts,
+    get_dress_lines,
+    get_texts,
+    get_symbols,
+    get_streets,
 )
 
 
@@ -256,7 +273,17 @@ class TestApp(unittest.TestCase):
                 datetime.date(1900, 1, 1),
                 "ROMA (RM)",
                 "Maschio",
-            )
+            ),
+            (
+                "2593",
+                "P",
+                "John",
+                "Doe",
+                "BBBBBBBBBBBBBBBB",
+                datetime.date(1951, 8, 22),
+                "ROMA (RM)",
+                "Femmina",
+            ),
         ]
         self.assertEqual(results, expected_results)
 
@@ -270,6 +297,7 @@ class TestApp(unittest.TestCase):
         expected_results = [
             ("290560", "G", "FOO SRL", "00000000000", "ROMA"),
             ("411567", "G", "FOO SPA", "11111111111", "ROMA"),
+            ("41528", "G", "FOO SRLS", "22222222222", "ROMA"),
         ]
         self.assertEqual(results, expected_results)
 
@@ -595,7 +623,7 @@ class TestApp(unittest.TestCase):
         )
         self.assertEqual(response.status_code, 200)
         payload = json.loads(response.text)
-        self.assertEqual(payload["totalFeatures"], 1)
+        self.assertEqual(payload["totalFeatures"], 2)
         feature_properties = [
             feature["properties"] for feature in payload["features"]
         ]
@@ -610,7 +638,17 @@ class TestApp(unittest.TestCase):
                     "dateofbirth": "1900-01-01",
                     "cityofbirth": "ROMA (RM)",
                     "gender": "Maschio",
-                }
+                },
+                {
+                    "subjects": "2593",
+                    "subjecttype": "P",
+                    "firstname": "John",
+                    "lastname": "Doe",
+                    "fiscalcode": "BBBBBBBBBBBBBBBB",
+                    "dateofbirth": "1951-08-22",
+                    "cityofbirth": "ROMA (RM)",
+                    "gender": "Femmina",
+                },
             ],
             feature_properties,
         )
@@ -703,7 +741,7 @@ class TestApp(unittest.TestCase):
         )
         self.assertEqual(response.status_code, 200)
         payload = json.loads(response.text)
-        self.assertEqual(payload["totalFeatures"], 2)
+        self.assertEqual(payload["totalFeatures"], 3)
         feature_properties = [
             feature["properties"] for feature in payload["features"]
         ]
@@ -721,6 +759,13 @@ class TestApp(unittest.TestCase):
                     "subjecttype": "G",
                     "businessname": "FOO SPA",
                     "vatnumber": "11111111111",
+                    "branch": "ROMA",
+                },
+                {
+                    "subjects": "41528",
+                    "subjecttype": "G",
+                    "businessname": "FOO SRLS",
+                    "vatnumber": "22222222222",
                     "branch": "ROMA",
                 },
             ],
@@ -905,3 +950,409 @@ class TestApp(unittest.TestCase):
             ],
             feature_properties,
         )
+
+    def test_cttitola(self):
+        results = get_cttitola()
+        expected_results = [
+            (
+                "A054",
+                " ",
+                41189,
+                "F",
+                4,
+                236,
+                "PRENESTINA",
+                None,
+                None,
+                None,
+                "68",
+            )
+        ]
+        self.assertEqual(results, expected_results)
+
+    def test_cuidenti(self):
+        results = get_cuidenti()
+        expected_results = [
+            (
+                "H501",
+                " ",
+                68609,
+                "F",
+                2,
+                None,
+                "0130",
+                "00164",
+                None,
+                None,
+                None,
+            ),
+            (
+                "H501",
+                " ",
+                197859,
+                "F",
+                2,
+                None,
+                "0233",
+                "00205",
+                None,
+                "0012",
+                None,
+            ),
+            (
+                "A054",
+                " ",
+                41189,
+                "F",
+                4,
+                None,
+                "0002",
+                "00058",
+                None,
+                "0001",
+                None,
+            ),
+        ]
+        self.assertEqual(results, expected_results)
+
+    def test_cuindiri(self):
+        results = get_cuindiri()
+        expected_results = [
+            (
+                "A054",
+                " ",
+                41189,
+                "F",
+                4,
+                236,
+                "PRENESTINA",
+                None,
+                None,
+                None,
+                "68",
+            )
+        ]
+        self.assertEqual(results, expected_results)
+
+    def test_cuutilit(self):
+        results = get_cuutilit()
+        expected_results = [
+            ("A054", " ", 41320, "F", 2, None, "0003", "00205", None, "0001")
+        ]
+        self.assertEqual(results, expected_results)
+
+    def test_cuarcuiu(self):
+        results = get_cuarcuiu()
+        expected_results = [
+            (
+                "H501",
+                " ",
+                68609,
+                "F",
+                2,
+                "006",
+                "C06",
+                "14",
+                "40",
+                "47",
+                "424000",
+                "218,98",
+                None,
+                None,
+                None,
+                None,
+                None,
+                "T",
+                None,
+                None,
+                None,
+                "08051996",
+                "06031999",
+                "V",
+                "051104",
+                "001",
+                "1996",
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                "2409126",
+                None,
+                2843695,
+                None,
+                None,
+                None,
+                "VAR",
+                "DIVERSA DISTRIBUZIONE SPAZI INTERNI",
+                None,
+                None,
+                "4",
+            ),
+            (
+                "H501",
+                " ",
+                197859,
+                "F",
+                2,
+                "004",
+                "C06",
+                "06",
+                "13",
+                "13",
+                "180700",
+                "93,32",
+                None,
+                None,
+                None,
+                None,
+                None,
+                "T",
+                None,
+                None,
+                None,
+                "12031981",
+                "01031989",
+                "D",
+                "  3494",
+                None,
+                "1981",
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                "1669321",
+                None,
+                1350882,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+            ),
+            (
+                "A054",
+                " ",
+                41189,
+                "F",
+                4,
+                None,
+                "A02",
+                "04",
+                "5,5",
+                None,
+                "742500",
+                "383,47",
+                None,
+                None,
+                None,
+                None,
+                None,
+                "T",
+                None,
+                None,
+                None,
+                "18032003",
+                "18032003",
+                "V",
+                "003770",
+                "001",
+                "2003",
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                1821413,
+                None,
+                None,
+                None,
+                "VTO",
+                "VARIAZIONE DI TOPONOMASTICA",
+                None,
+                None,
+                None,
+            ),
+        ]
+        self.assertEqual(results, expected_results)
+
+    def test_curiserv(self):
+        results = get_curiserv()
+        expected_results = [("A054", " ", 41450, "F", 3, "1", "1000942")]
+        self.assertEqual(results, expected_results)
+
+    def test_ctpartic(self):
+        results = get_ctpartic()
+        expected_results = [
+            (
+                "H501",
+                "A",
+                2598,
+                "T",
+                2,
+                130,
+                "00150",
+                None,
+                None,
+                None,
+                279,
+                "00",
+                0,
+                3,
+                67,
+                "1",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "01010001",
+                "28071988",
+                "F",
+                "243175",
+                "000",
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                "0103625",
+                None,
+                684232,
+                None,
+                "FRZ",
+                None,
+                None,
+                None,
+            ),
+            (
+                "A054",
+                " ",
+                62761,
+                "T",
+                1,
+                1,
+                "00001",
+                None,
+                None,
+                None,
+                1,
+                "04",
+                0,
+                52,
+                10,
+                "0",
+                "0",
+                "0",
+                "8857",
+                "8857",
+                "4,57",
+                "4,57",
+                "01010001",
+                "20091975",
+                "I",
+                None,
+                "000",
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                "0000172",
+                None,
+                264837,
+                None,
+                None,
+                None,
+                None,
+                None,
+            ),
+        ]
+        self.assertEqual(results, expected_results)
+
+    def test_ctdeduzi(self):
+        results = get_ctdeduzi()
+        expected_results = [("D452", " ", 1467499, "T", 4, "A1")]
+        self.assertEqual(results, expected_results)
+
+    def test_ctporzio(self):
+        results = get_ctporzio()
+        expected_results = [
+            (
+                "A054",
+                " ",
+                1467478,
+                "T",
+                3,
+                "AA",
+                36,
+                "02",
+                0,
+                12,
+                0,
+                "5,58",
+                "2,79",
+            ),
+            ("A054", " ", 1467478, "T", 3, "AB", 1, "00", 0, 0, 98, "0", "0"),
+        ]
+        self.assertEqual(results, expected_results)
+
+    def test_archive_map(self):
+        archive_map_func = "ctmp.archivia_mappa"
+        water_result = get_waters("ctmp_a")
+        self.assertEqual(0, len(water_result))
+        trust_result = get_trusts("ctmp_a")
+        self.assertEqual(0, len(trust_result))
+        dress_line_result = get_dress_lines("ctmp_a")
+        self.assertEqual(0, len(dress_line_result))
+        text_result = get_texts("ctmp_a")
+        self.assertEqual(0, len(text_result))
+        symbol_result = get_symbols("ctmp_a")
+        self.assertEqual(0, len(symbol_result))
+        street_result = get_streets("ctmp_a")
+        self.assertEqual(0, len(street_result))
+        metadata_result = get_metadata("ctmp_a")
+        self.assertEqual(0, len(metadata_result))
+        dal.engine.execute(
+            text(
+                f"SELECT {archive_map_func}('H501', 'A', '130', '0', '0', 2);"
+            ).execution_options(autocommit=True)
+        )
+        water_result = get_waters("ctmp_a")
+        self.assertEqual(1, len(water_result))
+        trust_result = get_trusts("ctmp_a")
+        self.assertEqual(1, len(trust_result))
+        dress_line_result = get_dress_lines("ctmp_a")
+        self.assertEqual(1, len(dress_line_result))
+        text_result = get_texts("ctmp_a")
+        self.assertEqual(1, len(text_result))
+        symbol_result = get_symbols("ctmp_a")
+        self.assertEqual(1, len(symbol_result))
+        street_result = get_streets("ctmp_a")
+        self.assertEqual(1, len(street_result))
+        metadata_result = get_metadata("ctmp_a")
+        self.assertEqual(1, len(metadata_result))
+
+        metadata_result = get_metadata("ctmp")
+        self.assertEqual(2, len(metadata_result))
+        dal.engine.execute(
+            text(
+                f"SELECT {archive_map_func}('AAAA', 'A', '130', '0', '0', 1);"
+            ).execution_options(autocommit=True)
+        )
+        metadata_result = get_metadata("ctmp")
+        self.assertEqual(1, len(metadata_result))

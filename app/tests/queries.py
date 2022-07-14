@@ -290,3 +290,83 @@ def get_legal_subject(vat_number: str = "null", business_name: str = "null"):
         """
     )
     return dal.connection.execute(statement).fetchall()
+
+
+def get_cttitola():
+    statement = text("select * from ctcn.cuindiri")
+    return dal.connection.execute(statement).fetchall()
+
+
+def get_cuidenti():
+    statement = text("select * from ctcn.cuidenti")
+    return dal.connection.execute(statement).fetchall()
+
+
+def get_cuindiri():
+    statement = text("select * from ctcn.cuindiri")
+    return dal.connection.execute(statement).fetchall()
+
+
+def get_cuutilit():
+    statement = text("select * from ctcn.cuutilit")
+    return dal.connection.execute(statement).fetchall()
+
+
+def get_cuarcuiu():
+    statement = text("select * from ctcn.cuarcuiu")
+    return dal.connection.execute(statement).fetchall()
+
+
+def get_curiserv():
+    statement = text("select * from ctcn.curiserv")
+    return dal.connection.execute(statement).fetchall()
+
+
+def get_ctpartic():
+    statement = text("select * from ctcn.ctpartic")
+    return dal.connection.execute(statement).fetchall()
+
+
+def get_ctdeduzi():
+    statement = text("select * from ctcn.ctdeduzi")
+    return dal.connection.execute(statement).fetchall()
+
+
+def get_ctporzio():
+    statement = text("select * from ctcn.ctporzio")
+    return dal.connection.execute(statement).fetchall()
+
+
+def get_metadata(schema):
+    statement = text(f"select * from {schema}.metadati")
+    return dal.connection.execute(statement).fetchall()
+
+
+def get_waters(schema):
+    statement = text(f"select * from {schema}.acque")
+    return dal.connection.execute(statement).fetchall()
+
+
+def get_trusts(schema):
+    statement = text(f"select * from {schema}.fiduciali")
+    return dal.connection.execute(statement).fetchall()
+
+
+def get_dress_lines(schema):
+    statement = text(f"select * from {schema}.linee_vest")
+    return dal.connection.execute(statement).fetchall()
+
+
+def get_texts(schema):
+    statement = text(f"select * from {schema}.testi")
+    return dal.connection.execute(statement).fetchall()
+
+
+def get_symbols(schema):
+    statement = text(f"select * from {schema}.simboli")
+    return dal.connection.execute(statement).fetchall()
+
+
+def get_streets(schema):
+    statement = text(f"select * from {schema}.strade")
+    return dal.connection.execute(statement).fetchall()
