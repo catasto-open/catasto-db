@@ -397,7 +397,7 @@ layers = [
                                 "name": "sectionCode",
                                 "defaultValue": "A",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
-                            }
+                            },
                         ],
                         "geometry": [
                             {
