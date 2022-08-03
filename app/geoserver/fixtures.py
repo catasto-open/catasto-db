@@ -374,23 +374,31 @@ layers = [
                     "virtualTable": {
                         "name": "catasto_fogli",
                         "sql": """select cityCode,
-                        section, sheet, number, geom,
-                        st_envelope(geom) as extent
-                        from (select f.foglio::integer as number,
-                        f.comune as cityCode,
-                        f.sezione as section,
-                        f.foglio  as sheet,
-                        st_transform(st_setsrid(st_extent(f.geom),3004),3857)
-                        as geom FROM ctmp.fogli f
-                        where f.comune = '%cityCode%'
-                        group by 1,2,3,4) as sheets
-                        order by 1""",
+                            section, sheet, number, geom,
+                            st_envelope(geom) as extent
+                            from (select f.foglio::integer as number,
+                            f.comune as cityCode,
+                            f.sezione as section,
+                            f.foglio  as sheet,
+                            st_transform(st_setsrid(st_extent(f.geom),3004),3857)
+                            as geom FROM ctmp.fogli f
+                            where f.comune = '%cityCode%'
+                            and f.sezione = '%sectionCode%'
+                            group by 1,2,3,4) as sheets
+                            order by 1""",
                         "escapeSql": False,
-                        "parameter": {
-                            "name": "cityCode",
-                            "defaultValue": "H501",
-                            "regexpValidator": "^[\\w\\d\\s]+$",
-                        },
+                        "parameter": [
+                            {
+                                "name": "cityCode",
+                                "defaultValue": "H501",
+                                "regexpValidator": "^[\\w\\d\\s]+$",
+                            },
+                            {
+                                "name": "sectionCode",
+                                "defaultValue": "A",
+                                "regexpValidator": "^[\\w\\d\\s]+$",
+                            },
+                        ],
                         "geometry": [
                             {
                                 "name": "extent",
@@ -551,6 +559,7 @@ layers = [
                         and f.numero = vf.particella
                         where vf.codice = '%cityCode%'
                         and vf.foglio = '%citySheet%'
+                        and f.sezione = '%sectionCode%'
                         and vf.data_inizio<='%checkDate%'
                         and vf.data_fine_f>='%checkDate%' group by 1,2,3,4
                         order by 1,2,3,4""",
@@ -564,6 +573,11 @@ layers = [
                             {
                                 "name": "cityCode",
                                 "defaultValue": "H501",
+                                "regexpValidator": "^[\\w\\d\\s]+$",
+                            },
+                            {
+                                "name": "sectionCode",
+                                "defaultValue": "A",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
@@ -732,6 +746,7 @@ layers = [
                         and p.numero = vt.particella
                         where vt.codice = '%cityCode%'
                         and vt.foglio::text = '%citySheet%'
+                        and p.sezione = '%sectionCode%'
                         and vt.data_inizio<='%checkDate%'
                         and vt.data_fine_f>='%checkDate%'
                         group by 1,2,3,4
@@ -746,6 +761,11 @@ layers = [
                             {
                                 "name": "cityCode",
                                 "defaultValue": "H501",
+                                "regexpValidator": "^[\\w\\d\\s]+$",
+                            },
+                            {
+                                "name": "sectionCode",
+                                "defaultValue": "A",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
