@@ -382,20 +382,21 @@ layers = [
                             f.foglio  as sheet,
                             st_transform(st_setsrid(st_extent(f.geom),3004),3857)
                             as geom FROM ctmp.fogli f
-                            where f.comune = '%cityCode%' and f.sezione = '%sectionCode%'
+                            where f.comune = '%cityCode%'
+                            and f.sezione = '%sectionCode%'
                             group by 1,2,3,4) as sheets
                             order by 1""",
                         "escapeSql": False,
                         "parameter": [
                             {
-                            "name": "cityCode",
-                            "defaultValue": "H501",
-                            "regexpValidator": "^[\\w\\d\\s]+$",
+                                "name": "cityCode",
+                                "defaultValue": "H501",
+                                "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
-                            "name": "sectionCode",
-                            "defaultValue": "A",
-                            "regexpValidator": "^[\\w\\d\\s]+$",
+                                "name": "sectionCode",
+                                "defaultValue": "A",
+                                "regexpValidator": "^[\\w\\d\\s]+$",
                             }
                         ],
                         "geometry": [
