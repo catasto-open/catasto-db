@@ -364,7 +364,7 @@ class TestApp(unittest.TestCase):
             "request": "GetFeature",
             "outputFormat": "application/json",
             "typename": cnf.APP_CONFIG.CATASTO_OPEN_SHEET_LAYER,
-            "viewparams": "cityCode:H501",
+            "viewparams": "cityCode:H501;sectionCode:A",
         }
         response = requests.get(
             f"{cnf.GEOSERVER_HOST}:"
@@ -374,7 +374,7 @@ class TestApp(unittest.TestCase):
         )
         self.assertEqual(response.status_code, 200)
         payload = json.loads(response.text)
-        self.assertEqual(payload["totalFeatures"], 5)
+        self.assertEqual(payload["totalFeatures"], 2)
         feature_properties = [
             feature["properties"] for feature in payload["features"]
         ]
@@ -400,24 +400,6 @@ class TestApp(unittest.TestCase):
                 },
                 {
                     "citycode": "H501",
-                    "section": "D",
-                    "sheet": "172",
-                    "number": 172,
-                    "extent": {
-                        "type": "Polygon",
-                        "coordinates": [
-                            [
-                                [1369900.39056724, 5155038.92977726],
-                                [1369900.39056724, 5157504.7637019],
-                                [1373255.91403264, 5157504.7637019],
-                                [1373255.91403264, 5155038.92977726],
-                                [1369900.39056724, 5155038.92977726],
-                            ]
-                        ],
-                    },
-                },
-                {
-                    "citycode": "H501",
                     "section": "A",
                     "sheet": "233",
                     "number": 233,
@@ -430,42 +412,6 @@ class TestApp(unittest.TestCase):
                                 [1388353.80966146, 5153763.78376202],
                                 [1388353.80966146, 5152884.72421506],
                                 [1387128.67536244, 5152884.72421506],
-                            ]
-                        ],
-                    },
-                },
-                {
-                    "citycode": "H501",
-                    "section": "C",
-                    "sheet": "1022",
-                    "number": 1022,
-                    "extent": {
-                        "type": "Polygon",
-                        "coordinates": [
-                            [
-                                [1408471.24163237, 5141920.13648909],
-                                [1408471.24163237, 5143296.38146633],
-                                [1410776.99180655, 5143296.38146633],
-                                [1410776.99180655, 5141920.13648909],
-                                [1408471.24163237, 5141920.13648909],
-                            ]
-                        ],
-                    },
-                },
-                {
-                    "citycode": "H501",
-                    "section": "B",
-                    "sheet": "1093",
-                    "number": 1093,
-                    "extent": {
-                        "type": "Polygon",
-                        "coordinates": [
-                            [
-                                [1363775.89813331, 5121687.23708723],
-                                [1363775.89813331, 5122200.09092516],
-                                [1364657.0169756, 5122200.09092516],
-                                [1364657.0169756, 5121687.23708723],
-                                [1363775.89813331, 5121687.23708723],
                             ]
                         ],
                     },
@@ -483,28 +429,10 @@ class TestApp(unittest.TestCase):
                     5155264.60924713,
                 ],
                 [
-                    1369900.39056724,
-                    5155038.92977726,
-                    1373255.91403264,
-                    5157504.7637019,
-                ],
-                [
                     1387128.67536244,
                     5152884.72421506,
                     1388353.80966146,
                     5153763.78376202,
-                ],
-                [
-                    1408471.24163237,
-                    5141920.13648909,
-                    1410776.99180655,
-                    5143296.38146633,
-                ],
-                [
-                    1363775.89813331,
-                    5121687.23708723,
-                    1364657.0169756,
-                    5122200.09092516,
                 ],
             ],
             bboxes,
@@ -517,7 +445,7 @@ class TestApp(unittest.TestCase):
             "request": "GetFeature",
             "outputFormat": "application/json",
             "typename": cnf.APP_CONFIG.CATASTO_OPEN_LAND_LAYER,
-            "viewparams": f"cityCode:H501;"
+            "viewparams": f"cityCode:H501;sectionCode:A;"
             f"citySheet:130;"
             f"checkDate:"
             f"{datetime.datetime.today().strftime('%Y-%m-%d')}",
@@ -565,7 +493,7 @@ class TestApp(unittest.TestCase):
             "request": "GetFeature",
             "outputFormat": "application/json",
             "typename": cnf.APP_CONFIG.CATASTO_OPEN_BUILDING_LAYER,
-            "viewparams": f"cityCode:H501;"
+            "viewparams": f"cityCode:H501;sectionCode:A;"
             f"citySheet:130;"
             f"checkDate:"
             f"{datetime.datetime.today().strftime('%Y-%m-%d')}",
