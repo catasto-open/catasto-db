@@ -1,0 +1,121 @@
+{
+    "H224-315-T": [
+        {
+            "nominative": "ALICE ALICE",
+            "fiscalcode": "AAAAAAAAAAAAAAAA",
+            "city": "REGGIO DI CALABRIA",
+            "right": "Proprieta'",
+            "part": "1/2",
+            "startdate": "2022-07-02",
+            "enddate": "2022-08-06"
+        },
+        {
+            "nominative": "BOB BOB",
+            "fiscalcode": "BBBBBBBBBBBBBBBB",
+            "city": "REGGIO DI CALABRIA",
+            "right": "Proprieta'",
+            "part": "1/2",
+            "startdate": "2022-07-02",
+            "enddate": "2022-08-06"
+        }
+    ],
+    "H224-318-T": [
+        {
+            "nominative": "ALICE ALICE",
+            "fiscalcode": "AAAAAAAAAAAAAAAA",
+            "city": "REGGIO DI CALABRIA",
+            "right": "Proprieta'",
+            "part": "1/1",
+            "startdate": "2022-06-02",
+            "enddate": "2022-07-01"
+        }
+    ],
+    "H224-319-T": [
+        {
+            "nominative": "BOB BOB",
+            "fiscalcode": "BBBBBBBBBBBBBBBB",
+            "city": "REGGIO DI CALABRIA",
+            "right": "Proprieta'",
+            "part": "1/1",
+            "startdate": "2022-06-01",
+            "enddate": "2022-07-01"
+        }
+    ],
+    "H224-320-T": [
+        {
+            "nominative": "ALICE ALICE",
+            "fiscalcode": "AAAAAAAAAAAAAAAA",
+            "city": "REGGIO DI CALABRIA",
+            "right": "Proprieta'",
+            "part": "1/1",
+            "startdate": "2022-07-01",
+            "enddate": "2022-08-06"
+        }
+    ],
+    "H224-321-T": [
+        {
+            "nominative": "BOB BOB",
+            "fiscalcode": "BBBBBBBBBBBBBBBB",
+            "city": "REGGIO DI CALABRIA",
+            "right": "Proprieta'",
+            "part": "1/1",
+            "startdate": "2022-07-01",
+            "enddate": "2022-08-06"
+        }
+    ],
+    "H224-734-T": [
+        {
+            "nominative": "BOB BOB",
+            "fiscalcode": "BBBBBBBBBBBBBBBB",
+            "city": "REGGIO DI CALABRIA",
+            "right": "Proprieta'",
+            "part": "1/1",
+            "startdate": "2022-06-01",
+            "enddate": "2022-07-01"
+        }
+    ],
+    "H224-335-F": [
+        {
+            "nominative": "FOO S.R.L",
+            "fiscalcode": "00101010101",
+            "city": "REGGIO DI CALABRIA",
+            "right": "Proprieta'",
+            "part": "1000/1000",
+            "startdate": "2022-06-01",
+            "enddate": "2022-07-01"
+        }
+    ],
+    "H224-334-F": [
+        {
+            "nominative": "FOO S.R.L",
+            "fiscalcode": "00101010101",
+            "city": "REGGIO DI CALABRIA",
+            "right": "Proprieta'",
+            "part": "1000/1000",
+            "startdate": "2022-06-01",
+            "enddate": "2022-08-06"
+        }
+    ],
+    "H224-558-F": [
+        {
+            "nominative": "FOO S.R.L",
+            "fiscalcode": "00101010101",
+            "city": "REGGIO DI CALABRIA",
+            "right": "Proprieta'",
+            "part": "1000/1000",
+            "startdate": "2022-06-01",
+            "enddate": "2022-08-06"
+        }
+    ],
+    "H224-559-F": [
+        {
+            "nominative": "FOO S.R.L",
+            "fiscalcode": "00101010101",
+            "city": "REGGIO DI CALABRIA",
+            "right": "Proprieta'",
+            "part": "1000/1000",
+            "startdate": "2022-06-01",
+            "enddate": "2022-07-01"
+        }
+    ]
+}

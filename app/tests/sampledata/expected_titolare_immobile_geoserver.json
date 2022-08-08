@@ -1,0 +1,20 @@
+[
+    {
+        "nominative": "ALICE ALICE",
+        "fiscalcode": "AAAAAAAAAAAAAAAA",
+        "city": "REGGIO DI CALABRIA",
+        "right": "Proprieta'",
+        "part": "1/2",
+        "startdate": "2022-07-02",
+        "enddate": "2022-08-06"
+    },
+    {
+        "nominative": "BOB BOB",
+        "fiscalcode": "BBBBBBBBBBBBBBBB",
+        "city": "REGGIO DI CALABRIA",
+        "right": "Proprieta'",
+        "part": "1/2",
+        "startdate": "2022-07-02",
+        "enddate": "2022-08-06"
+    }
+]

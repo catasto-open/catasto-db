@@ -1,0 +1,16 @@
+[
+    {
+        "codice" : "H224",
+        "provincia" : "RC",
+        "comune" : "REGGIO DI CALABRIA",
+        "comune_straniero" : null,
+        "codice_catastale" : "T1AA",
+        "ufficio_terreni" : "RC",
+        "ufficio_catasto" : "RC",
+        "conservatoria" : "RC00",
+        "istat" : "80063",
+        "data_inizio" : "1865-12-25",
+        "data_variazione" : null,
+        "tipo" : "A"
+    }
+]

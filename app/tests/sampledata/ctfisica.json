@@ -1,0 +1,28 @@
+[
+    {
+        "codice": "H224",
+        "sezione": "A",
+        "soggetto": 2,
+        "tipo_sog": "P",
+        "cognome": "ALICE",
+        "nome": "ALICE",
+        "sesso": "2",
+        "data": "15081940",
+        "luogo": "H224",
+        "codfiscale": "AAAAAAAAAAAAAAAA",
+        "supplement": null
+    },
+    {
+        "codice": "H224",
+        "sezione": "A",
+        "soggetto": 1,
+        "tipo_sog": "P",
+        "cognome": "BOB",
+        "nome": "BOB",
+        "sesso": "1",
+        "data": "26121939",
+        "luogo": "H224",
+        "codfiscale": "BBBBBBBBBBBBBBBB",
+        "supplement": null
+    }
+]

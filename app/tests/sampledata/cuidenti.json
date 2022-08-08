@@ -1,0 +1,56 @@
+[
+    {
+        "codice": "H224",
+        "sezione": "A",
+        "immobile": 558,
+        "tipo_imm": "F",
+        "progressiv": 2,
+        "sez_urbana": null,
+        "foglio": "0003",
+        "numero": "00006",
+        "denominato": null,
+        "subalterno": "0001",
+        "edificiale": null
+    },
+    {
+        "codice": "H224",
+        "sezione": "A",
+        "immobile": 559,
+        "tipo_imm": "F",
+        "progressiv": 2,
+        "sez_urbana": null,
+        "foglio": "0003",
+        "numero": "00006",
+        "denominato": null,
+        "subalterno": "0002",
+        "edificiale": null
+    },
+    {
+        "codice" : "H224",
+        "sezione" : "A",
+        "immobile" : 334,
+        "tipo_imm" : "F",
+        "progressiv" : 3,
+        "sez_urbana" : null,
+        "foglio" : "0002",
+        "numero" : "00001",
+        "denominato" : null,
+        "subalterno" : "0003",
+        "edificiale" : null
+    },
+    {
+        "codice" : "H224",
+        "sezione" : "A",
+        "immobile" : 335,
+        "tipo_imm" : "F",
+        "progressiv" : 3,
+        "sez_urbana" : null,
+        "foglio" : "0002",
+        "numero" : "00001",
+        "denominato" : null,
+        "subalterno" : "0004",
+        "edificiale" : null
+    }
+]
+
+    
