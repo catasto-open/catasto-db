@@ -32,7 +32,7 @@ def check_database(ctx):
 
 @task
 def test_catasto_open(ctx):
-    ctx.run("python -m unittest app/tests/app.py")
+    ctx.run("python -m unittest -v app/tests/app.py")
 
 
 @task
