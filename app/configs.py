@@ -238,7 +238,7 @@ class AppConfig(BaseModel):
         order by 1,2,3,4
     """
 
-    VIEW_QUERY_TERENNO_DETAIL = """
+    VIEW_QUERY_TERRENNO_DETAIL = """
     select vt.immobile as property,
         vt.tipo_imm as propertyType,
         vt.subalterno as subordinate,

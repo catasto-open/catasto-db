@@ -635,7 +635,7 @@ class GeoServer(unittest.TestCase):
         ]
         self.assertEqual(feature_properties, expectedResponses)
 
-    def test_geoserver_soggeti(self):
+    def test_geoserver_soggetti(self):
         expectedResponses = get_json_from_file("expected_soggetti_geoserver")
         params = {
             "service": "WFS",
@@ -816,7 +816,7 @@ class TemporalGeoServer(unittest.TestCase):
                 startDate=stuff["startdate"], endDate=stuff["enddate"]
             )
 
-    def test_ricerca_persone_guiridiche(self):
+    def test_ricerca_persone_giuridiche(self):
         view_params = "vatNumber:'00101010101';"
         persona = self.__ask_geoserver(
             layer=cnf.APP_CONFIG.CATASTO_OPEN_LEGAL_SUBJECT_LAYER,

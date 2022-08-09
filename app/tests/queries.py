@@ -108,7 +108,7 @@ def get_terreno_detail(
     if not endDate:
         endDate = date.today().strftime("%Y-%m-%d")
     statement = text(
-        cnf.APP_CONFIG.VIEW_QUERY_TERENNO_DETAIL.format(
+        cnf.APP_CONFIG.VIEW_QUERY_TERRENNO_DETAIL.format(
             cityCode, sheetCode, number, startDate, endDate
         )
     )

@@ -1603,7 +1603,7 @@ layers = [
                     "@key": "JDBC_VIRTUAL_TABLE",
                     "virtualTable": {
                         "name": cnf.APP_CONFIG.CATASTO_OPEN_LAND_DETAIL_LAYER,
-                        "sql": cnf.APP_CONFIG.VIEW_QUERY_TERENNO_DETAIL.format(
+                        "sql": cnf.APP_CONFIG.VIEW_QUERY_TERRENNO_DETAIL.format(  # noqa
                             "%cityCode%",
                             "%citySheet%",
                             "%landNumber%",
