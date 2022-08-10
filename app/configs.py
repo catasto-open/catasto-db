@@ -30,6 +30,19 @@ class AppConfig(BaseModel):
     CATASTO_OPEN_LAND_DETAIL_LAYER = "catasto_dettagli_terreno"
     CATASTO_OPEN_BUILDING_DETAIL_LAYER = "catasto_dettagli_fabbricato"
     CATASTO_OPEN_PROPERTY_OWNER_LAYER = "catasto_titolari_immobile"
+    CATASTO_OPEN_CITY_LAYER_TEMP = "catasto_comuni_temp"
+    CATASTO_OPEN_SECTION_LAYER_TEMP = "catasto_sezioni_temp"
+    CATASTO_OPEN_SHEET_LAYER_TEMP = "catasto_fogli_temp"
+    CATASTO_OPEN_LAND_LAYER_TEMP = "catasto_terreni_temp"
+    CATASTO_OPEN_BUILDING_LAYER_TEMP = "catasto_fabbricati_temp"
+    CATASTO_OPEN_SUBJECT_PROPERTY_LAYER_TEMP = (
+        "catasto_particelle_soggetto_temp"
+    )
+    CATASTO_OPEN_LAND_DETAIL_LAYER_TEMP = "catasto_dettagli_terreno_temp"
+    CATASTO_OPEN_BUILDING_DETAIL_LAYER_TEMP = (
+        "catasto_dettagli_fabbricato_temp"
+    )
+    CATASTO_OPEN_PROPERTY_OWNER_LAYER_TEMP = "catasto_titolari_immobile_temp"
 
     CTCN_COMUNI: str = "ctcn:comuni"
     CTCN_COMUNI_: str = "ctcn:comuni_"
@@ -57,35 +70,35 @@ class AppConfig(BaseModel):
     VIEW_QUERY_COMUNI_ = """
     select codice as code,
         comune as name
-        from ctcn.comuni_ t
-        where t.tipo='A'
-        and t.data_inizio <= '{1}'
+    from ctcn.comuni_ t
+        where t.tipo = 'A'
         and t.comune ilike '{0}%'||'%' order by 1
     """
 
     VIEW_QUERY_SEZIONI_ = """
-        select s.sezione as name from ctcn.sezioni_ s
+    select s.sezione as name
+    from ctcn.sezioni_ s
         inner join ctcn.comuni_ c
         on (c.codice = s.codice)
         where c.codice = '{0}'
         and
-        c.data_inizio <= '{1}'
+        c.tipo = 'A'
         group by s.sezione order by 1
     """
 
     VIEW_QUERY_FOGLI = """
-        select tab.codice as citycode,
-            tab.sezione as section,
-            tab.foglio as sheet,
-            tab.foglio::integer as number,
-            st_transform(
-                st_setsrid(
-                    st_union(tab.geom),3004),3857)
-                    as geom,
-            st_transform(
-                st_setsrid(
-                    st_union(tab.extent),3004),3857)
-                    as extent
+    select tab.codice as citycode,
+        tab.sezione as section,
+        tab.foglio as sheet,
+        tab.foglio::integer as number,
+        st_transform(
+            st_setsrid(
+                st_union(tab.geom),3004),3857)
+                as geom,
+        st_transform(
+            st_setsrid(
+                st_union(tab.extent),3004),3857)
+                as extent
         from (
             select distinct t.codice,
                 t.sezione,
@@ -108,37 +121,323 @@ class AppConfig(BaseModel):
                 t.foglio = f.foglio::integer
                 )
             where t.codice = '{0}' AND t.sezione = '{1}'
-                and (
-                    '{2}' between
-                        to_date(t.gen_eff::text,'DDMMYYYY')
-                        and
-                        coalesce(
-                            to_date(t.con_eff::text,'DDMMYYYY'),
-                            (('now'::text)::date + 1)
-                            )
-                    or
-                    '{3}' between
-                        to_date(t.gen_eff::text,'DDMMYYYY')
-                        and
-                        coalesce(
-                            to_date(t.con_eff::text,'DDMMYYYY'),
-                            (('now'::text)::date + 1)
-                            )
-                    or
-                    to_date(t.gen_eff::text,'DDMMYYYY') between
-                    '{2}' and '{3}'
-                    or
+                and
                     coalesce(
                         to_date(t.con_eff::text,'DDMMYYYY'),
-                        (('now'::text)::date + 1)) between
-                     '{2}' and '{3}'
-                    )
-                )
+                        (('now'::text)::date + 1)) >= ('now'::text)::date
+            )
             tab
-            group by tab.codice,tab.sezione,tab.foglio
+        group by tab.codice,tab.sezione,tab.foglio
     """
 
     VIEW_QUERY_FABBRICATI = """
+    select vf.codice as cityCode,
+        f.sezione as section,
+        vf.foglio as sheet,
+        vf.numero_f as number,
+        st_transform(st_setsrid(st_extent(f.geom),3004),3857)
+        as geom,
+        st_envelope(st_transform(
+        st_setsrid(st_extent(f.geom),3004),3857))
+        as extent
+    from ctcn.v_fabbricati vf
+        right join ctmp.fabbricati f
+        on
+            f.comune = vf.codice
+            and f.foglio = vf.foglio
+            and f.numero = vf.particella
+        where
+            vf.codice = '{0}'
+            and f.sezione = '{1}'
+            and vf.foglio = '{2}'
+            and vf.data_inizio <= ('now'::text)::date
+            and vf.data_fine_f >= ('now'::text)::date
+        group by 1,2,3,4
+        order by 1,2,3,4
+    """
+
+    VIEW_QUERY_FABBRICATI_DETAIL = """
+    select vf.subalterno as subordinate,
+        vf.immobile as property,
+        vf.tipo_imm as propertyType,
+        vf.zona_censuaria as censusZone,
+        vf.categoria as category,
+        vf.classe as _class,
+        vf.consistenza as consistency,
+        vf.rendita as rent,
+        vf.partita as lot,
+        vf.data_inizio as startDate,
+        vf.data_fine_f as endDate
+    from ctcn.v_fabbricati vf
+        where
+            vf.codice = '{0}'
+            and vf.foglio = '{1}'
+            and vf.numero_f = '{2}'
+            and vf.data_inizio <= ('now'::text)::date
+            and vf.data_fine_f >= ('now'::text)::date
+    order by 1
+    """
+
+    VIEW_QUERY_TERRENI = """
+    select vt.codice as cityCode,
+        vt.foglio as sheet,
+        vt.numero_f as number,
+        p.sezione as section,
+        st_transform(st_setsrid(
+            st_extent(p.geom),3004),3857)
+            as geom,
+        st_envelope(
+            st_transform(
+                st_setsrid(
+                    st_extent(p.geom),3004),3857))
+                    as extent
+    from ctcn.v_terreni vt
+        right join ctmp.particelle p
+        on
+            p.comune = vt.codice
+            and p.foglio = vt.foglio::text
+            and p.numero = vt.particella
+        where
+            vt.codice = '{0}'
+            and p.sezione = '{1}'
+            and vt.foglio::text = '{2}'
+            and vt.data_inizio <= ('now'::text)::date
+            and vt.data_fine_f >= ('now'::text)::date
+        group by 1,2,3,4
+        order by 1,2,3,4
+    """
+
+    VIEW_QUERY_TERRENO_DETAIL = """
+    select vt.immobile as property,
+        vt.tipo_imm as propertyType,
+        vt.subalterno as subordinate,
+        vt.qualita  as quality,
+        vt.classe as class,
+        vt.ettari as hectares,
+        vt.are, vt.centiare,
+        vt.partita as lot,
+        vt.reddito_dominicale as cadastralRent,
+        vt.reddito_agrario as agriculturalRent,
+        vt.data_inizio as startDate,
+        vt.data_fine_f as endDate
+    from ctcn.v_terreni vt
+        where
+            vt.codice = '{0}'
+            and vt.foglio = '{1}'
+            and vt.numero_f = '{2}'
+            and vt.data_inizio <= ('now'::text)::date
+            and vt.data_fine_f >= ('now'::text)::date
+    order by 1
+    """
+
+    VIEW_QUERY_TITOLARI_IMMOBILE = """
+    select vipg.nominativo as nominative,
+        vipg.codice_fiscale as fiscalCode,
+        vipg.comune_sede as city,
+        vipg.titolo as right,
+        vipg.quota as part,
+        vipg.data_inizio as startDate,
+        vipg.data_fine_f as endDate
+    from ctcn.v_immobili_pg vipg
+        where
+            vipg.immobile={1}
+            and vipg.tipo_imm='{2}'
+            and vipg.codice='{0}'
+            and vipg.data_inizio <= ('now'::text)::date
+            and vipg.data_fine_f >= ('now'::text)::date
+    union
+    select vipf.nominativo as nominative,
+        vipf.codice_fiscale as fiscalCode,
+        vipf.comune_nascita as city,
+        vipf.titolo as right,
+        vipf.quota as part,
+        vipf.data_inizio as startDate,
+        vipf.data_fine_f as endDate
+    from ctcn.v_immobili_pf vipf
+        where vipf.immobile={1}
+            and vipf.codice='{0}'
+            and vipf.tipo_imm='{2}'
+            and vipf.data_inizio <= ('now'::text)::date
+            and vipf.data_fine_f >= ('now'::text)::date
+    """
+
+    VIEW_QUERY_SOGGETTI = """
+    (select buildings.cityCode,
+        buildings.section,
+        buildings.sheet,
+        buildings.number,
+        st_transform(
+            st_setsrid(
+                ST_Envelope(buildings.geom),3004),3857)
+                as geom,
+        st_envelope(
+            st_transform(
+                st_setsrid(
+                    ST_Envelope(buildings.geom),3004),3857))
+                    as extent,
+        vsf.ubicazione as city,
+        vsf.subalterno as subordinate,
+        vsf.titolo as right,
+        vsf.quota as part,
+        vsf.classamento as classification,
+        vsf.classe as class,
+        vsf.consistenza as consistency,
+        vsf.rendita as income,
+        vsf.partita as lot,
+        vsf.tipo_immobile as propertyType,
+        vsf.data_inizio as startDate,
+        vsf.data_fine_f as endDate
+    from (
+        select f.comune as cityCode,
+            f.sezione  as section,
+            f.foglio  as sheet,
+            f.numero as number,
+            f.geom
+            from ctmp.fabbricati f
+        ) as buildings
+        right join ctcn.v_soggetti_fabbricati vsf
+        on
+            buildings.number = vsf.particella
+            and buildings.cityCode = vsf.codice
+            and buildings.sheet = vsf.foglio
+            where vsf.soggetto in ({0})
+                and vsf.tipo_sog='{1}'
+                and vsf.data_inizio <= ('now'::text)::date
+                and vsf.data_fine_f >= ('now'::text)::date
+    )
+    union
+    (select lands.cityCode,
+        lands.section,
+        lands.sheet,
+        lands.number,
+        st_transform(
+            st_setsrid(
+                ST_Envelope(lands.geom),3004),3857)
+                as geom,
+        st_envelope(st_transform(
+            st_setsrid(
+                ST_Envelope(lands.geom),3004),3857))
+                as extent,
+        vst.ubicazione as city,
+        vst.subalterno as subordinate,
+        vst.titolo as right,
+        vst.quota as part,
+        vst.classamento as classification,
+        vst.classe as class,
+        vst.consistenza as consistency,
+        vst.rendita as income,
+        vst.partita as lot,
+        vst.tipo_immobile as propertyType,
+        vst.data_inizio as startDate,
+        vst.data_fine_f as endDate
+        from (
+            select p.comune as cityCode,
+                p.sezione as section,
+                p.foglio as sheet,
+                p.numero as number,
+                p.geom
+                from ctmp.particelle p
+            )
+            as lands
+            inner join ctcn.v_soggetti_terreni vst
+            on
+                lands.number = vst.particella
+                and lands.cityCode = vst.codice
+                and lands.sheet = vst.foglio
+                where vst.soggetto in ({0})
+                    and vst.tipo_sog='{1}'
+                    and vst.data_inizio <= ('now'::text)::date
+                    and vst.data_fine_f >= ('now'::text)::date
+    )
+    order by 1,2,3,4
+    """
+
+    VIEW_QUERY_COMUNI_TEMP = """
+    select codice as code,
+        comune as name
+    from ctcn.comuni_ t
+        where t.tipo='A'
+        and t.data_inizio <= '{1}'
+        and t.comune ilike '{0}%'||'%' order by 1
+    """
+
+    VIEW_QUERY_SEZIONI_TEMP = """
+    select s.sezione as name
+    from ctcn.sezioni_ s
+    inner join ctcn.comuni_ c
+        on (c.codice = s.codice)
+        where c.codice = '{0}'
+        and
+        c.data_inizio <= '{1}'
+    group by s.sezione order by 1
+    """
+
+    VIEW_QUERY_FOGLI_TEMP = """
+    select tab.codice as citycode,
+        tab.sezione as section,
+        tab.foglio as sheet,
+        tab.foglio::integer as number,
+        st_transform(
+            st_setsrid(
+                st_union(tab.geom),3004),3857)
+                as geom,
+        st_transform(
+            st_setsrid(
+                st_union(tab.extent),3004),3857)
+                as extent
+    from (
+        select distinct t.codice,
+            t.sezione,
+            t.gen_eff,
+            t.con_eff,
+            t.foglio,
+            f.geom,
+            st_envelope(f.geom) as extent
+            from ctcn.ctpartic t
+            left outer join ctmp.fogli f
+            on (f.comune=t.codice
+            and
+            f.sezione = case
+                when t.sezione =' '
+                then '_'
+                else
+                t.sezione
+                end
+            and
+            t.foglio = f.foglio::integer
+            )
+        where t.codice = '{0}' and t.sezione = '{1}'
+            and (
+                '{2}' between
+                    to_date(t.gen_eff::text,'DDMMYYYY')
+                    and
+                    coalesce(
+                        to_date(t.con_eff::text,'DDMMYYYY'),
+                        (('now'::text)::date + 1)
+                        )
+                or
+                '{3}' between
+                    to_date(t.gen_eff::text,'DDMMYYYY')
+                    and
+                    coalesce(
+                        to_date(t.con_eff::text,'DDMMYYYY'),
+                        (('now'::text)::date + 1)
+                        )
+                or
+                to_date(t.gen_eff::text,'DDMMYYYY') between
+                '{2}' and '{3}'
+                or
+                coalesce(
+                    to_date(t.con_eff::text,'DDMMYYYY'),
+                    (('now'::text)::date + 1)) between
+                    '{2}' and '{3}'
+                )
+            )
+        tab
+        group by tab.codice,tab.sezione,tab.foglio
+    """
+
+    VIEW_QUERY_FABBRICATI_TEMP = """
     select vf.codice as cityCode,
         f.sezione as section,
         vf.foglio as sheet,
@@ -172,7 +471,7 @@ class AppConfig(BaseModel):
         order by 1,2,3,4
     """
 
-    VIEW_QUERY_FABBRICATI_DETAIL = """
+    VIEW_QUERY_FABBRICATI_DETAIL_TEMP = """
     select vf.subalterno as subordinate,
         vf.immobile as property,
         vf.tipo_imm as propertyType,
@@ -201,7 +500,7 @@ class AppConfig(BaseModel):
     order by 1
     """
 
-    VIEW_QUERY_TERRENI = """
+    VIEW_QUERY_TERRENI_TEMP = """
     select vt.codice as cityCode,
         vt.foglio as sheet,
         vt.numero_f as number,
@@ -238,7 +537,7 @@ class AppConfig(BaseModel):
         order by 1,2,3,4
     """
 
-    VIEW_QUERY_TERRENNO_DETAIL = """
+    VIEW_QUERY_TERRENO_DETAIL_TEMP = """
     select vt.immobile as property,
         vt.tipo_imm as propertyType,
         vt.subalterno as subordinate,
@@ -268,7 +567,7 @@ class AppConfig(BaseModel):
     order by 1
     """
 
-    VIEW_QUERY_TITOLARI_IMMOBILE = """
+    VIEW_QUERY_TITOLARI_IMMOBILE_TEMP = """
     select vipg.nominativo as nominative,
         vipg.codice_fiscale as fiscalCode,
         vipg.comune_sede as city,
@@ -374,7 +673,7 @@ class AppConfig(BaseModel):
         (f.denominaz  ilike {1} || '%')
     """
 
-    VIEW_QUERY_SOGGETTI = """
+    VIEW_QUERY_SOGGETTI_TEMP = """
     (select buildings.cityCode,
         buildings.section,
         buildings.sheet,
