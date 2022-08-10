@@ -12,5 +12,19 @@
         "data_inizio" : "1865-12-25",
         "data_variazione" : null,
         "tipo" : "A"
+    },
+    {
+        "codice": "H501",
+        "provincia": "RM",
+        "comune": "ROMA",
+        "comune_straniero": null,
+        "codice_catastale": "M1AA",
+        "ufficio_terreni": "RM",
+        "ufficio_catasto": "RM",
+        "conservatoria": "RM10",
+        "istat": "58091",
+        "data_inizio": "1884-09-11",
+        "data_variazione": null,
+        "tipo": "A"
     }
 ]
