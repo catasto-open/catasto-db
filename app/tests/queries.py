@@ -151,19 +151,41 @@ def get_titolari_immobile(
 
 
 def get_persone_fisica(
-    fiscalecode: str = "null", lastname: str = "null", firstname: str = "null"
+    fiscalecode: str = "null",
+    lastname: str = "null",
+    firstname: str = "null",
+    subject: str = "null",
 ):
     statement = text(
         cnf.APP_CONFIG.VIEW_QUERY_PERSONE_FISICA.format(
-            fiscalecode, lastname, firstname
+            fiscalecode, lastname, firstname, subject
         )
     )
     return dal.connection.execute(statement).fetchall()
 
 
-def get_non_fisica(vatNumber: str = "null", businessName: str = "null"):
+def get_persone_fisica_with_bday(
+    fiscalecode: str = "null",
+    lastname: str = "null",
+    firstname: str = "null",
+    birthdate: str = "null",
+    birthplace: str = "null"
+):
     statement = text(
-        cnf.APP_CONFIG.VIEW_QUERY_NON_FISICA.format(vatNumber, businessName)
+        cnf.APP_CONFIG.VIEW_QUERY_PERSONE_FISICA_WITH_BDAY.format(
+            fiscalecode, lastname, firstname, birthdate, birthplace
+        )
+    )
+    return dal.connection.execute(statement).fetchall()
+
+
+def get_non_fisica(
+    vatNumber: str = "null", businessName: str = "null", subject: str = "null"
+):
+    statement = text(
+        cnf.APP_CONFIG.VIEW_QUERY_NON_FISICA.format(
+            vatNumber, businessName, subject
+        )
     )
     return dal.connection.execute(statement).fetchall()
 
