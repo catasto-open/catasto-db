@@ -338,7 +338,7 @@ class TestApp(unittest.TestCase):
             expectedResult = []
             for each in expectedJson[f"{cityCode}-{property}-{propertyType}"]:
                 expectedResult.append(tuple(list(each.values())))
-            self.assertEqual(result, expectedResult)           
+            self.assertEqual(result, expectedResult)
 
     def test_query_persone_fisica(self):
         expectedJson = get_json_from_file("expected_persone_fisica")
@@ -364,8 +364,8 @@ class TestApp(unittest.TestCase):
             lastname="'ALICE'",
             firstname="'ALICE'",
             birthdate="'1940-08-15'",
-            birthplace="H224"
-            )
+            birthplace="H224",
+        )
         expectedResult = []
         for each in expectedJson["AAAAAAAAAAAAAAAA"]:
             expectedResult.append(tuple(list(each.values())))

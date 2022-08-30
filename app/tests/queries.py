@@ -169,7 +169,7 @@ def get_persone_fisica_with_bday(
     lastname: str = "null",
     firstname: str = "null",
     birthdate: str = "null",
-    birthplace: str = "null"
+    birthplace: str = "null",
 ):
     statement = text(
         cnf.APP_CONFIG.VIEW_QUERY_PERSONE_FISICA_WITH_BDAY.format(
