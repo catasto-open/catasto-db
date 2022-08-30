@@ -315,7 +315,7 @@
             "lot": "1",
             "propertytype": "Terreni",
             "startdate": "2022-07-02",
-            "enddate": "2022-08-11"
+            "enddate": "2022-08-06"
         },
         {
             "citycode": "H224",
@@ -360,7 +360,7 @@
             "lot": null,
             "propertytype": "Terreni",
             "startdate": "2022-07-01",
-            "enddate": "2022-08-11"
+            "enddate": "2022-08-06"
         },
         {
             "citycode": "H224",
@@ -405,7 +405,7 @@
             "lot": null,
             "propertytype": "Terreni",
             "startdate": "2022-07-01",
-            "enddate": "2022-08-11"
+            "enddate": "2022-08-06"
         }
     ]
 }
