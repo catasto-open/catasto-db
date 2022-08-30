@@ -1,0 +1,30 @@
+[
+    {
+        "codice": 76,
+        "qualita": "palmeto"
+    },
+    {
+        "codice": 150,
+        "qualita": "incolt ster"
+    },
+    {
+        "codice": 276,
+        "qualita": "costr no ab"
+    },
+    {
+        "codice": 279,
+        "qualita": "fabb rurale"
+    },
+    {
+        "codice": 280,
+        "qualita": "fabb diruto"
+    },
+    {
+        "codice": 282,
+        "qualita": "ente urbano"
+    },
+    {
+        "codice": 998,
+        "qualita": "soppresso"
+    }
+]

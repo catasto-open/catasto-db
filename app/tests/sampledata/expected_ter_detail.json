@@ -1,0 +1,159 @@
+{
+    "temp": {
+        "00001-2": [
+            {
+                "property": 315,
+                "propertytype": "T",
+                "subordinate": null,
+                "quality": "ENTE URBANO",
+                "class": "",
+                "hectares": 0,
+                "are": 18,
+                "centiare": 22,
+                "lot": "1",
+                "cadastralrent": "0",
+                "agriculturalrent": "0",
+                "startdate": "2022-07-01",
+                "enddate": "2022-08-06"
+            }
+        ],
+        "00004-2": [
+            {
+                "property": 318,
+                "propertytype": "T",
+                "subordinate": null,
+                "quality": "FABB RURALE",
+                "class": "",
+                "hectares": 0,
+                "are": 3,
+                "centiare": 20,
+                "lot": "29260",
+                "cadastralrent": "0",
+                "agriculturalrent": "0",
+                "startdate": "2022-06-01",
+                "enddate": "2022-07-01"
+            }
+        ],
+        "00005-2": [
+            {
+                "property": 319,
+                "propertytype": "T",
+                "subordinate": null,
+                "quality": "FABB DIRUTO",
+                "class": "",
+                "hectares": 0,
+                "are": 5,
+                "centiare": 0,
+                "lot": null,
+                "cadastralrent": "0",
+                "agriculturalrent": "0",
+                "startdate": "2022-06-01",
+                "enddate": "2022-07-01"
+            }
+        ],
+        "00006-2": [
+            {
+                "property": 320,
+                "propertytype": "T",
+                "subordinate": null,
+                "quality": "INCOLT STER",
+                "class": "",
+                "hectares": 0,
+                "are": 63,
+                "centiare": 98,
+                "lot": null,
+                "cadastralrent": "0",
+                "agriculturalrent": "0",
+                "startdate": "2022-07-01",
+                "enddate": "2022-08-06"
+            }
+        ],
+        "00007-2": [
+            {
+                "property": 321,
+                "propertytype": "T",
+                "subordinate": null,
+                "quality": "INCOLT STER",
+                "class": "",
+                "hectares": 0,
+                "are": 4,
+                "centiare": 53,
+                "lot": null,
+                "cadastralrent": "0",
+                "agriculturalrent": "0",
+                "startdate": "2022-07-01",
+                "enddate": "2022-08-06"
+            }
+        ],
+        "00007-3": [
+            {
+                "property": 734,
+                "propertytype": "T",
+                "subordinate": null,
+                "quality": "ENTE URBANO",
+                "class": "",
+                "hectares": 0,
+                "are": 4,
+                "centiare": 65,
+                "lot": "",
+                "cadastralrent": "0",
+                "agriculturalrent": "0",
+                "startdate": "2022-06-01",
+                "enddate": "2022-07-01"
+            }
+        ]
+    },
+    "general": {
+        "00001-2": [
+            {
+                "property": 315,
+                "propertytype": "T",
+                "subordinate": null,
+                "quality": "ENTE URBANO",
+                "class": "",
+                "hectares": 0,
+                "are": 18,
+                "centiare": 22,
+                "lot": "1",
+                "cadastralrent": "0",
+                "agriculturalrent": "0",
+                "startdate": "2022-07-01",
+                "enddate": "2022-08-06"
+            }
+        ],
+        "00006-2": [
+            {
+                "property": 320,
+                "propertytype": "T",
+                "subordinate": null,
+                "quality": "INCOLT STER",
+                "class": "",
+                "hectares": 0,
+                "are": 63,
+                "centiare": 98,
+                "lot": null,
+                "cadastralrent": "0",
+                "agriculturalrent": "0",
+                "startdate": "2022-07-01",
+                "enddate": "2022-08-06"
+            }
+        ]
+    ,
+"00007-2": [
+    {
+        "property": 321,
+        "propertytype": "T",
+        "subordinate": null,
+        "quality": "INCOLT STER",
+        "class": "",
+        "hectares": 0,
+        "are": 4,
+        "centiare": 53,
+        "lot": null,
+        "cadastralrent": "0",
+        "agriculturalrent": "0",
+        "startdate": "2022-07-01",
+        "enddate": "2022-08-06"
+    }
+]}
+}

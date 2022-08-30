@@ -1,0 +1,12 @@
+[
+    {
+        "subjects": "2",
+        "subjecttype": "P",
+        "firstname": "ALICE",
+        "lastname": "ALICE",
+        "fiscalcode": "AAAAAAAAAAAAAAAA",
+        "dateofbirth": "1940-08-15",
+        "cityofbirth": "REGGIO DI CALABRIA (RC)",
+        "gender": "Femmina"
+    }
+]

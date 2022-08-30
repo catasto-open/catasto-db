@@ -1,0 +1,45 @@
+{
+    "temp": [
+        {
+            "subordinate": "1",
+            "property": 558,
+            "propertytype": "F",
+            "censuszone": null,
+            "category": "",
+            "_class": null,
+            "consistency": "",
+            "rent": "0",
+            "lot": "12",
+            "startdate": "2022-06-01",
+            "enddate": "2022-08-06"
+        },
+        {
+            "subordinate": "2",
+            "property": 559,
+            "propertytype": "F",
+            "censuszone": null,
+            "category": "",
+            "_class": null,
+            "consistency": "",
+            "rent": "0",
+            "lot": "Soppressa",
+            "startdate": "2022-06-01",
+            "enddate": "2022-07-01"
+        }
+    ],
+    "general": [
+        {
+            "subordinate": "1",
+            "property": 558,
+            "propertytype": "F",
+            "censuszone": null,
+            "category": "",
+            "_class": null,
+            "consistency": "",
+            "rent": "0",
+            "lot": "12",
+            "startdate": "2022-06-01",
+            "enddate": "2022-08-06"
+        }
+    ]
+}
