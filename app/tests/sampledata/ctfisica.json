@@ -24,5 +24,70 @@
         "luogo": "H224",
         "codfiscale": "BBBBBBBBBBBBBBBB",
         "supplement": null
+    },
+    {
+        "codice": "H501",
+        "sezione": " ",
+        "soggetto": 234428,
+        "tipo_sog": "P",
+        "cognome": "Doe",
+        "nome": "John",
+        "sesso": "1",
+        "data": "01011900",
+        "luogo": "H501",
+        "codfiscale": "CCCCCCCCCCCCCCCC",
+        "supplement": null
+    },
+    {
+        "codice" : "H501",
+        "sezione" : " ",
+        "soggetto" : 2318308,
+        "tipo_sog" : "P",
+        "cognome" : "ALICE",
+        "nome" : "SECONDO",
+        "sesso" : "2",
+        "data" : "28031940",
+        "luogo" : "H501",
+        "codfiscale" : "AAAAAAAAAAAAAAA2",
+        "supplement" : null
+    },
+    {
+        "codice" : "H501",
+        "sezione" : " ",
+        "soggetto" : 3654861,
+        "tipo_sog" : "P",
+        "cognome" : "BOB",
+        "nome" : "SECONDO",
+        "sesso" : "1",
+        "data" : "12061970",
+        "luogo" : "H501",
+        "codfiscale" : "BBBBBBBBBBBBBBB2",
+        "supplement" : null
+    },
+    {
+        "codice" : "H501",
+        "sezione" : " ",
+        "soggetto" : 2471011,
+        "tipo_sog" : "P",
+        "cognome" : "BOB",
+        "nome" : "TERZO",
+        "sesso" : "1",
+        "data" : "26121940",
+        "luogo" : "H501",
+        "codfiscale" : "BBBBBBBBBBBBBBB3",
+        "supplement" : null
+    },
+    {
+        "codice" : "H501",
+        "sezione" : " ",
+        "soggetto" : 2471164,
+        "tipo_sog" : "P",
+        "cognome" : "BOB",
+        "nome" : "QUARTO",
+        "sesso" : "1",
+        "data" : "31121959",
+        "luogo" : "H501",
+        "codfiscale" : "PCIMRA64E01H501O",
+        "supplement" : null
     }
 ]

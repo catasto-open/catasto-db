@@ -229,7 +229,7 @@
             "citycode": "H224",
             "section": "A",
             "sheet": "3",
-            "number": "7",
+            "number": "6",
             "extent": {
                 "type": "Polygon",
                 "coordinates": [
@@ -261,14 +261,14 @@
             "subordinate": null,
             "right": "Proprieta'",
             "part": "1/1",
-            "classification": "ENTE URBANO",
+            "classification": "INCOLT STER",
             "class": "",
-            "consistency": "4 are, 65 ca",
+            "consistency": "1 ha, 10 are, 121 ca",
             "income": "Dom. 0 - Agr. 0",
             "lot": "",
             "propertytype": "Terreni",
-            "startdate": "2022-06-01",
-            "enddate": "2022-07-01"
+            "startdate": "2022-07-01",
+            "enddate": "2022-08-06"
         }
     ],
     "general": [
@@ -315,7 +315,7 @@
             "lot": "1",
             "propertytype": "Terreni",
             "startdate": "2022-07-02",
-            "enddate": "2022-08-11"
+            "enddate": "2022-08-06"
         },
         {
             "citycode": "H224",
@@ -360,7 +360,7 @@
             "lot": null,
             "propertytype": "Terreni",
             "startdate": "2022-07-01",
-            "enddate": "2022-08-11"
+            "enddate": "2022-08-06"
         },
         {
             "citycode": "H224",
@@ -405,7 +405,52 @@
             "lot": null,
             "propertytype": "Terreni",
             "startdate": "2022-07-01",
-            "enddate": "2022-08-11"
+            "enddate": "2022-08-06"
+        },
+        {
+            "citycode": "H224",
+            "section": "A",
+            "sheet": "3",
+            "number": "6",
+            "extent": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            1743839.64990726,
+                            4601962.86621434
+                        ],
+                        [
+                            1743839.64990726,
+                            4602022.95496224
+                        ],
+                        [
+                            1743869.27001975,
+                            4602022.95496224
+                        ],
+                        [
+                            1743869.27001975,
+                            4601962.86621434
+                        ],
+                        [
+                            1743839.64990726,
+                            4601962.86621434
+                        ]
+                    ]
+                ]
+            },
+            "city": "REGGIO DI CALABRIA (RC) (H224)",
+            "subordinate": null,
+            "right": "Proprieta'",
+            "part": "1/1",
+            "classification": "INCOLT STER",
+            "class": "",
+            "consistency": "1 ha, 10 are, 121 ca",
+            "income": "Dom. 0 - Agr. 0",
+            "lot": "",
+            "propertytype": "Terreni",
+            "startdate": "2022-07-01",
+            "enddate": "2022-08-06"
         }
     ]
 }
