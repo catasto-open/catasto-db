@@ -7,5 +7,23 @@
         "denominaz": "FOO S.R.L",
         "sede": "H224",
         "codfiscale": "00101010101"
+    },
+    {
+        "codice": "H501",
+        "sezione": " ",
+        "soggetto": 290560,
+        "tipo_sog": "G",
+        "denominaz": "TEST SRLS",
+        "sede": "H501",
+        "codfiscale": "00000000000"
+    },
+    {
+        "codice": "H501",
+        "sezione": "A",
+        "soggetto": 411567,
+        "tipo_sog": "G",
+        "denominaz": "TEST SPA",
+        "sede": "H501",
+        "codfiscale": "11111111111"
     }
 ]
