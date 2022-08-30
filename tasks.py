@@ -111,7 +111,17 @@ def docker_compose_postgis(
         ctx.run(f"{cmd}")
 
 
-@task(optional=["start", "setup", "loadfixtures", "stop", "clean", "logs", "dbclean"]) # noqa
+@task(
+    optional=[
+        "start",
+        "setup",
+        "loadfixtures",
+        "stop",
+        "clean",
+        "logs",
+        "dbclean",
+    ]
+)  # noqa
 def catasto_open(
     ctx,
     start=False,
@@ -120,7 +130,7 @@ def catasto_open(
     stop=False,
     clean=False,
     logs=False,
-    dbclean=False
+    dbclean=False,
 ):
     base_path = Path(__file__).resolve()
     docker_compose_path = base_path.parent / "scripts" / "docker"

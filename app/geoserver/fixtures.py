@@ -2536,8 +2536,8 @@ layers_temp = [
                             "%fiscalCode%",
                             "%lastName%",
                             "%firstName%",
-                            "%subjectCode%"
-                            ),
+                            "%subjectCode%",
+                        ),
                         "escapeSql": False,
                         "parameter": [
                             {"name": "fiscalCode", "defaultValue": "null"},
@@ -2632,7 +2632,7 @@ layers_temp = [
     {
         "featureType": {
             "name": cnf.APP_CONFIG.CATASTO_OPEN_NATURAL_SUBJECT_LAYER_WBD,
-            "nativeName": cnf.APP_CONFIG.CATASTO_OPEN_NATURAL_SUBJECT_LAYER_WBD, # noqa
+            "nativeName": cnf.APP_CONFIG.CATASTO_OPEN_NATURAL_SUBJECT_LAYER_WBD,  # noqa
             "namespace": {
                 "name": f"{cnf.CATASTO_OPEN_GS_WORKSPACE}",
                 "href": f"{cnf.GEOSERVER_HOST}:"
@@ -2680,20 +2680,20 @@ layers_temp = [
                     "@key": "JDBC_VIRTUAL_TABLE",
                     "virtualTable": {
                         "name": cnf.APP_CONFIG.CATASTO_OPEN_NATURAL_SUBJECT_LAYER_WBD,  # noqa
-                        "sql": cnf.APP_CONFIG.VIEW_QUERY_PERSONE_FISICA_WITH_BDAY.format( # noqa
+                        "sql": cnf.APP_CONFIG.VIEW_QUERY_PERSONE_FISICA_WITH_BDAY.format(  # noqa
                             "%fiscalCode%",
                             "%lastName%",
                             "%firstName%",
                             "%birthDate%",
-                            "%birthPlace%"
-                            ),
+                            "%birthPlace%",
+                        ),
                         "escapeSql": False,
                         "parameter": [
                             {"name": "fiscalCode", "defaultValue": "null"},
                             {"name": "lastName", "defaultValue": "null"},
                             {"name": "firstName", "defaultValue": "null"},
                             {"name": "birthDate", "defaultValue": "null"},
-                            {"name": "birthPlace", "defaultValue": "null"}
+                            {"name": "birthPlace", "defaultValue": "null"},
                         ],
                     },
                 }
@@ -2837,7 +2837,7 @@ layers_temp = [
                         "parameter": [
                             {"name": "businessName", "defaultValue": "null"},
                             {"name": "vatNumber", "defaultValue": "null"},
-                            {"name": "subjectCode", "defaultValue": "null"}
+                            {"name": "subjectCode", "defaultValue": "null"},
                         ],
                     },
                 }
