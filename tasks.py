@@ -52,6 +52,12 @@ def load_database_fixtures(ctx):
 
 
 @task
+def clean_database(ctx):
+    test_app = TestApp()
+    test_app.clean_database()
+
+
+@task
 def show_database_history(ctx):
     ctx.run("alembic history")
 
@@ -105,7 +111,7 @@ def docker_compose_postgis(
         ctx.run(f"{cmd}")
 
 
-@task(optional=["start", "setup", "loadfixtures", "stop", "clean", "logs"])
+@task(optional=["start", "setup", "loadfixtures", "stop", "clean", "logs", "dbclean"]) # noqa
 def catasto_open(
     ctx,
     start=False,
@@ -114,6 +120,7 @@ def catasto_open(
     stop=False,
     clean=False,
     logs=False,
+    dbclean=False
 ):
     base_path = Path(__file__).resolve()
     docker_compose_path = base_path.parent / "scripts" / "docker"
@@ -125,6 +132,9 @@ def catasto_open(
         return
     elif loadfixtures:
         load_database_fixtures(ctx)
+        return
+    elif dbclean:
+        clean_database(ctx)
         return
     with ctx.cd(os.fspath(docker_compose_path)):
         cmd = "docker compose"
