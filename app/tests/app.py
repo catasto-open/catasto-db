@@ -12,6 +12,7 @@ import geoalchemy2  # noqa
 
 from app.tests.queries import (
     get_comuni_by_name,
+    get_persone_fisica_with_bday,
     get_sezioni_by_city_code,
     get_fogli_by_city_info,
     get_fabbricati,
@@ -23,28 +24,6 @@ from app.tests.queries import (
     get_non_fisica,
     get_soggetti,
 )
-
-
-class ComplexJsonEncoder(json.JSONEncoder):
-    def default(self, obj):
-        if isinstance(obj, (datetime.datetime, datetime.date)):
-            return obj.strftime("%Y-%m-%d")
-        return json.JSONEncoder.default(self, obj)
-
-
-def write_result(smtng, key=None):
-    to_file = []
-    for each in smtng:
-        tmp = {}
-        for k in each.keys():
-            tmp[k] = each[k]
-        to_file.append(tmp)
-    if key:
-        with open("./result.json", "w") as f:
-            json.dump({key: to_file}, f, cls=ComplexJsonEncoder)
-    else:
-        with open("./result.json", "w") as f:
-            json.dump(to_file, f, cls=ComplexJsonEncoder)
 
 
 class TestApp(unittest.TestCase):
@@ -61,6 +40,22 @@ class TestApp(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
+        for schema in dal.get_schema_names():
+            if schema == "public":
+                continue
+            for table in dal.get_table_names(schema):
+                d = dal.get_table(table_name=table, schema=schema).delete()
+                d.execute()
+
+    @classmethod
+    def clean_database(cls):
+        conn_string = (
+            f"postgresql://"
+            f"{cnf.POSTGRES_USER}:{cnf.POSTGRES_PASS}"
+            f"@{cnf.POSTGRES_HOST}:{cnf.POSTGRES_HOST_PORT}/"
+            f"{cnf.POSTGRES_DB}"
+        )
+        dal.db_init(conn_string)
         for schema in dal.get_schema_names():
             if schema == "public":
                 continue
@@ -359,6 +354,23 @@ class TestApp(unittest.TestCase):
             expectedResult.append(tuple(list(each.values())))
         self.assertEqual(result, expectedResult)
 
+        result = get_persone_fisica(subject="2")
+        expectedResult = []
+        for each in expectedJson["AAAAAAAAAAAAAAAA"]:
+            expectedResult.append(tuple(list(each.values())))
+        self.assertEqual(result, expectedResult)
+
+        result = get_persone_fisica_with_bday(
+            lastname="'ALICE'",
+            firstname="'ALICE'",
+            birthdate="'1940-08-15'",
+            birthplace="H224",
+        )
+        expectedResult = []
+        for each in expectedJson["AAAAAAAAAAAAAAAA"]:
+            expectedResult.append(tuple(list(each.values())))
+        self.assertEqual(result, expectedResult)
+
         result = get_persone_fisica(fiscalecode="'BBBBBBBBBBBBBBBB'")
         expectedResult = []
         for each in expectedJson["BBBBBBBBBBBBBBBB"]:
@@ -366,6 +378,12 @@ class TestApp(unittest.TestCase):
         self.assertEqual(result, expectedResult)
 
         result = get_persone_fisica(firstname="'BOB'", lastname="'BOB'")
+        expectedResult = []
+        for each in expectedJson["BBBBBBBBBBBBBBBB"]:
+            expectedResult.append(tuple(list(each.values())))
+        self.assertEqual(result, expectedResult)
+
+        result = get_persone_fisica(subject="1")
         expectedResult = []
         for each in expectedJson["BBBBBBBBBBBBBBBB"]:
             expectedResult.append(tuple(list(each.values())))
@@ -379,7 +397,7 @@ class TestApp(unittest.TestCase):
             expectedResult.append(tuple(list(each.values())))
         self.assertEqual(result, expectedResult)
 
-        result = get_non_fisica(businessName="'FO'")
+        result = get_non_fisica(subject="3")
         expectedResult = []
         for each in expectedJson:
             expectedResult.append(tuple(list(each.values())))
@@ -394,12 +412,7 @@ class TestApp(unittest.TestCase):
     def test_query_soggetti(self):
         expectedJson = get_json_from_file("expected_soggetti")
 
-        result = get_soggetti(
-            subjects=["1"],
-            subjectType="P",
-            startDate="0001-01-01",
-            endDate=datetime.datetime.today().strftime("%Y-%m-%d"),
-        )
+        result = get_soggetti(subjects=["1"], subjectType="P")
         expectedResult = []
         for each in expectedJson["general"]["1-P"]:
             expectedResult.append(tuple(list(each.values())))
@@ -1039,7 +1052,63 @@ class GeoServer(unittest.TestCase):
             "request": "GetFeature",
             "outputFormat": "application/json",
             "typename": cnf.APP_CONFIG.CATASTO_OPEN_NATURAL_SUBJECT_LAYER,
+            "viewparams": "subjectCode:2",
+        }
+        response = requests.get(
+            f"{cnf.GEOSERVER_HOST}:"
+            f"{cnf.GEOSERVER_HOST_PORT}"
+            f"/geoserver/ows",
+            params,
+        )
+        self.assertEqual(response.status_code, 200)
+        payload = json.loads(response.text)
+        self.assertEqual(payload["totalFeatures"], len(expectedResponses))
+        feature_properties = [
+            feature["properties"] for feature in payload["features"]
+        ]
+        from app.tests.fixtures import object_hook
+
+        features = json.loads(
+            json.dumps(feature_properties, sort_keys=False),
+            object_hook=object_hook,
+        )
+        self.assertEqual(features, expectedResponses)
+
+        params = {
+            "service": "WFS",
+            "version": cnf.APP_CONFIG.GS_WFS_VERSION,
+            "request": "GetFeature",
+            "outputFormat": "application/json",
+            "typename": cnf.APP_CONFIG.CATASTO_OPEN_NATURAL_SUBJECT_LAYER,
             "viewparams": "lastName:'ALICE';firstName:'ALICE'",
+        }
+        response = requests.get(
+            f"{cnf.GEOSERVER_HOST}:"
+            f"{cnf.GEOSERVER_HOST_PORT}"
+            f"/geoserver/ows",
+            params,
+        )
+        self.assertEqual(response.status_code, 200)
+        payload = json.loads(response.text)
+        self.assertEqual(payload["totalFeatures"], len(expectedResponses))
+        feature_properties = [
+            feature["properties"] for feature in payload["features"]
+        ]
+        from app.tests.fixtures import object_hook
+
+        features = json.loads(
+            json.dumps(feature_properties, sort_keys=False),
+            object_hook=object_hook,
+        )
+        self.assertEqual(features, expectedResponses)
+
+        params = {
+            "service": "WFS",
+            "version": cnf.APP_CONFIG.GS_WFS_VERSION,
+            "request": "GetFeature",
+            "outputFormat": "application/json",
+            "typename": cnf.APP_CONFIG.CATASTO_OPEN_NATURAL_SUBJECT_LAYER_WBD,
+            "viewparams": "lastName:'ALICE';firstName:'ALICE';birthDate:'1940-08-15';birthPlace:H224",
         }
         response = requests.get(
             f"{cnf.GEOSERVER_HOST}:"
@@ -1107,6 +1176,28 @@ class GeoServer(unittest.TestCase):
         ]
         self.assertEqual(feature_properties, expectedResponses)
 
+        params = {
+            "service": "WFS",
+            "version": cnf.APP_CONFIG.GS_WFS_VERSION,
+            "request": "GetFeature",
+            "outputFormat": "application/json",
+            "typename": cnf.APP_CONFIG.CATASTO_OPEN_LEGAL_SUBJECT_LAYER,
+            "viewparams": "subjectCode:3",
+        }
+        response = requests.get(
+            f"{cnf.GEOSERVER_HOST}:"
+            f"{cnf.GEOSERVER_HOST_PORT}"
+            f"/geoserver/ows",
+            params,
+        )
+        self.assertEqual(response.status_code, 200)
+        payload = json.loads(response.text)
+        self.assertEqual(payload["totalFeatures"], len(expectedResponses))
+        feature_properties = [
+            feature["properties"] for feature in payload["features"]
+        ]
+        self.assertEqual(feature_properties, expectedResponses)
+
     def test_geoserver_soggetti(self):
         expectedResponses = get_json_from_file("expected_soggetti_geoserver")
 
@@ -1158,9 +1249,6 @@ class GeoServer(unittest.TestCase):
         )
         self.assertEqual(response.status_code, 200)
         payload = json.loads(response.text)
-        self.assertEqual(
-            payload["totalFeatures"], len(expectedResponses["temp"])
-        )
         feature_properties = [
             feature["properties"] for feature in payload["features"]
         ]

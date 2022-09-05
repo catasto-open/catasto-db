@@ -24,7 +24,11 @@ class AppConfig(BaseModel):
     CATASTO_OPEN_SHEET_LAYER = "catasto_fogli"
     CATASTO_OPEN_LAND_LAYER = "catasto_terreni"
     CATASTO_OPEN_BUILDING_LAYER = "catasto_fabbricati"
+    CATASTO_OPEN_TOWN_LAYER = "catasto_comuni_anag"
     CATASTO_OPEN_NATURAL_SUBJECT_LAYER = "catasto_persone_fisiche"
+    CATASTO_OPEN_NATURAL_SUBJECT_LAYER_WBD = (
+        "catasto_persone_fisiche_with_bday"
+    )
     CATASTO_OPEN_LEGAL_SUBJECT_LAYER = "catasto_persone_giuridiche"
     CATASTO_OPEN_SUBJECT_PROPERTY_LAYER = "catasto_particelle_soggetto"
     CATASTO_OPEN_LAND_DETAIL_LAYER = "catasto_dettagli_terreno"
@@ -75,6 +79,13 @@ class AppConfig(BaseModel):
         and t.comune ilike '{0}%'||'%' order by 1
     """
 
+    VIEW_QUERY_COMUNI = """
+    select codice as code,
+        comune as name
+    from ctcn.comuni t
+        where t.comune ilike '{0}%'||'%' order by 1
+    """
+
     VIEW_QUERY_SEZIONI_ = """
     select s.sezione as name
     from ctcn.sezioni_ s
@@ -120,11 +131,15 @@ class AppConfig(BaseModel):
                 and
                 t.foglio = f.foglio::integer
                 )
-            where t.codice = '{0}' AND t.sezione = '{1}'
+            where t.codice = '{0}'
                 and
                     coalesce(
                         to_date(t.con_eff::text,'DDMMYYYY'),
                         (('now'::text)::date + 1)) >= ('now'::text)::date
+                and case '{1}' when '_'
+                    then t.sezione like '%'
+                    else t.sezione = '{1}'
+                    end
             )
             tab
         group by tab.codice,tab.sezione,tab.foglio
@@ -385,55 +400,59 @@ class AppConfig(BaseModel):
             st_setsrid(
                 st_union(tab.extent),3004),3857)
                 as extent
-    from (
-        select distinct t.codice,
-            t.sezione,
-            t.gen_eff,
-            t.con_eff,
-            t.foglio,
-            f.geom,
-            st_envelope(f.geom) as extent
-            from ctcn.ctpartic t
-            left outer join ctmp.fogli f
-            on (f.comune=t.codice
-            and
-            f.sezione = case
-                when t.sezione =' '
-                then '_'
-                else
-                t.sezione
-                end
-            and
-            t.foglio = f.foglio::integer
-            )
-        where t.codice = '{0}' and t.sezione = '{1}'
-            and (
-                '{2}' between
-                    to_date(t.gen_eff::text,'DDMMYYYY')
-                    and
-                    coalesce(
-                        to_date(t.con_eff::text,'DDMMYYYY'),
-                        (('now'::text)::date + 1)
-                        )
-                or
-                '{3}' between
-                    to_date(t.gen_eff::text,'DDMMYYYY')
-                    and
-                    coalesce(
-                        to_date(t.con_eff::text,'DDMMYYYY'),
-                        (('now'::text)::date + 1)
-                        )
-                or
-                to_date(t.gen_eff::text,'DDMMYYYY') between
-                '{2}' and '{3}'
-                or
-                coalesce(
-                    to_date(t.con_eff::text,'DDMMYYYY'),
-                    (('now'::text)::date + 1)) between
-                    '{2}' and '{3}'
+        from (
+            select distinct t.codice,
+                t.sezione,
+                t.gen_eff,
+                t.con_eff,
+                t.foglio,
+                f.geom,
+                st_envelope(f.geom) as extent
+                from ctcn.ctpartic t
+                left outer join ctmp.fogli f
+                on (f.comune=t.codice
+                and
+                f.sezione = case
+                    when t.sezione =' '
+                    then '_'
+                    else
+                    t.sezione
+                    end
+                and
+                t.foglio = f.foglio::integer
                 )
+            where t.codice = '{0}'
+                and case '{1}' when '_'
+                    then t.sezione like '%'
+                    else t.sezione = '{1}'
+                    end
+                and (
+                    '{2}' between
+                        to_date(t.gen_eff::text,'DDMMYYYY')
+                        and
+                        coalesce(
+                            to_date(t.con_eff::text,'DDMMYYYY'),
+                            (('now'::text)::date + 1)
+                            )
+                    or
+                    '{3}' between
+                        to_date(t.gen_eff::text,'DDMMYYYY')
+                        and
+                        coalesce(
+                            to_date(t.con_eff::text,'DDMMYYYY'),
+                            (('now'::text)::date + 1)
+                            )
+                    or
+                    to_date(t.gen_eff::text,'DDMMYYYY') between
+                    '{2}' and '{3}'
+                    or
+                    coalesce(
+                        to_date(t.con_eff::text,'DDMMYYYY'),
+                        (('now'::text)::date + 1)) between
+                     '{2}' and '{3}'
+                    )
             )
-        tab
+            tab
         group by tab.codice,tab.sezione,tab.foglio
     """
 
@@ -646,6 +665,54 @@ class AppConfig(BaseModel):
             and
             f.nome ilike {2}
             )
+        or f.soggetto = {3}
+    group by
+        f.tipo_sog,
+        f.nome,
+        f.cognome,
+        f.codfiscale,
+        dateOfBirth,
+        cityOfBirth,
+        gender
+    """
+
+    VIEW_QUERY_PERSONE_FISICA_WITH_BDAY = """
+    select distinct
+        string_agg(f.soggetto::text, ',') as subjects,
+        f.tipo_sog as subjectType,
+        f.nome as firstName,
+        f.cognome as lastName,
+        f.codfiscale AS fiscalCode,
+        case
+            when length(f.data) = 8
+                then to_date(f.data, 'DDMMYYYY')
+                end
+                as dateOfBirth,
+        c.comune || case
+            when c.provincia <> ''
+                then (' (' || c.provincia) || ')'
+                else ''
+                end
+                as cityOfBirth,
+        case f.sesso
+            when '2'
+                then 'Femmina'
+                else 'Maschio'
+                end
+                as gender
+    from ctcn.ctfisica f
+    left join ctcn.comuni c
+        on
+            c.codice = f.luogo
+        where (f.codfiscale ilike {0})
+        or (
+            f.cognome ilike {1}
+            and
+            f.nome ilike {2}
+            and
+            to_date(f.data::text, 'DDMMYYYY'::text) = {3}
+            and f.luogo = '{4}'
+            )
     group by
         f.tipo_sog,
         f.nome,
@@ -670,7 +737,9 @@ class AppConfig(BaseModel):
     where
         (f.codfiscale like {0})
         or
-        (f.denominaz  ilike {1} || '%')
+        (f.denominaz ilike {1})
+        or
+        (f.soggetto = {2})
     """
 
     VIEW_QUERY_SOGGETTI_TEMP = """
