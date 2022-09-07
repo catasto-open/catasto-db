@@ -2,5 +2,13 @@
     {
         "codice": "10",
         "titolo": "Proprieta'"
+    },
+    {
+        "codice": "20",
+        "titolo": "Nuda proprieta'"
+    },
+    {
+        "codice": "80",
+        "titolo": "Usufrutto"
     }
 ]

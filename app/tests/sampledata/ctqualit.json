@@ -26,5 +26,13 @@
     {
         "codice": 998,
         "qualita": "soppresso"
+    },
+    {
+        "codice": 1,
+        "qualita": "seminativo"
+    },
+    {
+        "codice": 993,
+        "qualita": "modello 26"
     }
 ]

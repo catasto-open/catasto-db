@@ -1,0 +1,2630 @@
+{
+    "all": [
+        {
+            "code": 1,
+            "toponym": "ALZATA"
+        },
+        {
+            "code": 2,
+            "toponym": "ANDRONA"
+        },
+        {
+            "code": 4,
+            "toponym": "ARCHIVOLTO"
+        },
+        {
+            "code": 6,
+            "toponym": "ARCO"
+        },
+        {
+            "code": 8,
+            "toponym": "ASCENSORE"
+        },
+        {
+            "code": 10,
+            "toponym": "ATRIO"
+        },
+        {
+            "code": 12,
+            "toponym": "BACINO"
+        },
+        {
+            "code": 14,
+            "toponym": "BAGLIO"
+        },
+        {
+            "code": 16,
+            "toponym": "BANCHINA"
+        },
+        {
+            "code": 18,
+            "toponym": "BASTIONI"
+        },
+        {
+            "code": 20,
+            "toponym": "BORGATA"
+        },
+        {
+            "code": 22,
+            "toponym": "BORGHETTO"
+        },
+        {
+            "code": 24,
+            "toponym": "BORGO"
+        },
+        {
+            "code": 26,
+            "toponym": "CALATA"
+        },
+        {
+            "code": 28,
+            "toponym": "CALLE"
+        },
+        {
+            "code": 30,
+            "toponym": "CALLESELLA"
+        },
+        {
+            "code": 32,
+            "toponym": "CAMPASSO"
+        },
+        {
+            "code": 34,
+            "toponym": "CAMPAZZO"
+        },
+        {
+            "code": 36,
+            "toponym": "CAMPIELLO"
+        },
+        {
+            "code": 38,
+            "toponym": "CAMPO"
+        },
+        {
+            "code": 40,
+            "toponym": "CASALE"
+        },
+        {
+            "code": 42,
+            "toponym": "CASE"
+        },
+        {
+            "code": 44,
+            "toponym": "CAVA"
+        },
+        {
+            "code": 46,
+            "toponym": "CAVALCAVIA"
+        },
+        {
+            "code": 48,
+            "toponym": "CHIASSO"
+        },
+        {
+            "code": 50,
+            "toponym": "CIRCONVALLAZIONE"
+        },
+        {
+            "code": 52,
+            "toponym": "CLIVIO"
+        },
+        {
+            "code": 54,
+            "toponym": "CONTRADA"
+        },
+        {
+            "code": 56,
+            "toponym": "CORSETTO"
+        },
+        {
+            "code": 58,
+            "toponym": "CORSO"
+        },
+        {
+            "code": 60,
+            "toponym": "CORTE"
+        },
+        {
+            "code": 62,
+            "toponym": "CORTICELLA"
+        },
+        {
+            "code": 64,
+            "toponym": "CORTILE"
+        },
+        {
+            "code": 66,
+            "toponym": "CUPA"
+        },
+        {
+            "code": 68,
+            "toponym": "DIRAMAZIONE"
+        },
+        {
+            "code": 70,
+            "toponym": "DISCESA"
+        },
+        {
+            "code": 72,
+            "toponym": "FONDACO"
+        },
+        {
+            "code": 74,
+            "toponym": "FONDAMENTA"
+        },
+        {
+            "code": 76,
+            "toponym": "FONDO"
+        },
+        {
+            "code": 77,
+            "toponym": "FRAZIONE"
+        },
+        {
+            "code": 78,
+            "toponym": "GALLERIA"
+        },
+        {
+            "code": 80,
+            "toponym": "GIARDINO"
+        },
+        {
+            "code": 82,
+            "toponym": "GRADINI"
+        },
+        {
+            "code": 84,
+            "toponym": "GRADONI"
+        },
+        {
+            "code": 86,
+            "toponym": "LARGO"
+        },
+        {
+            "code": 88,
+            "toponym": "LISTA"
+        },
+        {
+            "code": 90,
+            "toponym": "LOCALITA'"
+        },
+        {
+            "code": 92,
+            "toponym": "LOGGE"
+        },
+        {
+            "code": 94,
+            "toponym": "LUNGADIGE"
+        },
+        {
+            "code": 96,
+            "toponym": "LUNGARGINE"
+        },
+        {
+            "code": 98,
+            "toponym": "LUNGARNO"
+        },
+        {
+            "code": 100,
+            "toponym": "LUNGODORA"
+        },
+        {
+            "code": 102,
+            "toponym": "LUNGOMARE"
+        },
+        {
+            "code": 106,
+            "toponym": "LUNGOPO"
+        },
+        {
+            "code": 108,
+            "toponym": "LUNGOSTURA"
+        },
+        {
+            "code": 110,
+            "toponym": "LUNGOTEVERE"
+        },
+        {
+            "code": 112,
+            "toponym": "MASSERIA"
+        },
+        {
+            "code": 114,
+            "toponym": "MERCATO"
+        },
+        {
+            "code": 116,
+            "toponym": "MOLO"
+        },
+        {
+            "code": 118,
+            "toponym": "MULATTIERA"
+        },
+        {
+            "code": 120,
+            "toponym": "MURA"
+        },
+        {
+            "code": 122,
+            "toponym": "PARCO"
+        },
+        {
+            "code": 124,
+            "toponym": "PASSAGGIO"
+        },
+        {
+            "code": 126,
+            "toponym": "PASSEGGIATA"
+        },
+        {
+            "code": 128,
+            "toponym": "PASSETTO"
+        },
+        {
+            "code": 130,
+            "toponym": "PIAZZA"
+        },
+        {
+            "code": 132,
+            "toponym": "PIAZZALE"
+        },
+        {
+            "code": 134,
+            "toponym": "PIAZZETTA"
+        },
+        {
+            "code": 136,
+            "toponym": "PISCINA"
+        },
+        {
+            "code": 138,
+            "toponym": "PONTE"
+        },
+        {
+            "code": 140,
+            "toponym": "PONTILE"
+        },
+        {
+            "code": 142,
+            "toponym": "PORTA"
+        },
+        {
+            "code": 144,
+            "toponym": "PORTICO"
+        },
+        {
+            "code": 146,
+            "toponym": "PORTO"
+        },
+        {
+            "code": 148,
+            "toponym": "PROLUNGAMENTO"
+        },
+        {
+            "code": 150,
+            "toponym": "QUARTIERE"
+        },
+        {
+            "code": 152,
+            "toponym": "RAMI"
+        },
+        {
+            "code": 154,
+            "toponym": "RAMO"
+        },
+        {
+            "code": 156,
+            "toponym": "RAMPA"
+        },
+        {
+            "code": 158,
+            "toponym": "RAMPE"
+        },
+        {
+            "code": 160,
+            "toponym": "RECINTO"
+        },
+        {
+            "code": 162,
+            "toponym": "RIONE"
+        },
+        {
+            "code": 164,
+            "toponym": "RIVA"
+        },
+        {
+            "code": 166,
+            "toponym": "RIVIERA"
+        },
+        {
+            "code": 168,
+            "toponym": "ROTONDA"
+        },
+        {
+            "code": 170,
+            "toponym": "RUA"
+        },
+        {
+            "code": 172,
+            "toponym": "SALITA"
+        },
+        {
+            "code": 174,
+            "toponym": "SL"
+        },
+        {
+            "code": 176,
+            "toponym": "SALIZZATA"
+        },
+        {
+            "code": 178,
+            "toponym": "SCALA"
+        },
+        {
+            "code": 180,
+            "toponym": "SCALE"
+        },
+        {
+            "code": 182,
+            "toponym": "SCALEA"
+        },
+        {
+            "code": 184,
+            "toponym": "SCALETTA"
+        },
+        {
+            "code": 186,
+            "toponym": "SCALETTE"
+        },
+        {
+            "code": 188,
+            "toponym": "SCALI"
+        },
+        {
+            "code": 190,
+            "toponym": "SCALINATA"
+        },
+        {
+            "code": 192,
+            "toponym": "SCALONE"
+        },
+        {
+            "code": 194,
+            "toponym": "SDRUCCIOLO"
+        },
+        {
+            "code": 196,
+            "toponym": "SENTIERO"
+        },
+        {
+            "code": 198,
+            "toponym": "SESTRIERI"
+        },
+        {
+            "code": 200,
+            "toponym": "SITO"
+        },
+        {
+            "code": 202,
+            "toponym": "SOBBORGO"
+        },
+        {
+            "code": 204,
+            "toponym": "SOTTOPORTICO"
+        },
+        {
+            "code": 206,
+            "toponym": "SOTTOVIA"
+        },
+        {
+            "code": 208,
+            "toponym": "SPIANATA"
+        },
+        {
+            "code": 210,
+            "toponym": "STRADA"
+        },
+        {
+            "code": 212,
+            "toponym": "STRADALE"
+        },
+        {
+            "code": 214,
+            "toponym": "STRADELLA"
+        },
+        {
+            "code": 216,
+            "toponym": "STRADONE"
+        },
+        {
+            "code": 218,
+            "toponym": "SUPPORTICO"
+        },
+        {
+            "code": 220,
+            "toponym": "SVINCOLO"
+        },
+        {
+            "code": 222,
+            "toponym": "TRATTO"
+        },
+        {
+            "code": 224,
+            "toponym": "TRAVERSA"
+        },
+        {
+            "code": 226,
+            "toponym": "TRAVERSA VIA"
+        },
+        {
+            "code": 228,
+            "toponym": "TRESANDA"
+        },
+        {
+            "code": 230,
+            "toponym": "TRONCO"
+        },
+        {
+            "code": 232,
+            "toponym": "VALLONE"
+        },
+        {
+            "code": 234,
+            "toponym": "VARCO"
+        },
+        {
+            "code": 236,
+            "toponym": "VIA"
+        },
+        {
+            "code": 238,
+            "toponym": "VIADOTTO"
+        },
+        {
+            "code": 240,
+            "toponym": "VIALE"
+        },
+        {
+            "code": 242,
+            "toponym": "VIALETTO"
+        },
+        {
+            "code": 244,
+            "toponym": "VICO"
+        },
+        {
+            "code": 246,
+            "toponym": "VICOLETTO"
+        },
+        {
+            "code": 248,
+            "toponym": "VICOLO"
+        },
+        {
+            "code": 250,
+            "toponym": "VILLAGGIO"
+        },
+        {
+            "code": 252,
+            "toponym": "VIOTTOLO"
+        },
+        {
+            "code": 254,
+            "toponym": "VIUZZO"
+        },
+        {
+            "code": 256,
+            "toponym": "VO"
+        },
+        {
+            "code": 258,
+            "toponym": "VOLTA"
+        },
+        {
+            "code": 260,
+            "toponym": "PASSO"
+        },
+        {
+            "code": 262,
+            "toponym": "FORO"
+        },
+        {
+            "code": 264,
+            "toponym": "RIPA"
+        },
+        {
+            "code": 266,
+            "toponym": "RACCORDO"
+        },
+        {
+            "code": 268,
+            "toponym": "ALZAIA"
+        },
+        {
+            "code": 300,
+            "toponym": "ACCESSO"
+        },
+        {
+            "code": 301,
+            "toponym": "ACCESSO A CORSO"
+        },
+        {
+            "code": 302,
+            "toponym": "ACCESSO ALLA PIAZZA"
+        },
+        {
+            "code": 303,
+            "toponym": "ACCESSO ALLA VIA"
+        },
+        {
+            "code": 304,
+            "toponym": "ACCESSO VIALE"
+        },
+        {
+            "code": 305,
+            "toponym": "ACCESSO PRIVATO"
+        },
+        {
+            "code": 306,
+            "toponym": "ACCESSO STRADA"
+        },
+        {
+            "code": 307,
+            "toponym": "ACCESSO TRAVERSA"
+        },
+        {
+            "code": 308,
+            "toponym": "ALLEE"
+        },
+        {
+            "code": 309,
+            "toponym": "ALVEO"
+        },
+        {
+            "code": 310,
+            "toponym": "ANDRONE"
+        },
+        {
+            "code": 311,
+            "toponym": "ANGIPORTO"
+        },
+        {
+            "code": 312,
+            "toponym": "ARGINE"
+        },
+        {
+            "code": 313,
+            "toponym": "ARGINE DESTRO"
+        },
+        {
+            "code": 314,
+            "toponym": "ARGINE DI CANALE"
+        },
+        {
+            "code": 315,
+            "toponym": "ARGINE SINISTRO"
+        },
+        {
+            "code": 316,
+            "toponym": "AUTOSTRADA"
+        },
+        {
+            "code": 317,
+            "toponym": "AVENUE"
+        },
+        {
+            "code": 318,
+            "toponym": "BALUARDO"
+        },
+        {
+            "code": 319,
+            "toponym": "BARRIERA"
+        },
+        {
+            "code": 320,
+            "toponym": "BASTIONE"
+        },
+        {
+            "code": 321,
+            "toponym": "BASTIONI DI PORTA"
+        },
+        {
+            "code": 322,
+            "toponym": "BATTERIA"
+        },
+        {
+            "code": 323,
+            "toponym": "BISAGNO"
+        },
+        {
+            "code": 324,
+            "toponym": "BOCCA"
+        },
+        {
+            "code": 325,
+            "toponym": "BOULEVARD"
+        },
+        {
+            "code": 326,
+            "toponym": "CA'"
+        },
+        {
+            "code": 327,
+            "toponym": "CALA"
+        },
+        {
+            "code": 328,
+            "toponym": "CALETTA"
+        },
+        {
+            "code": 329,
+            "toponym": "CALLE DESTRA"
+        },
+        {
+            "code": 330,
+            "toponym": "CALLE LARGA"
+        },
+        {
+            "code": 331,
+            "toponym": "CALLE LITORANEA"
+        },
+        {
+            "code": 332,
+            "toponym": "CALLE SINISTRA"
+        },
+        {
+            "code": 333,
+            "toponym": "CALLE STRETTA"
+        },
+        {
+            "code": 334,
+            "toponym": "CALLESELLA DESTRA"
+        },
+        {
+            "code": 335,
+            "toponym": "CALLESELLA LARGA"
+        },
+        {
+            "code": 336,
+            "toponym": "CALLESELLA SINISTRA"
+        },
+        {
+            "code": 337,
+            "toponym": "CALLESELLE"
+        },
+        {
+            "code": 338,
+            "toponym": "CALLESELLE LARGHE"
+        },
+        {
+            "code": 339,
+            "toponym": "CALLESELLE STRETTE"
+        },
+        {
+            "code": 340,
+            "toponym": "CANALE"
+        },
+        {
+            "code": 341,
+            "toponym": "CANALE LARGO"
+        },
+        {
+            "code": 342,
+            "toponym": "CANTO"
+        },
+        {
+            "code": 343,
+            "toponym": "CANTONE"
+        },
+        {
+            "code": 344,
+            "toponym": "CAPO"
+        },
+        {
+            "code": 345,
+            "toponym": "CARRARA"
+        },
+        {
+            "code": 346,
+            "toponym": "CASCINA"
+        },
+        {
+            "code": 347,
+            "toponym": "CASE SPARSE"
+        },
+        {
+            "code": 348,
+            "toponym": "CAVALCAVIA DESTRO"
+        },
+        {
+            "code": 349,
+            "toponym": "CAVALCAVIA SINISTRO"
+        },
+        {
+            "code": 350,
+            "toponym": "CAVONE"
+        },
+        {
+            "code": 351,
+            "toponym": "CHIASSETTO"
+        },
+        {
+            "code": 352,
+            "toponym": "CHIASSUOLO"
+        },
+        {
+            "code": 353,
+            "toponym": "CIRCONVALLAZIONE DESTRA"
+        },
+        {
+            "code": 354,
+            "toponym": "CIRCONVALLAZIONE ESTERNA"
+        },
+        {
+            "code": 355,
+            "toponym": "CIRCONVALLAZIONE ESTRAMURALE"
+        },
+        {
+            "code": 356,
+            "toponym": "CIRCONVALLAZIONE INTERNA"
+        },
+        {
+            "code": 357,
+            "toponym": "CIRCONVALLAZIONE SINISTRA"
+        },
+        {
+            "code": 358,
+            "toponym": "CLAUSTRO"
+        },
+        {
+            "code": 359,
+            "toponym": "CLIVO"
+        },
+        {
+            "code": 360,
+            "toponym": "COMUNALE"
+        },
+        {
+            "code": 361,
+            "toponym": "CONTRA'"
+        },
+        {
+            "code": 362,
+            "toponym": "CORO"
+        },
+        {
+            "code": 363,
+            "toponym": "CORSIA"
+        },
+        {
+            "code": 364,
+            "toponym": "CORSIA DESTRA"
+        },
+        {
+            "code": 365,
+            "toponym": "CORSIA SINISTRA"
+        },
+        {
+            "code": 366,
+            "toponym": "CORSO PARALLELO"
+        },
+        {
+            "code": 367,
+            "toponym": "CORTINA"
+        },
+        {
+            "code": 368,
+            "toponym": "COSTA"
+        },
+        {
+            "code": 369,
+            "toponym": "COSTARELLA"
+        },
+        {
+            "code": 370,
+            "toponym": "CROSA"
+        },
+        {
+            "code": 371,
+            "toponym": "CROSINO"
+        },
+        {
+            "code": 372,
+            "toponym": "DARSENA"
+        },
+        {
+            "code": 373,
+            "toponym": "DIRAMAZIONE DEL CORSO"
+        },
+        {
+            "code": 374,
+            "toponym": "DIRAMAZIONE DEL VIALE"
+        },
+        {
+            "code": 375,
+            "toponym": "DIRAMAZIONE DI VIA"
+        },
+        {
+            "code": 377,
+            "toponym": "DIRUPO"
+        },
+        {
+            "code": 378,
+            "toponym": "DISTACCO"
+        },
+        {
+            "code": 379,
+            "toponym": "DORSO"
+        },
+        {
+            "code": 380,
+            "toponym": "EMICICLO"
+        },
+        {
+            "code": 381,
+            "toponym": "ERTA"
+        },
+        {
+            "code": 382,
+            "toponym": "FORTE"
+        },
+        {
+            "code": 383,
+            "toponym": "FOSSA"
+        },
+        {
+            "code": 384,
+            "toponym": "FOSSATO"
+        },
+        {
+            "code": 385,
+            "toponym": "FOSSO"
+        },
+        {
+            "code": 386,
+            "toponym": "GALLERIA DI CORSO"
+        },
+        {
+            "code": 387,
+            "toponym": "GRADINATA"
+        },
+        {
+            "code": 388,
+            "toponym": "GRADINATA DESTRA"
+        },
+        {
+            "code": 389,
+            "toponym": "GRADINATA SINISTRA"
+        },
+        {
+            "code": 390,
+            "toponym": "GRADINATA SUPERIORE"
+        },
+        {
+            "code": 391,
+            "toponym": "GRADINATE"
+        },
+        {
+            "code": 392,
+            "toponym": "GRADINATE SUPERIORI"
+        },
+        {
+            "code": 393,
+            "toponym": "GRANVIALE"
+        },
+        {
+            "code": 394,
+            "toponym": "LARGHETTO"
+        },
+        {
+            "code": 395,
+            "toponym": "LATERALE DI CORSO"
+        },
+        {
+            "code": 396,
+            "toponym": "LATERALE DI VIA"
+        },
+        {
+            "code": 397,
+            "toponym": "LATERALE DI VIALE"
+        },
+        {
+            "code": 398,
+            "toponym": "LIDO"
+        },
+        {
+            "code": 399,
+            "toponym": "LOGGIA"
+        },
+        {
+            "code": 400,
+            "toponym": "LUNGADIGE DESTRO"
+        },
+        {
+            "code": 401,
+            "toponym": "LUNGADIGE SINISTRO"
+        },
+        {
+            "code": 402,
+            "toponym": "LUNGARGINE DESTRO"
+        },
+        {
+            "code": 403,
+            "toponym": "LUNGARGINE SINISTRO"
+        },
+        {
+            "code": 404,
+            "toponym": "LUNGARNO DESTRO"
+        },
+        {
+            "code": 405,
+            "toponym": "LUNGARNO SINISTRO"
+        },
+        {
+            "code": 406,
+            "toponym": "LUNGOBISAGNO"
+        },
+        {
+            "code": 407,
+            "toponym": "LUNGOBISAGNO DESTRO"
+        },
+        {
+            "code": 408,
+            "toponym": "LUNGOBISAGNO SINISTRO"
+        },
+        {
+            "code": 409,
+            "toponym": "LUNGOCRATI"
+        },
+        {
+            "code": 410,
+            "toponym": "LUNGOCRATI DESTRO"
+        },
+        {
+            "code": 411,
+            "toponym": "LUNGOCRATI SINISTRO"
+        },
+        {
+            "code": 412,
+            "toponym": "LUNGODORA DESTRO"
+        },
+        {
+            "code": 413,
+            "toponym": "LUNGODORA SINISTRO"
+        },
+        {
+            "code": 414,
+            "toponym": "LUNGOFRIGIDO"
+        },
+        {
+            "code": 415,
+            "toponym": "LUNGOFRIGIDO DESTRO"
+        },
+        {
+            "code": 416,
+            "toponym": "LUNGOFRIGIDO SINISTRO"
+        },
+        {
+            "code": 417,
+            "toponym": "LUNGOGESSO"
+        },
+        {
+            "code": 418,
+            "toponym": "LUNGOGESSO DESTRO"
+        },
+        {
+            "code": 419,
+            "toponym": "LUNGOGESSO SINISTRO"
+        },
+        {
+            "code": 420,
+            "toponym": "LUNGOISARCO"
+        },
+        {
+            "code": 421,
+            "toponym": "LUNGOISARCO DESTRO"
+        },
+        {
+            "code": 422,
+            "toponym": "LUNGOISARCO SINISTRO"
+        },
+        {
+            "code": 423,
+            "toponym": "LUNGOLAGO"
+        },
+        {
+            "code": 424,
+            "toponym": "LUNGOLAGO DESTRO"
+        },
+        {
+            "code": 425,
+            "toponym": "LUNGOLAGO SINISTRO"
+        },
+        {
+            "code": 426,
+            "toponym": "LUNGOLARIO"
+        },
+        {
+            "code": 427,
+            "toponym": "LUNGOLARIO DESTRO"
+        },
+        {
+            "code": 428,
+            "toponym": "LUNGOLARIO SINISTRO"
+        },
+        {
+            "code": 429,
+            "toponym": "LUNGOMALLERO"
+        },
+        {
+            "code": 430,
+            "toponym": "LUNGOMALLERO DESTRO"
+        },
+        {
+            "code": 431,
+            "toponym": "LUNGOPARCO"
+        },
+        {
+            "code": 432,
+            "toponym": "LUNGOPO DESTRO"
+        },
+        {
+            "code": 433,
+            "toponym": "LUNGOPO SINISTRO"
+        },
+        {
+            "code": 434,
+            "toponym": "LUNGOSTURA DESTRO"
+        },
+        {
+            "code": 435,
+            "toponym": "LUNGOSTURA SINISTRO"
+        },
+        {
+            "code": 436,
+            "toponym": "LUNGOTALVERE"
+        },
+        {
+            "code": 437,
+            "toponym": "LUNGOTALVERE DESTRO"
+        },
+        {
+            "code": 438,
+            "toponym": "LUNGOTALVERE SINISTRO"
+        },
+        {
+            "code": 439,
+            "toponym": "LUNGOTEVERE DESTRO"
+        },
+        {
+            "code": 440,
+            "toponym": "LUNGOTEVERE SINISTRO"
+        },
+        {
+            "code": 441,
+            "toponym": "LUNGOTICINO"
+        },
+        {
+            "code": 442,
+            "toponym": "LUNGOTICINO DESTRO"
+        },
+        {
+            "code": 443,
+            "toponym": "LUNGOTICINO SINISTRO"
+        },
+        {
+            "code": 444,
+            "toponym": "LUNGOTORRENTE"
+        },
+        {
+            "code": 445,
+            "toponym": "LUNGOTORRENTE DESTRO"
+        },
+        {
+            "code": 446,
+            "toponym": "LUNGOTORRENTE SINISTRO"
+        },
+        {
+            "code": 447,
+            "toponym": "LUNGOTRONTO"
+        },
+        {
+            "code": 448,
+            "toponym": "LUNGOTRONTO DESTRO"
+        },
+        {
+            "code": 449,
+            "toponym": "LUNGOTRONTO SINISTRO"
+        },
+        {
+            "code": 450,
+            "toponym": "MARZARIA"
+        },
+        {
+            "code": 451,
+            "toponym": "MASSERIA VECCHIA"
+        },
+        {
+            "code": 452,
+            "toponym": "MERCERIA"
+        },
+        {
+            "code": 453,
+            "toponym": "MOLO ANTICO"
+        },
+        {
+            "code": 454,
+            "toponym": "MURAZZI"
+        },
+        {
+            "code": 455,
+            "toponym": "MURE"
+        },
+        {
+            "code": 456,
+            "toponym": "PARALLELA DESTRA"
+        },
+        {
+            "code": 457,
+            "toponym": "PARALLELA SINISTRA"
+        },
+        {
+            "code": 458,
+            "toponym": "PASSEGGIO"
+        },
+        {
+            "code": 459,
+            "toponym": "PENDICE"
+        },
+        {
+            "code": 460,
+            "toponym": "PENDIO"
+        },
+        {
+            "code": 461,
+            "toponym": "PENNINATO"
+        },
+        {
+            "code": 462,
+            "toponym": "PIAGGIA"
+        },
+        {
+            "code": 463,
+            "toponym": "PIANO"
+        },
+        {
+            "code": 464,
+            "toponym": "PIATTAFORMA"
+        },
+        {
+            "code": 465,
+            "toponym": "PIAZZA BELVEDERE"
+        },
+        {
+            "code": 466,
+            "toponym": "PIAZZA CHIUSA"
+        },
+        {
+            "code": 467,
+            "toponym": "PIAZZA COMUNALE"
+        },
+        {
+            "code": 468,
+            "toponym": "PIAZZA INFERIORE"
+        },
+        {
+            "code": 469,
+            "toponym": "PIAZZOLA"
+        },
+        {
+            "code": 470,
+            "toponym": "PLACE"
+        },
+        {
+            "code": 471,
+            "toponym": "POGGIO"
+        },
+        {
+            "code": 472,
+            "toponym": "PORTELLA"
+        },
+        {
+            "code": 473,
+            "toponym": "PORTICATO"
+        },
+        {
+            "code": 474,
+            "toponym": "PORTICCIOLO"
+        },
+        {
+            "code": 475,
+            "toponym": "PORTICHETTI"
+        },
+        {
+            "code": 476,
+            "toponym": "PORTICI"
+        },
+        {
+            "code": 477,
+            "toponym": "PRATO"
+        },
+        {
+            "code": 478,
+            "toponym": "PROLUNGAMENTO DI CORSO"
+        },
+        {
+            "code": 479,
+            "toponym": "PROLUNGAMENTO DEL VIALE"
+        },
+        {
+            "code": 480,
+            "toponym": "PROLUNGAMENTO DELLA VIA"
+        },
+        {
+            "code": 481,
+            "toponym": "PROVINCIALE"
+        },
+        {
+            "code": 482,
+            "toponym": "QUADRATO"
+        },
+        {
+            "code": 483,
+            "toponym": "RAMPA DEL CORSO"
+        },
+        {
+            "code": 484,
+            "toponym": "RAMPA DEL VIALE"
+        },
+        {
+            "code": 485,
+            "toponym": "RAMPA PIAZZA"
+        },
+        {
+            "code": 486,
+            "toponym": "RAMPA VIA"
+        },
+        {
+            "code": 487,
+            "toponym": "RAMPA DESTRA"
+        },
+        {
+            "code": 488,
+            "toponym": "RAMPA SINISTRA"
+        },
+        {
+            "code": 489,
+            "toponym": "RAMPA STRADA"
+        },
+        {
+            "code": 490,
+            "toponym": "RIALTO"
+        },
+        {
+            "code": 491,
+            "toponym": "RIGASTE"
+        },
+        {
+            "code": 492,
+            "toponym": "RIO"
+        },
+        {
+            "code": 493,
+            "toponym": "RIO TERRA'"
+        },
+        {
+            "code": 494,
+            "toponym": "RIPARTO"
+        },
+        {
+            "code": 495,
+            "toponym": "RIVETTA"
+        },
+        {
+            "code": 496,
+            "toponym": "RONCO"
+        },
+        {
+            "code": 497,
+            "toponym": "RONDO"
+        },
+        {
+            "code": 498,
+            "toponym": "ROUTE"
+        },
+        {
+            "code": 499,
+            "toponym": "RUE"
+        },
+        {
+            "code": 500,
+            "toponym": "RUGA"
+        },
+        {
+            "code": 501,
+            "toponym": "RUGA DESTRA"
+        },
+        {
+            "code": 502,
+            "toponym": "RUGA SINISTRA"
+        },
+        {
+            "code": 503,
+            "toponym": "RUGHETTA"
+        },
+        {
+            "code": 504,
+            "toponym": "RUGHETTA DESTRA"
+        },
+        {
+            "code": 505,
+            "toponym": "RUGHETTA SINISTRA"
+        },
+        {
+            "code": 506,
+            "toponym": "SALITA DESTRA"
+        },
+        {
+            "code": 507,
+            "toponym": "SALITA PER CORSO"
+        },
+        {
+            "code": 508,
+            "toponym": "SALITA PER PIAZZA"
+        },
+        {
+            "code": 509,
+            "toponym": "SALITA PER VIA"
+        },
+        {
+            "code": 510,
+            "toponym": "SALITA PER VIALE"
+        },
+        {
+            "code": 511,
+            "toponym": "SALITA SINISTRA"
+        },
+        {
+            "code": 512,
+            "toponym": "SALITA SUPERIORE"
+        },
+        {
+            "code": 513,
+            "toponym": "SALIZZATA DESTRA"
+        },
+        {
+            "code": 514,
+            "toponym": "SALIZADA SINISTRA"
+        },
+        {
+            "code": 515,
+            "toponym": "SBARCATOIO"
+        },
+        {
+            "code": 516,
+            "toponym": "SCALA DESTRA"
+        },
+        {
+            "code": 517,
+            "toponym": "SCALA SINISTRA"
+        },
+        {
+            "code": 518,
+            "toponym": "SCALEO"
+        },
+        {
+            "code": 519,
+            "toponym": "SCALETTA DESTRA"
+        },
+        {
+            "code": 520,
+            "toponym": "SCALETTA SINISTRA"
+        },
+        {
+            "code": 521,
+            "toponym": "SCALINATA DESTRA"
+        },
+        {
+            "code": 522,
+            "toponym": "SCALINATA SINISTRA"
+        },
+        {
+            "code": 523,
+            "toponym": "SCALO"
+        },
+        {
+            "code": 524,
+            "toponym": "SCESA"
+        },
+        {
+            "code": 525,
+            "toponym": "SCESE"
+        },
+        {
+            "code": 526,
+            "toponym": "SELCIATO"
+        },
+        {
+            "code": 527,
+            "toponym": "SENTIERO PANORAMICO"
+        },
+        {
+            "code": 528,
+            "toponym": "SESTIERE"
+        },
+        {
+            "code": 529,
+            "toponym": "SOTTOPASSAGGI"
+        },
+        {
+            "code": 530,
+            "toponym": "SOTTOPASSAGGIO"
+        },
+        {
+            "code": 531,
+            "toponym": "SOTTOPASSO"
+        },
+        {
+            "code": 532,
+            "toponym": "SPALTO"
+        },
+        {
+            "code": 533,
+            "toponym": "SPIAGGIA"
+        },
+        {
+            "code": 534,
+            "toponym": "SPIAZZO"
+        },
+        {
+            "code": 535,
+            "toponym": "STATALE"
+        },
+        {
+            "code": 536,
+            "toponym": "STAZZO"
+        },
+        {
+            "code": 537,
+            "toponym": "STRADA ACCORCIATOIA"
+        },
+        {
+            "code": 538,
+            "toponym": "STRADA ALTA"
+        },
+        {
+            "code": 539,
+            "toponym": "STRADA ANTICA"
+        },
+        {
+            "code": 540,
+            "toponym": "STRADA ARGINALE"
+        },
+        {
+            "code": 541,
+            "toponym": "STRADA BASSA"
+        },
+        {
+            "code": 542,
+            "toponym": "STRADA CANTONIERA"
+        },
+        {
+            "code": 543,
+            "toponym": "STRADA CHIUSA"
+        },
+        {
+            "code": 544,
+            "toponym": "STRADA CIECA"
+        },
+        {
+            "code": 545,
+            "toponym": "STRADA CIRCOLARE"
+        },
+        {
+            "code": 546,
+            "toponym": "STRADA COMUNALE"
+        },
+        {
+            "code": 547,
+            "toponym": "STRADA CONSORZIALE"
+        },
+        {
+            "code": 548,
+            "toponym": "STRADA DESTRA"
+        },
+        {
+            "code": 549,
+            "toponym": "STRADA DI LEVANTE"
+        },
+        {
+            "code": 550,
+            "toponym": "STRADA DI PONENTE"
+        },
+        {
+            "code": 551,
+            "toponym": "STRADA ESTERNA"
+        },
+        {
+            "code": 552,
+            "toponym": "STRADA EXTRAMURALE"
+        },
+        {
+            "code": 553,
+            "toponym": "STRADA INFERIORE"
+        },
+        {
+            "code": 554,
+            "toponym": "STRADA INTERCOMUNALE"
+        },
+        {
+            "code": 555,
+            "toponym": "STRADA INTERNA"
+        },
+        {
+            "code": 556,
+            "toponym": "STRADA INTERPODERALE"
+        },
+        {
+            "code": 557,
+            "toponym": "STRADA LARGA"
+        },
+        {
+            "code": 558,
+            "toponym": "STRADA LATERALE"
+        },
+        {
+            "code": 559,
+            "toponym": "STRADA LITORANEA"
+        },
+        {
+            "code": 560,
+            "toponym": "STRADA MULATTIERA"
+        },
+        {
+            "code": 561,
+            "toponym": "STRADA NUOVA"
+        },
+        {
+            "code": 562,
+            "toponym": "STRADA PANORAMICA"
+        },
+        {
+            "code": 563,
+            "toponym": "STRADA PARALLELA"
+        },
+        {
+            "code": 564,
+            "toponym": "STRADA PEDEMONTANA"
+        },
+        {
+            "code": 565,
+            "toponym": "STRADA PRIVATA"
+        },
+        {
+            "code": 566,
+            "toponym": "STRADA PROVINCIALE"
+        },
+        {
+            "code": 567,
+            "toponym": "STRADA ROMANA"
+        },
+        {
+            "code": 568,
+            "toponym": "STRADA ROTABILE"
+        },
+        {
+            "code": 569,
+            "toponym": "STRADA RURALE"
+        },
+        {
+            "code": 570,
+            "toponym": "STRADA SINISTRA"
+        },
+        {
+            "code": 571,
+            "toponym": "STRADA STATALE"
+        },
+        {
+            "code": 572,
+            "toponym": "STRADA STORTA"
+        },
+        {
+            "code": 573,
+            "toponym": "STRADA STRETTA"
+        },
+        {
+            "code": 574,
+            "toponym": "STRADA SUPERIORE"
+        },
+        {
+            "code": 575,
+            "toponym": "STRADA TANGENZIALE"
+        },
+        {
+            "code": 576,
+            "toponym": "STRADA TRASVERSALE"
+        },
+        {
+            "code": 577,
+            "toponym": "STRADA TRAVERSA"
+        },
+        {
+            "code": 578,
+            "toponym": "STRADA VECCHIA"
+        },
+        {
+            "code": 579,
+            "toponym": "STRADA VICINALE"
+        },
+        {
+            "code": 580,
+            "toponym": "STRADELLA DESTRA"
+        },
+        {
+            "code": 581,
+            "toponym": "STRADELLA SINISTRA"
+        },
+        {
+            "code": 582,
+            "toponym": "STRETTO"
+        },
+        {
+            "code": 583,
+            "toponym": "STRETTOIA"
+        },
+        {
+            "code": 584,
+            "toponym": "STRETTOIA DESTRA"
+        },
+        {
+            "code": 585,
+            "toponym": "STRETTOIA SINISTRA"
+        },
+        {
+            "code": 586,
+            "toponym": "STRETTOLA"
+        },
+        {
+            "code": 587,
+            "toponym": "STURA"
+        },
+        {
+            "code": 588,
+            "toponym": "SUPERSTRADA"
+        },
+        {
+            "code": 589,
+            "toponym": "TANGENZIALE"
+        },
+        {
+            "code": 590,
+            "toponym": "TERRAZZA"
+        },
+        {
+            "code": 591,
+            "toponym": "TRASVERSALE DEL CORSO"
+        },
+        {
+            "code": 592,
+            "toponym": "TRASVERSALE DI VIALE"
+        },
+        {
+            "code": 593,
+            "toponym": "TRASVERSALE VIA"
+        },
+        {
+            "code": 594,
+            "toponym": "TRAVERSALE PRIVATA"
+        },
+        {
+            "code": 595,
+            "toponym": "TRASVERSALE PROVINCIALE"
+        },
+        {
+            "code": 596,
+            "toponym": "TRAVERSALE STRADA"
+        },
+        {
+            "code": 597,
+            "toponym": "TRATTURO"
+        },
+        {
+            "code": 598,
+            "toponym": "TRAVERSA CORSO"
+        },
+        {
+            "code": 599,
+            "toponym": "TRAVERSA DEL VIALE"
+        },
+        {
+            "code": 600,
+            "toponym": "TRAVERSA DEL VILLAGGIO"
+        },
+        {
+            "code": 601,
+            "toponym": "TRAVERSA DELLA LOCALITA'"
+        },
+        {
+            "code": 602,
+            "toponym": "TRAVERSA DI VIA"
+        },
+        {
+            "code": 603,
+            "toponym": "TRAVERSA PRIVATA"
+        },
+        {
+            "code": 604,
+            "toponym": "TRAVERSA STRADA"
+        },
+        {
+            "code": 605,
+            "toponym": "VALCO"
+        },
+        {
+            "code": 606,
+            "toponym": "VALICO"
+        },
+        {
+            "code": 607,
+            "toponym": "VALLE"
+        },
+        {
+            "code": 608,
+            "toponym": "VIA ACCORCIATOIA"
+        },
+        {
+            "code": 609,
+            "toponym": "VIA ALTA"
+        },
+        {
+            "code": 610,
+            "toponym": "VIA ANTICA"
+        },
+        {
+            "code": 611,
+            "toponym": "VIA ARGINALE"
+        },
+        {
+            "code": 612,
+            "toponym": "VIA BASSA"
+        },
+        {
+            "code": 613,
+            "toponym": "VIA BELVEDERE"
+        },
+        {
+            "code": 614,
+            "toponym": "VIA CANTONIERA"
+        },
+        {
+            "code": 615,
+            "toponym": "VIA CHIUSA"
+        },
+        {
+            "code": 616,
+            "toponym": "VIA CIECA"
+        },
+        {
+            "code": 617,
+            "toponym": "VIA CIRCOLARE"
+        },
+        {
+            "code": 618,
+            "toponym": "VIA CIRCUMVALLAZIONE"
+        },
+        {
+            "code": 619,
+            "toponym": "VIA COMUNALE"
+        },
+        {
+            "code": 620,
+            "toponym": "VIA CONSORZIALE"
+        },
+        {
+            "code": 621,
+            "toponym": "VIA DESTRA"
+        },
+        {
+            "code": 622,
+            "toponym": "VIA DI LEVANTE"
+        },
+        {
+            "code": 623,
+            "toponym": "VIA DI PONENTE"
+        },
+        {
+            "code": 624,
+            "toponym": "VIA ESTERNA"
+        },
+        {
+            "code": 625,
+            "toponym": "VIA ESTRAMURALE"
+        },
+        {
+            "code": 626,
+            "toponym": "VIA INFERIORE"
+        },
+        {
+            "code": 627,
+            "toponym": "VIA INTERCOMUNALE"
+        },
+        {
+            "code": 628,
+            "toponym": "VIA INTERNA"
+        },
+        {
+            "code": 629,
+            "toponym": "VIA INTERPODERALE"
+        },
+        {
+            "code": 630,
+            "toponym": "VIA LARGA"
+        },
+        {
+            "code": 631,
+            "toponym": "VIA LATERALE"
+        },
+        {
+            "code": 632,
+            "toponym": "VIA LITORANEA"
+        },
+        {
+            "code": 633,
+            "toponym": "VIA LUNGOMARE"
+        },
+        {
+            "code": 634,
+            "toponym": "VIA MULATTIERA"
+        },
+        {
+            "code": 635,
+            "toponym": "VIA NUOVA"
+        },
+        {
+            "code": 636,
+            "toponym": "VIA PANORAMICA"
+        },
+        {
+            "code": 637,
+            "toponym": "VIA PARALLELA"
+        },
+        {
+            "code": 638,
+            "toponym": "VIA PEDEMONTANA"
+        },
+        {
+            "code": 639,
+            "toponym": "VIA PRIVATA"
+        },
+        {
+            "code": 640,
+            "toponym": "VIA PROVINCIALE"
+        },
+        {
+            "code": 641,
+            "toponym": "VIA ROMANA"
+        },
+        {
+            "code": 642,
+            "toponym": "VIA ROTABILE"
+        },
+        {
+            "code": 643,
+            "toponym": "VIA RURALE"
+        },
+        {
+            "code": 644,
+            "toponym": "VIA SINISTRA"
+        },
+        {
+            "code": 645,
+            "toponym": "VIA STATALE"
+        },
+        {
+            "code": 646,
+            "toponym": "VIA STORTA"
+        },
+        {
+            "code": 647,
+            "toponym": "VIA STRETTA"
+        },
+        {
+            "code": 648,
+            "toponym": "VIA SUPERIORE"
+        },
+        {
+            "code": 649,
+            "toponym": "VIA TANGENZIALE"
+        },
+        {
+            "code": 650,
+            "toponym": "VIA TRASVERSALE"
+        },
+        {
+            "code": 651,
+            "toponym": "VIA TRAVERSA"
+        },
+        {
+            "code": 652,
+            "toponym": "VIA VECCHIA"
+        },
+        {
+            "code": 653,
+            "toponym": "VIA VICINALE"
+        },
+        {
+            "code": 654,
+            "toponym": "VIALE BELVEDERE"
+        },
+        {
+            "code": 655,
+            "toponym": "VIALE LITORANEO"
+        },
+        {
+            "code": 656,
+            "toponym": "VIALE LUNGOMARE"
+        },
+        {
+            "code": 657,
+            "toponym": "VIALONE"
+        },
+        {
+            "code": 658,
+            "toponym": "VICO ALTO"
+        },
+        {
+            "code": 659,
+            "toponym": "VICO BASSO"
+        },
+        {
+            "code": 660,
+            "toponym": "VICO BELVEDERE"
+        },
+        {
+            "code": 661,
+            "toponym": "VICO CHIUSO"
+        },
+        {
+            "code": 662,
+            "toponym": "VICO CIECO"
+        },
+        {
+            "code": 663,
+            "toponym": "VICO DRITTO"
+        },
+        {
+            "code": 664,
+            "toponym": "VICO INFERIORE"
+        },
+        {
+            "code": 665,
+            "toponym": "VICO LUNGO"
+        },
+        {
+            "code": 666,
+            "toponym": "VICO NUOVO"
+        },
+        {
+            "code": 667,
+            "toponym": "VICO PRIVATO"
+        },
+        {
+            "code": 668,
+            "toponym": "VICO STORTO"
+        },
+        {
+            "code": 669,
+            "toponym": "VICO STRETTO"
+        },
+        {
+            "code": 670,
+            "toponym": "VICO VECCHIO"
+        },
+        {
+            "code": 671,
+            "toponym": "VICOLETTO CHIUSO"
+        },
+        {
+            "code": 672,
+            "toponym": "VICOLETTO CIECO"
+        },
+        {
+            "code": 673,
+            "toponym": "VICOLETTO DRITTO"
+        },
+        {
+            "code": 674,
+            "toponym": "VICOLETTO INFERIORE"
+        },
+        {
+            "code": 675,
+            "toponym": "VICOLETTO LUNGO"
+        },
+        {
+            "code": 676,
+            "toponym": "VICOLETTO NUOVO"
+        },
+        {
+            "code": 677,
+            "toponym": "VICOLETTO PRIVATO"
+        },
+        {
+            "code": 678,
+            "toponym": "VICOLETTO STORTO"
+        },
+        {
+            "code": 679,
+            "toponym": "VICOLETTO STRETTO"
+        },
+        {
+            "code": 680,
+            "toponym": "VICOLETTO VECCHIO"
+        },
+        {
+            "code": 681,
+            "toponym": "VICOLO ALTO"
+        },
+        {
+            "code": 682,
+            "toponym": "VICOLO BASSO"
+        },
+        {
+            "code": 683,
+            "toponym": "VICOLO BELVEDERE"
+        },
+        {
+            "code": 684,
+            "toponym": "VICOLO CHIUSO"
+        },
+        {
+            "code": 685,
+            "toponym": "VICOLO CIECO"
+        },
+        {
+            "code": 686,
+            "toponym": "VICOLO DRITTO"
+        },
+        {
+            "code": 687,
+            "toponym": "VICOLO INFERIORE"
+        },
+        {
+            "code": 688,
+            "toponym": "VICOLO LUNGO"
+        },
+        {
+            "code": 689,
+            "toponym": "VICOLO NUOVO"
+        },
+        {
+            "code": 690,
+            "toponym": "VICOLO PRIVATO"
+        },
+        {
+            "code": 691,
+            "toponym": "VICOLO STORTO"
+        },
+        {
+            "code": 692,
+            "toponym": "VICOLO STRETTO"
+        },
+        {
+            "code": 693,
+            "toponym": "VICOLO VECCHIO"
+        },
+        {
+            "code": 694,
+            "toponym": "VIELLA"
+        },
+        {
+            "code": 695,
+            "toponym": "VIETTA"
+        },
+        {
+            "code": 696,
+            "toponym": "VIOTTOLA"
+        },
+        {
+            "code": 697,
+            "toponym": "VIUZZA"
+        },
+        {
+            "code": 698,
+            "toponym": "VO'"
+        },
+        {
+            "code": 699,
+            "toponym": "VOCABOLO"
+        },
+        {
+            "code": 700,
+            "toponym": "VOLTE"
+        },
+        {
+            "code": 701,
+            "toponym": "VOLTO"
+        },
+        {
+            "code": 702,
+            "toponym": "VOLTONE"
+        },
+        {
+            "code": 703,
+            "toponym": "ZIPA"
+        },
+        {
+            "code": 704,
+            "toponym": "COLLE"
+        },
+        {
+            "code": 705,
+            "toponym": "ZONA"
+        },
+        {
+            "code": 706,
+            "toponym": "REGIONE"
+        },
+        {
+            "code": 707,
+            "toponym": "PODERE"
+        },
+        {
+            "code": 708,
+            "toponym": "PASSO PRIVATO"
+        },
+        {
+            "code": 709,
+            "toponym": "SALITA INFERIORE"
+        },
+        {
+            "code": 710,
+            "toponym": "CUPA VICINALE"
+        },
+        {
+            "code": 711,
+            "toponym": "CUPA VECCHIA"
+        },
+        {
+            "code": 712,
+            "toponym": "GALLERIA PRIVATA"
+        },
+        {
+            "code": 713,
+            "toponym": "LARGO PRIVATO"
+        },
+        {
+            "code": 714,
+            "toponym": "PENDINO"
+        },
+        {
+            "code": 715,
+            "toponym": "PENNINATA"
+        },
+        {
+            "code": 716,
+            "toponym": "TONDO"
+        },
+        {
+            "code": 717,
+            "toponym": "VANELLA"
+        },
+        {
+            "code": 718,
+            "toponym": "VIALE PRIVATO"
+        },
+        {
+            "code": 719,
+            "toponym": "VICO ROTTO"
+        }
+    ],
+    "VI": [
+        {
+            "code": 236,
+            "toponym": "VIA"
+        },
+        {
+            "code": 238,
+            "toponym": "VIADOTTO"
+        },
+        {
+            "code": 240,
+            "toponym": "VIALE"
+        },
+        {
+            "code": 242,
+            "toponym": "VIALETTO"
+        },
+        {
+            "code": 244,
+            "toponym": "VICO"
+        },
+        {
+            "code": 246,
+            "toponym": "VICOLETTO"
+        },
+        {
+            "code": 248,
+            "toponym": "VICOLO"
+        },
+        {
+            "code": 250,
+            "toponym": "VILLAGGIO"
+        },
+        {
+            "code": 252,
+            "toponym": "VIOTTOLO"
+        },
+        {
+            "code": 254,
+            "toponym": "VIUZZO"
+        },
+        {
+            "code": 608,
+            "toponym": "VIA ACCORCIATOIA"
+        },
+        {
+            "code": 609,
+            "toponym": "VIA ALTA"
+        },
+        {
+            "code": 610,
+            "toponym": "VIA ANTICA"
+        },
+        {
+            "code": 611,
+            "toponym": "VIA ARGINALE"
+        },
+        {
+            "code": 612,
+            "toponym": "VIA BASSA"
+        },
+        {
+            "code": 613,
+            "toponym": "VIA BELVEDERE"
+        },
+        {
+            "code": 614,
+            "toponym": "VIA CANTONIERA"
+        },
+        {
+            "code": 615,
+            "toponym": "VIA CHIUSA"
+        },
+        {
+            "code": 616,
+            "toponym": "VIA CIECA"
+        },
+        {
+            "code": 617,
+            "toponym": "VIA CIRCOLARE"
+        },
+        {
+            "code": 618,
+            "toponym": "VIA CIRCUMVALLAZIONE"
+        },
+        {
+            "code": 619,
+            "toponym": "VIA COMUNALE"
+        },
+        {
+            "code": 620,
+            "toponym": "VIA CONSORZIALE"
+        },
+        {
+            "code": 621,
+            "toponym": "VIA DESTRA"
+        },
+        {
+            "code": 622,
+            "toponym": "VIA DI LEVANTE"
+        },
+        {
+            "code": 623,
+            "toponym": "VIA DI PONENTE"
+        },
+        {
+            "code": 624,
+            "toponym": "VIA ESTERNA"
+        },
+        {
+            "code": 625,
+            "toponym": "VIA ESTRAMURALE"
+        },
+        {
+            "code": 626,
+            "toponym": "VIA INFERIORE"
+        },
+        {
+            "code": 627,
+            "toponym": "VIA INTERCOMUNALE"
+        },
+        {
+            "code": 628,
+            "toponym": "VIA INTERNA"
+        },
+        {
+            "code": 629,
+            "toponym": "VIA INTERPODERALE"
+        },
+        {
+            "code": 630,
+            "toponym": "VIA LARGA"
+        },
+        {
+            "code": 631,
+            "toponym": "VIA LATERALE"
+        },
+        {
+            "code": 632,
+            "toponym": "VIA LITORANEA"
+        },
+        {
+            "code": 633,
+            "toponym": "VIA LUNGOMARE"
+        },
+        {
+            "code": 634,
+            "toponym": "VIA MULATTIERA"
+        },
+        {
+            "code": 635,
+            "toponym": "VIA NUOVA"
+        },
+        {
+            "code": 636,
+            "toponym": "VIA PANORAMICA"
+        },
+        {
+            "code": 637,
+            "toponym": "VIA PARALLELA"
+        },
+        {
+            "code": 638,
+            "toponym": "VIA PEDEMONTANA"
+        },
+        {
+            "code": 639,
+            "toponym": "VIA PRIVATA"
+        },
+        {
+            "code": 640,
+            "toponym": "VIA PROVINCIALE"
+        },
+        {
+            "code": 641,
+            "toponym": "VIA ROMANA"
+        },
+        {
+            "code": 642,
+            "toponym": "VIA ROTABILE"
+        },
+        {
+            "code": 643,
+            "toponym": "VIA RURALE"
+        },
+        {
+            "code": 644,
+            "toponym": "VIA SINISTRA"
+        },
+        {
+            "code": 645,
+            "toponym": "VIA STATALE"
+        },
+        {
+            "code": 646,
+            "toponym": "VIA STORTA"
+        },
+        {
+            "code": 647,
+            "toponym": "VIA STRETTA"
+        },
+        {
+            "code": 648,
+            "toponym": "VIA SUPERIORE"
+        },
+        {
+            "code": 649,
+            "toponym": "VIA TANGENZIALE"
+        },
+        {
+            "code": 650,
+            "toponym": "VIA TRASVERSALE"
+        },
+        {
+            "code": 651,
+            "toponym": "VIA TRAVERSA"
+        },
+        {
+            "code": 652,
+            "toponym": "VIA VECCHIA"
+        },
+        {
+            "code": 653,
+            "toponym": "VIA VICINALE"
+        },
+        {
+            "code": 654,
+            "toponym": "VIALE BELVEDERE"
+        },
+        {
+            "code": 655,
+            "toponym": "VIALE LITORANEO"
+        },
+        {
+            "code": 656,
+            "toponym": "VIALE LUNGOMARE"
+        },
+        {
+            "code": 657,
+            "toponym": "VIALONE"
+        },
+        {
+            "code": 658,
+            "toponym": "VICO ALTO"
+        },
+        {
+            "code": 659,
+            "toponym": "VICO BASSO"
+        },
+        {
+            "code": 660,
+            "toponym": "VICO BELVEDERE"
+        },
+        {
+            "code": 661,
+            "toponym": "VICO CHIUSO"
+        },
+        {
+            "code": 662,
+            "toponym": "VICO CIECO"
+        },
+        {
+            "code": 663,
+            "toponym": "VICO DRITTO"
+        },
+        {
+            "code": 664,
+            "toponym": "VICO INFERIORE"
+        },
+        {
+            "code": 665,
+            "toponym": "VICO LUNGO"
+        },
+        {
+            "code": 666,
+            "toponym": "VICO NUOVO"
+        },
+        {
+            "code": 667,
+            "toponym": "VICO PRIVATO"
+        },
+        {
+            "code": 668,
+            "toponym": "VICO STORTO"
+        },
+        {
+            "code": 669,
+            "toponym": "VICO STRETTO"
+        },
+        {
+            "code": 670,
+            "toponym": "VICO VECCHIO"
+        },
+        {
+            "code": 671,
+            "toponym": "VICOLETTO CHIUSO"
+        },
+        {
+            "code": 672,
+            "toponym": "VICOLETTO CIECO"
+        },
+        {
+            "code": 673,
+            "toponym": "VICOLETTO DRITTO"
+        },
+        {
+            "code": 674,
+            "toponym": "VICOLETTO INFERIORE"
+        },
+        {
+            "code": 675,
+            "toponym": "VICOLETTO LUNGO"
+        },
+        {
+            "code": 676,
+            "toponym": "VICOLETTO NUOVO"
+        },
+        {
+            "code": 677,
+            "toponym": "VICOLETTO PRIVATO"
+        },
+        {
+            "code": 678,
+            "toponym": "VICOLETTO STORTO"
+        },
+        {
+            "code": 679,
+            "toponym": "VICOLETTO STRETTO"
+        },
+        {
+            "code": 680,
+            "toponym": "VICOLETTO VECCHIO"
+        },
+        {
+            "code": 681,
+            "toponym": "VICOLO ALTO"
+        },
+        {
+            "code": 682,
+            "toponym": "VICOLO BASSO"
+        },
+        {
+            "code": 683,
+            "toponym": "VICOLO BELVEDERE"
+        },
+        {
+            "code": 684,
+            "toponym": "VICOLO CHIUSO"
+        },
+        {
+            "code": 685,
+            "toponym": "VICOLO CIECO"
+        },
+        {
+            "code": 686,
+            "toponym": "VICOLO DRITTO"
+        },
+        {
+            "code": 687,
+            "toponym": "VICOLO INFERIORE"
+        },
+        {
+            "code": 688,
+            "toponym": "VICOLO LUNGO"
+        },
+        {
+            "code": 689,
+            "toponym": "VICOLO NUOVO"
+        },
+        {
+            "code": 690,
+            "toponym": "VICOLO PRIVATO"
+        },
+        {
+            "code": 691,
+            "toponym": "VICOLO STORTO"
+        },
+        {
+            "code": 692,
+            "toponym": "VICOLO STRETTO"
+        },
+        {
+            "code": 693,
+            "toponym": "VICOLO VECCHIO"
+        },
+        {
+            "code": 694,
+            "toponym": "VIELLA"
+        },
+        {
+            "code": 695,
+            "toponym": "VIETTA"
+        },
+        {
+            "code": 696,
+            "toponym": "VIOTTOLA"
+        },
+        {
+            "code": 697,
+            "toponym": "VIUZZA"
+        },
+        {
+            "code": 718,
+            "toponym": "VIALE PRIVATO"
+        },
+        {
+            "code": 719,
+            "toponym": "VICO ROTTO"
+        }
+    ]
+}
