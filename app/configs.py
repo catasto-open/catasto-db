@@ -47,6 +47,17 @@ class AppConfig(BaseModel):
         "catasto_dettagli_fabbricato_temp"
     )
     CATASTO_OPEN_PROPERTY_OWNER_LAYER_TEMP = "catasto_titolari_immobile_temp"
+    CATASTO_OPEN_TOPONIMO_LAYER = "catasto_toponimo"
+    CATASTO_OPEN_INDIRIZZO_IMMOBILE_LAYER = "catasto_indrizzo_immobile"
+    CATASTO_OPEN_INDIRIZZO_IMMOBILE_LAYER_TEMP = (
+        "catasto_indrizzo_immobile_temp"
+    )
+    CATASTO_OPEN_BUILDING_BY_CODE_LAYER = "catasto_fabbricati_bcodice"
+    CATASTO_OPEN_BUILDING_BY_CODE_LAYER_TEMP = (
+        "catasto_fabbricati_bcodice_temp"
+    )
+    CATASTO_OPEN_LAND_BY_CODE_LAYER = "catasto_terreni_bcodice"
+    CATASTO_OPEN_LAND_BY_CODE_LAYER_TEMP = "catasto_terreni_bcodice_temp"
 
     CTCN_COMUNI: str = "ctcn:comuni"
     CTCN_COMUNI_: str = "ctcn:comuni_"
@@ -61,6 +72,8 @@ class AppConfig(BaseModel):
     CTCN_CTTITOLI: str = "ctcn:cttitoli"
     CTCN_CTFISICA: str = "ctcn:ctfisica"
     CTCN_CTNONFIS: str = "ctcn:ctnonfis"
+    CTCN_CUCODTOP: str = "ctcn:cucodtop"
+    CTCN_CUINDIRI: str = "ctcn:cuindiri"
 
     CTMP_FABRICATI: str = "ctmp:fabbricati"
     CTMP_PARTICELLE: str = "ctmp:particelle"
@@ -844,6 +857,207 @@ class AppConfig(BaseModel):
                         vst.data_fine_f between '{2}' and '{3}'
                         )
     )
+    order by 1,2,3,4
+    """
+
+    VIEW_QUERY_TOPONIMO = """
+    select
+        c.codice as code,
+        c.toponimo as toponym
+    from ctcn.cucodtop c
+        where
+        c.toponimo ilike '{0}%' || '%'
+    """
+
+    VIEW_QUERY_IMMOBILI_BY_IND = """
+    select vf.codice as cityCode,
+        f.sezione as section,
+        vf.foglio as sheet,
+        vf.numero_f as number,
+        st_transform(st_setsrid(st_extent(f.geom),3004),3857)
+        as geom,
+        st_envelope(st_transform(
+        st_setsrid(st_extent(f.geom),3004),3857))
+        as extent
+    from ctcn.v_fabbricati vf
+        right join ctmp.fabbricati f
+        on
+            f.comune = vf.codice
+            and f.foglio = vf.foglio
+            and f.numero = vf.particella
+        inner join ctcn.cuindiri c
+        on
+            c.codice = vf.codice
+            and c.immobile = vf.immobile
+        where
+            c.toponimo = {0}
+            and c.indirizzo ilike '{1}%'
+            and ltrim(coalesce(c.civico1,''),'0') like '{2}'
+            and c.codice = '{3}'
+            and vf.data_inizio <= ('now'::text)::date
+            and vf.data_fine_f >= ('now'::text)::date
+        group by 1,2,3,4
+        order by 1,2,3,4
+    """
+
+    VIEW_QUERY_IMMOBILI_BY_IND_TEMP = """
+    select vf.codice as cityCode,
+        f.sezione as section,
+        vf.foglio as sheet,
+        vf.numero_f as number,
+        st_transform(st_setsrid(st_extent(f.geom),3004),3857)
+        as geom,
+        st_envelope(st_transform(
+        st_setsrid(st_extent(f.geom),3004),3857))
+        as extent
+    from ctcn.v_fabbricati vf
+        right join ctmp.fabbricati f
+        on
+            f.comune = vf.codice
+            and f.foglio = vf.foglio
+            and f.numero = vf.particella
+        inner join ctcn.cuindiri c
+        on
+            c.codice = vf.codice
+            and c.immobile = vf.immobile
+        where
+            c.toponimo = {0}
+            and c.indirizzo ilike '{1}%'
+            and ltrim(coalesce(c.civico1,''),'0') like '{2}'
+            and c.codice = '{3}'
+            and
+            (
+                '{4}' between vf.data_inizio and vf.data_fine_f
+                or
+                '{5}' between vf.data_inizio and vf.data_fine_f
+                or
+                vf.data_inizio between '{4}' and '{5}'
+                or
+                vf.data_fine_f between '{4}' and '{5}'
+            )
+        group by 1,2,3,4
+        order by 1,2,3,4
+    """
+
+    VIEW_QUERY_FABBRICATI_BY_CODICE = """
+    select vf.codice as cityCode,
+        f.sezione as section,
+        vf.foglio as sheet,
+        vf.numero_f as number,
+        st_transform(st_setsrid(st_extent(f.geom),3004),3857)
+        as geom,
+        st_envelope(st_transform(
+        st_setsrid(st_extent(f.geom),3004),3857))
+        as extent
+    from ctcn.v_fabbricati vf
+        right join ctmp.fabbricati f
+        on
+            f.comune = vf.codice
+            and f.foglio = vf.foglio
+            and f.numero = vf.particella
+        where
+            vf.immobile = {0}
+            and vf.codice = '{1}'
+            and vf.data_inizio <= ('now'::text)::date
+            and vf.data_fine_f >= ('now'::text)::date
+        group by 1,2,3,4
+        order by 1,2,3,4
+    """
+
+    VIEW_QUERY_FABBRICATI_BY_CODICE_TEMP = """
+    select vf.codice as cityCode,
+        f.sezione as section,
+        vf.foglio as sheet,
+        vf.numero_f as number,
+        st_transform(st_setsrid(st_extent(f.geom),3004),3857)
+        as geom,
+        st_envelope(st_transform(
+        st_setsrid(st_extent(f.geom),3004),3857))
+        as extent
+    from ctcn.v_fabbricati vf
+        right join ctmp.fabbricati f
+        on
+            f.comune = vf.codice
+            and f.foglio = vf.foglio
+            and f.numero = vf.particella
+        where
+            vf.immobile = {0}
+            and vf.codice = '{1}'
+            and
+            (
+                '{2}' between vf.data_inizio and vf.data_fine_f
+                or
+                '{3}' between vf.data_inizio and vf.data_fine_f
+                or
+                vf.data_inizio between '{2}' and '{3}'
+                or
+                vf.data_fine_f between '{2}' and '{3}'
+            )
+        group by 1,2,3,4
+        order by 1,2,3,4
+    """
+
+    VIEW_QUERY_TERRENI_BY_CODICE = """
+    select vt.codice as cityCode,
+        vt.foglio as sheet,
+        vt.numero_f as number,
+        p.sezione as section,
+        st_transform(st_setsrid(
+            st_extent(p.geom),3004),3857)
+                as geom,
+        st_envelope(
+            st_transform(
+                st_setsrid(
+                    st_extent(p.geom),3004),3857))
+                        as extent
+    from ctcn.v_terreni vt
+        right join ctmp.particelle p
+        on
+            p.comune = vt.codice
+            and p.foglio = vt.foglio::text
+            and p.numero = vt.particella
+        where
+            vt.codice = '{1}'
+            and vt.immobile = {0}
+            and vt.data_inizio <= ('now'::text)::date
+            and vt.data_fine_f >= ('now'::text)::date
+    group by 1,2,3,4
+    order by 1,2,3,4
+    """
+
+    VIEW_QUERY_TERRENI_BY_CODICE_TEMP = """
+    select vt.codice as cityCode,
+        vt.foglio as sheet,
+        vt.numero_f as number,
+        p.sezione as section,
+        st_transform(st_setsrid(
+            st_extent(p.geom),3004),3857)
+                as geom,
+        st_envelope(
+            st_transform(
+                st_setsrid(
+                    st_extent(p.geom),3004),3857))
+                        as extent
+    from ctcn.v_terreni vt
+        right join ctmp.particelle p
+        on
+            p.comune = vt.codice
+            and p.foglio = vt.foglio::text
+            and p.numero = vt.particella
+        where
+            vt.codice = '{1}'
+            and vt.immobile = {0}
+            and
+            (
+                '{2}' between vt.data_inizio and vt.data_fine_f
+                or
+                '{3}' between vt.data_inizio and vt.data_fine_f
+                or
+                vt.data_inizio between '{2}' and '{3}'
+                or
+                vt.data_fine_f between '{2}' and '{3}'
+            )
+    group by 1,2,3,4
     order by 1,2,3,4
     """
 
