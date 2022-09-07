@@ -1692,6 +1692,635 @@ layers_n = [
             },
         }
     },
+    {
+        "featureType": {
+            "name": cnf.APP_CONFIG.CATASTO_OPEN_TOPONIMO_LAYER,
+            "nativeName": cnf.APP_CONFIG.CATASTO_OPEN_TOPONIMO_LAYER,
+            "namespace": {
+                "name": f"{cnf.CATASTO_OPEN_GS_WORKSPACE}",
+                "href": f"{cnf.GEOSERVER_HOST}:"
+                f"{cnf.GEOSERVER_HOST_PORT}"
+                f"/geoserver/rest/namespaces"
+                f"/{cnf.CATASTO_OPEN_GS_WORKSPACE}.json",
+            },
+            "title": cnf.APP_CONFIG.CATASTO_OPEN_TOPONIMO_LAYER,
+            "keywords": {
+                "string": [
+                    "features",
+                    cnf.APP_CONFIG.CATASTO_OPEN_TOPONIMO_LAYER,
+                ]
+            },
+            "nativeCRS": {
+                "@class": "projected",
+                "$": 'PROJCS["WGS 84 / '
+                'Pseudo-Mercator", \n  '
+                'GEOGCS["WGS 84", \n    '
+                'DATUM["World Geodetic System 1984", \n     '
+                ' SPHEROID["WGS 84", 6378137.0, 298.257223563, '
+                'AUTHORITY["EPSG","7030"]], \n      '
+                'AUTHORITY["EPSG","6326"]], \n    '
+                'PRIMEM["Greenwich", 0.0, '
+                'AUTHORITY["EPSG","8901"]], \n    '
+                'UNIT["degree", 0.017453292519943295], \n    '
+                'AXIS["Geodetic longitude", EAST], \n    '
+                'AXIS["Geodetic latitude", '
+                "NORTH], \n    "
+                'AUTHORITY["EPSG","4326"]], \n  '
+                'PROJECTION["Popular '
+                'Visualisation Pseudo Mercator"], \n  '
+                'PARAMETER["semi_minor", 6378137.0], \n  '
+                'PARAMETER["latitude_of_origin", 0.0], \n  '
+                'PARAMETER["central_meridian", 0.0], \n  '
+                'PARAMETER["scale_factor", 1.0], \n  '
+                'PARAMETER["False_easting", 0.0], \n  '
+                'PARAMETER["False_northing", 0.0], \n  '
+                'UNIT["m", 1.0], \n  '
+                'AXIS["Easting", EAST], \n  '
+                'AXIS["Northing", NORTH], \n  '
+                'AUTHORITY["EPSG","3857"]]',
+            },
+            "srs": "EPSG:3857",
+            "nativeBoundingBox": {
+                "minx": -1,
+                "maxx": 0,
+                "miny": -1,
+                "maxy": 0,
+                "crs": {"@class": "projected", "$": "EPSG:3857"},
+            },
+            "latLonBoundingBox": {
+                "minx": -1,
+                "maxx": 0,
+                "miny": -1,
+                "maxy": 0,
+                "crs": "EPSG:4326",
+            },
+            "projectionPolicy": "FORCE_DECLARED",
+            "enabled": True,
+            "metadata": {
+                "entry": {
+                    "@key": "JDBC_VIRTUAL_TABLE",
+                    "virtualTable": {
+                        "name": cnf.APP_CONFIG.CATASTO_OPEN_TOPONIMO_LAYER,
+                        "sql": cnf.APP_CONFIG.VIEW_QUERY_TOPONIMO.format(
+                            "%toponym%"
+                        ),
+                        "escapeSql": False,
+                        "parameter": [
+                            {
+                                "name": "toponym",
+                                "regexpValidator": "^[\\w\\d\\s]+$",
+                            },
+                        ],
+                    },
+                }
+            },
+            "store": {
+                "@class": "dataStore",
+                "name": f"{cnf.CATASTO_OPEN_GS_WORKSPACE}:"
+                f"{cnf.CATASTO_OPEN_GS_DATASTORE}",
+                "href": f"{cnf.GEOSERVER_HOST}:{cnf.GEOSERVER_HOST_PORT}"
+                f"/geoserver/rest"
+                f"/workspaces/{cnf.CATASTO_OPEN_GS_WORKSPACE}"
+                f"/datastores"
+                f"{cnf.CATASTO_OPEN_GS_DATASTORE}.json",
+            },
+            "serviceConfiguration": False,
+            "simpleConversionEnabled": False,
+            "maxFeatures": 0,
+            "numDecimals": 0,
+            "padWithZeros": False,
+            "forcedDecimal": False,
+            "overridingServiceSRS": False,
+            "skipNumberMatched": False,
+            "circularArcPresent": False,
+            "attributes": {
+                "attribute": [
+                    {
+                        "name": "toponym",
+                        "minOccurs": 1,
+                        "maxOccurs": 1,
+                        "nillable": False,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "code",
+                        "minOccurs": 1,
+                        "maxOccurs": 1,
+                        "nillable": False,
+                        "binding": "java.lang.String",
+                    },
+                ]
+            },
+        }
+    },
+    {
+        "featureType": {
+            "name": cnf.APP_CONFIG.CATASTO_OPEN_INDIRIZZO_IMMOBILE_LAYER,
+            "nativeName": cnf.APP_CONFIG.CATASTO_OPEN_INDIRIZZO_IMMOBILE_LAYER,
+            "namespace": {
+                "name": f"{cnf.CATASTO_OPEN_GS_WORKSPACE}",
+                "href": f"{cnf.GEOSERVER_HOST}:"
+                f"{cnf.GEOSERVER_HOST_PORT}"
+                f"/geoserver/rest/namespaces"
+                f"/{cnf.CATASTO_OPEN_GS_WORKSPACE}.json",
+            },
+            "title": cnf.APP_CONFIG.CATASTO_OPEN_INDIRIZZO_IMMOBILE_LAYER,
+            "keywords": {
+                "string": [
+                    "features",
+                    cnf.APP_CONFIG.CATASTO_OPEN_INDIRIZZO_IMMOBILE_LAYER,
+                ]
+            },
+            "nativeCRS": {
+                "@class": "projected",
+                "$": 'PROJCS["WGS 84  / Pseudo-Mercator", \n  '
+                'GEOGCS["WGS 84", \n    '
+                'DATUM["World Geodetic System 1984", \n      '
+                'SPHEROID["WGS 84", 6378137.0, 298.257223563, '
+                'AUTHORITY["EPSG","7030"]], \n      '
+                'AUTHORITY["EPSG","6326"]], \n    '
+                'PRIMEM["Greenwich", 0.0, '
+                'AUTHORITY["EPSG","8901"]], \n    '
+                'UNIT["degree", 0.017453292519943295], \n    '
+                'AXIS["Geodetic longitude", EAST], \n    '
+                'AXIS["Geodetic latitude", NORTH], \n    '
+                'AUTHORITY["EPSG","4326"]], \n  '
+                'PROJECTION["Popular Visualisation '
+                'Pseudo Mercator"], \n  '
+                'PARAMETER["semi_minor", 6378137.0], \n  '
+                'PARAMETER["latitude_of_origin", 0.0], \n  '
+                'PARAMETER["central_meridian", 0.0], \n  '
+                'PARAMETER["scale_factor", 1.0], \n  '
+                'PARAMETER["False_easting", 0.0], \n  '
+                'PARAMETER["False_northing", 0.0], \n  '
+                'UNIT["m", 1.0], \n  '
+                'AXIS["Easting", EAST], \n  '
+                'AXIS["Northing", NORTH], \n  '
+                'AUTHORITY["EPSG","3857"]]',
+            },
+            "srs": "EPSG:3857",
+            "nativeBoundingBox": {
+                "minx": 1369654.2238071756,
+                "maxx": 1369711.5726051242,
+                "miny": 5134937.868327329,
+                "maxy": 5135009.05117675,
+                "crs": {"@class": "projected", "$": "EPSG:3857"},
+            },
+            "latLonBoundingBox": {
+                "minx": 12.303813232048457,
+                "maxx": 12.304328405065688,
+                "miny": 41.825914650179406,
+                "maxy": 41.826391147539816,
+                "crs": "EPSG:4326",
+            },
+            "projectionPolicy": "FORCE_DECLARED",
+            "enabled": True,
+            "metadata": {
+                "entry": {
+                    "@key": "JDBC_VIRTUAL_TABLE",
+                    "virtualTable": {
+                        "name": cnf.APP_CONFIG.CATASTO_OPEN_INDIRIZZO_IMMOBILE_LAYER,  # noqa
+                        "sql": cnf.APP_CONFIG.VIEW_QUERY_IMMOBILI_BY_IND.format(  # noqa
+                            "%toponymCode%",
+                            "%addressName%",
+                            "%houseNumber%",
+                            "%cityCode%",
+                        ),
+                        "escapeSql": False,
+                        "parameter": [
+                            {
+                                "name": "toponymCode",
+                                "defaultValue": 236,
+                                "regexpValidator": "^[\\w\\d\\s]+$",
+                            },
+                            {
+                                "name": "addressName",
+                                "defaultValue": "CRISTOFORO SABBADINO",
+                                "regexpValidator": "^[\\w\\d\\s]+$",
+                            },
+                            {
+                                "name": "houseNumber",
+                                "defaultValue": 68,
+                                "regexpValidator": "^[\\w\\d\\s]+$",
+                            },
+                            {
+                                "name": "cityCode",
+                                "defaultValue": "H501",
+                                "regexpValidator": "^[\\w\\d\\s]+$",
+                            },
+                        ],
+                        "geometry": [
+                            {
+                                "name": "extent",
+                                "type": "Polygon",
+                                "srid": 3857,
+                            },
+                            {
+                                "name": "geom",
+                                "type": "MultiPolygon",
+                                "srid": 3857,
+                            },
+                        ],
+                    },
+                }
+            },
+            "store": {
+                "@class": "dataStore",
+                "name": f"{cnf.CATASTO_OPEN_GS_WORKSPACE}:"
+                f"{cnf.CATASTO_OPEN_GS_DATASTORE}",
+                "href": f"{cnf.GEOSERVER_HOST}:{cnf.GEOSERVER_HOST_PORT}"
+                f"/geoserver/rest"
+                f"/workspaces/{cnf.CATASTO_OPEN_GS_WORKSPACE}"
+                f"/datastores/"
+                f"{cnf.CATASTO_OPEN_GS_DATASTORE}.json",
+            },
+            "serviceConfiguration": False,
+            "simpleConversionEnabled": False,
+            "maxFeatures": 0,
+            "numDecimals": 0,
+            "padWithZeros": False,
+            "forcedDecimal": False,
+            "overridingServiceSRS": False,
+            "skipNumberMatched": False,
+            "circularArcPresent": False,
+            "attributes": {
+                "attribute": [
+                    {
+                        "name": "citycode",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "section",
+                        "minOccurs": 1,
+                        "maxOccurs": 1,
+                        "nillable": False,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "sheet",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "number",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "geom",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "org.locationtech.jts.geom.MultiPolygon",
+                    },
+                    {
+                        "name": "extent",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "org.locationtech.jts.geom.Polygon",
+                    },
+                ]
+            },
+        }
+    },
+    {
+        "featureType": {
+            "name": cnf.APP_CONFIG.CATASTO_OPEN_BUILDING_BY_CODE_LAYER,
+            "nativeName": cnf.APP_CONFIG.CATASTO_OPEN_BUILDING_BY_CODE_LAYER,
+            "namespace": {
+                "name": f"{cnf.CATASTO_OPEN_GS_WORKSPACE}",
+                "href": f"{cnf.GEOSERVER_HOST}:"
+                f"{cnf.GEOSERVER_HOST_PORT}"
+                f"/geoserver/rest/namespaces"
+                f"/{cnf.CATASTO_OPEN_GS_WORKSPACE}.json",
+            },
+            "title": cnf.APP_CONFIG.CATASTO_OPEN_BUILDING_BY_CODE_LAYER,
+            "keywords": {
+                "string": [
+                    "features",
+                    cnf.APP_CONFIG.CATASTO_OPEN_BUILDING_BY_CODE_LAYER,
+                ]
+            },
+            "nativeCRS": {
+                "@class": "projected",
+                "$": 'PROJCS["WGS 84  / Pseudo-Mercator", \n  '
+                'GEOGCS["WGS 84", \n    '
+                'DATUM["World Geodetic System 1984", \n      '
+                'SPHEROID["WGS 84", 6378137.0, 298.257223563, '
+                'AUTHORITY["EPSG","7030"]], \n      '
+                'AUTHORITY["EPSG","6326"]], \n    '
+                'PRIMEM["Greenwich", 0.0, '
+                'AUTHORITY["EPSG","8901"]], \n    '
+                'UNIT["degree", 0.017453292519943295], \n    '
+                'AXIS["Geodetic longitude", EAST], \n    '
+                'AXIS["Geodetic latitude", NORTH], \n    '
+                'AUTHORITY["EPSG","4326"]], \n  '
+                'PROJECTION["Popular Visualisation '
+                'Pseudo Mercator"], \n  '
+                'PARAMETER["semi_minor", 6378137.0], \n  '
+                'PARAMETER["latitude_of_origin", 0.0], \n  '
+                'PARAMETER["central_meridian", 0.0], \n  '
+                'PARAMETER["scale_factor", 1.0], \n  '
+                'PARAMETER["False_easting", 0.0], \n  '
+                'PARAMETER["False_northing", 0.0], \n  '
+                'UNIT["m", 1.0], \n  '
+                'AXIS["Easting", EAST], \n  '
+                'AXIS["Northing", NORTH], \n  '
+                'AUTHORITY["EPSG","3857"]]',
+            },
+            "srs": "EPSG:3857",
+            "nativeBoundingBox": {
+                "minx": 1743369.7459205368,
+                "maxx": 1743379.8221324224,
+                "miny": 4600646.325895493,
+                "maxy": 4600656.878548826,
+                "crs": {"@class": "projected", "$": "EPSG:3857"},
+            },
+            "latLonBoundingBox": {
+                "minx": 15.66095688631985,
+                "maxx": 15.661047402471278,
+                "miny": 38.15006229979151,
+                "maxy": 38.15013684698621,
+                "crs": "EPSG:4326",
+            },
+            "projectionPolicy": "FORCE_DECLARED",
+            "enabled": True,
+            "metadata": {
+                "entry": {
+                    "@key": "JDBC_VIRTUAL_TABLE",
+                    "virtualTable": {
+                        "name": cnf.APP_CONFIG.CATASTO_OPEN_BUILDING_BY_CODE_LAYER,  # noqa
+                        "sql": cnf.APP_CONFIG.VIEW_QUERY_FABBRICATI_BY_CODICE.format(  # noqa
+                            "%immobileCode%", "%cityCode%"
+                        ),
+                        "escapeSql": False,
+                        "parameter": [
+                            {
+                                "name": "immobileCode",
+                                "defaultValue": 335,
+                                "regexpValidator": "^[0-9]+$",
+                            },
+                            {
+                                "name": "cityCode",
+                                "defaultValue": "H224",
+                                "regexpValidator": "^[\\w\\d\\s]+$",
+                            },
+                        ],
+                        "geometry": [
+                            {
+                                "name": "extent",
+                                "type": "Polygon",
+                                "srid": 3857,
+                            },
+                            {
+                                "name": "geom",
+                                "type": "MultiPolygon",
+                                "srid": 3857,
+                            },
+                        ],
+                    },
+                }
+            },
+            "store": {
+                "@class": "dataStore",
+                "name": f"{cnf.CATASTO_OPEN_GS_WORKSPACE}:"
+                f"{cnf.CATASTO_OPEN_GS_DATASTORE}",
+                "href": f"{cnf.GEOSERVER_HOST}:{cnf.GEOSERVER_HOST_PORT}"
+                f"/geoserver/rest"
+                f"/workspaces/{cnf.CATASTO_OPEN_GS_WORKSPACE}"
+                f"/datastores/"
+                f"{cnf.CATASTO_OPEN_GS_DATASTORE}.json",
+            },
+            "serviceConfiguration": False,
+            "simpleConversionEnabled": False,
+            "maxFeatures": 0,
+            "numDecimals": 0,
+            "padWithZeros": False,
+            "forcedDecimal": False,
+            "overridingServiceSRS": False,
+            "skipNumberMatched": False,
+            "circularArcPresent": False,
+            "attributes": {
+                "attribute": [
+                    {
+                        "name": "citycode",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "section",
+                        "minOccurs": 1,
+                        "maxOccurs": 1,
+                        "nillable": False,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "sheet",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "number",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "geom",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "org.locationtech.jts.geom.MultiPolygon",
+                    },
+                    {
+                        "name": "extent",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "org.locationtech.jts.geom.Polygon",
+                    },
+                ]
+            },
+        }
+    },
+    {
+        "featureType": {
+            "name": cnf.APP_CONFIG.CATASTO_OPEN_LAND_BY_CODE_LAYER,
+            "nativeName": cnf.APP_CONFIG.CATASTO_OPEN_LAND_BY_CODE_LAYER,
+            "namespace": {
+                "name": f"{cnf.CATASTO_OPEN_GS_WORKSPACE}",
+                "href": f"{cnf.GEOSERVER_HOST}:"
+                f"{cnf.GEOSERVER_HOST_PORT}"
+                f"/geoserver/rest/namespaces"
+                f"/{cnf.CATASTO_OPEN_GS_WORKSPACE}.json",
+            },
+            "title": cnf.APP_CONFIG.CATASTO_OPEN_LAND_BY_CODE_LAYER,
+            "keywords": {
+                "string": [
+                    "features",
+                    cnf.APP_CONFIG.CATASTO_OPEN_LAND_BY_CODE_LAYER,
+                ]
+            },
+            "nativeCRS": {
+                "@class": "projected",
+                "$": 'PROJCS["WGS 84  / Pseudo-Mercator", \n  '
+                'GEOGCS["WGS 84", \n    '
+                'DATUM["World Geodetic System 1984", \n      '
+                'SPHEROID["WGS 84", 6378137.0, 298.257223563, '
+                'AUTHORITY["EPSG","7030"]], \n      '
+                'AUTHORITY["EPSG","6326"]], \n    '
+                'PRIMEM["Greenwich", 0.0, '
+                'AUTHORITY["EPSG","8901"]], \n    '
+                'UNIT["degree", 0.017453292519943295], \n    '
+                'AXIS["Geodetic longitude", EAST], \n    '
+                'AXIS["Geodetic latitude", NORTH], \n    '
+                'AUTHORITY["EPSG","4326"]], \n  '
+                'PROJECTION["Popular Visualisation '
+                'Pseudo Mercator"], \n  '
+                'PARAMETER["semi_minor", 6378137.0], \n  '
+                'PARAMETER["latitude_of_origin", 0.0], \n  '
+                'PARAMETER["central_meridian", 0.0], \n  '
+                'PARAMETER["scale_factor", 1.0], \n  '
+                'PARAMETER["False_easting", 0.0], \n  '
+                'PARAMETER["False_northing", 0.0], \n  '
+                'UNIT["m", 1.0], \n  AXIS["Easting", EAST], \n  '
+                'AXIS["Northing", NORTH], \n  '
+                'AUTHORITY["EPSG","3857"]]',
+            },
+            "srs": "EPSG:3857",
+            "nativeBoundingBox": {
+                "minx": 1743839.6499072635,
+                "maxx": 1743869.270019752,
+                "miny": 4601962.866214338,
+                "maxy": 4602022.954962236,
+                "crs": {"@class": "projected", "$": "EPSG:3857"},
+            },
+            "latLonBoundingBox": {
+                "minx": 15.665178105653304,
+                "maxx": 15.66544418765096,
+                "miny": 38.15936215806549,
+                "maxy": 38.15978658835018,
+                "crs": "EPSG:4326",
+            },
+            "projectionPolicy": "FORCE_DECLARED",
+            "enabled": True,
+            "metadata": {
+                "entry": {
+                    "@key": "JDBC_VIRTUAL_TABLE",
+                    "virtualTable": {
+                        "name": cnf.APP_CONFIG.CATASTO_OPEN_LAND_BY_CODE_LAYER,
+                        "sql": cnf.APP_CONFIG.VIEW_QUERY_TERRENI_BY_CODICE.format(  # noqa
+                            "%immobileCode%",
+                            "%cityCode%",
+                        ),
+                        "escapeSql": False,
+                        "parameter": [
+                            {
+                                "name": "cityCode",
+                                "defaultValue": "H224",
+                                "regexpValidator": "^[\\w\\d\\s]+$",
+                            },
+                            {
+                                "name": "immobileCode",
+                                "defaultValue": 735,
+                                "regexpValidator": "^[0-9]+$",
+                            },
+                        ],
+                        "geometry": [
+                            {
+                                "name": "extent",
+                                "type": "Polygon",
+                                "srid": 3857,
+                            },
+                            {
+                                "name": "geom",
+                                "type": "MultiPolygon",
+                                "srid": 3857,
+                            },
+                        ],
+                    },
+                }
+            },
+            "store": {
+                "@class": "dataStore",
+                "name": f"{cnf.CATASTO_OPEN_GS_WORKSPACE}:"
+                f"{cnf.CATASTO_OPEN_GS_DATASTORE}",
+                "href": f"{cnf.GEOSERVER_HOST}:{cnf.GEOSERVER_HOST_PORT}"
+                f"/geoserver/rest"
+                f"/workspaces/{cnf.CATASTO_OPEN_GS_WORKSPACE}"
+                f"/datastores/"
+                f"{cnf.CATASTO_OPEN_GS_DATASTORE}.json",
+            },
+            "serviceConfiguration": False,
+            "simpleConversionEnabled": False,
+            "maxFeatures": 0,
+            "numDecimals": 0,
+            "padWithZeros": False,
+            "forcedDecimal": False,
+            "overridingServiceSRS": False,
+            "skipNumberMatched": False,
+            "circularArcPresent": False,
+            "attributes": {
+                "attribute": [
+                    {
+                        "name": "citycode",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "section",
+                        "minOccurs": 1,
+                        "maxOccurs": 1,
+                        "nillable": False,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "sheet",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.Integer",
+                    },
+                    {
+                        "name": "number",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "geom",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "org.locationtech.jts.geom.MultiPolygon",
+                    },
+                    {
+                        "name": "extent",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "org.locationtech.jts.geom.Polygon",
+                    },
+                ]
+            },
+        }
+    },
 ]
 
 layers_temp = [
@@ -3718,6 +4347,551 @@ layers_temp = [
                         "maxOccurs": 1,
                         "nillable": True,
                         "binding": "java.sql.Date",
+                    },
+                ]
+            },
+        }
+    },
+    {
+        "featureType": {
+            "name": cnf.APP_CONFIG.CATASTO_OPEN_INDIRIZZO_IMMOBILE_LAYER_TEMP,
+            "nativeName": cnf.APP_CONFIG.CATASTO_OPEN_INDIRIZZO_IMMOBILE_LAYER_TEMP,  # noqa
+            "namespace": {
+                "name": f"{cnf.CATASTO_OPEN_GS_WORKSPACE}",
+                "href": f"{cnf.GEOSERVER_HOST}:"
+                f"{cnf.GEOSERVER_HOST_PORT}"
+                f"/geoserver/rest/namespaces"
+                f"/{cnf.CATASTO_OPEN_GS_WORKSPACE}.json",
+            },
+            "title": cnf.APP_CONFIG.CATASTO_OPEN_INDIRIZZO_IMMOBILE_LAYER_TEMP,
+            "keywords": {
+                "string": [
+                    "features",
+                    cnf.APP_CONFIG.CATASTO_OPEN_INDIRIZZO_IMMOBILE_LAYER_TEMP,
+                ]
+            },
+            "nativeCRS": {
+                "@class": "projected",
+                "$": 'PROJCS["WGS 84  / Pseudo-Mercator", \n  '
+                'GEOGCS["WGS 84", \n    '
+                'DATUM["World Geodetic System 1984", \n      '
+                'SPHEROID["WGS 84", 6378137.0, 298.257223563, '
+                'AUTHORITY["EPSG","7030"]], \n      '
+                'AUTHORITY["EPSG","6326"]], \n    '
+                'PRIMEM["Greenwich", 0.0, '
+                'AUTHORITY["EPSG","8901"]], \n    '
+                'UNIT["degree", 0.017453292519943295], \n    '
+                'AXIS["Geodetic longitude", EAST], \n    '
+                'AXIS["Geodetic latitude", NORTH], \n    '
+                'AUTHORITY["EPSG","4326"]], \n  '
+                'PROJECTION["Popular Visualisation '
+                'Pseudo Mercator"], \n  '
+                'PARAMETER["semi_minor", 6378137.0], \n  '
+                'PARAMETER["latitude_of_origin", 0.0], \n  '
+                'PARAMETER["central_meridian", 0.0], \n  '
+                'PARAMETER["scale_factor", 1.0], \n  '
+                'PARAMETER["False_easting", 0.0], \n  '
+                'PARAMETER["False_northing", 0.0], \n  '
+                'UNIT["m", 1.0], \n  '
+                'AXIS["Easting", EAST], \n  '
+                'AXIS["Northing", NORTH], \n  '
+                'AUTHORITY["EPSG","3857"]]',
+            },
+            "srs": "EPSG:3857",
+            "nativeBoundingBox": {
+                "minx": 1369654.2238071756,
+                "maxx": 1369711.5726051242,
+                "miny": 5134937.868327329,
+                "maxy": 5135009.05117675,
+                "crs": {"@class": "projected", "$": "EPSG:3857"},
+            },
+            "latLonBoundingBox": {
+                "minx": 12.303813232048457,
+                "maxx": 12.304328405065688,
+                "miny": 41.825914650179406,
+                "maxy": 41.826391147539816,
+                "crs": "EPSG:4326",
+            },
+            "projectionPolicy": "FORCE_DECLARED",
+            "enabled": True,
+            "metadata": {
+                "entry": {
+                    "@key": "JDBC_VIRTUAL_TABLE",
+                    "virtualTable": {
+                        "name": cnf.APP_CONFIG.CATASTO_OPEN_INDIRIZZO_IMMOBILE_LAYER_TEMP,  # noqa
+                        "sql": cnf.APP_CONFIG.VIEW_QUERY_IMMOBILI_BY_IND_TEMP.format(  # noqa
+                            "%toponymCode%",
+                            "%addressName%",
+                            "%houseNumber%",
+                            "%cityCode%",
+                            "%startDate%",
+                            "%endDate%",
+                        ),
+                        "escapeSql": False,
+                        "parameter": [
+                            {
+                                "name": "toponymCode",
+                                "defaultValue": 236,
+                                "regexpValidator": "^[\\w\\d\\s]+$",
+                            },
+                            {
+                                "name": "addressName",
+                                "defaultValue": "CRISTOFORO SABBADINO",
+                                "regexpValidator": "^[\\w\\d\\s]+$",
+                            },
+                            {
+                                "name": "houseNumber",
+                                "defaultValue": 68,
+                                "regexpValidator": "^[\\w\\d\\s]+$",
+                            },
+                            {
+                                "name": "cityCode",
+                                "defaultValue": "H501",
+                                "regexpValidator": "^[\\w\\d\\s]+$",
+                            },
+                            {
+                                "name": "startDate",
+                                "defaultValue": "0001-01-01",
+                            },
+                            {
+                                "name": "endDate",
+                                "defaultValue": datetime.today().strftime(
+                                    "%Y-%m-%d"
+                                ),
+                            },
+                        ],
+                        "geometry": [
+                            {
+                                "name": "extent",
+                                "type": "Polygon",
+                                "srid": 3857,
+                            },
+                            {
+                                "name": "geom",
+                                "type": "MultiPolygon",
+                                "srid": 3857,
+                            },
+                        ],
+                    },
+                }
+            },
+            "store": {
+                "@class": "dataStore",
+                "name": f"{cnf.CATASTO_OPEN_GS_WORKSPACE}:"
+                f"{cnf.CATASTO_OPEN_GS_DATASTORE}",
+                "href": f"{cnf.GEOSERVER_HOST}:{cnf.GEOSERVER_HOST_PORT}"
+                f"/geoserver/rest"
+                f"/workspaces/{cnf.CATASTO_OPEN_GS_WORKSPACE}"
+                f"/datastores/"
+                f"{cnf.CATASTO_OPEN_GS_DATASTORE}.json",
+            },
+            "serviceConfiguration": False,
+            "simpleConversionEnabled": False,
+            "maxFeatures": 0,
+            "numDecimals": 0,
+            "padWithZeros": False,
+            "forcedDecimal": False,
+            "overridingServiceSRS": False,
+            "skipNumberMatched": False,
+            "circularArcPresent": False,
+            "attributes": {
+                "attribute": [
+                    {
+                        "name": "citycode",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "section",
+                        "minOccurs": 1,
+                        "maxOccurs": 1,
+                        "nillable": False,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "sheet",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "number",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "geom",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "org.locationtech.jts.geom.MultiPolygon",
+                    },
+                    {
+                        "name": "extent",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "org.locationtech.jts.geom.Polygon",
+                    },
+                ]
+            },
+        }
+    },
+    {
+        "featureType": {
+            "name": cnf.APP_CONFIG.CATASTO_OPEN_BUILDING_BY_CODE_LAYER_TEMP,
+            "nativeName": cnf.APP_CONFIG.CATASTO_OPEN_BUILDING_BY_CODE_LAYER_TEMP,  # noqa
+            "namespace": {
+                "name": f"{cnf.CATASTO_OPEN_GS_WORKSPACE}",
+                "href": f"{cnf.GEOSERVER_HOST}:"
+                f"{cnf.GEOSERVER_HOST_PORT}"
+                f"/geoserver/rest/namespaces"
+                f"/{cnf.CATASTO_OPEN_GS_WORKSPACE}.json",
+            },
+            "title": cnf.APP_CONFIG.CATASTO_OPEN_BUILDING_BY_CODE_LAYER_TEMP,
+            "keywords": {
+                "string": [
+                    "features",
+                    cnf.APP_CONFIG.CATASTO_OPEN_BUILDING_BY_CODE_LAYER_TEMP,
+                ]
+            },
+            "nativeCRS": {
+                "@class": "projected",
+                "$": 'PROJCS["WGS 84  / Pseudo-Mercator", \n  '
+                'GEOGCS["WGS 84", \n    '
+                'DATUM["World Geodetic System 1984", \n      '
+                'SPHEROID["WGS 84", 6378137.0, 298.257223563, '
+                'AUTHORITY["EPSG","7030"]], \n      '
+                'AUTHORITY["EPSG","6326"]], \n    '
+                'PRIMEM["Greenwich", 0.0, '
+                'AUTHORITY["EPSG","8901"]], \n    '
+                'UNIT["degree", 0.017453292519943295], \n    '
+                'AXIS["Geodetic longitude", EAST], \n    '
+                'AXIS["Geodetic latitude", NORTH], \n    '
+                'AUTHORITY["EPSG","4326"]], \n  '
+                'PROJECTION["Popular Visualisation '
+                'Pseudo Mercator"], \n  '
+                'PARAMETER["semi_minor", 6378137.0], \n  '
+                'PARAMETER["latitude_of_origin", 0.0], \n  '
+                'PARAMETER["central_meridian", 0.0], \n  '
+                'PARAMETER["scale_factor", 1.0], \n  '
+                'PARAMETER["False_easting", 0.0], \n  '
+                'PARAMETER["False_northing", 0.0], \n  '
+                'UNIT["m", 1.0], \n  '
+                'AXIS["Easting", EAST], \n  '
+                'AXIS["Northing", NORTH], \n  '
+                'AUTHORITY["EPSG","3857"]]',
+            },
+            "srs": "EPSG:3857",
+            "nativeBoundingBox": {
+                "minx": 1743369.7459205368,
+                "maxx": 1743379.8221324224,
+                "miny": 4600646.325895493,
+                "maxy": 4600656.878548826,
+                "crs": {"@class": "projected", "$": "EPSG:3857"},
+            },
+            "latLonBoundingBox": {
+                "minx": 15.66095688631985,
+                "maxx": 15.661047402471278,
+                "miny": 38.15006229979151,
+                "maxy": 38.15013684698621,
+                "crs": "EPSG:4326",
+            },
+            "projectionPolicy": "FORCE_DECLARED",
+            "enabled": True,
+            "metadata": {
+                "entry": {
+                    "@key": "JDBC_VIRTUAL_TABLE",
+                    "virtualTable": {
+                        "name": cnf.APP_CONFIG.CATASTO_OPEN_BUILDING_BY_CODE_LAYER_TEMP,  # noqa
+                        "sql": cnf.APP_CONFIG.VIEW_QUERY_FABBRICATI_BY_CODICE_TEMP.format(  # noqa
+                            "%immobileCode%",
+                            "%cityCode%",
+                            "%startDate%",
+                            "%endDate%",
+                        ),
+                        "escapeSql": False,
+                        "parameter": [
+                            {
+                                "name": "cityCode",
+                                "defaultValue": "H224",
+                                "regexpValidator": "^[\\w\\d\\s]+$",
+                            },
+                            {
+                                "name": "immobileCode",
+                                "defaultValue": 335,
+                                "regexpValidator": "^[0-9]+$",
+                            },
+                            {
+                                "name": "startDate",
+                                "defaultValue": "0001-01-01",
+                            },
+                            {
+                                "name": "endDate",
+                                "defaultValue": datetime.today().strftime(
+                                    "%Y-%m-%d"
+                                ),
+                            },
+                        ],
+                        "geometry": [
+                            {
+                                "name": "extent",
+                                "type": "Polygon",
+                                "srid": 3857,
+                            },
+                            {
+                                "name": "geom",
+                                "type": "MultiPolygon",
+                                "srid": 3857,
+                            },
+                        ],
+                    },
+                }
+            },
+            "store": {
+                "@class": "dataStore",
+                "name": f"{cnf.CATASTO_OPEN_GS_WORKSPACE}:"
+                f"{cnf.CATASTO_OPEN_GS_DATASTORE}",
+                "href": f"{cnf.GEOSERVER_HOST}:{cnf.GEOSERVER_HOST_PORT}"
+                f"/geoserver/rest"
+                f"/workspaces/{cnf.CATASTO_OPEN_GS_WORKSPACE}"
+                f"/datastores/"
+                f"{cnf.CATASTO_OPEN_GS_DATASTORE}.json",
+            },
+            "serviceConfiguration": False,
+            "simpleConversionEnabled": False,
+            "maxFeatures": 0,
+            "numDecimals": 0,
+            "padWithZeros": False,
+            "forcedDecimal": False,
+            "overridingServiceSRS": False,
+            "skipNumberMatched": False,
+            "circularArcPresent": False,
+            "attributes": {
+                "attribute": [
+                    {
+                        "name": "citycode",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "section",
+                        "minOccurs": 1,
+                        "maxOccurs": 1,
+                        "nillable": False,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "sheet",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "number",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "geom",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "org.locationtech.jts.geom.MultiPolygon",
+                    },
+                    {
+                        "name": "extent",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "org.locationtech.jts.geom.Polygon",
+                    },
+                ]
+            },
+        }
+    },
+    {
+        "featureType": {
+            "name": cnf.APP_CONFIG.CATASTO_OPEN_LAND_BY_CODE_LAYER_TEMP,
+            "nativeName": cnf.APP_CONFIG.CATASTO_OPEN_LAND_BY_CODE_LAYER_TEMP,
+            "namespace": {
+                "name": f"{cnf.CATASTO_OPEN_GS_WORKSPACE}",
+                "href": f"{cnf.GEOSERVER_HOST}:"
+                f"{cnf.GEOSERVER_HOST_PORT}"
+                f"/geoserver/rest/namespaces"
+                f"/{cnf.CATASTO_OPEN_GS_WORKSPACE}.json",
+            },
+            "title": cnf.APP_CONFIG.CATASTO_OPEN_LAND_BY_CODE_LAYER_TEMP,
+            "keywords": {
+                "string": [
+                    "features",
+                    cnf.APP_CONFIG.CATASTO_OPEN_LAND_BY_CODE_LAYER_TEMP,
+                ]
+            },
+            "nativeCRS": {
+                "@class": "projected",
+                "$": 'PROJCS["WGS 84  / Pseudo-Mercator", \n  '
+                'GEOGCS["WGS 84", \n    '
+                'DATUM["World Geodetic System 1984", \n      '
+                'SPHEROID["WGS 84", 6378137.0, 298.257223563, '
+                'AUTHORITY["EPSG","7030"]], \n      '
+                'AUTHORITY["EPSG","6326"]], \n    '
+                'PRIMEM["Greenwich", 0.0, '
+                'AUTHORITY["EPSG","8901"]], \n    '
+                'UNIT["degree", 0.017453292519943295], \n    '
+                'AXIS["Geodetic longitude", EAST], \n    '
+                'AXIS["Geodetic latitude", NORTH], \n    '
+                'AUTHORITY["EPSG","4326"]], \n  '
+                'PROJECTION["Popular Visualisation '
+                'Pseudo Mercator"], \n  '
+                'PARAMETER["semi_minor", 6378137.0], \n  '
+                'PARAMETER["latitude_of_origin", 0.0], \n  '
+                'PARAMETER["central_meridian", 0.0], \n  '
+                'PARAMETER["scale_factor", 1.0], \n  '
+                'PARAMETER["False_easting", 0.0], \n  '
+                'PARAMETER["False_northing", 0.0], \n  '
+                'UNIT["m", 1.0], \n  AXIS["Easting", EAST], \n  '
+                'AXIS["Northing", NORTH], \n  '
+                'AUTHORITY["EPSG","3857"]]',
+            },
+            "srs": "EPSG:3857",
+            "nativeBoundingBox": {
+                "minx": 1743839.6499072635,
+                "maxx": 1743869.270019752,
+                "miny": 4601962.866214338,
+                "maxy": 4602022.954962236,
+                "crs": {"@class": "projected", "$": "EPSG:3857"},
+            },
+            "latLonBoundingBox": {
+                "minx": 15.665178105653304,
+                "maxx": 15.66544418765096,
+                "miny": 38.15936215806549,
+                "maxy": 38.15978658835018,
+                "crs": "EPSG:4326",
+            },
+            "projectionPolicy": "FORCE_DECLARED",
+            "enabled": True,
+            "metadata": {
+                "entry": {
+                    "@key": "JDBC_VIRTUAL_TABLE",
+                    "virtualTable": {
+                        "name": cnf.APP_CONFIG.CATASTO_OPEN_LAND_BY_CODE_LAYER_TEMP,  # noqa
+                        "sql": cnf.APP_CONFIG.VIEW_QUERY_TERRENI_BY_CODICE_TEMP.format(  # noqa
+                            "%immobileCode%",
+                            "%cityCode%",
+                            "%startDate%",
+                            "%endDate%",
+                        ),
+                        "escapeSql": False,
+                        "parameter": [
+                            {
+                                "name": "cityCode",
+                                "defaultValue": "H224",
+                                "regexpValidator": "^[\\w\\d\\s]+$",
+                            },
+                            {
+                                "name": "immobileCode",
+                                "defaultValue": 735,
+                                "regexpValidator": "^[0-9]+$",
+                            },
+                            {
+                                "name": "startDate",
+                                "defaultValue": "0001-01-01",
+                            },
+                            {
+                                "name": "endDate",
+                                "defaultValue": datetime.today().strftime(
+                                    "%Y-%m-%d"
+                                ),
+                            },
+                        ],
+                        "geometry": [
+                            {
+                                "name": "extent",
+                                "type": "Polygon",
+                                "srid": 3857,
+                            },
+                            {
+                                "name": "geom",
+                                "type": "MultiPolygon",
+                                "srid": 3857,
+                            },
+                        ],
+                    },
+                }
+            },
+            "store": {
+                "@class": "dataStore",
+                "name": f"{cnf.CATASTO_OPEN_GS_WORKSPACE}:"
+                f"{cnf.CATASTO_OPEN_GS_DATASTORE}",
+                "href": f"{cnf.GEOSERVER_HOST}:{cnf.GEOSERVER_HOST_PORT}"
+                f"/geoserver/rest"
+                f"/workspaces/{cnf.CATASTO_OPEN_GS_WORKSPACE}"
+                f"/datastores/"
+                f"{cnf.CATASTO_OPEN_GS_DATASTORE}.json",
+            },
+            "serviceConfiguration": False,
+            "simpleConversionEnabled": False,
+            "maxFeatures": 0,
+            "numDecimals": 0,
+            "padWithZeros": False,
+            "forcedDecimal": False,
+            "overridingServiceSRS": False,
+            "skipNumberMatched": False,
+            "circularArcPresent": False,
+            "attributes": {
+                "attribute": [
+                    {
+                        "name": "citycode",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "section",
+                        "minOccurs": 1,
+                        "maxOccurs": 1,
+                        "nillable": False,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "sheet",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.Integer",
+                    },
+                    {
+                        "name": "number",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "geom",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "org.locationtech.jts.geom.MultiPolygon",
+                    },
+                    {
+                        "name": "extent",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "org.locationtech.jts.geom.Polygon",
                     },
                 ]
             },
