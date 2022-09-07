@@ -209,3 +209,78 @@ def get_soggetti(
             )
         )
     return dal.connection.execute(statement).fetchall()
+
+
+def get_toponym(toponym: str):
+    statement = text(cnf.APP_CONFIG.VIEW_QUERY_TOPONIMO.format(toponym))
+    return dal.connection.execute(statement).fetchall()
+
+
+def get_immobile_by_address(
+    toponymCode: int,
+    addressName: str,
+    houseNumber: str,
+    cityCode: str,
+    startDate: str = None,
+    endDate: str = None,
+):
+    if startDate and endDate:
+        statement = text(
+            cnf.APP_CONFIG.VIEW_QUERY_IMMOBILI_BY_IND_TEMP.format(
+                toponymCode,
+                addressName,
+                houseNumber,
+                cityCode,
+                startDate,
+                endDate,
+            )
+        )
+    else:
+        statement = text(
+            cnf.APP_CONFIG.VIEW_QUERY_IMMOBILI_BY_IND.format(
+                toponymCode, addressName, houseNumber, cityCode
+            )
+        )
+    return dal.connection.execute(statement).fetchall()
+
+
+def get_fabbricati_by_codice(
+    cityCode: str,
+    immobileCodice: int,
+    startDate: str = None,
+    endDate: str = None,
+):
+    if startDate and endDate:
+        statement = text(
+            cnf.APP_CONFIG.VIEW_QUERY_FABBRICATI_BY_CODICE_TEMP.format(
+                immobileCodice, cityCode, startDate, endDate
+            )
+        )
+    else:
+        statement = text(
+            cnf.APP_CONFIG.VIEW_QUERY_FABBRICATI_BY_CODICE.format(
+                immobileCodice, cityCode
+            )
+        )
+    return dal.connection.execute(statement).fetchall()
+
+
+def get_terreni_by_codice(
+    cityCode: str,
+    immobileCodice: int,
+    startDate: str = None,
+    endDate: str = None,
+):
+    if startDate and endDate:
+        statement = text(
+            cnf.APP_CONFIG.VIEW_QUERY_TERRENI_BY_CODICE_TEMP.format(
+                immobileCodice, cityCode, startDate, endDate
+            )
+        )
+    else:
+        statement = text(
+            cnf.APP_CONFIG.VIEW_QUERY_TERRENI_BY_CODICE.format(
+                immobileCodice, cityCode
+            )
+        )
+    return dal.connection.execute(statement).fetchall()
