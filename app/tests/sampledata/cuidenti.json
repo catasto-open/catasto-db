@@ -128,5 +128,70 @@
         "denominato": null,
         "subalterno": "0503",
         "edificiale": null
+    },
+    {
+        "codice": "H501",
+        "sezione": " ",
+        "immobile": 4982377,
+        "tipo_imm": "F",
+        "progressiv": 6,
+        "sez_urbana": null,
+        "foglio": "0727",
+        "numero": "00025",
+        "denominato": null,
+        "subalterno": "0501",
+        "edificiale": null
+    },
+    {
+        "codice": "H501",
+        "sezione": " ",
+        "immobile": 4982377,
+        "tipo_imm": "F",
+        "progressiv": 5,
+        "sez_urbana": null,
+        "foglio": "0727",
+        "numero": "00025",
+        "denominato": null,
+        "subalterno": "0501",
+        "edificiale": null
+    },
+    {
+        "codice": "H501",
+        "sezione": " ",
+        "immobile": 4982378,
+        "tipo_imm": "F",
+        "progressiv": 3,
+        "sez_urbana": null,
+        "foglio": "0727",
+        "numero": "00025",
+        "denominato": null,
+        "subalterno": "0502",
+        "edificiale": null
+    },
+    {
+        "codice": "H501",
+        "sezione": " ",
+        "immobile": 4982379,
+        "tipo_imm": "F",
+        "progressiv": 3,
+        "sez_urbana": null,
+        "foglio": "0727",
+        "numero": "00025",
+        "denominato": null,
+        "subalterno": "0503",
+        "edificiale": null
+    },
+    {
+        "codice": "H501",
+        "sezione": " ",
+        "immobile": 4982380,
+        "tipo_imm": "F",
+        "progressiv": 3,
+        "sez_urbana": null,
+        "foglio": "0727",
+        "numero": "00025",
+        "denominato": null,
+        "subalterno": "0504",
+        "edificiale": null
     }
 ]

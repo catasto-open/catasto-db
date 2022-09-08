@@ -1,0 +1,67 @@
+[
+    {
+        "codice": "H501",
+        "sezione": " ",
+        "immobile": 4982377,
+        "tipo_imm": "F",
+        "progressiv": 5,
+        "toponimo": 236,
+        "indirizzo": "CRISTOFORO SABBADINO",
+        "civico1": "000068",
+        "civico2": null,
+        "civico3": null,
+        "cod_strada": "3569"
+    },
+    {
+        "codice": "H501",
+        "sezione": " ",
+        "immobile": 4982378,
+        "tipo_imm": "F",
+        "progressiv": 3,
+        "toponimo": 236,
+        "indirizzo": "CRISTOFORO SABBADINO",
+        "civico1": "000068",
+        "civico2": null,
+        "civico3": null,
+        "cod_strada": "3569"
+    },
+    {
+        "codice": "H501",
+        "sezione": " ",
+        "immobile": 4982379,
+        "tipo_imm": "F",
+        "progressiv": 3,
+        "toponimo": 236,
+        "indirizzo": "CRISTOFORO SABBADINO",
+        "civico1": "000068",
+        "civico2": null,
+        "civico3": null,
+        "cod_strada": "3569"
+    },
+    {
+        "codice": "H501",
+        "sezione": " ",
+        "immobile": 4982380,
+        "tipo_imm": "F",
+        "progressiv": 3,
+        "toponimo": 236,
+        "indirizzo": "CRISTOFORO SABBADINO",
+        "civico1": "000068",
+        "civico2": null,
+        "civico3": null,
+        "cod_strada": "3569"
+    },
+    {
+        "codice": "H501",
+        "sezione": " ",
+        "immobile": 4982377,
+        "tipo_imm": "F",
+        "progressiv": 6,
+        "toponimo": 236,
+        "indirizzo": "CRISTOFORO SABBADINO",
+        "civico1": "000068",
+        "civico2": null,
+        "civico3": null,
+        "cod_strada": "3569"
+    }
+]

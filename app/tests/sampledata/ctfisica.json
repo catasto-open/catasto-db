@@ -89,5 +89,44 @@
         "luogo" : "H501",
         "codfiscale" : "BBBBBBBBBBBBBBB4",
         "supplement" : null
+    },
+    {
+        "codice": "H501",
+        "sezione": "B",
+        "soggetto": 2680843,
+        "tipo_sog": "P",
+        "cognome": "ALICE",
+        "nome": "ROMANA",
+        "sesso": "2",
+        "data": "29081977",
+        "luogo": "H224",
+        "codfiscale": "DDDDDDDDDDDDDDD1",
+        "supplement": null
+    },
+    {
+        "codice": "H501",
+        "sezione": "B",
+        "soggetto": 2859115,
+        "tipo_sog": "P",
+        "cognome": "EVA",
+        "nome": "ROMANA",
+        "sesso": "2",
+        "data": "31081977",
+        "luogo": "H501",
+        "codfiscale": "DDDDDDDDDDDDDDD2",
+        "supplement": null
+    },
+    {
+        "codice": "H501",
+        "sezione": "B",
+        "soggetto": 3603789,
+        "tipo_sog": "P",
+        "cognome": "BOB",
+        "nome": "ROMANA",
+        "sesso": "1",
+        "data": "31081977",
+        "luogo": "R224",
+        "codfiscale": "DDDDDDDDDDDDDDD3",
+        "supplement": null
     }
 ]

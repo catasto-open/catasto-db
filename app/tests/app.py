@@ -23,6 +23,10 @@ from app.tests.queries import (
     get_persone_fisica,
     get_non_fisica,
     get_soggetti,
+    get_toponym,
+    get_immobile_by_address,
+    get_fabbricati_by_codice,
+    get_terreni_by_codice,
 )
 
 
@@ -129,7 +133,13 @@ class TestApp(unittest.TestCase):
         for each in expectedJson["3"]:
             expectedResult.append(tuple(list(each.values())))
         self.assertEqual(result, expectedResult)
-        # [TODO] ass temporal fab, this requires new data as the data now are all new
+
+        result = get_fabbricati_by_codice(immobileCodice=558, cityCode="H224")
+        expectedResult = []
+        for each in expectedJson["3"]:
+            expectedResult.append(tuple(list(each.values())))
+        self.assertEqual(result, expectedResult)
+        # [TODO] add temporal fab, this requires new data as the data now are all new
 
     def test_query_fabbricati_detail(self):
         expectedJson = get_json_from_file("expected_fab_detail")
@@ -184,6 +194,12 @@ class TestApp(unittest.TestCase):
         self.assertEqual(result, expectedResult)
 
         result = get_terreni(cityCode="H224", sectionCode="A", sheetCode="3")
+        expectedResult = []
+        for each in expectedJson["general"]["3"]:
+            expectedResult.append(tuple(list(each.values())))
+        self.assertEqual(result, expectedResult)
+
+        result = get_terreni_by_codice(cityCode="H224", immobileCodice=735)
         expectedResult = []
         for each in expectedJson["general"]["3"]:
             expectedResult.append(tuple(list(each.values())))
@@ -477,6 +493,48 @@ class TestApp(unittest.TestCase):
         )
         expectedResult = []
         for each in expectedJson["temp"]["3-G"]:
+            expectedResult.append(tuple(list(each.values())))
+        self.assertEqual(result, expectedResult)
+
+    def test_query_toponym(self):
+        expectedJson = get_json_from_file("expected_toponimo")
+
+        result = get_toponym("")
+        expectedResult = []
+        for each in expectedJson["all"]:
+            expectedResult.append(tuple(list(each.values())))
+        self.assertEqual(result, expectedResult)
+
+        result = get_toponym("VI")
+        expectedResult = []
+        for each in expectedJson["VI"]:
+            expectedResult.append(tuple(list(each.values())))
+        self.assertEqual(result, expectedResult)
+
+    def test_query_immobile_by_address(self):
+        expectedJson = get_json_from_file("expected_immobile_by_address")
+
+        result = get_immobile_by_address(
+            toponymCode=236,
+            addressName="CRISTOFORO SABBADINO",
+            houseNumber="68",
+            cityCode="H501",
+        )
+        expectedResult = []
+        for each in expectedJson["general"]:
+            expectedResult.append(tuple(list(each.values())))
+        self.assertEqual(result, expectedResult)
+
+        result = get_immobile_by_address(
+            toponymCode=236,
+            addressName="CRISTOFORO SABBADINO",
+            houseNumber="68",
+            cityCode="H501",
+            startDate="0001-01-01",
+            endDate=datetime.datetime.today().strftime("%Y-%m-%d"),
+        )
+        expectedResult = []
+        for each in expectedJson["general"]:
             expectedResult.append(tuple(list(each.values())))
         self.assertEqual(result, expectedResult)
 
@@ -1259,6 +1317,106 @@ class GeoServer(unittest.TestCase):
             object_hook=object_hook,
         )
         self.assertEqual(features, expectedResponses["temp"])
+
+    def test_geoserver_toponym(self):
+        expectedResponses = get_json_from_file("expected_toponimo")
+
+        params = {
+            "service": "WFS",
+            "version": cnf.APP_CONFIG.GS_WFS_VERSION,
+            "request": "GetFeature",
+            "outputFormat": "application/json",
+            "typename": cnf.APP_CONFIG.CATASTO_OPEN_TOPONIMO_LAYER,
+        }
+        response = requests.get(
+            f"{cnf.GEOSERVER_HOST}:"
+            f"{cnf.GEOSERVER_HOST_PORT}"
+            f"/geoserver/ows",
+            params,
+        )
+        self.assertEqual(response.status_code, 200)
+        payload = json.loads(response.text)
+        self.assertEqual(
+            payload["totalFeatures"], len(expectedResponses["all"])
+        )
+        feature_properties = [
+            feature["properties"] for feature in payload["features"]
+        ]
+
+        from app.tests.fixtures import object_hook
+
+        features = json.loads(
+            json.dumps(feature_properties, sort_keys=False),
+            object_hook=object_hook,
+        )
+        self.assertEqual(features, expectedResponses["all"])
+
+        params = {
+            "service": "WFS",
+            "version": cnf.APP_CONFIG.GS_WFS_VERSION,
+            "request": "GetFeature",
+            "outputFormat": "application/json",
+            "typename": cnf.APP_CONFIG.CATASTO_OPEN_TOPONIMO_LAYER,
+            "viewparams": "toponym:VI",
+        }
+        response = requests.get(
+            f"{cnf.GEOSERVER_HOST}:"
+            f"{cnf.GEOSERVER_HOST_PORT}"
+            f"/geoserver/ows",
+            params,
+        )
+        self.assertEqual(response.status_code, 200)
+        payload = json.loads(response.text)
+        self.assertEqual(
+            payload["totalFeatures"], len(expectedResponses["VI"])
+        )
+        feature_properties = [
+            feature["properties"] for feature in payload["features"]
+        ]
+
+        from app.tests.fixtures import object_hook
+
+        features = json.loads(
+            json.dumps(feature_properties, sort_keys=False),
+            object_hook=object_hook,
+        )
+        self.assertEqual(features, expectedResponses["VI"])
+
+    def test_geoserver_immobile_by_address(self):
+        expectedResponses = get_json_from_file(
+            "expected_immobile_by_address_geoserver"
+        )
+
+        params = {
+            "service": "WFS",
+            "version": cnf.APP_CONFIG.GS_WFS_VERSION,
+            "request": "GetFeature",
+            "outputFormat": "application/json",
+            "typename": cnf.APP_CONFIG.CATASTO_OPEN_INDIRIZZO_IMMOBILE_LAYER,
+            "viewparams": "toponymCode:236;addressName:CRISTOFORO SABBADINO;houseNumber:68;cityCode:H501",
+        }
+        response = requests.get(
+            f"{cnf.GEOSERVER_HOST}:"
+            f"{cnf.GEOSERVER_HOST_PORT}"
+            f"/geoserver/ows",
+            params,
+        )
+        self.assertEqual(response.status_code, 200)
+        payload = json.loads(response.text)
+        self.assertEqual(
+            payload["totalFeatures"], len(expectedResponses["general"])
+        )
+        feature_properties = [
+            feature["properties"] for feature in payload["features"]
+        ]
+
+        from app.tests.fixtures import object_hook
+
+        features = json.loads(
+            json.dumps(feature_properties, sort_keys=False),
+            object_hook=object_hook,
+        )
+        self.assertEqual(features, expectedResponses["general"])
 
 
 class TemporalGeoServer(unittest.TestCase):

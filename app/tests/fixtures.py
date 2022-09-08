@@ -52,3 +52,5 @@ def populate_db_with_sample_data():
     __insert_data(cnf.APP_CONFIG.CTCN_CTNONFIS)
     __insert_data(cnf.APP_CONFIG.CTCN_CTTITOLA)
     __insert_data(cnf.APP_CONFIG.CTCN_CTTITOLI)
+    __insert_data(cnf.APP_CONFIG.CTCN_CUCODTOP)
+    __insert_data(cnf.APP_CONFIG.CTCN_CUINDIRI)
