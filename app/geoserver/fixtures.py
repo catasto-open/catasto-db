@@ -3254,6 +3254,13 @@ layers_temp = [
                         "nillable": True,
                         "binding": "java.lang.String",
                     },
+                    {
+                        "name": "province",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
                 ]
             },
         }
@@ -3404,6 +3411,13 @@ layers_temp = [
                         "nillable": True,
                         "binding": "java.lang.String",
                     },
+                    {
+                        "name": "province",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
                 ]
             },
         }
@@ -3522,6 +3536,13 @@ layers_temp = [
                     },
                     {
                         "name": "branch",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "province",
                         "minOccurs": 0,
                         "maxOccurs": 1,
                         "nillable": True,

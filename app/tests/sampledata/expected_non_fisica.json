@@ -4,6 +4,7 @@
         "subjecttype": "G",
         "businessname": "FOO S.R.L",
         "vatnumber": "00101010101",
-        "branch": "REGGIO DI CALABRIA"
+        "branch": "REGGIO DI CALABRIA",
+        "province": "RC"
     }
 ]

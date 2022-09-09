@@ -667,7 +667,8 @@ class AppConfig(BaseModel):
                 then 'Femmina'
                 else 'Maschio'
                 end
-                as gender
+                as gender,
+        c.provincia as province
     from ctcn.ctfisica f
     left join ctcn.comuni c
         on
@@ -686,7 +687,8 @@ class AppConfig(BaseModel):
         f.codfiscale,
         dateOfBirth,
         cityOfBirth,
-        gender
+        gender,
+        province
     """
 
     VIEW_QUERY_PERSONE_FISICA_WITH_BDAY = """
@@ -712,7 +714,8 @@ class AppConfig(BaseModel):
                 then 'Femmina'
                 else 'Maschio'
                 end
-                as gender
+                as gender,
+        c.provincia as province
     from ctcn.ctfisica f
     left join ctcn.comuni c
         on
@@ -733,7 +736,8 @@ class AppConfig(BaseModel):
         f.codfiscale,
         dateOfBirth,
         cityOfBirth,
-        gender
+        gender,
+        province
     """
 
     VIEW_QUERY_NON_FISICA = """
@@ -742,11 +746,12 @@ class AppConfig(BaseModel):
         f.tipo_sog as subjectType,
         f.denominaz as businessName,
         f.codfiscale as vatNumber,
-        (select c.comune
-            from ctcn.comuni c
-                where c.codice = f.sede)
-            as branch
+        c.comune as branch,
+        c.provincia as province
     from ctcn.ctnonfis f
+    left join ctcn.comuni c
+        on
+        c.codice = f.sede
     where
         (f.codfiscale like {0})
         or

@@ -8,7 +8,8 @@
             "fiscalcode": "AAAAAAAAAAAAAAAA",
             "dateofbirth": "1940-08-15",
             "cityofbirth": "REGGIO DI CALABRIA (RC)",
-            "gender": "Femmina"
+            "gender": "Femmina",
+            "province": "RC"
         }
     ],
     "BBBBBBBBBBBBBBBB": [
@@ -20,7 +21,8 @@
             "fiscalcode": "BBBBBBBBBBBBBBBB",
             "dateofbirth": "1939-12-26",
             "cityofbirth": "REGGIO DI CALABRIA (RC)",
-            "gender": "Maschio"
+            "gender": "Maschio",
+            "province": "RC"
         }
     ]
 }
