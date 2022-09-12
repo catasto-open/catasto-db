@@ -3267,8 +3267,8 @@ layers_temp = [
     },
     {
         "featureType": {
-            "name": cnf.APP_CONFIG.CATASTO_OPEN_NATURAL_SUBJECT_LAYER_WBD,
-            "nativeName": cnf.APP_CONFIG.CATASTO_OPEN_NATURAL_SUBJECT_LAYER_WBD,  # noqa
+            "name": cnf.APP_CONFIG.CATASTO_OPEN_NATURAL_SUBJECT_LAYER_WBDAY,
+            "nativeName": cnf.APP_CONFIG.CATASTO_OPEN_NATURAL_SUBJECT_LAYER_WBDAY,  # noqa
             "namespace": {
                 "name": f"{cnf.CATASTO_OPEN_GS_WORKSPACE}",
                 "href": f"{cnf.GEOSERVER_HOST}:"
@@ -3276,11 +3276,11 @@ layers_temp = [
                 f"/geoserver/rest/namespaces"
                 f"/{cnf.CATASTO_OPEN_GS_WORKSPACE}.json",
             },
-            "title": cnf.APP_CONFIG.CATASTO_OPEN_NATURAL_SUBJECT_LAYER_WBD,
+            "title": cnf.APP_CONFIG.CATASTO_OPEN_NATURAL_SUBJECT_LAYER_WBDAY,
             "keywords": {
                 "string": [
                     "features",
-                    cnf.APP_CONFIG.CATASTO_OPEN_NATURAL_SUBJECT_LAYER_WBD,
+                    cnf.APP_CONFIG.CATASTO_OPEN_NATURAL_SUBJECT_LAYER_WBDAY,
                 ]
             },
             "nativeCRS": 'GEOGCS["WGS 84", \n  '
@@ -3315,8 +3315,318 @@ layers_temp = [
                 "entry": {
                     "@key": "JDBC_VIRTUAL_TABLE",
                     "virtualTable": {
-                        "name": cnf.APP_CONFIG.CATASTO_OPEN_NATURAL_SUBJECT_LAYER_WBD,  # noqa
+                        "name": cnf.APP_CONFIG.CATASTO_OPEN_NATURAL_SUBJECT_LAYER_WBDAY,  # noqa
                         "sql": cnf.APP_CONFIG.VIEW_QUERY_PERSONE_FISICA_WITH_BDAY.format(  # noqa
+                            "%fiscalCode%",
+                            "%lastName%",
+                            "%firstName%",
+                            "%birthDate%",
+                        ),
+                        "escapeSql": False,
+                        "parameter": [
+                            {"name": "fiscalCode", "defaultValue": "null"},
+                            {"name": "lastName", "defaultValue": "null"},
+                            {"name": "firstName", "defaultValue": "null"},
+                            {"name": "birthDate", "defaultValue": "null"},
+                        ],
+                    },
+                }
+            },
+            "store": {
+                "@class": "dataStore",
+                "name": f"{cnf.CATASTO_OPEN_GS_WORKSPACE}:"
+                f"{cnf.CATASTO_OPEN_GS_DATASTORE}",
+                "href": f"{cnf.GEOSERVER_HOST}:{cnf.GEOSERVER_HOST_PORT}"
+                f"/geoserver/rest"
+                f"/workspaces/{cnf.CATASTO_OPEN_GS_WORKSPACE}"
+                f"/datastores/"
+                f"{cnf.CATASTO_OPEN_GS_DATASTORE}.json",
+            },
+            "serviceConfiguration": False,
+            "simpleConversionEnabled": False,
+            "maxFeatures": 0,
+            "numDecimals": 0,
+            "padWithZeros": False,
+            "forcedDecimal": False,
+            "overridingServiceSRS": False,
+            "skipNumberMatched": False,
+            "circularArcPresent": False,
+            "attributes": {
+                "attribute": [
+                    {
+                        "name": "subjects",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "subjecttype",
+                        "minOccurs": 1,
+                        "maxOccurs": 1,
+                        "nillable": False,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "firstname",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "lastname",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "fiscalcode",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "dateofbirth",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.sql.Date",
+                    },
+                    {
+                        "name": "cityofbirth",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "gender",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "province",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                ]
+            },
+        }
+    },
+    {
+        "featureType": {
+            "name": cnf.APP_CONFIG.CATASTO_OPEN_NATURAL_SUBJECT_LAYER_WBPLACE,
+            "nativeName": cnf.APP_CONFIG.CATASTO_OPEN_NATURAL_SUBJECT_LAYER_WBPLACE,  # noqa
+            "namespace": {
+                "name": f"{cnf.CATASTO_OPEN_GS_WORKSPACE}",
+                "href": f"{cnf.GEOSERVER_HOST}:"
+                f"{cnf.GEOSERVER_HOST_PORT}"
+                f"/geoserver/rest/namespaces"
+                f"/{cnf.CATASTO_OPEN_GS_WORKSPACE}.json",
+            },
+            "title": cnf.APP_CONFIG.CATASTO_OPEN_NATURAL_SUBJECT_LAYER_WBPLACE,
+            "keywords": {
+                "string": [
+                    "features",
+                    cnf.APP_CONFIG.CATASTO_OPEN_NATURAL_SUBJECT_LAYER_WBPLACE,
+                ]
+            },
+            "nativeCRS": 'GEOGCS["WGS 84", \n  '
+            'DATUM["World Geodetic System 1984", \n    '
+            'SPHEROID["WGS 84", 6378137.0, 298.257223563, '
+            'AUTHORITY["EPSG","7030"]], \n    '
+            'AUTHORITY["EPSG","6326"]], \n  '
+            'PRIMEM["Greenwich", 0.0, '
+            'AUTHORITY["EPSG","8901"]], \n  '
+            'UNIT["degree", 0.017453292519943295], \n  '
+            'AXIS["Geodetic longitude", EAST], \n  '
+            'AXIS["Geodetic latitude", NORTH], \n  '
+            'AUTHORITY["EPSG","4326"]]',
+            "srs": "EPSG:4326",
+            "nativeBoundingBox": {
+                "minx": -1,
+                "maxx": 0,
+                "miny": -1,
+                "maxy": 0,
+                "crs": "EPSG:4326",
+            },
+            "latLonBoundingBox": {
+                "minx": -1,
+                "maxx": 0,
+                "miny": -1,
+                "maxy": 0,
+                "crs": "EPSG:4326",
+            },
+            "projectionPolicy": "FORCE_DECLARED",
+            "enabled": True,
+            "metadata": {
+                "entry": {
+                    "@key": "JDBC_VIRTUAL_TABLE",
+                    "virtualTable": {
+                        "name": cnf.APP_CONFIG.CATASTO_OPEN_NATURAL_SUBJECT_LAYER_WBPLACE,  # noqa
+                        "sql": cnf.APP_CONFIG.VIEW_QUERY_PERSONE_FISICA_WITH_BPLACE.format(  # noqa
+                            "%fiscalCode%",
+                            "%lastName%",
+                            "%firstName%",
+                            "%birthPlace%",
+                        ),
+                        "escapeSql": False,
+                        "parameter": [
+                            {"name": "fiscalCode", "defaultValue": "null"},
+                            {"name": "lastName", "defaultValue": "null"},
+                            {"name": "firstName", "defaultValue": "null"},
+                            {"name": "birthPlace", "defaultValue": "null"},
+                        ],
+                    },
+                }
+            },
+            "store": {
+                "@class": "dataStore",
+                "name": f"{cnf.CATASTO_OPEN_GS_WORKSPACE}:"
+                f"{cnf.CATASTO_OPEN_GS_DATASTORE}",
+                "href": f"{cnf.GEOSERVER_HOST}:{cnf.GEOSERVER_HOST_PORT}"
+                f"/geoserver/rest"
+                f"/workspaces/{cnf.CATASTO_OPEN_GS_WORKSPACE}"
+                f"/datastores/"
+                f"{cnf.CATASTO_OPEN_GS_DATASTORE}.json",
+            },
+            "serviceConfiguration": False,
+            "simpleConversionEnabled": False,
+            "maxFeatures": 0,
+            "numDecimals": 0,
+            "padWithZeros": False,
+            "forcedDecimal": False,
+            "overridingServiceSRS": False,
+            "skipNumberMatched": False,
+            "circularArcPresent": False,
+            "attributes": {
+                "attribute": [
+                    {
+                        "name": "subjects",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "subjecttype",
+                        "minOccurs": 1,
+                        "maxOccurs": 1,
+                        "nillable": False,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "firstname",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "lastname",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "fiscalcode",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "dateofbirth",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.sql.Date",
+                    },
+                    {
+                        "name": "cityofbirth",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "gender",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "province",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                ]
+            },
+        }
+    },
+    {
+        "featureType": {
+            "name": cnf.APP_CONFIG.CATASTO_OPEN_NATURAL_SUBJECT_LAYER_WBOTH,
+            "nativeName": cnf.APP_CONFIG.CATASTO_OPEN_NATURAL_SUBJECT_LAYER_WBOTH,  # noqa
+            "namespace": {
+                "name": f"{cnf.CATASTO_OPEN_GS_WORKSPACE}",
+                "href": f"{cnf.GEOSERVER_HOST}:"
+                f"{cnf.GEOSERVER_HOST_PORT}"
+                f"/geoserver/rest/namespaces"
+                f"/{cnf.CATASTO_OPEN_GS_WORKSPACE}.json",
+            },
+            "title": cnf.APP_CONFIG.CATASTO_OPEN_NATURAL_SUBJECT_LAYER_WBOTH,
+            "keywords": {
+                "string": [
+                    "features",
+                    cnf.APP_CONFIG.CATASTO_OPEN_NATURAL_SUBJECT_LAYER_WBOTH,
+                ]
+            },
+            "nativeCRS": 'GEOGCS["WGS 84", \n  '
+            'DATUM["World Geodetic System 1984", \n    '
+            'SPHEROID["WGS 84", 6378137.0, 298.257223563, '
+            'AUTHORITY["EPSG","7030"]], \n    '
+            'AUTHORITY["EPSG","6326"]], \n  '
+            'PRIMEM["Greenwich", 0.0, '
+            'AUTHORITY["EPSG","8901"]], \n  '
+            'UNIT["degree", 0.017453292519943295], \n  '
+            'AXIS["Geodetic longitude", EAST], \n  '
+            'AXIS["Geodetic latitude", NORTH], \n  '
+            'AUTHORITY["EPSG","4326"]]',
+            "srs": "EPSG:4326",
+            "nativeBoundingBox": {
+                "minx": -1,
+                "maxx": 0,
+                "miny": -1,
+                "maxy": 0,
+                "crs": "EPSG:4326",
+            },
+            "latLonBoundingBox": {
+                "minx": -1,
+                "maxx": 0,
+                "miny": -1,
+                "maxy": 0,
+                "crs": "EPSG:4326",
+            },
+            "projectionPolicy": "FORCE_DECLARED",
+            "enabled": True,
+            "metadata": {
+                "entry": {
+                    "@key": "JDBC_VIRTUAL_TABLE",
+                    "virtualTable": {
+                        "name": cnf.APP_CONFIG.CATASTO_OPEN_NATURAL_SUBJECT_LAYER_WBOTH,  # noqa
+                        "sql": cnf.APP_CONFIG.VIEW_QUERY_PERSONE_FISICA_WITH_BOTH.format(  # noqa
                             "%fiscalCode%",
                             "%lastName%",
                             "%firstName%",

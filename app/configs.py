@@ -26,8 +26,14 @@ class AppConfig(BaseModel):
     CATASTO_OPEN_BUILDING_LAYER = "catasto_fabbricati"
     CATASTO_OPEN_TOWN_LAYER = "catasto_comuni_anag"
     CATASTO_OPEN_NATURAL_SUBJECT_LAYER = "catasto_persone_fisiche"
-    CATASTO_OPEN_NATURAL_SUBJECT_LAYER_WBD = (
+    CATASTO_OPEN_NATURAL_SUBJECT_LAYER_WBDAY = (
         "catasto_persone_fisiche_with_bday"
+    )
+    CATASTO_OPEN_NATURAL_SUBJECT_LAYER_WBPLACE = (
+        "catasto_persone_fisiche_with_bplace"
+    )
+    CATASTO_OPEN_NATURAL_SUBJECT_LAYER_WBOTH = (
+        "catasto_persone_fisiche_with_both"
     )
     CATASTO_OPEN_LEGAL_SUBJECT_LAYER = "catasto_persone_giuridiche"
     CATASTO_OPEN_SUBJECT_PROPERTY_LAYER = "catasto_particelle_soggetto"
@@ -692,6 +698,101 @@ class AppConfig(BaseModel):
     """
 
     VIEW_QUERY_PERSONE_FISICA_WITH_BDAY = """
+    select distinct
+        string_agg(f.soggetto::text, ',') as subjects,
+        f.tipo_sog as subjectType,
+        f.nome as firstName,
+        f.cognome as lastName,
+        f.codfiscale AS fiscalCode,
+        case
+            when length(f.data) = 8
+                then to_date(f.data, 'DDMMYYYY')
+                end
+                as dateOfBirth,
+        c.comune || case
+            when c.provincia <> ''
+                then (' (' || c.provincia) || ')'
+                else ''
+                end
+                as cityOfBirth,
+        case f.sesso
+            when '2'
+                then 'Femmina'
+                else 'Maschio'
+                end
+                as gender,
+        c.provincia as province
+    from ctcn.ctfisica f
+    left join ctcn.comuni c
+        on
+            c.codice = f.luogo
+        where (f.codfiscale ilike {0})
+        or (
+            f.cognome ilike {1}
+            and
+            f.nome ilike {2}
+            and
+            to_date(f.data::text, 'DDMMYYYY'::text) = {3}
+            )
+    group by
+        f.tipo_sog,
+        f.nome,
+        f.cognome,
+        f.codfiscale,
+        dateOfBirth,
+        cityOfBirth,
+        gender,
+        province
+    """
+
+    VIEW_QUERY_PERSONE_FISICA_WITH_BPLACE = """
+    select distinct
+        string_agg(f.soggetto::text, ',') as subjects,
+        f.tipo_sog as subjectType,
+        f.nome as firstName,
+        f.cognome as lastName,
+        f.codfiscale AS fiscalCode,
+        case
+            when length(f.data) = 8
+                then to_date(f.data, 'DDMMYYYY')
+                end
+                as dateOfBirth,
+        c.comune || case
+            when c.provincia <> ''
+                then (' (' || c.provincia) || ')'
+                else ''
+                end
+                as cityOfBirth,
+        case f.sesso
+            when '2'
+                then 'Femmina'
+                else 'Maschio'
+                end
+                as gender,
+        c.provincia as province
+    from ctcn.ctfisica f
+    left join ctcn.comuni c
+        on
+            c.codice = f.luogo
+        where (f.codfiscale ilike {0})
+        or (
+            f.cognome ilike {1}
+            and
+            f.nome ilike {2}
+            and f.luogo = '{3}'
+            )
+    group by
+        f.tipo_sog,
+        f.nome,
+        f.cognome,
+        f.codfiscale,
+        dateOfBirth,
+        cityOfBirth,
+        gender,
+        province
+    """
+
+    VIEW_QUERY_PERSONE_FISICA_WITH_BOTH = """
     select distinct
         string_agg(f.soggetto::text, ',') as subjects,
         f.tipo_sog as subjectType,
