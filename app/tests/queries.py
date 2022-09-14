@@ -172,10 +172,22 @@ def get_persone_fisica_with_bday(
     birthplace: str = "null",
 ):
     statement = text(
-        cnf.APP_CONFIG.VIEW_QUERY_PERSONE_FISICA_WITH_BDAY.format(
+        cnf.APP_CONFIG.VIEW_QUERY_PERSONE_FISICA_WITH_BOTH.format(
             fiscalecode, lastname, firstname, birthdate, birthplace
         )
     )
+    if birthdate == "null":
+        statement = text(
+            cnf.APP_CONFIG.VIEW_QUERY_PERSONE_FISICA_WITH_BPLACE.format(
+                fiscalecode, lastname, firstname, birthplace
+            )
+        )
+    if birthplace == "null":
+        statement = text(
+            cnf.APP_CONFIG.VIEW_QUERY_PERSONE_FISICA_WITH_BDAY.format(
+                fiscalecode, lastname, firstname, birthdate
+            )
+        )
     return dal.connection.execute(statement).fetchall()
 
 

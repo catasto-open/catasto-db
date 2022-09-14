@@ -1165,7 +1165,7 @@ class GeoServer(unittest.TestCase):
             "version": cnf.APP_CONFIG.GS_WFS_VERSION,
             "request": "GetFeature",
             "outputFormat": "application/json",
-            "typename": cnf.APP_CONFIG.CATASTO_OPEN_NATURAL_SUBJECT_LAYER_WBD,
+            "typename": cnf.APP_CONFIG.CATASTO_OPEN_NATURAL_SUBJECT_LAYER_WBOTH,
             "viewparams": "lastName:'ALICE';firstName:'ALICE';birthDate:'1940-08-15';birthPlace:H224",
         }
         response = requests.get(
