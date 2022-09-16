@@ -132,8 +132,6 @@ class AppConfig(BaseModel):
         from (
             select distinct t.codice,
                 t.sezione,
-                t.gen_eff,
-                t.con_eff,
                 t.foglio,
                 f.geom,
                 st_envelope(f.geom) as extent
@@ -492,8 +490,6 @@ class AppConfig(BaseModel):
         from (
             select distinct t.codice,
                 t.sezione,
-                t.gen_eff,
-                t.con_eff,
                 t.foglio,
                 f.geom,
                 st_envelope(f.geom) as extent
