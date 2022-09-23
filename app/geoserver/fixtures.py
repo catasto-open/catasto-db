@@ -1376,7 +1376,10 @@ layers_n = [
                     "virtualTable": {
                         "name": cnf.APP_CONFIG.CATASTO_OPEN_LAND_DETAIL_LAYER,
                         "sql": cnf.APP_CONFIG.VIEW_QUERY_TERRENO_DETAIL.format(  # noqa
-                            "%cityCode%", "%citySheet%", "%landNumber%"
+                            "%cityCode%",
+                            "%citySheet%",
+                            "%landNumber%",
+                            "%sectionCode%",
                         ),
                         "escapeSql": True,
                         "parameter": [
@@ -1393,6 +1396,11 @@ layers_n = [
                             {
                                 "name": "landNumber",
                                 "defaultValue": "00001",
+                                "regexpValidator": "^[\\w\\d\\s]+$",
+                            },
+                            {
+                                "name": "sectionCode",
+                                "defaultValue": "A",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                         ],
@@ -1756,7 +1764,10 @@ layers_n = [
                     "virtualTable": {
                         "name": cnf.APP_CONFIG.CATASTO_OPEN_BUILDING_DETAIL_LAYER,  # noqa
                         "sql": cnf.APP_CONFIG.VIEW_QUERY_FABBRICATI_DETAIL.format(  # noqa
-                            "%cityCode%", "%citySheet%", "%buildingNumber%"
+                            "%cityCode%",
+                            "%citySheet%",
+                            "%buildingNumber%",
+                            "%sectionCode%",
                         ),
                         "escapeSql": False,
                         "parameter": [
@@ -1773,6 +1784,11 @@ layers_n = [
                             {
                                 "name": "buildingNumber",
                                 "defaultValue": "00006",
+                                "regexpValidator": "^[\\w\\d\\s]+$",
+                            },
+                            {
+                                "name": "sectionCode",
+                                "defaultValue": "A",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                         ],
@@ -4797,6 +4813,7 @@ layers_temp = [
                             "%cityCode%",
                             "%citySheet%",
                             "%landNumber%",
+                            "%sectionCode%",
                             "%startDate%",
                             "%endDate%",
                         ),
@@ -4815,6 +4832,11 @@ layers_temp = [
                             {
                                 "name": "landNumber",
                                 "defaultValue": "00005",
+                                "regexpValidator": "^[\\w\\d\\s]+$",
+                            },
+                            {
+                                "name": "sectionCode",
+                                "defaultValue": "A",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
@@ -5191,6 +5213,7 @@ layers_temp = [
                             "%cityCode%",
                             "%citySheet%",
                             "%buildingNumber%",
+                            "%sectionCode%",
                             "%startDate%",
                             "%endDate%",
                         ),
@@ -5209,6 +5232,11 @@ layers_temp = [
                             {
                                 "name": "buildingNumber",
                                 "defaultValue": "00006",
+                                "regexpValidator": "^[\\w\\d\\s]+$",
+                            },
+                            {
+                                "name": "sectionCode",
+                                "defaultValue": "A",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {

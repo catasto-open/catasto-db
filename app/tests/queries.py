@@ -66,19 +66,20 @@ def get_fabbricati_detail(
     cityCode: str,
     sheetCode: str,
     number: str,
+    sectionCode: str,
     startDate: str = None,
     endDate: str = None,
 ):
     if startDate and endDate:
         statement = text(
             cnf.APP_CONFIG.VIEW_QUERY_FABBRICATI_DETAIL_TEMP.format(
-                cityCode, sheetCode, number, startDate, endDate
+                cityCode, sheetCode, number, sectionCode, startDate, endDate
             )
         )
     else:
         statement = text(
             cnf.APP_CONFIG.VIEW_QUERY_FABBRICATI_DETAIL.format(
-                cityCode, sheetCode, number
+                cityCode, sheetCode, number, sectionCode
             )
         )
     return dal.connection.execute(statement).fetchall()
@@ -110,19 +111,20 @@ def get_terreno_detail(
     cityCode: str,
     sheetCode: str,
     number: str,
+    sectionCode: str,
     startDate: str = None,
     endDate: str = None,
 ):
     if startDate and endDate:
         statement = text(
             cnf.APP_CONFIG.VIEW_QUERY_TERRENO_DETAIL_TEMP.format(
-                cityCode, sheetCode, number, startDate, endDate
+                cityCode, sheetCode, number, sectionCode, startDate, endDate
             )
         )
     else:
         statement = text(
             cnf.APP_CONFIG.VIEW_QUERY_TERRENO_DETAIL.format(
-                cityCode, sheetCode, number
+                cityCode, sheetCode, number, sectionCode
             )
         )
     return dal.connection.execute(statement).fetchall()
