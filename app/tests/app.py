@@ -167,7 +167,7 @@ class TestApp(unittest.TestCase):
         expectedJson = get_json_from_file("expected_fab_detail")
 
         result = get_fabbricati_detail(
-            cityCode="H224", sheetCode="2", number="00001"
+            cityCode="H224", sheetCode="2", number="00001", sectionCode="A"
         )
         expectedResult = []
         for each in expectedJson["general"]["00001-2"]:
@@ -175,7 +175,7 @@ class TestApp(unittest.TestCase):
         self.assertEqual(result, expectedResult)
 
         result = get_fabbricati_detail(
-            cityCode="H224", sheetCode="3", number="00006"
+            cityCode="H224", sheetCode="3", number="00006", sectionCode="A"
         )
         expectedResult = []
         for each in expectedJson["general"]["00006-3"]:
@@ -186,6 +186,7 @@ class TestApp(unittest.TestCase):
             cityCode="H224",
             sheetCode="2",
             number="00001",
+            sectionCode="A",
             startDate="0001-01-01",
             endDate=datetime.datetime.today().strftime("%Y-%m-%d"),
         )
@@ -198,6 +199,7 @@ class TestApp(unittest.TestCase):
             cityCode="H224",
             sheetCode="3",
             number="00006",
+            sectionCode="A",
             startDate="0001-01-01",
             endDate=datetime.datetime.today().strftime("%Y-%m-%d"),
         )
@@ -255,7 +257,7 @@ class TestApp(unittest.TestCase):
         expectedJson = get_json_from_file("expected_ter_detail")
 
         result = get_terreno_detail(
-            cityCode="H224", sheetCode="2", number="00001"
+            cityCode="H224", sheetCode="2", number="00001", sectionCode="A"
         )
         expectedResult = []
         for each in expectedJson["general"]["00001-2"]:
@@ -263,7 +265,7 @@ class TestApp(unittest.TestCase):
         self.assertEqual(result, expectedResult)
 
         result = get_terreno_detail(
-            cityCode="H224", sheetCode="2", number="00006"
+            cityCode="H224", sheetCode="2", number="00006", sectionCode="A"
         )
         expectedResult = []
         for each in expectedJson["general"]["00006-2"]:
@@ -271,7 +273,7 @@ class TestApp(unittest.TestCase):
         self.assertEqual(result, expectedResult)
 
         result = get_terreno_detail(
-            cityCode="H224", sheetCode="2", number="00007"
+            cityCode="H224", sheetCode="2", number="00007", sectionCode="A"
         )
         expectedResult = []
         for each in expectedJson["general"]["00007-2"]:
@@ -282,6 +284,7 @@ class TestApp(unittest.TestCase):
             cityCode="H224",
             sheetCode="2",
             number="00001",
+            sectionCode="A",
             startDate="0001-01-01",
             endDate=datetime.datetime.today().strftime("%Y-%m-%d"),
         )
@@ -294,6 +297,7 @@ class TestApp(unittest.TestCase):
             cityCode="H224",
             sheetCode="2",
             number="00004",
+            sectionCode="A",
             startDate="0001-01-01",
             endDate=datetime.datetime.today().strftime("%Y-%m-%d"),
         )
@@ -306,6 +310,7 @@ class TestApp(unittest.TestCase):
             cityCode="H224",
             sheetCode="2",
             number="00005",
+            sectionCode="A",
             startDate="0001-01-01",
             endDate=datetime.datetime.today().strftime("%Y-%m-%d"),
         )
@@ -318,6 +323,7 @@ class TestApp(unittest.TestCase):
             cityCode="H224",
             sheetCode="2",
             number="00006",
+            sectionCode="A",
             startDate="0001-01-01",
             endDate=datetime.datetime.today().strftime("%Y-%m-%d"),
         )
@@ -330,6 +336,7 @@ class TestApp(unittest.TestCase):
             cityCode="H224",
             sheetCode="2",
             number="00007",
+            sectionCode="A",
             startDate="0001-01-01",
             endDate=datetime.datetime.today().strftime("%Y-%m-%d"),
         )
@@ -342,6 +349,7 @@ class TestApp(unittest.TestCase):
             cityCode="H224",
             sheetCode="3",
             number="00007",
+            sectionCode="A",
             startDate="0001-01-01",
             endDate=datetime.datetime.today().strftime("%Y-%m-%d"),
         )
@@ -916,7 +924,7 @@ class GeoServer(unittest.TestCase):
             "request": "GetFeature",
             "outputFormat": "application/json",
             "typename": cnf.APP_CONFIG.CATASTO_OPEN_LAND_DETAIL_LAYER,
-            "viewparams": "cityCode:H224;sheetCode:2;number:00001",
+            "viewparams": "cityCode:H224;sheetCode:2;number:00001;sectionCode:A",
         }
         response = requests.get(
             f"{cnf.GEOSERVER_HOST}:"
@@ -945,7 +953,7 @@ class GeoServer(unittest.TestCase):
             "request": "GetFeature",
             "outputFormat": "application/json",
             "typename": cnf.APP_CONFIG.CATASTO_OPEN_LAND_DETAIL_LAYER_TEMP,
-            "viewparams": "cityCode:H224;sheetCode:2;number:00001;startDate:0001-01-01;endDate:{}".format(
+            "viewparams": "cityCode:H224;sheetCode:2;number:00001;sectionCode:A;startDate:0001-01-01;endDate:{}".format(
                 datetime.datetime.today().strftime("%Y-%m-%d")
             ),
         }
@@ -979,7 +987,7 @@ class GeoServer(unittest.TestCase):
             "request": "GetFeature",
             "outputFormat": "application/json",
             "typename": cnf.APP_CONFIG.CATASTO_OPEN_BUILDING_DETAIL_LAYER,
-            "viewparams": "cityCode:H224;sheetCode:3;number:00001",
+            "viewparams": "cityCode:H224;sheetCode:3;number:00001;sectionCode:A",
         }
         response = requests.get(
             f"{cnf.GEOSERVER_HOST}:"
@@ -1008,7 +1016,7 @@ class GeoServer(unittest.TestCase):
             "request": "GetFeature",
             "outputFormat": "application/json",
             "typename": cnf.APP_CONFIG.CATASTO_OPEN_BUILDING_DETAIL_LAYER_TEMP,
-            "viewparams": "cityCode:H224;sheetCode:3;number:00001;startDate:0001-01-01;endDate:{}".format(
+            "viewparams": "cityCode:H224;sheetCode:3;number:00001;sectionCode:A;startDate:0001-01-01;endDate:{}".format(
                 datetime.datetime.today().strftime("%Y-%m-%d")
             ),
         }
