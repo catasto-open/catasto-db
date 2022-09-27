@@ -389,6 +389,7 @@ class AppConfig(BaseModel):
         vsf.rendita as income,
         vsf.partita as lot,
         vsf.tipo_immobile as propertyType,
+        vsf.immobile,
         vsf.data_inizio as startDate,
         vsf.data_fine_f as endDate
     from (
@@ -432,6 +433,7 @@ class AppConfig(BaseModel):
         vst.rendita as income,
         vst.partita as lot,
         vst.tipo_immobile as propertyType,
+        vst.immobile,
         vst.data_inizio as startDate,
         vst.data_fine_f as endDate
         from (
@@ -1025,6 +1027,7 @@ class AppConfig(BaseModel):
         vsf.rendita as income,
         vsf.partita as lot,
         vsf.tipo_immobile as propertyType,
+        vsf.immobile,
         vsf.data_inizio as startDate,
         vsf.data_fine_f as endDate
     from (
@@ -1075,6 +1078,7 @@ class AppConfig(BaseModel):
         vst.rendita as income,
         vst.partita as lot,
         vst.tipo_immobile as propertyType,
+        vst.immobile,
         vst.data_inizio as startDate,
         vst.data_fine_f as endDate
         from (

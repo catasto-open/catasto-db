@@ -30,28 +30,6 @@ from app.tests.queries import (
 )
 
 
-class ComplexJsonEncoder(json.JSONEncoder):
-    def default(self, obj):
-        if isinstance(obj, (datetime.datetime, datetime.date)):
-            return obj.strftime("%Y-%m-%d")
-        return json.JSONEncoder.default(self, obj)
-
-
-def write_result(smtng, key=None):
-    to_file = []
-    for each in smtng:
-        tmp = {}
-        for k in each.keys():
-            tmp[k] = each[k]
-        to_file.append(tmp)
-    if key:
-        with open("./result.json", "w") as f:
-            json.dump({key: to_file}, f, cls=ComplexJsonEncoder)
-    else:
-        with open("./result.json", "w") as f:
-            json.dump(to_file, f, cls=ComplexJsonEncoder)
-
-
 class TestApp(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

@@ -226,7 +226,8 @@ v_subject_building_view = ReplaceableObject(
     COALESCE(to_date(t.con_valida::text, 'DDMMYYYY'::text), 'now'::text::date + 1) AS data_fine_f,
     to_date(f.gen_eff::text, 'DDMMYYYY'::text) AS data_inizio_imm,
     COALESCE(to_date(f.con_eff::text, 'DDMMYYYY'::text), 'now'::text::date + 1) AS data_fine_imm,
-    t.identifica
+    t.identifica,
+    t.immobile
    FROM ctcn.cttitola t
      JOIN ctcn.comuni c ON c.codice::text = t.codice::text
      JOIN ctcn.cuarcuiu f ON f.codice::text = t.codice::text AND f.sezione::text = t.sezione::text 
@@ -296,7 +297,8 @@ v_subject_land_view = ReplaceableObject(
     COALESCE(to_date(t.con_valida::text, 'DDMMYYYY'::text), 'now'::text::date + 1) AS data_fine_f,
     to_date(p.gen_eff::text, 'DDMMYYYY'::text) AS data_inizio_imm,
     COALESCE(to_date(p.con_eff::text, 'DDMMYYYY'::text), 'now'::text::date + 1) AS data_fine_imm,
-    t.identifica
+    t.identifica,
+    t.immobile
    FROM ctcn.cttitola t
      JOIN ctcn.ctpartic p ON p.codice::text = t.codice::text 
      AND p.sezione::text = t.sezione::text AND p.immobile = t.immobile AND p.tipo_imm::text = t.tipo_imm::text

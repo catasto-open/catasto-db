@@ -42,6 +42,7 @@
             "income": "Dom. 0 - Agr. 0",
             "lot": "1",
             "propertytype": "Terreni",
+            "immobile": 315,
             "startdate": "2022-07-02",
             "enddate": "2022-08-06"
         },
@@ -87,6 +88,7 @@
             "income": "Dom. 0 - Agr. 0",
             "lot": "29260",
             "propertytype": "Terreni",
+            "immobile": 318,
             "startdate": "2022-06-02",
             "enddate": "2022-07-01"
         },
@@ -132,6 +134,7 @@
             "income": "Dom. 0 - Agr. 0",
             "lot": null,
             "propertytype": "Terreni",
+            "immobile": 319,
             "startdate": "2022-06-01",
             "enddate": "2022-07-01"
         },
@@ -177,6 +180,7 @@
             "income": "Dom. 0 - Agr. 0",
             "lot": null,
             "propertytype": "Terreni",
+            "immobile": 320,
             "startdate": "2022-07-01",
             "enddate": "2022-08-06"
         },
@@ -222,6 +226,7 @@
             "income": "Dom. 0 - Agr. 0",
             "lot": null,
             "propertytype": "Terreni",
+            "immobile": 321,
             "startdate": "2022-07-01",
             "enddate": "2022-08-06"
         },
@@ -267,6 +272,7 @@
             "income": "Dom. 0 - Agr. 0",
             "lot": "",
             "propertytype": "Terreni",
+            "immobile": 735,
             "startdate": "2022-07-01",
             "enddate": "2022-08-06"
         }
@@ -314,6 +320,7 @@
             "income": "Dom. 0 - Agr. 0",
             "lot": "1",
             "propertytype": "Terreni",
+            "immobile": 315,
             "startdate": "2022-07-02",
             "enddate": "2022-08-06"
         },
@@ -359,6 +366,7 @@
             "income": "Dom. 0 - Agr. 0",
             "lot": null,
             "propertytype": "Terreni",
+            "immobile": 320,
             "startdate": "2022-07-01",
             "enddate": "2022-08-06"
         },
@@ -404,6 +412,7 @@
             "income": "Dom. 0 - Agr. 0",
             "lot": null,
             "propertytype": "Terreni",
+            "immobile": 321,
             "startdate": "2022-07-01",
             "enddate": "2022-08-06"
         },
@@ -449,6 +458,7 @@
             "income": "Dom. 0 - Agr. 0",
             "lot": "",
             "propertytype": "Terreni",
+            "immobile": 735,
             "startdate": "2022-07-01",
             "enddate": "2022-08-06"
         }

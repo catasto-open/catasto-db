@@ -1158,6 +1158,13 @@ layers_n = [
                         "binding": "java.lang.String",
                     },
                     {
+                        "name": "immobile",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
                         "name": "startdate",
                         "minOccurs": 0,
                         "maxOccurs": 1,
@@ -4572,6 +4579,13 @@ layers_temp = [
                     },
                     {
                         "name": "propertytype",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "immobile",
                         "minOccurs": 0,
                         "maxOccurs": 1,
                         "nillable": True,
