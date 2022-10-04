@@ -46,3 +46,20 @@ services:
       interval: 1m30s
       timeout: 10s
       retries: 3
+      
+  catasto-api:
+    container_name: ${COMPOSE_PROJECT_NAME}-api
+    image: pascallike/catasto-api
+    ports:
+      - 5000:80
+    restart: on-failure
+    environment:
+      - ENV_STATE=dev
+      - DEV_SISCAT_DB_SERVER_HOST=catasto-open-db
+      - DEV_SISCAT_DB_SERVER_PORT=5432
+      - DEV_SISCAT_DB_NAME=catasto
+      - DEV_SISCAT_DB_USER=docker
+      - DEV_SISCAT_DB_PASSWORD=docker
+    depends_on:
+      db:
+        condition: service_healthy
