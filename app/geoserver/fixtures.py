@@ -1771,10 +1771,7 @@ layers_n = [
                     "virtualTable": {
                         "name": cnf.APP_CONFIG.CATASTO_OPEN_BUILDING_DETAIL_LAYER,  # noqa
                         "sql": cnf.APP_CONFIG.VIEW_QUERY_FABBRICATI_DETAIL.format(  # noqa
-                            "%cityCode%",
-                            "%citySheet%",
-                            "%buildingNumber%",
-                            "%sectionCode%",
+                            "%cityCode%", "%citySheet%", "%buildingNumber%"
                         ),
                         "escapeSql": False,
                         "parameter": [
@@ -1791,11 +1788,6 @@ layers_n = [
                             {
                                 "name": "buildingNumber",
                                 "defaultValue": "00006",
-                                "regexpValidator": "^[\\w\\d\\s]+$",
-                            },
-                            {
-                                "name": "sectionCode",
-                                "defaultValue": "A",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                         ],
@@ -5227,7 +5219,6 @@ layers_temp = [
                             "%cityCode%",
                             "%citySheet%",
                             "%buildingNumber%",
-                            "%sectionCode%",
                             "%startDate%",
                             "%endDate%",
                         ),
@@ -5246,11 +5237,6 @@ layers_temp = [
                             {
                                 "name": "buildingNumber",
                                 "defaultValue": "00006",
-                                "regexpValidator": "^[\\w\\d\\s]+$",
-                            },
-                            {
-                                "name": "sectionCode",
-                                "defaultValue": "A",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {

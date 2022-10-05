@@ -243,7 +243,6 @@ class AppConfig(BaseModel):
             vf.codice = '{0}'
             and vf.foglio = '{1}'
             and vf.numero_f = '{2}'
-            and vf.sezione = '{3}'
             and vf.data_inizio <= ('now'::text)::date
             and vf.data_fine_f >= ('now'::text)::date
     order by 1
@@ -634,15 +633,14 @@ class AppConfig(BaseModel):
             vf.codice = '{0}'
             and vf.foglio = '{1}'
             and vf.numero_f = '{2}'
-            and vf.sezione = '{3}'
             and (
+                '{3}' between vf.data_inizio and vf.data_fine_f
+                or
                 '{4}' between vf.data_inizio and vf.data_fine_f
                 or
-                '{5}' between vf.data_inizio and vf.data_fine_f
+                vf.data_inizio between '{3}' and '{4}'
                 or
-                vf.data_inizio between '{4}' and '{5}'
-                or
-                vf.data_fine_f between '{4}' and '{5}'
+                vf.data_fine_f between '{3}' and '{4}'
                 )
     order by 1
     """
