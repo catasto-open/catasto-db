@@ -305,3 +305,26 @@ def get_indirizzo_by_text(address: str, toponimo: int):
         cnf.APP_CONFIG.VIEW_QUERY_INDIRIZZO_BTOP.format(address, toponimo)
     )
     return dal.connection.execute(statement).fetchall()
+
+
+def get_fab_detail_by_imm(
+    cityCode: str,
+    sheetCode: str,
+    number: str,
+    immobileCode: str,
+    startDate: str = None,
+    endDate: str = None,
+):
+    if startDate and endDate:
+        statement = text(
+            cnf.APP_CONFIG.VIEW_QUERY_FABBRICATI_DETAIL_BYIMM_TEMP.format(
+                cityCode, sheetCode, number, immobileCode, startDate, endDate
+            )
+        )
+    else:
+        statement = text(
+            cnf.APP_CONFIG.VIEW_QUERY_FABBRICATI_DETAIL_BYIMM.format(
+                cityCode, sheetCode, number, immobileCode
+            )
+        )
+    return dal.connection.execute(statement).fetchall()

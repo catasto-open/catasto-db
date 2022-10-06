@@ -65,6 +65,12 @@ class AppConfig(BaseModel):
     CATASTO_OPEN_LAND_BY_CODE_LAYER = "catasto_terreni_bcodice"
     CATASTO_OPEN_LAND_BY_CODE_LAYER_TEMP = "catasto_terreni_bcodice_temp"
     CATASTO_OPEN_INDIRIZZO_BY_TOPONIMO = "catasto_indirizzo_btop"
+    CATASTO_OPEN_BUILDING_DETAIL_BYIMM_LAYER = (
+        "catasto_dettagli_fabbricato_byimm"  # noqa
+    )
+    CATASTO_OPEN_BUILDING_DETAIL_BYIMM_LAYER_TEMP = (
+        "catasto_dettagli_fabbricato_byimm_temp"  # noqa
+    )
 
     CTCN_COMUNI: str = "ctcn:comuni"
     CTCN_COMUNI_: str = "ctcn:comuni_"
@@ -1315,6 +1321,135 @@ class AppConfig(BaseModel):
     from ctcn.cuindiri c
         where c.indirizzo ilike '{0}%'||'%'
         and c.toponimo = {1}
+    order by 1
+    """
+
+    VIEW_QUERY_FABBRICATI_DETAIL_BYIMM = """
+    select vf.subalterno as subordinate,
+        vf.immobile as property,
+        vf.tipo_imm as propertyType,
+        vf.zona_censuaria as censusZone,
+        vf.categoria as category,
+        vf.classe as _class,
+        vf.consistenza as consistency,
+        vf.rendita as rent,
+        vf.partita as lot,
+        vf.data_inizio as startDate,
+        vf.data_fine_f as endDate,
+        vf.codice as cityCode,
+        vf.sezione as sectionCode,
+        vf.progressiv,
+        vf.foglio as sheetCode,
+        vf.particella,
+        vf.comune as province,
+        vf.numero_f,
+        vf.superficie,
+        vf.rendita_l,
+        vf.lotto,
+        vf.edificio,
+        vf.scala,
+        vf.interno_1,
+        vf.interno_2,
+        vf.piano_1,
+        vf.piano_2,
+        vf.piano_3,
+        vf.piano_4,
+        vf.gen_regist,
+        vf.gen_tipo,
+        vf.gen_numero,
+        vf.gen_progre,
+        vf.gen_anno,
+        vf.con_regist,
+        vf.con_tipo,
+        vf.con_numero,
+        vf.con_progre,
+        vf.con_anno,
+        vf.annotazion,
+        vf.mutaz_iniz,
+        vf.mutaz_fine,
+        vf.prot_notif,
+        vf.data_notif,
+        vf.gen_causa,
+        vf.gen_descr,
+        vf.con_causa,
+        vf.con_descr,
+        vf.flag_class
+    from ctcn.new_v_fab vf
+        where
+            vf.codice = '{0}'
+            and vf.foglio = '{1}'
+            and vf.numero_f = '{2}'
+            and vf.immobile = {3}
+            and vf.data_inizio <= ('now'::text)::date
+            and vf.data_fine_f >= ('now'::text)::date
+    order by 1
+    """
+
+    VIEW_QUERY_FABBRICATI_DETAIL_BYIMM_TEMP = """
+    select vf.subalterno as subordinate,
+        vf.immobile as property,
+        vf.tipo_imm as propertyType,
+        vf.zona_censuaria as censusZone,
+        vf.categoria as category,
+        vf.classe as _class,
+        vf.consistenza as consistency,
+        vf.rendita as rent,
+        vf.partita as lot,
+        vf.data_inizio as startDate,
+        vf.data_fine_f as endDate,
+        vf.codice as cityCode,
+        vf.sezione as sectionCode,
+        vf.progressiv,
+        vf.foglio as sheetCode,
+        vf.particella,
+        vf.comune as province,
+        vf.numero_f,
+        vf.superficie,
+        vf.rendita_l,
+        vf.lotto,
+        vf.edificio,
+        vf.scala,
+        vf.interno_1,
+        vf.interno_2,
+        vf.piano_1,
+        vf.piano_2,
+        vf.piano_3,
+        vf.piano_4,
+        vf.gen_regist,
+        vf.gen_tipo,
+        vf.gen_numero,
+        vf.gen_progre,
+        vf.gen_anno,
+        vf.con_regist,
+        vf.con_tipo,
+        vf.con_numero,
+        vf.con_progre,
+        vf.con_anno,
+        vf.annotazion,
+        vf.mutaz_iniz,
+        vf.mutaz_fine,
+        vf.prot_notif,
+        vf.data_notif,
+        vf.gen_causa,
+        vf.gen_descr,
+        vf.con_causa,
+        vf.con_descr,
+        vf.flag_class
+    from ctcn.new_v_fab vf
+        where
+            vf.codice = '{0}'
+            and vf.foglio = '{1}'
+            and vf.numero_f = '{2}'
+            and vf.immobile = {3}
+            and (
+                '{4}' between vf.data_inizio and vf.data_fine_f
+                or
+                '{5}' between vf.data_inizio and vf.data_fine_f
+                or
+                vf.data_inizio between '{4}' and '{5}'
+                or
+                vf.data_fine_f between '{4}' and '{5}'
+                )
     order by 1
     """
 
