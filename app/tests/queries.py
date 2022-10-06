@@ -298,3 +298,10 @@ def get_terreni_by_codice(
             )
         )
     return dal.connection.execute(statement).fetchall()
+
+
+def get_indirizzo_by_text(address: str, toponimo: int):
+    statement = text(
+        cnf.APP_CONFIG.VIEW_QUERY_INDIRIZZO_BTOP.format(address, toponimo)
+    )
+    return dal.connection.execute(statement).fetchall()
