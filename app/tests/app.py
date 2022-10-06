@@ -27,6 +27,7 @@ from app.tests.queries import (
     get_immobile_by_address,
     get_fabbricati_by_codice,
     get_terreni_by_codice,
+    get_indirizzo_by_text,
 )
 
 
@@ -543,6 +544,14 @@ class TestApp(unittest.TestCase):
         )
         expectedResult = []
         for each in expectedJson["general"]:
+            expectedResult.append(tuple(list(each.values())))
+        self.assertEqual(result, expectedResult)
+
+    def test_query_indirizzo_by_txt(self):
+        expectedJson = get_json_from_file("expected_indirizzo")
+        result = get_indirizzo_by_text(address="CR", toponimo=236)
+        expectedResult = []
+        for each in expectedJson:
             expectedResult.append(tuple(list(each.values())))
         self.assertEqual(result, expectedResult)
 
@@ -1425,6 +1434,37 @@ class GeoServer(unittest.TestCase):
             object_hook=object_hook,
         )
         self.assertEqual(features, expectedResponses["general"])
+
+    def test_geoserver_indirizzo_btxt(self):
+        expectedResponses = get_json_from_file("expected_indirizzo_geoserver")
+
+        params = {
+            "service": "WFS",
+            "version": cnf.APP_CONFIG.GS_WFS_VERSION,
+            "request": "GetFeature",
+            "outputFormat": "application/json",
+            "typename": cnf.APP_CONFIG.CATASTO_OPEN_INDIRIZZO_BY_TOPONIMO,
+            "viewparams": "address:CR;toponimo:236",
+        }
+        response = requests.get(
+            f"{cnf.GEOSERVER_HOST}:"
+            f"{cnf.GEOSERVER_HOST_PORT}"
+            f"/geoserver/ows",
+            params,
+        )
+        self.assertEqual(response.status_code, 200)
+        payload = json.loads(response.text)
+        self.assertEqual(payload["totalFeatures"], len(expectedResponses))
+        feature_properties = [
+            feature["properties"] for feature in payload["features"]
+        ]
+        from app.tests.fixtures import object_hook
+
+        features = json.loads(
+            json.dumps(feature_properties, sort_keys=False),
+            object_hook=object_hook,
+        )
+        self.assertEqual(features, expectedResponses)
 
 
 class TemporalGeoServer(unittest.TestCase):

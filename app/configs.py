@@ -54,7 +54,7 @@ class AppConfig(BaseModel):
     )
     CATASTO_OPEN_PROPERTY_OWNER_LAYER_TEMP = "catasto_titolari_immobile_temp"
     CATASTO_OPEN_TOPONIMO_LAYER = "catasto_toponimo"
-    CATASTO_OPEN_INDIRIZZO_IMMOBILE_LAYER = "catasto_indrizzo_immobile"
+    CATASTO_OPEN_INDIRIZZO_IMMOBILE_LAYER = "catasto_indirizzo_immobile"
     CATASTO_OPEN_INDIRIZZO_IMMOBILE_LAYER_TEMP = (
         "catasto_indrizzo_immobile_temp"
     )
@@ -64,6 +64,7 @@ class AppConfig(BaseModel):
     )
     CATASTO_OPEN_LAND_BY_CODE_LAYER = "catasto_terreni_bcodice"
     CATASTO_OPEN_LAND_BY_CODE_LAYER_TEMP = "catasto_terreni_bcodice_temp"
+    CATASTO_OPEN_INDIRIZZO_BY_TOPONIMO = "catasto_indirizzo_btop"
 
     CTCN_COMUNI: str = "ctcn:comuni"
     CTCN_COMUNI_: str = "ctcn:comuni_"
@@ -243,7 +244,6 @@ class AppConfig(BaseModel):
             vf.codice = '{0}'
             and vf.foglio = '{1}'
             and vf.numero_f = '{2}'
-            and vf.sezione = '{3}'
             and vf.data_inizio <= ('now'::text)::date
             and vf.data_fine_f >= ('now'::text)::date
     order by 1
@@ -634,15 +634,14 @@ class AppConfig(BaseModel):
             vf.codice = '{0}'
             and vf.foglio = '{1}'
             and vf.numero_f = '{2}'
-            and vf.sezione = '{3}'
             and (
+                '{3}' between vf.data_inizio and vf.data_fine_f
+                or
                 '{4}' between vf.data_inizio and vf.data_fine_f
                 or
-                '{5}' between vf.data_inizio and vf.data_fine_f
+                vf.data_inizio between '{3}' and '{4}'
                 or
-                vf.data_inizio between '{4}' and '{5}'
-                or
-                vf.data_fine_f between '{4}' and '{5}'
+                vf.data_fine_f between '{3}' and '{4}'
                 )
     order by 1
     """
@@ -1309,6 +1308,14 @@ class AppConfig(BaseModel):
             )
     group by 1,2,3,4
     order by 1,2,3,4
+    """
+
+    VIEW_QUERY_INDIRIZZO_BTOP = """
+    select c.indirizzo,c.toponimo
+    from ctcn.cuindiri c
+        where c.indirizzo ilike '{0}%'||'%'
+        and c.toponimo = {1}
+    order by 1
     """
 
 
