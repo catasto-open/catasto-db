@@ -28,6 +28,7 @@ from app.tests.queries import (
     get_fabbricati_by_codice,
     get_terreni_by_codice,
     get_indirizzo_by_text,
+    get_fab_detail_by_imm,
 )
 
 
@@ -552,6 +553,32 @@ class TestApp(unittest.TestCase):
         result = get_indirizzo_by_text(address="CR", toponimo=236)
         expectedResult = []
         for each in expectedJson:
+            expectedResult.append(tuple(list(each.values())))
+        self.assertEqual(result, expectedResult)
+
+    def test_query_fabbricati_detail_by_imm(self):
+        expectedJson = get_json_from_file("expected_fab_detail_by_imm")
+
+        result = get_fab_detail_by_imm(
+            cityCode="H224", sheetCode="3", number="00006", immobileCode=558
+        )
+
+        expectedResult = []
+        for each in expectedJson["general"]:
+            expectedResult.append(tuple(list(each.values())))
+        self.assertEqual(result, expectedResult)
+
+        result = get_fab_detail_by_imm(
+            cityCode="H224",
+            sheetCode="3",
+            number="00006",
+            immobileCode=558,
+            startDate="0001-01-01",
+            endDate=datetime.datetime.today().strftime("%Y-%m-%d"),
+        )
+
+        expectedResult = []
+        for each in expectedJson["temp"]:
             expectedResult.append(tuple(list(each.values())))
         self.assertEqual(result, expectedResult)
 
@@ -1465,6 +1492,69 @@ class GeoServer(unittest.TestCase):
             object_hook=object_hook,
         )
         self.assertEqual(features, expectedResponses)
+
+    def test_geoserver_get_fabbricati_detail_byimm(self):
+        expectedResponses = get_json_from_file("expected_fab_detail_geoserver")
+
+        params = {
+            "service": "WFS",
+            "version": cnf.APP_CONFIG.GS_WFS_VERSION,
+            "request": "GetFeature",
+            "outputFormat": "application/json",
+            "typename": cnf.APP_CONFIG.CATASTO_OPEN_BUILDING_DETAIL_LAYER,
+            "viewparams": "cityCode:H224;sheetCode:3;number:00001;immobileCode:558",
+        }
+        response = requests.get(
+            f"{cnf.GEOSERVER_HOST}:"
+            f"{cnf.GEOSERVER_HOST_PORT}"
+            f"/geoserver/ows",
+            params,
+        )
+        self.assertEqual(response.status_code, 200)
+        payload = json.loads(response.text)
+        self.assertEqual(
+            payload["numberReturned"], len(expectedResponses["general"])
+        )
+        feature_properties = [
+            feature["properties"] for feature in payload["features"]
+        ]
+        from app.tests.fixtures import object_hook
+
+        features = json.loads(
+            json.dumps(feature_properties), object_hook=object_hook
+        )
+        self.assertEqual(features, expectedResponses["general"])
+
+        params = {
+            "service": "WFS",
+            "version": cnf.APP_CONFIG.GS_WFS_VERSION,
+            "request": "GetFeature",
+            "outputFormat": "application/json",
+            "typename": cnf.APP_CONFIG.CATASTO_OPEN_BUILDING_DETAIL_LAYER_TEMP,
+            "viewparams": "cityCode:H224;sheetCode:3;number:00001;immobileCode:558;startDate:0001-01-01;endDate:{}".format(
+                datetime.datetime.today().strftime("%Y-%m-%d")
+            ),
+        }
+        response = requests.get(
+            f"{cnf.GEOSERVER_HOST}:"
+            f"{cnf.GEOSERVER_HOST_PORT}"
+            f"/geoserver/ows",
+            params,
+        )
+        self.assertEqual(response.status_code, 200)
+        payload = json.loads(response.text)
+        self.assertEqual(
+            payload["numberReturned"], len(expectedResponses["temp"])
+        )
+        feature_properties = [
+            feature["properties"] for feature in payload["features"]
+        ]
+        from app.tests.fixtures import object_hook
+
+        features = json.loads(
+            json.dumps(feature_properties), object_hook=object_hook
+        )
+        self.assertEqual(features, expectedResponses["temp"])
 
 
 class TemporalGeoServer(unittest.TestCase):

@@ -2917,6 +2917,457 @@ layers_n = [
             },
         }
     },
+    {
+        "featureType": {
+            "name": cnf.APP_CONFIG.CATASTO_OPEN_BUILDING_DETAIL_BYIMM_LAYER,
+            "nativeName": cnf.APP_CONFIG.CATASTO_OPEN_BUILDING_DETAIL_BYIMM_LAYER,  # noqa
+            "namespace": {
+                "name": f"{cnf.CATASTO_OPEN_GS_WORKSPACE}",
+                "href": f"{cnf.GEOSERVER_HOST}:"
+                f"{cnf.GEOSERVER_HOST_PORT}"
+                f"/geoserver/rest/namespaces"
+                f"/{cnf.CATASTO_OPEN_GS_WORKSPACE}.json",
+            },
+            "title": cnf.APP_CONFIG.CATASTO_OPEN_BUILDING_DETAIL_BYIMM_LAYER,
+            "keywords": {
+                "string": [
+                    "features",
+                    cnf.APP_CONFIG.CATASTO_OPEN_BUILDING_DETAIL_BYIMM_LAYER,
+                ]
+            },
+            "nativeCRS": 'GEOGCS["WGS 84", \n  '
+            'DATUM["World Geodetic System 1984", \n    '
+            'SPHEROID["WGS 84", 6378137.0, 298.257223563, '
+            'AUTHORITY["EPSG","7030"]], \n    '
+            'AUTHORITY["EPSG","6326"]], \n  '
+            'PRIMEM["Greenwich", 0.0, '
+            'AUTHORITY["EPSG","8901"]], \n  '
+            'UNIT["degree", 0.017453292519943295], \n  '
+            'AXIS["Geodetic longitude", EAST], \n  '
+            'AXIS["Geodetic latitude", NORTH], \n  '
+            'AUTHORITY["EPSG","4326"]]',
+            "srs": "EPSG:4326",
+            "nativeBoundingBox": {
+                "minx": -180,
+                "maxx": 180,
+                "miny": -90,
+                "maxy": 90,
+                "crs": "EPSG:4326",
+            },
+            "latLonBoundingBox": {
+                "minx": -180,
+                "maxx": 180,
+                "miny": -90,
+                "maxy": 90,
+                "crs": "EPSG:4326",
+            },
+            "projectionPolicy": "FORCE_DECLARED",
+            "enabled": True,
+            "metadata": {
+                "entry": {
+                    "@key": "JDBC_VIRTUAL_TABLE",
+                    "virtualTable": {
+                        "name": cnf.APP_CONFIG.CATASTO_OPEN_BUILDING_DETAIL_BYIMM_LAYER,  # noqa
+                        "sql": cnf.APP_CONFIG.VIEW_QUERY_FABBRICATI_DETAIL_BYIMM.format(  # noqa
+                            "%cityCode%",
+                            "%citySheet%",
+                            "%buildingNumber%",
+                            "%immobileCode%",
+                        ),
+                        "escapeSql": False,
+                        "parameter": [
+                            {
+                                "name": "cityCode",
+                                "defaultValue": "H224",
+                                "regexpValidator": "^[\\w\\d\\s]+$",
+                            },
+                            {
+                                "name": "citySheet",
+                                "defaultValue": 3,
+                                "regexpValidator": "^[\\w\\d\\s]+$",
+                            },
+                            {
+                                "name": "buildingNumber",
+                                "defaultValue": "00006",
+                                "regexpValidator": "^[\\w\\d\\s]+$",
+                            },
+                            {
+                                "name": "immobileCode",
+                                "defaultValue": "558",
+                                "regexpValidator": "^[0-9]+$",
+                            },
+                        ],
+                    },
+                }
+            },
+            "store": {
+                "@class": "dataStore",
+                "name": f"{cnf.CATASTO_OPEN_GS_WORKSPACE}:"
+                f"{cnf.CATASTO_OPEN_GS_DATASTORE}",
+                "href": f"{cnf.GEOSERVER_HOST}:{cnf.GEOSERVER_HOST_PORT}"
+                f"/geoserver/rest"
+                f"/workspaces/{cnf.CATASTO_OPEN_GS_WORKSPACE}"
+                f"/datastores/"
+                f"{cnf.CATASTO_OPEN_GS_DATASTORE}.json",
+            },
+            "serviceConfiguration": False,
+            "simpleConversionEnabled": False,
+            "maxFeatures": 0,
+            "numDecimals": 0,
+            "padWithZeros": False,
+            "forcedDecimal": False,
+            "overridingServiceSRS": False,
+            "skipNumberMatched": False,
+            "circularArcPresent": False,
+            "attributes": {
+                "attribute": [
+                    {
+                        "name": "subordinate",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "property",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.Long",
+                    },
+                    {
+                        "name": "propertytype",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "censuszone",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "category",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "_class",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "consistency",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "rent",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "lot",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "startdate",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.sql.Date",
+                    },
+                    {
+                        "name": "enddate",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.sql.Date",
+                    },
+                    {
+                        "name": "citycode",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "sectioncode",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "progressiv",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "sheetcode",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "particella",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "province",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "numero_f",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "superficie",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "rendita_l",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "lotto",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "edificio",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "scala",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "interno_1",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "interno_2",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "piano_1",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "piano_2",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "piano_3",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "piano_4",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "gen_regist",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "gen_tipo",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "gen_numero",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "gen_progre",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "gen_anno",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "con_regist",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "con_tipo",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "con_numero",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "con_progre",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "con_anno",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "annotazion",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "mutaz_iniz",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "mutaz_fine",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "prot_notif",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "data_notif",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "gen_causa",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "gen_descr",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "con_causa",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "con_descr",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "flag_class",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                ]
+            },
+        }
+    },
 ]
 
 layers_temp = [
@@ -6287,6 +6738,469 @@ layers_temp = [
                         "maxOccurs": 1,
                         "nillable": True,
                         "binding": "org.locationtech.jts.geom.Polygon",
+                    },
+                ]
+            },
+        }
+    },
+    {
+        "featureType": {
+            "name": cnf.APP_CONFIG.CATASTO_OPEN_BUILDING_DETAIL_BYIMM_LAYER_TEMP,  # noqa
+            "nativeName": cnf.APP_CONFIG.CATASTO_OPEN_BUILDING_DETAIL_BYIMM_LAYER_TEMP,  # noqa
+            "namespace": {
+                "name": f"{cnf.CATASTO_OPEN_GS_WORKSPACE}",
+                "href": f"{cnf.GEOSERVER_HOST}:"
+                f"{cnf.GEOSERVER_HOST_PORT}"
+                f"/geoserver/rest/namespaces"
+                f"/{cnf.CATASTO_OPEN_GS_WORKSPACE}.json",
+            },
+            "title": cnf.APP_CONFIG.CATASTO_OPEN_BUILDING_DETAIL_BYIMM_LAYER_TEMP,  # noqa
+            "keywords": {
+                "string": [
+                    "features",
+                    cnf.APP_CONFIG.CATASTO_OPEN_BUILDING_DETAIL_BYIMM_LAYER_TEMP,  # noqa
+                ]
+            },
+            "nativeCRS": 'GEOGCS["WGS 84", \n  '
+            'DATUM["World Geodetic System 1984", \n    '
+            'SPHEROID["WGS 84", 6378137.0, 298.257223563, '
+            'AUTHORITY["EPSG","7030"]], \n    '
+            'AUTHORITY["EPSG","6326"]], \n  '
+            'PRIMEM["Greenwich", 0.0, '
+            'AUTHORITY["EPSG","8901"]], \n  '
+            'UNIT["degree", 0.017453292519943295], \n  '
+            'AXIS["Geodetic longitude", EAST], \n  '
+            'AXIS["Geodetic latitude", NORTH], \n  '
+            'AUTHORITY["EPSG","4326"]]',
+            "srs": "EPSG:4326",
+            "nativeBoundingBox": {
+                "minx": -180,
+                "maxx": 180,
+                "miny": -90,
+                "maxy": 90,
+                "crs": "EPSG:4326",
+            },
+            "latLonBoundingBox": {
+                "minx": -180,
+                "maxx": 180,
+                "miny": -90,
+                "maxy": 90,
+                "crs": "EPSG:4326",
+            },
+            "projectionPolicy": "FORCE_DECLARED",
+            "enabled": True,
+            "metadata": {
+                "entry": {
+                    "@key": "JDBC_VIRTUAL_TABLE",
+                    "virtualTable": {
+                        "name": cnf.APP_CONFIG.CATASTO_OPEN_BUILDING_DETAIL_BYIMM_LAYER_TEMP,  # noqa
+                        "sql": cnf.APP_CONFIG.VIEW_QUERY_FABBRICATI_DETAIL_BYIMM_TEMP.format(  # noqa
+                            "%cityCode%",
+                            "%citySheet%",
+                            "%buildingNumber%",
+                            "%immobileCode%",
+                            "%startDate%",
+                            "%endDate%",
+                        ),
+                        "escapeSql": False,
+                        "parameter": [
+                            {
+                                "name": "cityCode",
+                                "defaultValue": "H224",
+                                "regexpValidator": "^[\\w\\d\\s]+$",
+                            },
+                            {
+                                "name": "citySheet",
+                                "defaultValue": 3,
+                                "regexpValidator": "^[\\w\\d\\s]+$",
+                            },
+                            {
+                                "name": "buildingNumber",
+                                "defaultValue": "00006",
+                                "regexpValidator": "^[\\w\\d\\s]+$",
+                            },
+                            {
+                                "name": "immobileCode",
+                                "defaultValue": "558",
+                                "regexpValidator": "^[0-9]+$",
+                            },
+                            {
+                                "name": "startDate",
+                                "defaultValue": "0001-01-01",
+                            },
+                            {
+                                "name": "endDate",
+                                "defaultValue": datetime.today().strftime(
+                                    "%Y-%m-%d"
+                                ),
+                            },
+                        ],
+                    },
+                }
+            },
+            "store": {
+                "@class": "dataStore",
+                "name": f"{cnf.CATASTO_OPEN_GS_WORKSPACE}:"
+                f"{cnf.CATASTO_OPEN_GS_DATASTORE}",
+                "href": f"{cnf.GEOSERVER_HOST}:{cnf.GEOSERVER_HOST_PORT}"
+                f"/geoserver/rest"
+                f"/workspaces/{cnf.CATASTO_OPEN_GS_WORKSPACE}"
+                f"/datastores/"
+                f"{cnf.CATASTO_OPEN_GS_DATASTORE}.json",
+            },
+            "serviceConfiguration": False,
+            "simpleConversionEnabled": False,
+            "maxFeatures": 0,
+            "numDecimals": 0,
+            "padWithZeros": False,
+            "forcedDecimal": False,
+            "overridingServiceSRS": False,
+            "skipNumberMatched": False,
+            "circularArcPresent": False,
+            "attributes": {
+                "attribute": [
+                    {
+                        "name": "subordinate",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "property",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.Long",
+                    },
+                    {
+                        "name": "propertytype",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "censuszone",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "category",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "_class",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "consistency",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "rent",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "lot",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "startdate",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.sql.Date",
+                    },
+                    {
+                        "name": "enddate",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.sql.Date",
+                    },
+                    {
+                        "name": "citycode",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "sectioncode",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "progressiv",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "sheetcode",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "particella",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "province",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "numero_f",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "superficie",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "rendita_l",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "lotto",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "edificio",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "scala",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "interno_1",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "interno_2",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "piano_1",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "piano_2",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "piano_3",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "piano_4",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "gen_regist",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "gen_tipo",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "gen_numero",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "gen_progre",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "gen_anno",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "con_regist",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "con_tipo",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "con_numero",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "con_progre",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "con_anno",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "annotazion",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "mutaz_iniz",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "mutaz_fine",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "prot_notif",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "data_notif",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "gen_causa",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "gen_descr",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "con_causa",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "con_descr",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
+                    },
+                    {
+                        "name": "flag_class",
+                        "minOccurs": 0,
+                        "maxOccurs": 1,
+                        "nillable": True,
+                        "binding": "java.lang.String",
                     },
                 ]
             },
