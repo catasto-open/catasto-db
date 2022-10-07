@@ -1317,7 +1317,7 @@ class AppConfig(BaseModel):
     """
 
     VIEW_QUERY_INDIRIZZO_BTOP = """
-    select c.indirizzo,c.toponimo
+    select distinct c.indirizzo,c.toponimo
     from ctcn.cuindiri c
         where c.indirizzo ilike '{0}%'||'%'
         and c.toponimo = {1}
