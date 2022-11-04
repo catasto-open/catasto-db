@@ -106,17 +106,6 @@ class TestApp(unittest.TestCase):
             expectedResult.append(tuple(list(each.values())))
         self.assertEqual(result, expectedResult)
 
-        result = get_fogli_by_city_info(
-            cityCode="H224",
-            sectionCode="A",
-            startDate="0001-01-01",
-            endDate=datetime.datetime.today().strftime("%Y-%m-%d"),
-        )
-        expectedResult = []
-        for each in expectedJson["temp"]:
-            expectedResult.append(tuple(list(each.values())))
-        self.assertEqual(result, expectedResult)
-
     def test_query_fabbricati(self):
         expectedJson = get_json_from_file("expected_fabbricati")
 
@@ -550,7 +539,9 @@ class TestApp(unittest.TestCase):
 
     def test_query_indirizzo_by_txt(self):
         expectedJson = get_json_from_file("expected_indirizzo")
-        result = get_indirizzo_by_text(address="CR", toponimo=236)
+        result = get_indirizzo_by_text(
+            address="CR", toponimo=236, cityCode="H501"
+        )
         expectedResult = []
         for each in expectedJson:
             expectedResult.append(tuple(list(each.values())))
@@ -796,37 +787,6 @@ class GeoServer(unittest.TestCase):
         )
         bboxes = [feature["bbox"] for feature in payload["features"]]
         self.assertEqual(bboxes, expectedResponses["general"]["bboxes"])
-
-        params = {
-            "service": "WFS",
-            "version": cnf.APP_CONFIG.GS_WFS_VERSION,
-            "request": "GetFeature",
-            "outputFormat": "application/json",
-            "typename": cnf.APP_CONFIG.CATASTO_OPEN_SHEET_LAYER_TEMP,
-            "viewparams": "cityCode:H224;sectionCode:A;startDate:0001-01-01;endDate:{}".format(
-                datetime.datetime.today().strftime("%Y-%m-%d")
-            ),
-        }
-        response = requests.get(
-            f"{cnf.GEOSERVER_HOST}:"
-            f"{cnf.GEOSERVER_HOST_PORT}"
-            f"/geoserver/ows",
-            params,
-        )
-        self.assertEqual(response.status_code, 200)
-        payload = json.loads(response.text)
-        self.assertEqual(
-            payload["totalFeatures"],
-            len(expectedResponses["temp"]["features"]),
-        )
-        feature_properties = [
-            feature["properties"] for feature in payload["features"]
-        ]
-        self.assertEqual(
-            feature_properties, expectedResponses["temp"]["features"]
-        )
-        bboxes = [feature["bbox"] for feature in payload["features"]]
-        self.assertEqual(bboxes, expectedResponses["temp"]["bboxes"])
 
     def test_geoserver_get_terreni(self):
         expectedResponses = get_json_from_file("expected_terreni_geoserver")
@@ -1630,9 +1590,9 @@ class TemporalGeoServer(unittest.TestCase):
         sections_names = list(map(lambda x: x["name"], sections_ret))
         self.assertTrue("A" in sections_names)
 
-        sheet_params = f"cityCode:{self.expectedCode};sectionCode:A;startDate:{self.START_DATE};endDate:{self.END_DATE};"
+        sheet_params = f"cityCode:{self.expectedCode};sectionCode:A;"
         sheets_ret = self.__ask_geoserver(
-            layer=cnf.APP_CONFIG.CATASTO_OPEN_SHEET_LAYER_TEMP,
+            layer=cnf.APP_CONFIG.CATASTO_OPEN_SHEET_LAYER,
             view_params=sheet_params,
         )
         self.assertTrue(len(sheets_ret) != 0)

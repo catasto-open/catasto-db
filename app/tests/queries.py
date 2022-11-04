@@ -24,19 +24,10 @@ def get_sezioni_by_city_code(cityCode: str, endDate: str = None):
     return dal.connection.execute(statement).fetchall()
 
 
-def get_fogli_by_city_info(
-    cityCode: str, sectionCode: str, startDate: str = None, endDate: str = None
-):
-    if startDate and endDate:
-        statement = text(
-            cnf.APP_CONFIG.VIEW_QUERY_FOGLI_TEMP.format(
-                cityCode, sectionCode, startDate, endDate
-            )
-        )
-    else:
-        statement = text(
-            cnf.APP_CONFIG.VIEW_QUERY_FOGLI.format(cityCode, sectionCode)
-        )
+def get_fogli_by_city_info(cityCode: str, sectionCode: str):
+    statement = text(
+        cnf.APP_CONFIG.VIEW_QUERY_FOGLI.format(cityCode, sectionCode)
+    )
     return dal.connection.execute(statement).fetchall()
 
 
@@ -300,9 +291,11 @@ def get_terreni_by_codice(
     return dal.connection.execute(statement).fetchall()
 
 
-def get_indirizzo_by_text(address: str, toponimo: int):
+def get_indirizzo_by_text(address: str, toponimo: int, cityCode: str):
     statement = text(
-        cnf.APP_CONFIG.VIEW_QUERY_INDIRIZZO_BTOP.format(address, toponimo)
+        cnf.APP_CONFIG.VIEW_QUERY_INDIRIZZO_BTOP.format(
+            address, toponimo, cityCode
+        )
     )
     return dal.connection.execute(statement).fetchall()
 
