@@ -42,7 +42,6 @@ class AppConfig(BaseModel):
     CATASTO_OPEN_PROPERTY_OWNER_LAYER = "catasto_titolari_immobile"
     CATASTO_OPEN_CITY_LAYER_TEMP = "catasto_comuni_temp"
     CATASTO_OPEN_SECTION_LAYER_TEMP = "catasto_sezioni_temp"
-    CATASTO_OPEN_SHEET_LAYER_TEMP = "catasto_fogli_temp"
     CATASTO_OPEN_LAND_LAYER_TEMP = "catasto_terreni_temp"
     CATASTO_OPEN_BUILDING_LAYER_TEMP = "catasto_fabbricati_temp"
     CATASTO_OPEN_SUBJECT_PROPERTY_LAYER_TEMP = (
@@ -137,36 +136,21 @@ class AppConfig(BaseModel):
                 st_union(tab.extent),3004),3857)
                 as extent
         from (
-            select distinct t.codice,
-                t.sezione,
-                t.foglio,
+            select distinct f.comune as codice,
+                f.sezione,
+                f.foglio::integer,
                 f.geom,
                 st_envelope(f.geom) as extent
-                from ctcn.ctpartic t
-                left outer join ctmp.fogli f
-                on (f.comune=t.codice
-                and
-                f.sezione = case
-                    when t.sezione =' '
-                    then '_'
-                    else
-                    t.sezione
-                    end
-                and
-                t.foglio = f.foglio::integer
-                )
-            where t.codice = '{0}'
-                and
-                    coalesce(
-                        to_date(t.con_eff::text,'DDMMYYYY'),
-                        (('now'::text)::date + 1)) >= ('now'::text)::date
+                from ctmp.fogli f
+            where f.comune = '{0}'
                 and case '{1}' when '_'
-                    then t.sezione like '%'
-                    else t.sezione = '{1}'
+                    then f.sezione like '%'
+                    else f.sezione = '{1}'
                     end
             )
             tab
         group by tab.codice,tab.sezione,tab.foglio
+        order by tab.sezione, tab.foglio
     """
 
     VIEW_QUERY_FABBRICATI = """
@@ -482,73 +466,6 @@ class AppConfig(BaseModel):
         and
         c.data_inizio <= '{1}'
     group by s.sezione order by 1
-    """
-
-    VIEW_QUERY_FOGLI_TEMP = """
-    select tab.codice as citycode,
-        tab.sezione as section,
-        tab.foglio as sheet,
-        tab.foglio::integer as number,
-        st_transform(
-            st_setsrid(
-                st_union(tab.geom),3004),3857)
-                as geom,
-        st_transform(
-            st_setsrid(
-                st_union(tab.extent),3004),3857)
-                as extent
-        from (
-            select distinct t.codice,
-                t.sezione,
-                t.foglio,
-                f.geom,
-                st_envelope(f.geom) as extent
-                from ctcn.ctpartic t
-                left outer join ctmp.fogli f
-                on (f.comune=t.codice
-                and
-                f.sezione = case
-                    when t.sezione =' '
-                    then '_'
-                    else
-                    t.sezione
-                    end
-                and
-                t.foglio = f.foglio::integer
-                )
-            where t.codice = '{0}'
-                and case '{1}' when '_'
-                    then t.sezione like '%'
-                    else t.sezione = '{1}'
-                    end
-                and (
-                    '{2}' between
-                        to_date(t.gen_eff::text,'DDMMYYYY')
-                        and
-                        coalesce(
-                            to_date(t.con_eff::text,'DDMMYYYY'),
-                            (('now'::text)::date + 1)
-                            )
-                    or
-                    '{3}' between
-                        to_date(t.gen_eff::text,'DDMMYYYY')
-                        and
-                        coalesce(
-                            to_date(t.con_eff::text,'DDMMYYYY'),
-                            (('now'::text)::date + 1)
-                            )
-                    or
-                    to_date(t.gen_eff::text,'DDMMYYYY') between
-                    '{2}' and '{3}'
-                    or
-                    coalesce(
-                        to_date(t.con_eff::text,'DDMMYYYY'),
-                        (('now'::text)::date + 1)) between
-                     '{2}' and '{3}'
-                    )
-            )
-            tab
-        group by tab.codice,tab.sezione,tab.foglio
     """
 
     VIEW_QUERY_FABBRICATI_TEMP = """
@@ -1321,6 +1238,7 @@ class AppConfig(BaseModel):
     from ctcn.cuindiri c
         where c.indirizzo ilike '{0}%'||'%'
         and c.toponimo = {1}
+        and c.codice = '{2}'
     order by 1
     """
 

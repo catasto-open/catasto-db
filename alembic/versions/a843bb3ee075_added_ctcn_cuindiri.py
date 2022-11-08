@@ -38,11 +38,24 @@ def upgrade() -> None:
         schema="ctcn",
         postgresql_using="btree",
     )
+    op.create_index(
+        "cuindiri_idx2",
+        "cuindiri",
+        ["codice", "toponimo"],
+        schema="ctcn",
+        postgresql_using="btree",
+    )
 
 
 def downgrade() -> None:
     op.drop_index(
         "cuindiri_idx1",
+        table_name="cuindiri",
+        schema="ctcn",
+        postgresql_using="btree",
+    )
+    op.drop_index(
+        "cuindiri_idx2",
         table_name="cuindiri",
         schema="ctcn",
         postgresql_using="btree",
