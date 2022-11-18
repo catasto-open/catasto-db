@@ -26,7 +26,7 @@ def create_datastore(datastore):
         response = requests.post(
             f"{cnf.GEOSERVER_HOST}:{cnf.GEOSERVER_HOST_PORT}"
             f"/geoserver/rest/workspaces/"
-            f"CatastoOpenDev/datastores/",
+            f"{cnf.CATASTO_OPEN_GS_WORKSPACE}/datastores/",
             auth=HTTPBasicAuth(username="admin", password="geoserver"),
             json=datastore,
         )

@@ -14,8 +14,8 @@ workspace = {
     "workspace": {
         "name": cnf.CATASTO_OPEN_GS_WORKSPACE,
         "namespace": {
-            "prefix": "CatastoOpenDev",
-            "uri": "catasto-open-dev",
+            "prefix": cnf.CATASTO_OPEN_GS_WORKSPACE,
+            "uri": cnf.CATASTO_OPEN_GS_WORKSPACE_NAMESPACE,
             "isolated": False,
         },
     }
@@ -325,7 +325,7 @@ layers_n = [
             "name": cnf.APP_CONFIG.CATASTO_OPEN_SECTION_LAYER,
             "nativeName": cnf.APP_CONFIG.CATASTO_OPEN_SECTION_LAYER,
             "namespace": {
-                "name": "CatastoOpenDev",
+                "name": cnf.CATASTO_OPEN_GS_WORKSPACE,
                 "href": f"{cnf.GEOSERVER_HOST}:{cnf.GEOSERVER_HOST_PORT}"
                 f"/geoserver/rest"
                 f"/namespaces/{cnf.CATASTO_OPEN_GS_WORKSPACE}.json",
@@ -3508,7 +3508,7 @@ layers_temp = [
             "name": cnf.APP_CONFIG.CATASTO_OPEN_SECTION_LAYER_TEMP,
             "nativeName": cnf.APP_CONFIG.CATASTO_OPEN_SECTION_LAYER_TEMP,
             "namespace": {
-                "name": "CatastoOpenDev",
+                "name": cnf.CATASTO_OPEN_GS_WORKSPACE,
                 "href": f"{cnf.GEOSERVER_HOST}:{cnf.GEOSERVER_HOST_PORT}"
                 f"/geoserver/rest"
                 f"/namespaces/{cnf.CATASTO_OPEN_GS_WORKSPACE}.json",
