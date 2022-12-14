@@ -57,7 +57,6 @@ def get_fabbricati_detail(
     cityCode: str,
     sheetCode: str,
     number: str,
-    sectionCode: str,
     startDate: str = None,
     endDate: str = None,
 ):

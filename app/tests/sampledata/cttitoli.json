@@ -4,11 +4,263 @@
         "titolo": "Proprieta'"
     },
     {
+        "codice": "1s",
+        "titolo": "Proprieta' superficiaria"
+    },
+    {
+        "codice": "1t",
+        "titolo": "Proprieta' per l'area"
+    },
+    {
         "codice": "20",
         "titolo": "Nuda proprieta'"
     },
     {
+        "codice": "2s",
+        "titolo": "Nuda proprieta' superficiaria"
+    },
+    {
+        "codice": "30",
+        "titolo": "Abitazione"
+    },
+    {
+        "codice": "3 ",
+        "titolo": "Comproprietario"
+    },
+    {
+        "codice": "3s",
+        "titolo": "Abitazione su proprieta' superficiaria"
+    },
+    {
+        "codice": "40",
+        "titolo": "Diritto del concedente"
+    },
+    {
+        "codice": "4 ",
+        "titolo": "Comproprietario per"
+    },
+    {
+        "codice": "50",
+        "titolo": "Enfiteusi"
+    },
+    {
+        "codice": "60",
+        "titolo": "Superficie"
+    },
+    {
+        "codice": "70",
+        "titolo": "Uso"
+    },
+    {
+        "codice": "7 ",
+        "titolo": "Comproprietario del fabbricato"
+    },
+    {
+        "codice": "7s",
+        "titolo": "Uso proprieta' superficiaria"
+    },
+    {
         "codice": "80",
         "titolo": "Usufrutto"
+    },
+    {
+        "codice": "8a",
+        "titolo": "Usufrutto con diritto di accrescimento"
+    },
+    {
+        "codice": "8e",
+        "titolo": "Usufrutto su enfiteusi"
+    },
+    {
+        "codice": "8s",
+        "titolo": "Usufrutto su proprieta' superficiaria"
+    },
+    {
+        "codice": "8 ",
+        "titolo": "Comproprietario per l'area"
+    },
+    {
+        "codice": "90",
+        "titolo": "Servitu'"
+    },
+    {
+        "codice": "100",
+        "titolo": "Oneri"
+    },
+    {
+        "codice": "12 ",
+        "titolo": "Concedente in parte"
+    },
+    {
+        "codice": "14 ",
+        "titolo": "Livellario parziale per"
+    },
+    {
+        "codice": "15 ",
+        "titolo": "Usufruttuario parziale per"
+    },
+    {
+        "codice": "20 ",
+        "titolo": "Livellario"
+    },
+    {
+        "codice": "21 ",
+        "titolo": "Livellario per"
+    },
+    {
+        "codice": "22 ",
+        "titolo": "Livellario in parte"
+    },
+    {
+        "codice": "25 ",
+        "titolo": "Enfiteuta in parte"
+    },
+    {
+        "codice": "26 ",
+        "titolo": "Colono perpetuo"
+    },
+    {
+        "codice": "27 ",
+        "titolo": "Colono perpetuo per"
+    },
+    {
+        "codice": "28 ",
+        "titolo": "Colono perpetuo in parte"
+    },
+    {
+        "codice": "30 ",
+        "titolo": "Usufruttuario parziale"
+    },
+    {
+        "codice": "33 ",
+        "titolo": "Cousufruttuario generale"
+    },
+    {
+        "codice": "36 ",
+        "titolo": "Usufruttuario generale di livello"
+    },
+    {
+        "codice": "37 ",
+        "titolo": "Usufruttuario parziale di livello"
+    },
+    {
+        "codice": "39 ",
+        "titolo": "Usufruttuario parziale di enfiteusi"
+    },
+    {
+        "codice": "40 ",
+        "titolo": "Usufruttuario generale di colonia"
+    },
+    {
+        "codice": "41 ",
+        "titolo": "Usufruttuario parziale di colonia"
+    },
+    {
+        "codice": "42 ",
+        "titolo": "Usufruttuario generale di dominio diretto"
+    },
+    {
+        "codice": "43 ",
+        "titolo": "Usufruttuario parziale di dominio diretto"
+    },
+    {
+        "codice": "50 ",
+        "titolo": "Cousufruttuario per"
+    },
+    {
+        "codice": "52 ",
+        "titolo": "Usuario perpetuo"
+    },
+    {
+        "codice": "53 ",
+        "titolo": "Usuario a tempo determinato"
+    },
+    {
+        "codice": "60 ",
+        "titolo": "Cousufruttuario di livello"
+    },
+    {
+        "codice": "61 ",
+        "titolo": "Cousufruttuario generale di livello"
+    },
+    {
+        "codice": "62 ",
+        "titolo": "Usufruttuario di livello di"
+    },
+    {
+        "codice": "64 ",
+        "titolo": "Comproprietario per parte di"
+    },
+    {
+        "codice": "70 ",
+        "titolo": "Usufruttuario di colonia per"
+    },
+    {
+        "codice": "71 ",
+        "titolo": "Usufruttuario di dominio diretto per"
+    },
+    {
+        "codice": "72 ",
+        "titolo": "Cousufruttuario generale con diritto di accrescimento"
+    },
+    {
+        "codice": "16 ",
+        "titolo": "Utilista della superficie"
+    },
+    {
+        "codice": "17 ",
+        "titolo": "Utilista della superficie per"
+    },
+    {
+        "codice": "35 ",
+        "titolo": "Beneficiario"
+    },
+    {
+        "codice": "65 ",
+        "titolo": "Beneficiario per"
+    },
+    {
+        "codice": "54 ",
+        "titolo": "Beneficiario di dominio diretto"
+    },
+    {
+        "codice": "46 ",
+        "titolo": "Possessore"
+    },
+    {
+        "codice": "47 ",
+        "titolo": "Possessore per"
+    },
+    {
+        "codice": "48 ",
+        "titolo": "Compossessore"
+    },
+    {
+        "codice": "49 ",
+        "titolo": "Compossessore per"
+    },
+    {
+        "codice": "55 ",
+        "titolo": "Contestatario"
+    },
+    {
+        "codice": "56 ",
+        "titolo": "Contestatario per"
+    },
+    {
+        "codice": "57 ",
+        "titolo": "Contestatario per usufrutto"
+    },
+    {
+        "codice": "99 ",
+        "titolo": "Presenza di titolo non codificato"
+    },
+    {
+        "codice": "990",
+        "titolo": "Presenza di titolo non codificato"
+    },
+    {
+        "codice": "0 ",
+        "titolo": "Assenza di titolo"
     }
 ]

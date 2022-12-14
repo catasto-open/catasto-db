@@ -1,10 +1,10 @@
 [
     {
-        "subjects": "3",
+        "subjects": "24519",
         "subjecttype": "G",
-        "businessname": "FOO S.R.L",
-        "vatnumber": "00101010101",
-        "branch": "REGGIO DI CALABRIA",
-        "province": "RC"
+        "businessname": "FOO S.P.A",
+        "vatnumber": "11111111110",
+        "branch": "ROMA",
+        "province": "RM"
     }
 ]

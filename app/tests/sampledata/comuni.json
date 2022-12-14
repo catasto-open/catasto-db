@@ -1,12 +1,7 @@
 [
-    {
-        "codice": "H224",
-        "provincia": "RC",
-        "comune": "REGGIO DI CALABRIA"
-    },
-    {
-        "codice": "H501",
-        "provincia": "RM",
-        "comune": "ROMA"
-    }
+	{
+		"provincia": "RM",
+		"comune": "ROMA",
+		"codice": "H501"
+	}
 ]

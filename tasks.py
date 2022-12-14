@@ -11,6 +11,7 @@ from app.geoserver.fixtures import (
     load_data_stores,
     load_layers,
     load_settings,
+    refresh_layers,
 )
 from app.tests.app import TestApp
 
@@ -120,6 +121,7 @@ def docker_compose_postgis(
         "clean",
         "logs",
         "dbclean",
+        "refresh",
     ]
 )  # noqa
 def catasto_open(
@@ -131,6 +133,7 @@ def catasto_open(
     clean=False,
     logs=False,
     dbclean=False,
+    refresh=False,
 ):
     base_path = Path(__file__).resolve()
     docker_compose_path = base_path.parent / "scripts" / "docker"
@@ -146,6 +149,8 @@ def catasto_open(
     elif dbclean:
         clean_database(ctx)
         return
+    elif refresh:
+        refresh_layers()
     with ctx.cd(os.fspath(docker_compose_path)):
         cmd = "docker compose"
         if start:

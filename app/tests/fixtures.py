@@ -15,7 +15,7 @@ def object_hook(obj):
         if k in ["startdate", "dateofbirth"]:
             outDict[k] = dt.strptime(v, "%Y-%m-%d").date()
         elif k == "enddate":
-            if v == "2022-08-06":
+            if v == "2022-12-14":
                 outDict[k] = (dt.now() + timedelta(days=1)).date()
             else:
                 outDict[k] = dt.strptime(v, "%Y-%m-%d").date()

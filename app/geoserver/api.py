@@ -81,3 +81,22 @@ def update_settings(settings):
         )
     except Exception as e:
         logging.error(e)
+
+
+def refresh_layer(layer, layer_name):
+    try:
+        response = requests.put(
+            f"{cnf.GEOSERVER_HOST}:{cnf.GEOSERVER_HOST_PORT}"
+            f"/geoserver/rest"
+            f"/workspaces/{cnf.CATASTO_OPEN_GS_WORKSPACE}"
+            f"/datastores/{cnf.CATASTO_OPEN_GS_DATASTORE}"
+            f"/featuretypes/{layer_name}?recalculate=nativebbox,latlonbbox",
+            auth=HTTPBasicAuth(username="admin", password="geoserver"),
+            json=layer,
+        )
+        logging.info(f"Loading {layer['featureType']['name']} layer...")
+        logging.info(
+            f"{response.text}: " f"status code {response.status_code}"
+        )
+    except Exception as e:
+        logging.error(e)

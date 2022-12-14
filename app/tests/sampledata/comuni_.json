@@ -1,30 +1,16 @@
 [
-    {
-        "codice" : "H224",
-        "provincia" : "RC",
-        "comune" : "REGGIO DI CALABRIA",
-        "comune_straniero" : null,
-        "codice_catastale" : "T1AA",
-        "ufficio_terreni" : "RC",
-        "ufficio_catasto" : "RC",
-        "conservatoria" : "RC00",
-        "istat" : "80063",
-        "data_inizio" : "1865-12-25",
-        "data_variazione" : null,
-        "tipo" : "A"
-    },
-    {
-        "codice": "H501",
-        "provincia": "RM",
-        "comune": "ROMA",
-        "comune_straniero": null,
-        "codice_catastale": "M1AA",
-        "ufficio_terreni": "RM",
-        "ufficio_catasto": "RM",
-        "conservatoria": "RM10",
-        "istat": "58091",
-        "data_inizio": "1884-09-11",
-        "data_variazione": null,
-        "tipo": "A"
-    }
+	{
+		"codice": "H501",
+		"provincia": "RM",
+		"comune": "ROMA",
+		"comune_straniero": "",
+		"codice_catastale": "M1AA",
+		"ufficio_terreni": "RM",
+		"conservatoria": "RM10",
+		"istat": "58091",
+		"data_inizio": "1884-09-11",
+		"data_variazione": null,
+		"tipo": "A",
+		"ufficio_catasto": "RM"
+	}
 ]

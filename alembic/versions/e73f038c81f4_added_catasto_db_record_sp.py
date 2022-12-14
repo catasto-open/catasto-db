@@ -116,7 +116,7 @@ add_process_subj_record = ReplaceableObject(
 
 add_process_land_record = ReplaceableObject(
     "ctcn.elabora_record_ter(record_text text, sez_filler text "
-    "DEFAULT ' '::text, interscambio boolean DEFAULT true)",
+    "DEFAULT ' '::text, interscambio boolean DEFAULT false)",
     """
     RETURNS integer
     LANGUAGE plpgsql
@@ -529,9 +529,16 @@ add_process_building_record = ReplaceableObject(
             r2.numero := a[9 + ioff];
             r2.denominato := a[10 + ioff];
             r2.subalterno := a[11 + ioff];
-            r2.edificiale := a[12 + ioff];
-    
-            insert into ctcn.cuidenti values (r2.*);
+            begin
+              r2.edificiale := a[12 + ioff];
+              insert into ctcn.cuidenti values (r2.*);
+    			    exception
+                when SQLSTATE '22001' then
+    				      r2.subalterno := a[12 + ioff];
+    	    		    r2.edificiale := a[11 + ioff];
+    	    	      insert into ctcn.cuidenti values (r2.*);
+    	            insert into ctis.error_insert_fab(data) values(record_text);
+    		    end;
             tot_elab := tot_elab + 1;
           end loop;
         -- * TIPO RECORD 3: INDIRIZZI

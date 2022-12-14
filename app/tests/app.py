@@ -32,6 +32,13 @@ from app.tests.queries import (
 )
 
 
+class ComplexJsonEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, (datetime.datetime, datetime.date)):
+            return obj.strftime("%Y-%m-%d")
+        return json.JSONEncoder.default(self, obj)
+
+
 class TestApp(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -71,28 +78,28 @@ class TestApp(unittest.TestCase):
 
     def test_query_city(self):
         result = get_comuni_by_name(cityName="")
-        expectedResult = [("H224", "REGGIO DI CALABRIA"), ("H501", "ROMA")]
+        expectedResult = [("H501", "ROMA")]
         self.assertEqual(result, expectedResult)
 
         result = get_comuni_by_name(cityName="RE")
-        expectedResult = [("H224", "REGGIO DI CALABRIA")]
+        expectedResult = []
         self.assertEqual(result, expectedResult)
 
         result = get_comuni_by_name(cityName="RO")
         expectedResult = [("H501", "ROMA")]
         self.assertEqual(result, expectedResult)
 
-        result = get_comuni_by_name(cityName="RE", endDate="1864-12-12")
+        result = get_comuni_by_name(cityName="RO", endDate="1864-12-12")
         expectedResult = []
         self.assertEqual(result, expectedResult)
 
     def test_query_sezioni(self):
-        result = get_sezioni_by_city_code(cityCode="H224")
-        expectedResult = [("A",), ("B",), ("C",), ("D",)]
+        result = get_sezioni_by_city_code(cityCode="H501")
+        expectedResult = [("A",), ("B",), ("C",), ("D",), ("Z",)]
         self.assertEqual(result, expectedResult)
 
         result = get_sezioni_by_city_code(
-            cityCode="H224", endDate="1864-12-12"
+            cityCode="H501", endDate="1864-12-12"
         )
         expectedResult = []
         self.assertEqual(result, expectedResult)
@@ -100,7 +107,7 @@ class TestApp(unittest.TestCase):
     def test_query_foglio(self):
         expectedJson = get_json_from_file("expected_fogli")
 
-        result = get_fogli_by_city_info(cityCode="H224", sectionCode="A")
+        result = get_fogli_by_city_info(cityCode="H501", sectionCode="D")
         expectedResult = []
         for each in expectedJson["general"]:
             expectedResult.append(tuple(list(each.values())))
@@ -110,24 +117,26 @@ class TestApp(unittest.TestCase):
         expectedJson = get_json_from_file("expected_fabbricati")
 
         result = get_fabbricati(
-            cityCode="H224", sectionCode="A", sheetCode="2"
+            cityCode="H501", sectionCode="D", sheetCode="18"
         )
         expectedResult = []
-        for each in expectedJson["2"]:
+        for each in expectedJson["18"]:
             expectedResult.append(tuple(list(each.values())))
         self.assertEqual(result, expectedResult)
 
         result = get_fabbricati(
-            cityCode="H224", sectionCode="A", sheetCode="3"
+            cityCode="H501", sectionCode="A", sheetCode="856"
         )
         expectedResult = []
-        for each in expectedJson["3"]:
+        for each in expectedJson["856"]:
             expectedResult.append(tuple(list(each.values())))
         self.assertEqual(result, expectedResult)
 
-        result = get_fabbricati_by_codice(immobileCodice=558, cityCode="H224")
+        result = get_fabbricati_by_codice(
+            immobileCodice=4500693, cityCode="H501"
+        )
         expectedResult = []
-        for each in expectedJson["3"]:
+        for each in expectedJson["856"]:
             expectedResult.append(tuple(list(each.values())))
         self.assertEqual(result, expectedResult)
         # [TODO] add temporal fab, this requires new data as the data now are all new
@@ -136,89 +145,81 @@ class TestApp(unittest.TestCase):
         expectedJson = get_json_from_file("expected_fab_detail")
 
         result = get_fabbricati_detail(
-            cityCode="H224", sheetCode="2", number="00001", sectionCode="A"
+            cityCode="H501", sheetCode="18", number="00202"
         )
         expectedResult = []
-        for each in expectedJson["general"]["00001-2"]:
+        for each in expectedJson["general"]["00202-18"]:
             expectedResult.append(tuple(list(each.values())))
         self.assertEqual(result, expectedResult)
 
         result = get_fabbricati_detail(
-            cityCode="H224", sheetCode="3", number="00006", sectionCode="A"
-        )
-        expectedResult = []
-        for each in expectedJson["general"]["00006-3"]:
-            expectedResult.append(tuple(list(each.values())))
-        self.assertEqual(result, expectedResult)
-
-        result = get_fabbricati_detail(
-            cityCode="H224",
-            sheetCode="2",
-            number="00001",
-            sectionCode="A",
+            cityCode="H501",
+            sheetCode="18",
+            number="00202",
             startDate="0001-01-01",
             endDate=datetime.datetime.today().strftime("%Y-%m-%d"),
         )
         expectedResult = []
-        for each in expectedJson["temp"]["00001-2"]:
+        for each in expectedJson["general"]["00202-18"]:
             expectedResult.append(tuple(list(each.values())))
         self.assertEqual(result, expectedResult)
 
         result = get_fabbricati_detail(
-            cityCode="H224",
-            sheetCode="3",
-            number="00006",
-            sectionCode="A",
+            cityCode="H501",
+            sheetCode="18",
+            number="00202",
             startDate="0001-01-01",
-            endDate=datetime.datetime.today().strftime("%Y-%m-%d"),
+            endDate="2021-11-01",
         )
-        expectedResult = []
-        for each in expectedJson["temp"]["00006-3"]:
-            expectedResult.append(tuple(list(each.values())))
-        self.assertEqual(result, expectedResult)
+        self.assertEqual(result, [])
 
     def test_query_terreni(self):
         expectedJson = get_json_from_file("expected_terreni")
 
-        result = get_terreni(cityCode="H224", sectionCode="A", sheetCode="2")
+        result = get_terreni(cityCode="H501", sectionCode="D", sheetCode="18")
         expectedResult = []
-        for each in expectedJson["general"]["2"]:
+        for each in expectedJson["general"]["18"]:
             expectedResult.append(tuple(list(each.values())))
         self.assertEqual(result, expectedResult)
 
-        result = get_terreni(cityCode="H224", sectionCode="A", sheetCode="3")
+        result = get_terreni(cityCode="H501", sectionCode="A", sheetCode="856")
         expectedResult = []
-        for each in expectedJson["general"]["3"]:
-            expectedResult.append(tuple(list(each.values())))
-        self.assertEqual(result, expectedResult)
-
-        result = get_terreni_by_codice(cityCode="H224", immobileCodice=735)
-        expectedResult = []
-        for each in expectedJson["general"]["3"]:
+        for each in expectedJson["general"]["856"]:
             expectedResult.append(tuple(list(each.values())))
         self.assertEqual(result, expectedResult)
 
         result = get_terreni(
-            cityCode="H224",
-            sectionCode="A",
-            sheetCode="2",
+            cityCode="H501",
+            sectionCode="D",
+            sheetCode="18",
             startDate="0001-01-01",
             endDate=datetime.datetime.today().strftime("%Y-%m-%d"),
         )
         expectedResult = []
-        for each in expectedJson["temp"]["2"]:
+        for each in expectedJson["general"]["18"]:
             expectedResult.append(tuple(list(each.values())))
         self.assertEqual(result, expectedResult)
 
         result = get_terreni(
-            cityCode="H224",
+            cityCode="H501",
             sectionCode="A",
-            sheetCode="3",
+            sheetCode="856",
             startDate="0001-01-01",
             endDate=datetime.datetime.today().strftime("%Y-%m-%d"),
         )
         expectedResult = []
-        for each in expectedJson["temp"]["3"]:
+        for each in expectedJson["general"]["856"]:
+            expectedResult.append(tuple(list(each.values())))
+        self.assertEqual(result, expectedResult)
+
+        result = get_terreni_by_codice(
+            cityCode="H501",
+            immobileCodice=204930,
+            startDate="0001-01-01",
+            endDate=datetime.datetime.today().strftime("%Y-%m-%d"),
+        )
+        expectedResult = []
+        for each in expectedJson["general"]["856"]:
             expectedResult.append(tuple(list(each.values())))
         self.assertEqual(result, expectedResult)
 
@@ -226,122 +227,65 @@ class TestApp(unittest.TestCase):
         expectedJson = get_json_from_file("expected_ter_detail")
 
         result = get_terreno_detail(
-            cityCode="H224", sheetCode="2", number="00001", sectionCode="A"
+            cityCode="H501", sheetCode="18", number="00055", sectionCode="D"
         )
         expectedResult = []
-        for each in expectedJson["general"]["00001-2"]:
+        for each in expectedJson["general"]["00055-18"]:
             expectedResult.append(tuple(list(each.values())))
         self.assertEqual(result, expectedResult)
 
         result = get_terreno_detail(
-            cityCode="H224", sheetCode="2", number="00006", sectionCode="A"
+            cityCode="H501", sheetCode="856", number="00055", sectionCode="A"
         )
         expectedResult = []
-        for each in expectedJson["general"]["00006-2"]:
+        for each in expectedJson["general"]["00055-856"]:
             expectedResult.append(tuple(list(each.values())))
         self.assertEqual(result, expectedResult)
 
         result = get_terreno_detail(
-            cityCode="H224", sheetCode="2", number="00007", sectionCode="A"
+            cityCode="H501",
+            sheetCode="18",
+            number="00055",
+            sectionCode="D",
+            startDate="0001-01-01",
+            endDate=datetime.datetime.today().strftime("%Y-%m-%d"),
         )
         expectedResult = []
-        for each in expectedJson["general"]["00007-2"]:
+        for each in expectedJson["general"]["00055-18"]:
             expectedResult.append(tuple(list(each.values())))
         self.assertEqual(result, expectedResult)
 
         result = get_terreno_detail(
-            cityCode="H224",
-            sheetCode="2",
-            number="00001",
+            cityCode="H501",
+            sheetCode="856",
+            number="00055",
             sectionCode="A",
             startDate="0001-01-01",
             endDate=datetime.datetime.today().strftime("%Y-%m-%d"),
         )
         expectedResult = []
-        for each in expectedJson["temp"]["00001-2"]:
+        for each in expectedJson["general"]["00055-856"]:
             expectedResult.append(tuple(list(each.values())))
         self.assertEqual(result, expectedResult)
 
         result = get_terreno_detail(
-            cityCode="H224",
-            sheetCode="2",
-            number="00004",
+            cityCode="H501",
+            sheetCode="856",
+            number="00055",
             sectionCode="A",
             startDate="0001-01-01",
-            endDate=datetime.datetime.today().strftime("%Y-%m-%d"),
+            endDate="2007-11-01",
         )
         expectedResult = []
-        for each in expectedJson["temp"]["00004-2"]:
-            expectedResult.append(tuple(list(each.values())))
-        self.assertEqual(result, expectedResult)
-
-        result = get_terreno_detail(
-            cityCode="H224",
-            sheetCode="2",
-            number="00005",
-            sectionCode="A",
-            startDate="0001-01-01",
-            endDate=datetime.datetime.today().strftime("%Y-%m-%d"),
-        )
-        expectedResult = []
-        for each in expectedJson["temp"]["00005-2"]:
-            expectedResult.append(tuple(list(each.values())))
-        self.assertEqual(result, expectedResult)
-
-        result = get_terreno_detail(
-            cityCode="H224",
-            sheetCode="2",
-            number="00006",
-            sectionCode="A",
-            startDate="0001-01-01",
-            endDate=datetime.datetime.today().strftime("%Y-%m-%d"),
-        )
-        expectedResult = []
-        for each in expectedJson["temp"]["00006-2"]:
-            expectedResult.append(tuple(list(each.values())))
-        self.assertEqual(result, expectedResult)
-
-        result = get_terreno_detail(
-            cityCode="H224",
-            sheetCode="2",
-            number="00007",
-            sectionCode="A",
-            startDate="0001-01-01",
-            endDate=datetime.datetime.today().strftime("%Y-%m-%d"),
-        )
-        expectedResult = []
-        for each in expectedJson["temp"]["00007-2"]:
-            expectedResult.append(tuple(list(each.values())))
-        self.assertEqual(result, expectedResult)
-
-        result = get_terreno_detail(
-            cityCode="H224",
-            sheetCode="3",
-            number="00007",
-            sectionCode="A",
-            startDate="0001-01-01",
-            endDate=datetime.datetime.today().strftime("%Y-%m-%d"),
-        )
-        expectedResult = []
-        for each in expectedJson["temp"]["00007-3"]:
-            expectedResult.append(tuple(list(each.values())))
         self.assertEqual(result, expectedResult)
 
     def test_query_titolare_immobile(self):
         # [NOTE] query temporal for all the immobile (some are empty in general)
         expectedJson = get_json_from_file("expected_titolare_immobile")
         for cityCode, property, propertyType in [
-            ("H224", 315, "T"),
-            ("H224", 318, "T"),
-            ("H224", 318, "T"),
-            ("H224", 319, "T"),
-            ("H224", 320, "T"),
-            ("H224", 321, "T"),
-            ("H224", 734, "T"),
-            ("H224", 335, "F"),
-            ("H224", 334, "F"),
-            ("H224", 558, "F"),
-            ("H224", 559, "F"),
+            ("H501", 434170, "T"),
+            ("H501", 5054, "F"),
+            ("H501", 4500693, "F"),
         ]:
             result = get_titolari_immobile(
                 cityCode=cityCode,
@@ -357,29 +301,30 @@ class TestApp(unittest.TestCase):
 
     def test_query_persone_fisica(self):
         expectedJson = get_json_from_file("expected_persone_fisica")
+
         result = get_persone_fisica(fiscalecode="'AAAAAAAAAAAAAAAA'")
         expectedResult = []
         for each in expectedJson["AAAAAAAAAAAAAAAA"]:
             expectedResult.append(tuple(list(each.values())))
         self.assertEqual(result, expectedResult)
 
-        result = get_persone_fisica(lastname="'ALICE'", firstname="'ALICE'")
+        result = get_persone_fisica(lastname="'ROSSI'", firstname="'MARIO'")
         expectedResult = []
         for each in expectedJson["AAAAAAAAAAAAAAAA"]:
             expectedResult.append(tuple(list(each.values())))
         self.assertEqual(result, expectedResult)
 
-        result = get_persone_fisica(subject="2")
+        result = get_persone_fisica(subject="681057")
         expectedResult = []
         for each in expectedJson["AAAAAAAAAAAAAAAA"]:
             expectedResult.append(tuple(list(each.values())))
         self.assertEqual(result, expectedResult)
 
         result = get_persone_fisica_with_bday(
-            lastname="'ALICE'",
-            firstname="'ALICE'",
-            birthdate="'1940-08-15'",
-            birthplace="H224",
+            lastname="'ROSSI'",
+            firstname="'MARIO'",
+            birthdate="'1944-03-04'",
+            birthplace="H501",
         )
         expectedResult = []
         for each in expectedJson["AAAAAAAAAAAAAAAA"]:
@@ -392,13 +337,13 @@ class TestApp(unittest.TestCase):
             expectedResult.append(tuple(list(each.values())))
         self.assertEqual(result, expectedResult)
 
-        result = get_persone_fisica(firstname="'BOB'", lastname="'BOB'")
+        result = get_persone_fisica(firstname="'PRIMO'", lastname="'BOB'")
         expectedResult = []
         for each in expectedJson["BBBBBBBBBBBBBBBB"]:
             expectedResult.append(tuple(list(each.values())))
         self.assertEqual(result, expectedResult)
 
-        result = get_persone_fisica(subject="1")
+        result = get_persone_fisica(subject="826547")
         expectedResult = []
         for each in expectedJson["BBBBBBBBBBBBBBBB"]:
             expectedResult.append(tuple(list(each.values())))
@@ -406,19 +351,20 @@ class TestApp(unittest.TestCase):
 
     def test_query_non_fisica(self):
         expectedJson = get_json_from_file("expected_non_fisica")
-        result = get_non_fisica(vatNumber="'00101010101'")
+
+        result = get_non_fisica(vatNumber="'11111111110'")
         expectedResult = []
         for each in expectedJson:
             expectedResult.append(tuple(list(each.values())))
         self.assertEqual(result, expectedResult)
 
-        result = get_non_fisica(subject="3")
+        result = get_non_fisica(subject="24519")
         expectedResult = []
         for each in expectedJson:
             expectedResult.append(tuple(list(each.values())))
         self.assertEqual(result, expectedResult)
 
-        result = get_non_fisica(businessName="'FOO S.R.L'")
+        result = get_non_fisica(businessName="'FOO S.P.A'")
         expectedResult = []
         for each in expectedJson:
             expectedResult.append(tuple(list(each.values())))
@@ -427,72 +373,109 @@ class TestApp(unittest.TestCase):
     def test_query_soggetti(self):
         expectedJson = get_json_from_file("expected_soggetti")
 
-        result = get_soggetti(subjects=["1"], subjectType="P")
+        result = get_soggetti(subjects=["826547"], subjectType="P")
         expectedResult = []
-        for each in expectedJson["general"]["1-P"]:
+        for each in expectedJson["general"]["826547-P"]:
             expectedResult.append(tuple(list(each.values())))
         self.assertEqual(result, expectedResult)
 
-        result = get_soggetti(subjects=["2"], subjectType="P")
+        result = get_soggetti(subjects=["1107962"], subjectType="P")
         expectedResult = []
-        for each in expectedJson["general"]["2-P"]:
+        for each in expectedJson["general"]["1107962-P"]:
             expectedResult.append(tuple(list(each.values())))
         self.assertEqual(result, expectedResult)
 
-        result = get_soggetti(subjects=["1", "2"], subjectType="P")
+        result = get_soggetti(subjects=["826547", "1107962"], subjectType="P")
         expectedResult = []
-        for each in expectedJson["general"]["1-2-P"]:
+        for each in expectedJson["general"]["826547-1107962-P"]:
             expectedResult.append(tuple(list(each.values())))
         self.assertEqual(result, expectedResult)
 
-        result = get_soggetti(subjects=["3"], subjectType="G")
+        result = get_soggetti(subjects=["24519"], subjectType="G")
         expectedResult = []
-        for each in expectedJson["general"]["3-G"]:
+        for each in expectedJson["general"]["24519-G"]:
             expectedResult.append(tuple(list(each.values())))
         self.assertEqual(result, expectedResult)
 
+        # [NOTE] temporal has the same result as normal
         result = get_soggetti(
-            subjects=["1"],
+            subjects=["826547"],
             subjectType="P",
             startDate="0001-01-01",
             endDate=datetime.datetime.today().strftime("%Y-%m-%d"),
         )
         expectedResult = []
-        for each in expectedJson["temp"]["1-P"]:
+        for each in expectedJson["general"]["826547-P"]:
             expectedResult.append(tuple(list(each.values())))
         self.assertEqual(result, expectedResult)
 
         result = get_soggetti(
-            subjects=["2"],
+            subjects=["1107962"],
             subjectType="P",
             startDate="0001-01-01",
             endDate=datetime.datetime.today().strftime("%Y-%m-%d"),
         )
         expectedResult = []
-        for each in expectedJson["temp"]["2-P"]:
+        for each in expectedJson["general"]["1107962-P"]:
             expectedResult.append(tuple(list(each.values())))
         self.assertEqual(result, expectedResult)
 
         result = get_soggetti(
-            subjects=["1", "2"],
+            subjects=["826547", "1107962"],
             subjectType="P",
             startDate="0001-01-01",
             endDate=datetime.datetime.today().strftime("%Y-%m-%d"),
         )
         expectedResult = []
-        for each in expectedJson["temp"]["1-2-P"]:
+        for each in expectedJson["general"]["826547-1107962-P"]:
             expectedResult.append(tuple(list(each.values())))
         self.assertEqual(result, expectedResult)
 
         result = get_soggetti(
-            subjects=["3"],
+            subjects=["24519"],
             subjectType="G",
             startDate="0001-01-01",
             endDate=datetime.datetime.today().strftime("%Y-%m-%d"),
         )
         expectedResult = []
-        for each in expectedJson["temp"]["3-G"]:
+        for each in expectedJson["general"]["24519-G"]:
             expectedResult.append(tuple(list(each.values())))
+        self.assertEqual(result, expectedResult)
+
+        result = get_soggetti(
+            subjects=["826547"],
+            subjectType="P",
+            startDate="0001-01-01",
+            endDate="1993-12-12",
+        )
+        expectedResult = []
+        self.assertEqual(result, expectedResult)
+
+        result = get_soggetti(
+            subjects=["1107962"],
+            subjectType="P",
+            startDate="0001-01-01",
+            endDate="1993-12-12",
+        )
+        expectedResult = []
+        self.assertEqual(result, expectedResult)
+
+        result = get_soggetti(
+            subjects=["826547", "1107962"],
+            subjectType="P",
+            startDate="0001-01-01",
+            endDate="1993-12-12",
+        )
+        expectedResult = []
+        self.assertEqual(result, expectedResult)
+
+        result = get_soggetti(
+            subjects=["24519"],
+            subjectType="G",
+            startDate="0001-01-01",
+            endDate="1993-12-12",
+        )
+        expectedResult = []
         self.assertEqual(result, expectedResult)
 
     def test_query_toponym(self):
@@ -515,8 +498,8 @@ class TestApp(unittest.TestCase):
 
         result = get_immobile_by_address(
             toponymCode=236,
-            addressName="CRISTOFORO SABBADINO",
-            houseNumber="68",
+            addressName="INDONESIA",
+            houseNumber="39",
             cityCode="H501",
         )
         expectedResult = []
@@ -526,8 +509,8 @@ class TestApp(unittest.TestCase):
 
         result = get_immobile_by_address(
             toponymCode=236,
-            addressName="CRISTOFORO SABBADINO",
-            houseNumber="68",
+            addressName="INDONESIA",
+            houseNumber="39",
             cityCode="H501",
             startDate="0001-01-01",
             endDate=datetime.datetime.today().strftime("%Y-%m-%d"),
@@ -540,7 +523,7 @@ class TestApp(unittest.TestCase):
     def test_query_indirizzo_by_txt(self):
         expectedJson = get_json_from_file("expected_indirizzo")
         result = get_indirizzo_by_text(
-            address="CR", toponimo=236, cityCode="H501"
+            address="IN", toponimo=236, cityCode="H501"
         )
         expectedResult = []
         for each in expectedJson:
@@ -551,25 +534,24 @@ class TestApp(unittest.TestCase):
         expectedJson = get_json_from_file("expected_fab_detail_by_imm")
 
         result = get_fab_detail_by_imm(
-            cityCode="H224", sheetCode="3", number="00006", immobileCode=558
+            cityCode="H501", sheetCode="18", number="00202", immobileCode=5055
         )
-
         expectedResult = []
         for each in expectedJson["general"]:
             expectedResult.append(tuple(list(each.values())))
         self.assertEqual(result, expectedResult)
 
         result = get_fab_detail_by_imm(
-            cityCode="H224",
-            sheetCode="3",
-            number="00006",
-            immobileCode=558,
+            cityCode="H501",
+            sheetCode="18",
+            number="00202",
+            immobileCode=5055,
             startDate="0001-01-01",
             endDate=datetime.datetime.today().strftime("%Y-%m-%d"),
         )
 
         expectedResult = []
-        for each in expectedJson["temp"]:
+        for each in expectedJson["general"]:
             expectedResult.append(tuple(list(each.values())))
         self.assertEqual(result, expectedResult)
 
@@ -597,7 +579,6 @@ class GeoServer(unittest.TestCase):
 
     def test_geoserver_get_city(self):
         expectedResponses = [
-            {"name": "REGGIO DI CALABRIA", "code": "H224"},
             {"name": "ROMA", "code": "H501"},
         ]
         params = {
@@ -645,33 +626,7 @@ class GeoServer(unittest.TestCase):
         ]
         self.assertEqual(feature_properties, expectedResponses)
 
-        expectedResponses = [{"name": "REGGIO DI CALABRIA", "code": "H224"}]
-        params = {
-            "service": "WFS",
-            "version": cnf.APP_CONFIG.GS_WFS_VERSION,
-            "request": "GetFeature",
-            "outputFormat": "application/json",
-            "typename": cnf.APP_CONFIG.CATASTO_OPEN_CITY_LAYER_TEMP,
-            "viewparams": "city:RE;endDate:{}".format(
-                datetime.datetime.today().strftime("%Y-%m-%d")
-            ),
-        }
-        response = requests.get(
-            f"{cnf.GEOSERVER_HOST}:"
-            f"{cnf.GEOSERVER_HOST_PORT}"
-            f"/geoserver/ows",
-            params,
-        )
-        self.assertEqual(response.status_code, 200)
-        payload = json.loads(response.text)
-        self.assertEqual(payload["totalFeatures"], len(expectedResponses))
-        feature_properties = [
-            feature["properties"] for feature in payload["features"]
-        ]
-        self.assertEqual(feature_properties, expectedResponses)
-
         expectedResponses = [
-            {"name": "REGGIO DI CALABRIA", "code": "H224"},
             {"name": "ROMA", "code": "H501"},
         ]
         params = {
@@ -704,6 +659,7 @@ class GeoServer(unittest.TestCase):
             {"name": "B"},
             {"name": "C"},
             {"name": "D"},
+            {"name": "Z"},
         ]
         params = {
             "service": "WFS",
@@ -711,37 +667,7 @@ class GeoServer(unittest.TestCase):
             "request": "GetFeature",
             "outputFormat": "application/json",
             "typename": cnf.APP_CONFIG.CATASTO_OPEN_SECTION_LAYER,
-            "viewparams": "cityCode:H224",
-        }
-        response = requests.get(
-            f"{cnf.GEOSERVER_HOST}:"
-            f"{cnf.GEOSERVER_HOST_PORT}"
-            f"/geoserver/ows",
-            params,
-        )
-        self.assertEqual(response.status_code, 200)
-        payload = json.loads(response.text)
-        self.assertEqual(payload["totalFeatures"], len(expectedResponses))
-        feature_properties = [
-            feature["properties"] for feature in payload["features"]
-        ]
-        self.assertEqual(feature_properties, expectedResponses)
-
-        expectedResponses = [
-            {"name": "A"},
-            {"name": "B"},
-            {"name": "C"},
-            {"name": "D"},
-        ]
-        params = {
-            "service": "WFS",
-            "version": cnf.APP_CONFIG.GS_WFS_VERSION,
-            "request": "GetFeature",
-            "outputFormat": "application/json",
-            "typename": cnf.APP_CONFIG.CATASTO_OPEN_SECTION_LAYER_TEMP,
-            "viewparams": "cityCode:H224;endDate:{}".format(
-                datetime.datetime.today().strftime("%Y-%m-%d")
-            ),
+            "viewparams": "cityCode:H501",
         }
         response = requests.get(
             f"{cnf.GEOSERVER_HOST}:"
@@ -765,7 +691,7 @@ class GeoServer(unittest.TestCase):
             "request": "GetFeature",
             "outputFormat": "application/json",
             "typename": cnf.APP_CONFIG.CATASTO_OPEN_SHEET_LAYER,
-            "viewparams": "cityCode:H224;sectionCode:A",
+            "viewparams": "cityCode:H501;sectionCode:A",
         }
         response = requests.get(
             f"{cnf.GEOSERVER_HOST}:"
@@ -796,7 +722,7 @@ class GeoServer(unittest.TestCase):
             "request": "GetFeature",
             "outputFormat": "application/json",
             "typename": cnf.APP_CONFIG.CATASTO_OPEN_LAND_LAYER,
-            "viewparams": "cityCode:H224;sectionCode:A;sheetCode:2",
+            "viewparams": "cityCode:H501;sectionCode:D;sheetCode:18",
         }
         response = requests.get(
             f"{cnf.GEOSERVER_HOST}:"
@@ -820,7 +746,7 @@ class GeoServer(unittest.TestCase):
             "request": "GetFeature",
             "outputFormat": "application/json",
             "typename": cnf.APP_CONFIG.CATASTO_OPEN_LAND_LAYER_TEMP,
-            "viewparams": "cityCode:H224;sectionCode:A;sheetCode:2;startDate:0001-01-01;endDate:{}".format(
+            "viewparams": "cityCode:H501;sectionCode:D;citySheet:18;startDate:0001-01-01;endDate:{}".format(
                 datetime.datetime.today().strftime("%Y-%m-%d")
             ),
         }
@@ -833,12 +759,12 @@ class GeoServer(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         payload = json.loads(response.text)
         self.assertEqual(
-            payload["totalFeatures"], len(expectedResponses["temp"])
+            payload["totalFeatures"], len(expectedResponses["general"])
         )
         feature_properties = [
             feature["properties"] for feature in payload["features"]
         ]
-        self.assertEqual(feature_properties, expectedResponses["temp"])
+        self.assertEqual(feature_properties, expectedResponses["general"])
 
     def test_geoserver_get_fabbricati(self):
         expectedResponses = get_json_from_file("expected_fabbricati_geoserver")
@@ -849,7 +775,7 @@ class GeoServer(unittest.TestCase):
             "request": "GetFeature",
             "outputFormat": "application/json",
             "typename": cnf.APP_CONFIG.CATASTO_OPEN_BUILDING_LAYER,
-            "viewparams": "cityCode:H224;sectionCode:A;sheetCode:2",
+            "viewparams": "cityCode:H501;sectionCode:A;citySheet:856",
         }
         response = requests.get(
             f"{cnf.GEOSERVER_HOST}:"
@@ -859,11 +785,13 @@ class GeoServer(unittest.TestCase):
         )
         self.assertEqual(response.status_code, 200)
         payload = json.loads(response.text)
-        self.assertEqual(payload["totalFeatures"], len(expectedResponses))
+        self.assertEqual(
+            payload["totalFeatures"], len(expectedResponses["general"])
+        )
         feature_properties = [
             feature["properties"] for feature in payload["features"]
         ]
-        self.assertEqual(feature_properties, expectedResponses)
+        self.assertEqual(feature_properties, expectedResponses["general"])
 
         params = {
             "service": "WFS",
@@ -871,7 +799,7 @@ class GeoServer(unittest.TestCase):
             "request": "GetFeature",
             "outputFormat": "application/json",
             "typename": cnf.APP_CONFIG.CATASTO_OPEN_BUILDING_LAYER_TEMP,
-            "viewparams": "cityCode:H224;sectionCode:A;sheetCode:2;startDate:0001-01-01;endDate:{}".format(
+            "viewparams": "cityCode:H501;sectionCode:A;citySheet:856;startDate:0001-01-01;endDate:{}".format(
                 datetime.datetime.today().strftime("%Y-%m-%d")
             ),
         }
@@ -883,11 +811,13 @@ class GeoServer(unittest.TestCase):
         )
         self.assertEqual(response.status_code, 200)
         payload = json.loads(response.text)
-        self.assertEqual(payload["totalFeatures"], len(expectedResponses))
+        self.assertEqual(
+            payload["totalFeatures"], len(expectedResponses["general"])
+        )
         feature_properties = [
             feature["properties"] for feature in payload["features"]
         ]
-        self.assertEqual(feature_properties, expectedResponses)
+        self.assertEqual(feature_properties, expectedResponses["general"])
 
     def test_geoserver_get_terreno_detail(self):
         expectedResponses = get_json_from_file("expected_ter_detail_geoserver")
@@ -898,7 +828,7 @@ class GeoServer(unittest.TestCase):
             "request": "GetFeature",
             "outputFormat": "application/json",
             "typename": cnf.APP_CONFIG.CATASTO_OPEN_LAND_DETAIL_LAYER,
-            "viewparams": "cityCode:H224;sheetCode:2;number:00001;sectionCode:A",
+            "viewparams": "cityCode:H501;sheetCode:18;number:00055;sectionCode:D",
         }
         response = requests.get(
             f"{cnf.GEOSERVER_HOST}:"
@@ -927,7 +857,7 @@ class GeoServer(unittest.TestCase):
             "request": "GetFeature",
             "outputFormat": "application/json",
             "typename": cnf.APP_CONFIG.CATASTO_OPEN_LAND_DETAIL_LAYER_TEMP,
-            "viewparams": "cityCode:H224;sheetCode:2;number:00001;sectionCode:A;startDate:0001-01-01;endDate:{}".format(
+            "viewparams": "cityCode:H501;sheetCode:18;number:00055;sectionCode:D;startDate:0001-01-01;endDate:{}".format(
                 datetime.datetime.today().strftime("%Y-%m-%d")
             ),
         }
@@ -940,7 +870,7 @@ class GeoServer(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         payload = json.loads(response.text)
         self.assertEqual(
-            payload["numberReturned"], len(expectedResponses["temp"])
+            payload["numberReturned"], len(expectedResponses["general"])
         )
         feature_properties = [
             feature["properties"] for feature in payload["features"]
@@ -950,7 +880,7 @@ class GeoServer(unittest.TestCase):
         features = json.loads(
             json.dumps(feature_properties), object_hook=object_hook
         )
-        self.assertEqual(features, expectedResponses["temp"])
+        self.assertEqual(features, expectedResponses["general"])
 
     def test_geoserver_get_fabbricati_detail(self):
         expectedResponses = get_json_from_file("expected_fab_detail_geoserver")
@@ -961,7 +891,7 @@ class GeoServer(unittest.TestCase):
             "request": "GetFeature",
             "outputFormat": "application/json",
             "typename": cnf.APP_CONFIG.CATASTO_OPEN_BUILDING_DETAIL_LAYER,
-            "viewparams": "cityCode:H224;sheetCode:3;number:00001;sectionCode:A",
+            "viewparams": "cityCode:H501;sheetCode:856;number:00202;sectionCode:A",
         }
         response = requests.get(
             f"{cnf.GEOSERVER_HOST}:"
@@ -990,7 +920,7 @@ class GeoServer(unittest.TestCase):
             "request": "GetFeature",
             "outputFormat": "application/json",
             "typename": cnf.APP_CONFIG.CATASTO_OPEN_BUILDING_DETAIL_LAYER_TEMP,
-            "viewparams": "cityCode:H224;sheetCode:3;number:00001;sectionCode:A;startDate:0001-01-01;endDate:{}".format(
+            "viewparams": "cityCode:H501;sheetCode:18;number:00202;sectionCode:A;startDate:0001-01-01;endDate:{}".format(
                 datetime.datetime.today().strftime("%Y-%m-%d")
             ),
         }
@@ -1003,7 +933,7 @@ class GeoServer(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         payload = json.loads(response.text)
         self.assertEqual(
-            payload["numberReturned"], len(expectedResponses["temp"])
+            payload["numberReturned"], len(expectedResponses["general"])
         )
         feature_properties = [
             feature["properties"] for feature in payload["features"]
@@ -1013,7 +943,7 @@ class GeoServer(unittest.TestCase):
         features = json.loads(
             json.dumps(feature_properties), object_hook=object_hook
         )
-        self.assertEqual(features, expectedResponses["temp"])
+        self.assertEqual(features, expectedResponses["general"])
 
     def test_geoserver_get_titolare_immobili(self):
         expectedResponses = get_json_from_file(
@@ -1026,7 +956,7 @@ class GeoServer(unittest.TestCase):
             "request": "GetFeature",
             "outputFormat": "application/json",
             "typename": cnf.APP_CONFIG.CATASTO_OPEN_PROPERTY_OWNER_LAYER,
-            "viewparams": "cityCode:H224;property:315;propertyType:T",
+            "viewparams": "cityCode:H501;property:434170;propertyType:T",
         }
         response = requests.get(
             f"{cnf.GEOSERVER_HOST}:"
@@ -1054,7 +984,7 @@ class GeoServer(unittest.TestCase):
             "request": "GetFeature",
             "outputFormat": "application/json",
             "typename": cnf.APP_CONFIG.CATASTO_OPEN_PROPERTY_OWNER_LAYER_TEMP,
-            "viewparams": "cityCode:H224;property:315;propertyType:T;startDate:0001-01-01;endDate:{}".format(
+            "viewparams": "cityCode:H501;property:434170;propertyType:T;startDate:0001-01-01;endDate:{}".format(
                 datetime.datetime.today().strftime("%Y-%m-%d")
             ),
         }
@@ -1114,7 +1044,7 @@ class GeoServer(unittest.TestCase):
             "request": "GetFeature",
             "outputFormat": "application/json",
             "typename": cnf.APP_CONFIG.CATASTO_OPEN_NATURAL_SUBJECT_LAYER,
-            "viewparams": "subjectCode:2",
+            "viewparams": "subjectCode:681057",
         }
         response = requests.get(
             f"{cnf.GEOSERVER_HOST}:"
@@ -1142,7 +1072,7 @@ class GeoServer(unittest.TestCase):
             "request": "GetFeature",
             "outputFormat": "application/json",
             "typename": cnf.APP_CONFIG.CATASTO_OPEN_NATURAL_SUBJECT_LAYER,
-            "viewparams": "lastName:'ALICE';firstName:'ALICE'",
+            "viewparams": "lastName:'ROSSI';firstName:'MARIO'",
         }
         response = requests.get(
             f"{cnf.GEOSERVER_HOST}:"
@@ -1170,7 +1100,7 @@ class GeoServer(unittest.TestCase):
             "request": "GetFeature",
             "outputFormat": "application/json",
             "typename": cnf.APP_CONFIG.CATASTO_OPEN_NATURAL_SUBJECT_LAYER_WBOTH,
-            "viewparams": "lastName:'ALICE';firstName:'ALICE';birthDate:'1940-08-15';birthPlace:H224",
+            "viewparams": "lastName:'ROSSI';firstName:'MARIO';birthDate:'1944-03-04';birthPlace:H501",
         }
         response = requests.get(
             f"{cnf.GEOSERVER_HOST}:"
@@ -1200,7 +1130,7 @@ class GeoServer(unittest.TestCase):
             "request": "GetFeature",
             "outputFormat": "application/json",
             "typename": cnf.APP_CONFIG.CATASTO_OPEN_LEGAL_SUBJECT_LAYER,
-            "viewparams": "vatNumber:'00101010101';",
+            "viewparams": "vatNumber:'11111111110';",
         }
         response = requests.get(
             f"{cnf.GEOSERVER_HOST}:"
@@ -1222,7 +1152,7 @@ class GeoServer(unittest.TestCase):
             "request": "GetFeature",
             "outputFormat": "application/json",
             "typename": cnf.APP_CONFIG.CATASTO_OPEN_LEGAL_SUBJECT_LAYER,
-            "viewparams": "businessName:'FOO S.R.L'",
+            "viewparams": "businessName:'FOO S.P.A'",
         }
         response = requests.get(
             f"{cnf.GEOSERVER_HOST}:"
@@ -1244,7 +1174,7 @@ class GeoServer(unittest.TestCase):
             "request": "GetFeature",
             "outputFormat": "application/json",
             "typename": cnf.APP_CONFIG.CATASTO_OPEN_LEGAL_SUBJECT_LAYER,
-            "viewparams": "subjectCode:3",
+            "viewparams": "subjectCode:24519",
         }
         response = requests.get(
             f"{cnf.GEOSERVER_HOST}:"
@@ -1269,7 +1199,9 @@ class GeoServer(unittest.TestCase):
             "request": "GetFeature",
             "outputFormat": "application/json",
             "typename": cnf.APP_CONFIG.CATASTO_OPEN_SUBJECT_PROPERTY_LAYER,
-            "viewparams": "subjects:{0};subjectType:P".format("1\\,2"),
+            "viewparams": "subjects:{0};subjectType:P".format(
+                "826547\\,1107962"
+            ),
         }
         response = requests.get(
             f"{cnf.GEOSERVER_HOST}:"
@@ -1300,7 +1232,8 @@ class GeoServer(unittest.TestCase):
             "outputFormat": "application/json",
             "typename": cnf.APP_CONFIG.CATASTO_OPEN_SUBJECT_PROPERTY_LAYER_TEMP,
             "viewparams": "subjects:{0};subjectType:P;startDate:0001-01-01;endDate:{1}".format(
-                "1\\,2", datetime.datetime.today().strftime("%Y-%m-%d")
+                "826547\\,1107962",
+                datetime.datetime.today().strftime("%Y-%m-%d"),
             ),
         }
         response = requests.get(
@@ -1320,7 +1253,7 @@ class GeoServer(unittest.TestCase):
             json.dumps(feature_properties, sort_keys=False),
             object_hook=object_hook,
         )
-        self.assertEqual(features, expectedResponses["temp"])
+        self.assertEqual(features, expectedResponses["general"])
 
     def test_geoserver_toponym(self):
         expectedResponses = get_json_from_file("expected_toponimo")
@@ -1346,7 +1279,6 @@ class GeoServer(unittest.TestCase):
         feature_properties = [
             feature["properties"] for feature in payload["features"]
         ]
-
         from app.tests.fixtures import object_hook
 
         features = json.loads(
@@ -1397,7 +1329,7 @@ class GeoServer(unittest.TestCase):
             "request": "GetFeature",
             "outputFormat": "application/json",
             "typename": cnf.APP_CONFIG.CATASTO_OPEN_INDIRIZZO_IMMOBILE_LAYER,
-            "viewparams": "toponymCode:236;addressName:CRISTOFORO SABBADINO;houseNumber:68;cityCode:H501",
+            "viewparams": "toponymCode:236;addressName:INDONESIA;houseNumber:39;cityCode:H501",
         }
         response = requests.get(
             f"{cnf.GEOSERVER_HOST}:"
@@ -1413,7 +1345,6 @@ class GeoServer(unittest.TestCase):
         feature_properties = [
             feature["properties"] for feature in payload["features"]
         ]
-
         from app.tests.fixtures import object_hook
 
         features = json.loads(
@@ -1431,7 +1362,7 @@ class GeoServer(unittest.TestCase):
             "request": "GetFeature",
             "outputFormat": "application/json",
             "typename": cnf.APP_CONFIG.CATASTO_OPEN_INDIRIZZO_BY_TOPONIMO,
-            "viewparams": "address:CR;toponimo:236",
+            "viewparams": "address:IN;toponimo:236",
         }
         response = requests.get(
             f"{cnf.GEOSERVER_HOST}:"
@@ -1462,7 +1393,7 @@ class GeoServer(unittest.TestCase):
             "request": "GetFeature",
             "outputFormat": "application/json",
             "typename": cnf.APP_CONFIG.CATASTO_OPEN_BUILDING_DETAIL_LAYER,
-            "viewparams": "cityCode:H224;sheetCode:3;number:00001;immobileCode:558",
+            "viewparams": "cityCode:H501;citySheet:18;number:00202;immobileCode:5053",
         }
         response = requests.get(
             f"{cnf.GEOSERVER_HOST}:"
@@ -1491,7 +1422,7 @@ class GeoServer(unittest.TestCase):
             "request": "GetFeature",
             "outputFormat": "application/json",
             "typename": cnf.APP_CONFIG.CATASTO_OPEN_BUILDING_DETAIL_LAYER_TEMP,
-            "viewparams": "cityCode:H224;sheetCode:3;number:00001;immobileCode:558;startDate:0001-01-01;endDate:{}".format(
+            "viewparams": "cityCode:H501;sheetCode:18;number:00202;immobileCode:5053;startDate:0001-01-01;endDate:{}".format(
                 datetime.datetime.today().strftime("%Y-%m-%d")
             ),
         }
@@ -1504,7 +1435,7 @@ class GeoServer(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         payload = json.loads(response.text)
         self.assertEqual(
-            payload["numberReturned"], len(expectedResponses["temp"])
+            payload["numberReturned"], len(expectedResponses["general"])
         )
         feature_properties = [
             feature["properties"] for feature in payload["features"]
@@ -1514,14 +1445,14 @@ class GeoServer(unittest.TestCase):
         features = json.loads(
             json.dumps(feature_properties), object_hook=object_hook
         )
-        self.assertEqual(features, expectedResponses["temp"])
+        self.assertEqual(features, expectedResponses["general"])
 
 
 class TemporalGeoServer(unittest.TestCase):
     START_DATE = "2022-06-01"
-    END_DATE = "2022-06-30"
-    expectedCity = "REGGIO DI CALABRIA"
-    expectedCode = "H224"
+    END_DATE = "2022-11-30"
+    expectedCity = "ROMA"
+    expectedCode = "H501"
 
     def __ask_geoserver(self, layer, view_params):
         params = {
@@ -1572,7 +1503,7 @@ class TemporalGeoServer(unittest.TestCase):
                 d.execute()
 
     def test_ricerca_per_immobili(self):
-        view_params = f"city:RE;endDate:{self.END_DATE}"
+        view_params = f"city:RO;endDate:{self.END_DATE}"
         cities_ret = self.__ask_geoserver(
             layer=cnf.APP_CONFIG.CATASTO_OPEN_CITY_LAYER_TEMP,
             view_params=view_params,
@@ -1650,7 +1581,7 @@ class TemporalGeoServer(unittest.TestCase):
                 )
 
     def test_ricerca_persone_fisica(self):
-        view_params = "lastName:'BOB';firstName:'BOB'"
+        view_params = "lastName:'BOB';firstName:'PRIMO'"
         persona = self.__ask_geoserver(
             layer=cnf.APP_CONFIG.CATASTO_OPEN_NATURAL_SUBJECT_LAYER,
             view_params=view_params,
@@ -1666,7 +1597,7 @@ class TemporalGeoServer(unittest.TestCase):
             )
 
     def test_ricerca_persone_giuridiche(self):
-        view_params = "vatNumber:'00101010101';"
+        view_params = "vatNumber:'11111111110';"
         persona = self.__ask_geoserver(
             layer=cnf.APP_CONFIG.CATASTO_OPEN_LEGAL_SUBJECT_LAYER,
             view_params=view_params,

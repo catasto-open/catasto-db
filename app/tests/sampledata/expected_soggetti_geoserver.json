@@ -1,466 +1,96 @@
 {
-    "temp": [
-        {
-            "citycode": "H224",
-            "section": "A",
-            "sheet": "2",
-            "number": "1",
-            "extent": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            1742763.87132199,
-                            4600901.97853339
-                        ],
-                        [
-                            1742763.87132199,
-                            4601004.40715559
-                        ],
-                        [
-                            1742816.72841204,
-                            4601004.40715559
-                        ],
-                        [
-                            1742816.72841204,
-                            4600901.97853339
-                        ],
-                        [
-                            1742763.87132199,
-                            4600901.97853339
-                        ]
-                    ]
-                ]
-            },
-            "city": "REGGIO DI CALABRIA (RC) (H224)",
-            "subordinate": null,
-            "right": "Proprieta'",
-            "part": "1/2",
-            "classification": "ENTE URBANO",
-            "class": "",
-            "consistency": "18 are, 22 ca",
-            "income": "Dom. 0 - Agr. 0",
-            "lot": "1",
-            "propertytype": "Terreni",
-            "immobile": 315,
-            "startdate": "2022-07-02",
-            "enddate": "2022-08-06"
-        },
-        {
-            "citycode": "H224",
-            "section": "A",
-            "sheet": "2",
-            "number": "4",
-            "extent": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            1742971.42544591,
-                            4600953.40550508
-                        ],
-                        [
-                            1742971.42544591,
-                            4600978.87476533
-                        ],
-                        [
-                            1743002.8691217,
-                            4600978.87476533
-                        ],
-                        [
-                            1743002.8691217,
-                            4600953.40550508
-                        ],
-                        [
-                            1742971.42544591,
-                            4600953.40550508
-                        ]
-                    ]
-                ]
-            },
-            "city": "REGGIO DI CALABRIA (RC) (H224)",
-            "subordinate": null,
-            "right": "Proprieta'",
-            "part": "1/1",
-            "classification": "FABB RURALE",
-            "class": "",
-            "consistency": "3 are, 20 ca",
-            "income": "Dom. 0 - Agr. 0",
-            "lot": "29260",
-            "propertytype": "Terreni",
-            "immobile": 318,
-            "startdate": "2022-06-02",
-            "enddate": "2022-07-01"
-        },
-        {
-            "citycode": "H224",
-            "section": "A",
-            "sheet": "2",
-            "number": "5",
-            "extent": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            1742978.19612341,
-                            4600862.86406104
-                        ],
-                        [
-                            1742978.19612341,
-                            4600902.60226169
-                        ],
-                        [
-                            1743010.121381,
-                            4600902.60226169
-                        ],
-                        [
-                            1743010.121381,
-                            4600862.86406104
-                        ],
-                        [
-                            1742978.19612341,
-                            4600862.86406104
-                        ]
-                    ]
-                ]
-            },
-            "city": "REGGIO DI CALABRIA (RC) (H224)",
-            "subordinate": null,
-            "right": "Proprieta'",
-            "part": "1/1",
-            "classification": "FABB DIRUTO",
-            "class": "",
-            "consistency": "5 are",
-            "income": "Dom. 0 - Agr. 0",
-            "lot": null,
-            "propertytype": "Terreni",
-            "immobile": 319,
-            "startdate": "2022-06-01",
-            "enddate": "2022-07-01"
-        },
-        {
-            "citycode": "H224",
-            "section": "A",
-            "sheet": "2",
-            "number": "6",
-            "extent": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            1742622.80231701,
-                            4600654.24155245
-                        ],
-                        [
-                            1742622.80231701,
-                            4601005.71365108
-                        ],
-                        [
-                            1742794.30732204,
-                            4601005.71365108
-                        ],
-                        [
-                            1742794.30732204,
-                            4600654.24155245
-                        ],
-                        [
-                            1742622.80231701,
-                            4600654.24155245
-                        ]
-                    ]
-                ]
-            },
-            "city": "REGGIO DI CALABRIA (RC) (H224)",
-            "subordinate": null,
-            "right": "Proprieta'",
-            "part": "1/1",
-            "classification": "INCOLT STER",
-            "class": "",
-            "consistency": "63 are, 98 ca",
-            "income": "Dom. 0 - Agr. 0",
-            "lot": null,
-            "propertytype": "Terreni",
-            "immobile": 320,
-            "startdate": "2022-07-01",
-            "enddate": "2022-08-06"
-        },
-        {
-            "citycode": "H224",
-            "section": "A",
-            "sheet": "2",
-            "number": "7",
-            "extent": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            1742784.56535519,
-                            4600827.80205378
-                        ],
-                        [
-                            1742784.56535519,
-                            4600867.39627308
-                        ],
-                        [
-                            1742813.02067497,
-                            4600867.39627308
-                        ],
-                        [
-                            1742813.02067497,
-                            4600827.80205378
-                        ],
-                        [
-                            1742784.56535519,
-                            4600827.80205378
-                        ]
-                    ]
-                ]
-            },
-            "city": "REGGIO DI CALABRIA (RC) (H224)",
-            "subordinate": null,
-            "right": "Proprieta'",
-            "part": "1/1",
-            "classification": "INCOLT STER",
-            "class": "",
-            "consistency": "4 are, 53 ca",
-            "income": "Dom. 0 - Agr. 0",
-            "lot": null,
-            "propertytype": "Terreni",
-            "immobile": 321,
-            "startdate": "2022-07-01",
-            "enddate": "2022-08-06"
-        },
-        {
-            "citycode": "H224",
-            "section": "A",
-            "sheet": "3",
-            "number": "6",
-            "extent": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            1743839.64990726,
-                            4601962.86621434
-                        ],
-                        [
-                            1743839.64990726,
-                            4602022.95496224
-                        ],
-                        [
-                            1743869.27001975,
-                            4602022.95496224
-                        ],
-                        [
-                            1743869.27001975,
-                            4601962.86621434
-                        ],
-                        [
-                            1743839.64990726,
-                            4601962.86621434
-                        ]
-                    ]
-                ]
-            },
-            "city": "REGGIO DI CALABRIA (RC) (H224)",
-            "subordinate": null,
-            "right": "Proprieta'",
-            "part": "1/1",
-            "classification": "INCOLT STER",
-            "class": "",
-            "consistency": "1 ha, 10 are, 121 ca",
-            "income": "Dom. 0 - Agr. 0",
-            "lot": "",
-            "propertytype": "Terreni",
-            "immobile": 735,
-            "startdate": "2022-07-01",
-            "enddate": "2022-08-06"
-        }
-    ],
     "general": [
         {
-            "citycode": "H224",
-            "section": "A",
-            "sheet": "2",
-            "number": "1",
+            "citycode": "H501",
+            "section": "D",
+            "sheet": "18",
+            "number": "202",
             "extent": {
                 "type": "Polygon",
                 "coordinates": [
                     [
                         [
-                            1742763.87132199,
-                            4600901.97853339
+                            1407834.87983499,
+                            5139040.85061375
                         ],
                         [
-                            1742763.87132199,
-                            4601004.40715559
+                            1407834.87983499,
+                            5139068.64614048
                         ],
                         [
-                            1742816.72841204,
-                            4601004.40715559
+                            1407850.41028722,
+                            5139068.64614048
                         ],
                         [
-                            1742816.72841204,
-                            4600901.97853339
+                            1407850.41028722,
+                            5139040.85061375
                         ],
                         [
-                            1742763.87132199,
-                            4600901.97853339
+                            1407834.87983499,
+                            5139040.85061375
                         ]
                     ]
                 ]
             },
-            "city": "REGGIO DI CALABRIA (RC) (H224)",
-            "subordinate": null,
+            "city": "ROMA (RM) (H501)",
+            "subordinate": "5",
             "right": "Proprieta'",
-            "part": "1/2",
-            "classification": "ENTE URBANO",
-            "class": "",
-            "consistency": "18 are, 22 ca",
-            "income": "Dom. 0 - Agr. 0",
-            "lot": "1",
-            "propertytype": "Terreni",
-            "immobile": 315,
-            "startdate": "2022-07-02",
-            "enddate": "2022-08-06"
-        },
-        {
-            "citycode": "H224",
-            "section": "A",
-            "sheet": "2",
-            "number": "6",
-            "extent": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            1742622.80231701,
-                            4600654.24155245
-                        ],
-                        [
-                            1742622.80231701,
-                            4601005.71365108
-                        ],
-                        [
-                            1742794.30732204,
-                            4601005.71365108
-                        ],
-                        [
-                            1742794.30732204,
-                            4600654.24155245
-                        ],
-                        [
-                            1742622.80231701,
-                            4600654.24155245
-                        ]
-                    ]
-                ]
-            },
-            "city": "REGGIO DI CALABRIA (RC) (H224)",
-            "subordinate": null,
-            "right": "Proprieta'",
-            "part": "1/1",
-            "classification": "INCOLT STER",
-            "class": "",
-            "consistency": "63 are, 98 ca",
-            "income": "Dom. 0 - Agr. 0",
+            "part": "500/1000",
+            "classification": "zona 6, cat. C/2",
+            "class": "9",
+            "consistency": "37 mq",
+            "income": "149,05",
             "lot": null,
-            "propertytype": "Terreni",
-            "immobile": 320,
-            "startdate": "2022-07-01",
-            "enddate": "2022-08-06"
+            "propertytype": "Fabbricati",
+            "immobile": 5053,
+            "startdate": "1994-11-15",
+            "enddate": "2022-12-14"
         },
         {
-            "citycode": "H224",
-            "section": "A",
-            "sheet": "2",
-            "number": "7",
+            "citycode": "H501",
+            "section": "D",
+            "sheet": "18",
+            "number": "202",
             "extent": {
                 "type": "Polygon",
                 "coordinates": [
                     [
                         [
-                            1742784.56535519,
-                            4600827.80205378
+                            1407834.87983499,
+                            5139040.85061375
                         ],
                         [
-                            1742784.56535519,
-                            4600867.39627308
+                            1407834.87983499,
+                            5139068.64614048
                         ],
                         [
-                            1742813.02067497,
-                            4600867.39627308
+                            1407850.41028722,
+                            5139068.64614048
                         ],
                         [
-                            1742813.02067497,
-                            4600827.80205378
+                            1407850.41028722,
+                            5139040.85061375
                         ],
                         [
-                            1742784.56535519,
-                            4600827.80205378
+                            1407834.87983499,
+                            5139040.85061375
                         ]
                     ]
                 ]
             },
-            "city": "REGGIO DI CALABRIA (RC) (H224)",
-            "subordinate": null,
-            "right": "Proprieta'",
-            "part": "1/1",
-            "classification": "INCOLT STER",
-            "class": "",
-            "consistency": "4 are, 53 ca",
-            "income": "Dom. 0 - Agr. 0",
+            "city": "ROMA (RM) (H501)",
+            "subordinate": "6",
+            "right": null,
+            "part": "",
+            "classification": "zona 6, cat. A/2",
+            "class": "5",
+            "consistency": "5,5 vani",
+            "income": "766,94",
             "lot": null,
-            "propertytype": "Terreni",
-            "immobile": 321,
-            "startdate": "2022-07-01",
-            "enddate": "2022-08-06"
-        },
-        {
-            "citycode": "H224",
-            "section": "A",
-            "sheet": "3",
-            "number": "6",
-            "extent": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            1743839.64990726,
-                            4601962.86621434
-                        ],
-                        [
-                            1743839.64990726,
-                            4602022.95496224
-                        ],
-                        [
-                            1743869.27001975,
-                            4602022.95496224
-                        ],
-                        [
-                            1743869.27001975,
-                            4601962.86621434
-                        ],
-                        [
-                            1743839.64990726,
-                            4601962.86621434
-                        ]
-                    ]
-                ]
-            },
-            "city": "REGGIO DI CALABRIA (RC) (H224)",
-            "subordinate": null,
-            "right": "Proprieta'",
-            "part": "1/1",
-            "classification": "INCOLT STER",
-            "class": "",
-            "consistency": "1 ha, 10 are, 121 ca",
-            "income": "Dom. 0 - Agr. 0",
-            "lot": "",
-            "propertytype": "Terreni",
-            "immobile": 735,
-            "startdate": "2022-07-01",
-            "enddate": "2022-08-06"
+            "propertytype": "Fabbricati",
+            "immobile": 5054,
+            "startdate": "1994-11-15",
+            "enddate": "2022-12-14"
         }
     ]
 }
