@@ -1,33 +1,5 @@
 [
     {
-        "codice": "H224",
-        "sezione": "A",
-        "comune": "REGGIO DI CALABRIA",
-        "catasto": "T",
-        "stato": "Comune attivo"
-    },
-    {
-        "codice": "H224",
-        "sezione": "B",
-        "comune": "CATAFORIO",
-        "catasto": "T",
-        "stato": "Comune attivo"
-    },
-    {
-        "codice": "H224",
-        "sezione": "C",
-        "comune": "CATONA",
-        "catasto": "T",
-        "stato": "Comune attivo"
-    },
-    {
-        "codice": "H224",
-        "sezione": "D",
-        "comune": "GALLICO",
-        "catasto": "T",
-        "stato": "Comune attivo"
-    },
-    {
         "codice": "H501",
         "sezione": "A",
         "comune": "SEZIONE A",
@@ -52,6 +24,13 @@
         "codice": "H501",
         "sezione": "D",
         "comune": "SEZIONE D",
+        "catasto": "T",
+        "stato": "Comune attivo"
+    },
+    {
+        "codice": "H501",
+        "sezione": "Z",
+        "comune": "SEZIONE DI PROVA",
         "catasto": "T",
         "stato": "Comune attivo"
     }

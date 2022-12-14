@@ -2,66 +2,53 @@
     {
         "codice": "H501",
         "sezione": " ",
-        "immobile": 4982377,
+        "immobile": 4500693,
         "tipo_imm": "F",
-        "progressiv": 5,
+        "progressiv": 1,
         "toponimo": 236,
-        "indirizzo": "CRISTOFORO SABBADINO",
-        "civico1": "000068",
+        "indirizzo": "INDONESIA",
+        "civico1": "000039",
         "civico2": null,
         "civico3": null,
-        "cod_strada": "3569"
+        "cod_strada": "9936"
     },
     {
         "codice": "H501",
         "sezione": " ",
-        "immobile": 4982378,
+        "immobile": 5053,
         "tipo_imm": "F",
-        "progressiv": 3,
+        "progressiv": 2,
         "toponimo": 236,
-        "indirizzo": "CRISTOFORO SABBADINO",
-        "civico1": "000068",
+        "indirizzo": "DEI COLLI DI BACCANELLO",
+        "civico1": "18",
         "civico2": null,
         "civico3": null,
-        "cod_strada": "3569"
+        "cod_strada": "4019"
     },
     {
         "codice": "H501",
         "sezione": " ",
-        "immobile": 4982379,
+        "immobile": 5054,
         "tipo_imm": "F",
-        "progressiv": 3,
+        "progressiv": 2,
         "toponimo": 236,
-        "indirizzo": "CRISTOFORO SABBADINO",
-        "civico1": "000068",
+        "indirizzo": "DEI COLLI DI BACCANELLO",
+        "civico1": "18",
         "civico2": null,
         "civico3": null,
-        "cod_strada": "3569"
+        "cod_strada": "4019"
     },
     {
         "codice": "H501",
         "sezione": " ",
-        "immobile": 4982380,
+        "immobile": 5055,
         "tipo_imm": "F",
-        "progressiv": 3,
+        "progressiv": 2,
         "toponimo": 236,
-        "indirizzo": "CRISTOFORO SABBADINO",
-        "civico1": "000068",
+        "indirizzo": "DEI COLLI DI BACCANELLO",
+        "civico1": "18",
         "civico2": null,
         "civico3": null,
-        "cod_strada": "3569"
-    },
-    {
-        "codice": "H501",
-        "sezione": " ",
-        "immobile": 4982377,
-        "tipo_imm": "F",
-        "progressiv": 6,
-        "toponimo": 236,
-        "indirizzo": "CRISTOFORO SABBADINO",
-        "civico1": "000068",
-        "civico2": null,
-        "civico3": null,
-        "cod_strada": "3569"
+        "cod_strada": "4019"
     }
 ]

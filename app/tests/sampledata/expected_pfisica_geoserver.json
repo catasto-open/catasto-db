@@ -1,13 +1,13 @@
 [
     {
-        "subjects": "2",
+        "subjects": "681057,681057",
         "subjecttype": "P",
-        "firstname": "ALICE",
-        "lastname": "ALICE",
+        "firstname": "MARIO",
+        "lastname": "ROSSI",
         "fiscalcode": "AAAAAAAAAAAAAAAA",
-        "dateofbirth": "1940-08-15",
-        "cityofbirth": "REGGIO DI CALABRIA (RC)",
-        "gender": "Femmina",
-        "province": "RC"
+        "dateofbirth": "1944-03-04",
+        "cityofbirth": "ROMA (RM)",
+        "gender": "Maschio",
+        "province": "RM"
     }
 ]

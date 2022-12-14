@@ -1,28 +1,28 @@
 {
     "AAAAAAAAAAAAAAAA": [
         {
-            "subjects": "2",
+            "subjects": "681057,681057",
             "subjecttype": "P",
-            "firstname": "ALICE",
-            "lastname": "ALICE",
+            "firstname": "MARIO",
+            "lastname": "ROSSI",
             "fiscalcode": "AAAAAAAAAAAAAAAA",
-            "dateofbirth": "1940-08-15",
-            "cityofbirth": "REGGIO DI CALABRIA (RC)",
-            "gender": "Femmina",
-            "province": "RC"
+            "dateofbirth": "1944-03-04",
+            "cityofbirth": "ROMA (RM)",
+            "gender": "Maschio",
+            "province": "RM"
         }
     ],
     "BBBBBBBBBBBBBBBB": [
         {
-            "subjects": "1",
+            "subjects": "826547",
             "subjecttype": "P",
-            "firstname": "BOB",
+            "firstname": "PRIMO",
             "lastname": "BOB",
             "fiscalcode": "BBBBBBBBBBBBBBBB",
-            "dateofbirth": "1939-12-26",
-            "cityofbirth": "REGGIO DI CALABRIA (RC)",
+            "dateofbirth": "2000-12-12",
+            "cityofbirth": "ROMA (RM)",
             "gender": "Maschio",
-            "province": "RC"
+            "province": "RM"
         }
     ]
 }

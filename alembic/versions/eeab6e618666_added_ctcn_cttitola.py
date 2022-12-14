@@ -29,7 +29,7 @@ def upgrade() -> None:
         sa.Column("numeratore", sa.Integer(), nullable=True),
         sa.Column("denominato", sa.Integer(), nullable=True),
         sa.Column("regime", sa.String(length=1), nullable=True),
-        sa.Column("rif_regime", sa.Integer(), nullable=True),
+        sa.Column("rif_regime", sa.BigInteger(), nullable=True),
         sa.Column("gen_valida", sa.String(length=10), nullable=True),
         sa.Column("gen_nota", sa.String(length=1), nullable=True),
         sa.Column("gen_numero", sa.String(length=6), nullable=True),

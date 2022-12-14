@@ -8,6 +8,7 @@ from app.geoserver.api import (
     create_layer,
     get_settings,
     update_settings,
+    refresh_layer,
 )
 
 workspace = {
@@ -391,7 +392,7 @@ layers_n = [
                         "parameter": [
                             {
                                 "name": "cityCode",
-                                "defaultValue": "H224",
+                                "defaultValue": "H501",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                         ],
@@ -499,12 +500,12 @@ layers_n = [
                         "parameter": [
                             {
                                 "name": "cityCode",
-                                "defaultValue": "H224",
+                                "defaultValue": "H501",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
                                 "name": "sectionCode",
-                                "defaultValue": "A",
+                                "defaultValue": "D",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                         ],
@@ -664,17 +665,17 @@ layers_n = [
                         "parameter": [
                             {
                                 "name": "cityCode",
-                                "defaultValue": "H224",
+                                "defaultValue": "H501",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
                                 "name": "sectionCode",
-                                "defaultValue": "A",
+                                "defaultValue": "D",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
                                 "name": "citySheet",
-                                "defaultValue": 2,
+                                "defaultValue": 18,
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                         ],
@@ -830,17 +831,17 @@ layers_n = [
                         "parameter": [
                             {
                                 "name": "cityCode",
-                                "defaultValue": "H224",
+                                "defaultValue": "H501",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
                                 "name": "sectionCode",
-                                "defaultValue": "A",
+                                "defaultValue": "D",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
                                 "name": "citySheet",
-                                "defaultValue": 2,
+                                "defaultValue": 18,
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                         ],
@@ -1000,7 +1001,7 @@ layers_n = [
                         "parameter": [
                             {
                                 "name": "subjects",
-                                "defaultValue": "1,2",
+                                "defaultValue": "681057,826547",
                                 "regexpValidator": "^([0-9]+,)*[0-9]+$",
                             },
                             {
@@ -1240,17 +1241,17 @@ layers_n = [
                         "parameter": [
                             {
                                 "name": "cityCode",
-                                "defaultValue": "H224",
+                                "defaultValue": "H501",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
                                 "name": "property",
-                                "defaultValue": 315,
+                                "defaultValue": 5054,
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
                                 "name": "propertyType",
-                                "defaultValue": "T",
+                                "defaultValue": "F",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                         ],
@@ -1392,22 +1393,22 @@ layers_n = [
                         "parameter": [
                             {
                                 "name": "cityCode",
-                                "defaultValue": "H224",
+                                "defaultValue": "H501",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
                                 "name": "citySheet",
-                                "defaultValue": 2,
+                                "defaultValue": 18,
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
                                 "name": "landNumber",
-                                "defaultValue": "00001",
+                                "defaultValue": "00055",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
                                 "name": "sectionCode",
-                                "defaultValue": "A",
+                                "defaultValue": "D",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                         ],
@@ -1777,17 +1778,17 @@ layers_n = [
                         "parameter": [
                             {
                                 "name": "cityCode",
-                                "defaultValue": "H224",
+                                "defaultValue": "H501",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
                                 "name": "citySheet",
-                                "defaultValue": 3,
+                                "defaultValue": 18,
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
                                 "name": "buildingNumber",
-                                "defaultValue": "00006",
+                                "defaultValue": "00202",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                         ],
@@ -2365,12 +2366,12 @@ layers_n = [
                             },
                             {
                                 "name": "addressName",
-                                "defaultValue": "CRISTOFORO SABBADINO",
+                                "defaultValue": "INDONESIA",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
                                 "name": "houseNumber",
-                                "defaultValue": 68,
+                                "defaultValue": 39,
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
@@ -2535,12 +2536,12 @@ layers_n = [
                         "parameter": [
                             {
                                 "name": "immobileCode",
-                                "defaultValue": 335,
+                                "defaultValue": 4500693,
                                 "regexpValidator": "^[0-9]+$",
                             },
                             {
                                 "name": "cityCode",
-                                "defaultValue": "H224",
+                                "defaultValue": "H501",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                         ],
@@ -2700,12 +2701,12 @@ layers_n = [
                         "parameter": [
                             {
                                 "name": "cityCode",
-                                "defaultValue": "H224",
+                                "defaultValue": "H501",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
                                 "name": "immobileCode",
-                                "defaultValue": 735,
+                                "defaultValue": 434170,
                                 "regexpValidator": "^[0-9]+$",
                             },
                         ],
@@ -2983,22 +2984,22 @@ layers_n = [
                         "parameter": [
                             {
                                 "name": "cityCode",
-                                "defaultValue": "H224",
+                                "defaultValue": "H501",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
                                 "name": "citySheet",
-                                "defaultValue": 3,
+                                "defaultValue": 18,
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
                                 "name": "buildingNumber",
-                                "defaultValue": "00006",
+                                "defaultValue": "00202",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
                                 "name": "immobileCode",
-                                "defaultValue": "558",
+                                "defaultValue": "5053",
                                 "regexpValidator": "^[0-9]+$",
                             },
                         ],
@@ -3574,7 +3575,7 @@ layers_temp = [
                         "parameter": [
                             {
                                 "name": "cityCode",
-                                "defaultValue": "H224",
+                                "defaultValue": "H501",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
@@ -3695,17 +3696,17 @@ layers_temp = [
                         "parameter": [
                             {
                                 "name": "cityCode",
-                                "defaultValue": "H224",
+                                "defaultValue": "H501",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
                                 "name": "sectionCode",
-                                "defaultValue": "A",
+                                "defaultValue": "D",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
                                 "name": "citySheet",
-                                "defaultValue": 2,
+                                "defaultValue": 18,
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
@@ -3878,17 +3879,17 @@ layers_temp = [
                         "parameter": [
                             {
                                 "name": "cityCode",
-                                "defaultValue": "H224",
+                                "defaultValue": "H501",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
                                 "name": "sectionCode",
-                                "defaultValue": "A",
+                                "defaultValue": "D",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
                                 "name": "citySheet",
-                                "defaultValue": 2,
+                                "defaultValue": 18,
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
@@ -4813,7 +4814,7 @@ layers_temp = [
                         "parameter": [
                             {
                                 "name": "subjects",
-                                "defaultValue": "1,2",
+                                "defaultValue": "681057,826547",
                                 "regexpValidator": "^([0-9]+,)*[0-9]+$",
                             },
                             {
@@ -5067,12 +5068,12 @@ layers_temp = [
                         "parameter": [
                             {
                                 "name": "cityCode",
-                                "defaultValue": "H224",
+                                "defaultValue": "H501",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
                                 "name": "property",
-                                "defaultValue": 315,
+                                "defaultValue": 434170,
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
@@ -5231,22 +5232,22 @@ layers_temp = [
                         "parameter": [
                             {
                                 "name": "cityCode",
-                                "defaultValue": "H224",
+                                "defaultValue": "H501",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
                                 "name": "citySheet",
-                                "defaultValue": 2,
+                                "defaultValue": 18,
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
                                 "name": "landNumber",
-                                "defaultValue": "00005",
+                                "defaultValue": "00055",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
                                 "name": "sectionCode",
-                                "defaultValue": "A",
+                                "defaultValue": "D",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
@@ -5630,17 +5631,17 @@ layers_temp = [
                         "parameter": [
                             {
                                 "name": "cityCode",
-                                "defaultValue": "H224",
+                                "defaultValue": "H501",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
                                 "name": "citySheet",
-                                "defaultValue": 3,
+                                "defaultValue": 18,
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
                                 "name": "buildingNumber",
-                                "defaultValue": "00006",
+                                "defaultValue": "00202",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
@@ -6109,12 +6110,12 @@ layers_temp = [
                             },
                             {
                                 "name": "addressName",
-                                "defaultValue": "CRISTOFORO SABBADINO",
+                                "defaultValue": "INDONESIA",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
                                 "name": "houseNumber",
-                                "defaultValue": 68,
+                                "defaultValue": 39,
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
@@ -6292,12 +6293,12 @@ layers_temp = [
                         "parameter": [
                             {
                                 "name": "cityCode",
-                                "defaultValue": "H224",
+                                "defaultValue": "H501",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
                                 "name": "immobileCode",
-                                "defaultValue": 335,
+                                "defaultValue": 4500693,
                                 "regexpValidator": "^[0-9]+$",
                             },
                             {
@@ -6469,12 +6470,12 @@ layers_temp = [
                         "parameter": [
                             {
                                 "name": "cityCode",
-                                "defaultValue": "H224",
+                                "defaultValue": "H501",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
                                 "name": "immobileCode",
-                                "defaultValue": 735,
+                                "defaultValue": 434170,
                                 "regexpValidator": "^[0-9]+$",
                             },
                             {
@@ -6633,22 +6634,22 @@ layers_temp = [
                         "parameter": [
                             {
                                 "name": "cityCode",
-                                "defaultValue": "H224",
+                                "defaultValue": "H501",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
                                 "name": "citySheet",
-                                "defaultValue": 3,
+                                "defaultValue": 18,
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
                                 "name": "buildingNumber",
-                                "defaultValue": "00006",
+                                "defaultValue": "00202",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {
                                 "name": "immobileCode",
-                                "defaultValue": "558",
+                                "defaultValue": "5053",
                                 "regexpValidator": "^[0-9]+$",
                             },
                             {
@@ -7054,3 +7055,9 @@ def load_settings():
     settings = get_settings()
     settings["global"]["settings"]["numDecimals"] = 8
     update_settings(settings)
+
+
+def refresh_layers():
+    layers = layers_n + layers_temp
+    for layer in layers:
+        refresh_layer(layer, layer["featureType"]["name"])
