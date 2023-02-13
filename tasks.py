@@ -122,6 +122,7 @@ def docker_compose_postgis(
         "logs",
         "dbclean",
         "refresh",
+        "geoserveronly",
     ]
 )  # noqa
 def catasto_open(
@@ -134,6 +135,7 @@ def catasto_open(
     logs=False,
     dbclean=False,
     refresh=False,
+    geoserveronly=False,
 ):
     base_path = Path(__file__).resolve()
     docker_compose_path = base_path.parent / "scripts" / "docker"
@@ -151,6 +153,9 @@ def catasto_open(
         return
     elif refresh:
         refresh_layers()
+    elif geoserveronly:
+        geoserver_setup()
+        return
     with ctx.cd(os.fspath(docker_compose_path)):
         cmd = "docker compose"
         if start:
