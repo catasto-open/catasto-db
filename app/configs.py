@@ -129,11 +129,11 @@ class AppConfig(BaseModel):
         tab.foglio::integer as number,
         st_transform(
             st_setsrid(
-                st_union(tab.geom),6708),3857)
+                st_union(tab.geom),25833),3857)
                 as geom,
         st_transform(
             st_setsrid(
-                st_union(tab.extent),6708),3857)
+                st_union(tab.extent),25833),3857)
                 as extent
         from (
             select distinct f.comune as codice,
@@ -158,10 +158,10 @@ class AppConfig(BaseModel):
         f.sezione as section,
         vf.foglio as sheet,
         vf.numero_f as number,
-        st_transform(st_setsrid(st_extent(f.geom),6708),3857)
+        st_transform(st_setsrid(st_union(f.geom),25833),3857)
         as geom,
         st_envelope(st_transform(
-        st_setsrid(st_extent(f.geom),6708),3857))
+        st_setsrid(st_extent(f.geom),25833),3857))
         as extent
     from ctcn.v_fabbricati vf
         right join ctmp.fabbricati f
@@ -245,12 +245,12 @@ class AppConfig(BaseModel):
         vt.numero_f as number,
         p.sezione as section,
         st_transform(st_setsrid(
-            st_extent(p.geom),6708),3857)
+            st_union(p.geom),25833),3857)
             as geom,
         st_envelope(
             st_transform(
                 st_setsrid(
-                    st_extent(p.geom),6708),3857))
+                    st_union(p.geom),25833),3857))
                     as extent
     from ctcn.v_terreni vt
         right join ctmp.particelle p
@@ -362,12 +362,12 @@ class AppConfig(BaseModel):
         buildings.number,
         st_transform(
             st_setsrid(
-                ST_Envelope(buildings.geom),6708),3857)
+                ST_Envelope(buildings.geom),25833),3857)
                 as geom,
         st_envelope(
             st_transform(
                 st_setsrid(
-                    ST_Envelope(buildings.geom),6708),3857))
+                    ST_Envelope(buildings.geom),25833),3857))
                     as extent,
         vsf.ubicazione as city,
         vsf.subalterno as subordinate,
@@ -407,11 +407,11 @@ class AppConfig(BaseModel):
         lands.number,
         st_transform(
             st_setsrid(
-                ST_Envelope(lands.geom),6708),3857)
+                ST_Envelope(lands.geom),25833),3857)
                 as geom,
         st_envelope(st_transform(
             st_setsrid(
-                ST_Envelope(lands.geom),6708),3857))
+                ST_Envelope(lands.geom),25833),3857))
                 as extent,
         vst.ubicazione as city,
         vst.subalterno as subordinate,
@@ -473,20 +473,20 @@ class AppConfig(BaseModel):
         f.sezione as section,
         vf.foglio as sheet,
         vf.numero_f as number,
-        st_transform(st_setsrid(st_extent(f.geom),6708),3857)
+        st_transform(st_setsrid(st_union(f.geom),25833),3857)
         as geom,
         st_envelope(st_transform(
-        st_setsrid(st_extent(f.geom),6708),3857))
+        st_setsrid(st_extent(f.geom),25833),3857))
         as extent
     from ctcn.v_fabbricati vf
-        right join ctmp.fabbricati f
+        left join ctmp.fabbricati f
         on
             f.comune = vf.codice
             and f.foglio = vf.foglio
             and f.numero = vf.particella
         where
             vf.codice = '{0}'
-            and f.sezione = '{1}'
+            and ( f.sezione = '{1}' or f.sezione is null )
             and vf.foglio = '{2}'
             and
             (
@@ -575,15 +575,15 @@ class AppConfig(BaseModel):
         vt.numero_f as number,
         p.sezione as section,
         st_transform(st_setsrid(
-            st_extent(p.geom),6708),3857)
+            st_union(p.geom),25833),3857)
             as geom,
         st_envelope(
             st_transform(
                 st_setsrid(
-                    st_extent(p.geom),6708),3857))
+                    st_union(p.geom),25833),3857))
                     as extent
     from ctcn.v_terreni vt
-        right join ctmp.particelle p
+        left join ctmp.particelle p
         on
             p.comune = vt.codice
             and p.foglio = vt.foglio::text
@@ -932,12 +932,12 @@ class AppConfig(BaseModel):
         buildings.number,
         st_transform(
             st_setsrid(
-                ST_Envelope(buildings.geom),6708),3857)
+                ST_Envelope(buildings.geom),25833),3857)
                 as geom,
         st_envelope(
             st_transform(
                 st_setsrid(
-                    ST_Envelope(buildings.geom),6708),3857))
+                    ST_Envelope(buildings.geom),25833),3857))
                     as extent,
         vsf.ubicazione as city,
         vsf.subalterno as subordinate,
@@ -984,11 +984,11 @@ class AppConfig(BaseModel):
         lands.number,
         st_transform(
             st_setsrid(
-                ST_Envelope(lands.geom),6708),3857)
+                ST_Envelope(lands.geom),25833),3857)
                 as geom,
         st_envelope(st_transform(
             st_setsrid(
-                ST_Envelope(lands.geom),6708),3857))
+                ST_Envelope(lands.geom),25833),3857))
                 as extent,
         vst.ubicazione as city,
         vst.subalterno as subordinate,
@@ -1046,10 +1046,10 @@ class AppConfig(BaseModel):
         f.sezione as section,
         vf.foglio as sheet,
         vf.numero_f as number,
-        st_transform(st_setsrid(st_extent(f.geom),6708),3857)
+        st_transform(st_setsrid(st_union(f.geom),25833),3857)
         as geom,
         st_envelope(st_transform(
-        st_setsrid(st_extent(f.geom),6708),3857))
+        st_setsrid(st_extent(f.geom),25833),3857))
         as extent
     from ctcn.v_fabbricati vf
         right join ctmp.fabbricati f
@@ -1077,10 +1077,10 @@ class AppConfig(BaseModel):
         f.sezione as section,
         vf.foglio as sheet,
         vf.numero_f as number,
-        st_transform(st_setsrid(st_extent(f.geom),6708),3857)
+        st_transform(st_setsrid(st_union(f.geom),25833),3857)
         as geom,
         st_envelope(st_transform(
-        st_setsrid(st_extent(f.geom),6708),3857))
+        st_setsrid(st_extent(f.geom),25833),3857))
         as extent
     from ctcn.v_fabbricati vf
         right join ctmp.fabbricati f
@@ -1116,10 +1116,10 @@ class AppConfig(BaseModel):
         f.sezione as section,
         vf.foglio as sheet,
         vf.numero_f as number,
-        st_transform(st_setsrid(st_extent(f.geom),6708),3857)
+        st_transform(st_setsrid(st_union(f.geom),25833),3857)
         as geom,
         st_envelope(st_transform(
-        st_setsrid(st_extent(f.geom),6708),3857))
+        st_setsrid(st_extent(f.geom),25833),3857))
         as extent
     from ctcn.v_fabbricati vf
         right join ctmp.fabbricati f
@@ -1141,10 +1141,10 @@ class AppConfig(BaseModel):
         f.sezione as section,
         vf.foglio as sheet,
         vf.numero_f as number,
-        st_transform(st_setsrid(st_extent(f.geom),6708),3857)
+        st_transform(st_setsrid(st_union(f.geom),25833),3857)
         as geom,
         st_envelope(st_transform(
-        st_setsrid(st_extent(f.geom),6708),3857))
+        st_setsrid(st_extent(f.geom),25833),3857))
         as extent
     from ctcn.v_fabbricati vf
         right join ctmp.fabbricati f
@@ -1175,12 +1175,12 @@ class AppConfig(BaseModel):
         vt.numero_f as number,
         p.sezione as section,
         st_transform(st_setsrid(
-            st_extent(p.geom),6708),3857)
+            st_union(p.geom),25833),3857)
                 as geom,
         st_envelope(
             st_transform(
                 st_setsrid(
-                    st_extent(p.geom),6708),3857))
+                    st_extent(p.geom),25833),3857))
                         as extent
     from ctcn.v_terreni vt
         right join ctmp.particelle p
@@ -1203,12 +1203,12 @@ class AppConfig(BaseModel):
         vt.numero_f as number,
         p.sezione as section,
         st_transform(st_setsrid(
-            st_extent(p.geom),6708),3857)
+            st_union(p.geom),25833),3857)
                 as geom,
         st_envelope(
             st_transform(
                 st_setsrid(
-                    st_extent(p.geom),6708),3857))
+                    st_extent(p.geom),25833),3857))
                         as extent
     from ctcn.v_terreni vt
         right join ctmp.particelle p
