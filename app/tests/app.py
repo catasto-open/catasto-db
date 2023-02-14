@@ -32,13 +32,6 @@ from app.tests.queries import (
 )
 
 
-class ComplexJsonEncoder(json.JSONEncoder):
-    def default(self, obj):
-        if isinstance(obj, (datetime.datetime, datetime.date)):
-            return obj.strftime("%Y-%m-%d")
-        return json.JSONEncoder.default(self, obj)
-
-
 class TestApp(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -196,7 +189,7 @@ class TestApp(unittest.TestCase):
             endDate=datetime.datetime.today().strftime("%Y-%m-%d"),
         )
         expectedResult = []
-        for each in expectedJson["general"]["18"]:
+        for each in expectedJson["temp"]["18"]:
             expectedResult.append(tuple(list(each.values())))
         self.assertEqual(result, expectedResult)
 
@@ -208,7 +201,7 @@ class TestApp(unittest.TestCase):
             endDate=datetime.datetime.today().strftime("%Y-%m-%d"),
         )
         expectedResult = []
-        for each in expectedJson["general"]["856"]:
+        for each in expectedJson["temp"]["856"]:
             expectedResult.append(tuple(list(each.values())))
         self.assertEqual(result, expectedResult)
 
@@ -219,7 +212,7 @@ class TestApp(unittest.TestCase):
             endDate=datetime.datetime.today().strftime("%Y-%m-%d"),
         )
         expectedResult = []
-        for each in expectedJson["general"]["856"]:
+        for each in expectedJson["byim"]["856"]:
             expectedResult.append(tuple(list(each.values())))
         self.assertEqual(result, expectedResult)
 
