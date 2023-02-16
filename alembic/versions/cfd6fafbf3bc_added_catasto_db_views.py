@@ -161,7 +161,7 @@ v_properties_ns_view = ReplaceableObject(
    FROM ctcn.cttitola t
      JOIN ctcn.ctnonfis g ON g.codice::text = t.codice::text AND g.sezione::text = t.sezione::text 
      AND g.soggetto = t.soggetto AND g.tipo_sog::text = t.tipo_sog::text
-     JOIN ctcn.comuni c ON g.sede::text = c.codice::text
+     LEFT JOIN ctcn.comuni c ON g.sede::text = c.codice::text
      LEFT JOIN ctcn.cttitoli tt ON tt.codice::text = t.diritto::text AND (t.diritto::text <> 
      ALL (ARRAY['99 '::character varying::text, '990'::character varying::text]));
     """
