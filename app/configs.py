@@ -590,7 +590,7 @@ class AppConfig(BaseModel):
             and p.numero = vt.particella
         where
             vt.codice = '{0}'
-            and p.sezione = '{1}'
+            and ( p.sezione = '{1}' or p.sezione is null )
             and vt.foglio::text = '{2}'
             and
             (
