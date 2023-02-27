@@ -101,14 +101,14 @@ def get_terreno_detail(
     cityCode: str,
     sheetCode: str,
     number: str,
-    sectionCode: str,
+    sectionCode: str = "",
     startDate: str = None,
     endDate: str = None,
 ):
     if startDate and endDate:
         statement = text(
             cnf.APP_CONFIG.VIEW_QUERY_TERRENO_DETAIL_TEMP.format(
-                cityCode, sheetCode, number, sectionCode, startDate, endDate
+                cityCode, sheetCode, number, startDate, endDate
             )
         )
     else:

@@ -656,15 +656,14 @@ class AppConfig(BaseModel):
             vt.codice = '{0}'
             and vt.foglio = '{1}'
             and vt.numero_f = '{2}'
-            and vt.sezione = '{3}'
             and (
+                '{3}' between vt.data_inizio and vt.data_fine_f
+                or
                 '{4}' between vt.data_inizio and vt.data_fine_f
                 or
-                '{5}' between vt.data_inizio and vt.data_fine_f
+                vt.data_inizio between '{3}' and '{4}'
                 or
-                vt.data_inizio between '{4}' and '{5}'
-                or
-                vt.data_fine_f between '{4}' and '{5}'
+                vt.data_fine_f between '{3}' and '{4}'
                 )
     order by 1
     """
