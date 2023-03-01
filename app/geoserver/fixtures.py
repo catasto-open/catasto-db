@@ -5224,7 +5224,6 @@ layers_temp = [
                             "%cityCode%",
                             "%citySheet%",
                             "%landNumber%",
-                            "%sectionCode%",
                             "%startDate%",
                             "%endDate%",
                         ),
@@ -5243,11 +5242,6 @@ layers_temp = [
                             {
                                 "name": "landNumber",
                                 "defaultValue": "00055",
-                                "regexpValidator": "^[\\w\\d\\s]+$",
-                            },
-                            {
-                                "name": "sectionCode",
-                                "defaultValue": "D",
                                 "regexpValidator": "^[\\w\\d\\s]+$",
                             },
                             {

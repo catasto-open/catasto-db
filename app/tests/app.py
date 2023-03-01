@@ -239,7 +239,6 @@ class TestApp(unittest.TestCase):
             cityCode="H501",
             sheetCode="18",
             number="00055",
-            sectionCode="D",
             startDate="0001-01-01",
             endDate=datetime.datetime.today().strftime("%Y-%m-%d"),
         )
@@ -252,7 +251,6 @@ class TestApp(unittest.TestCase):
             cityCode="H501",
             sheetCode="856",
             number="00055",
-            sectionCode="A",
             startDate="0001-01-01",
             endDate=datetime.datetime.today().strftime("%Y-%m-%d"),
         )
@@ -265,7 +263,6 @@ class TestApp(unittest.TestCase):
             cityCode="H501",
             sheetCode="856",
             number="00055",
-            sectionCode="A",
             startDate="0001-01-01",
             endDate="2007-11-01",
         )
