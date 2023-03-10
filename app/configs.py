@@ -1056,15 +1056,17 @@ class AppConfig(BaseModel):
             f.comune = vf.codice
             and f.foglio = vf.foglio
             and f.numero = vf.particella
-        inner join ctcn.cuindiri c
-        on
-            c.codice = vf.codice
-            and c.immobile = vf.immobile
         where
-            c.toponimo = {0}
-            and c.indirizzo ilike '{1}%'
-            and ltrim(coalesce(c.civico1,''),'0') like '{2}'
-            and c.codice = '{3}'
+            vf.immobile in
+            (
+            select distinct c.immobile
+                from ctcn.cuindiri c
+                    where
+                    regexp_replace(c.indirizzo,'[^a-zA-Z0-9]','','g') = '{1}'
+                    and c.toponimo = {0}
+                    and c.codice = '{3}'
+                    and ltrim(coalesce(c.civico1,''),'0') like '{2}'
+            )
             and vf.data_inizio <= ('now'::text)::date
             and vf.data_fine_f >= ('now'::text)::date
         group by 1,2,3,4
@@ -1087,15 +1089,17 @@ class AppConfig(BaseModel):
             f.comune = vf.codice
             and f.foglio = vf.foglio
             and f.numero = vf.particella
-        inner join ctcn.cuindiri c
-        on
-            c.codice = vf.codice
-            and c.immobile = vf.immobile
         where
-            c.toponimo = {0}
-            and c.indirizzo ilike '{1}%'
-            and ltrim(coalesce(c.civico1,''),'0') like '{2}'
-            and c.codice = '{3}'
+            vf.immobile in
+            (
+            select distinct c.immobile
+                from ctcn.cuindiri c
+                    where
+                    regexp_replace(c.indirizzo,'[^a-zA-Z0-9]','','g') = '{1}'
+                    and c.toponimo = {0}
+                    and c.codice = '{3}'
+                    and ltrim(coalesce(c.civico1,''),'0') like '{2}'
+            )
             and
             (
                 '{4}' between vf.data_inizio and vf.data_fine_f
@@ -1235,7 +1239,8 @@ class AppConfig(BaseModel):
     VIEW_QUERY_INDIRIZZO_BTOP = """
     select distinct c.indirizzo,c.toponimo
     from ctcn.cuindiri c
-        where c.indirizzo ilike '{0}%'||'%'
+        where
+        regexp_replace(c.indirizzo,'[^a-zA-Z0-9]','','g') ilike '{0}%'||'%'
         and c.toponimo = {1}
         and c.codice = '{2}'
     order by 1
