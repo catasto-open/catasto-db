@@ -45,6 +45,23 @@ def upgrade() -> None:
         schema="ctcn",
         postgresql_using="btree",
     )
+    op.create_index(
+        "cuindiri_idx3",
+        "cuindiri",
+        ["codice", "toponimo", "indirizzo"],
+        schema="ctcn",
+        postgresql_using="btree",
+    )
+    op.execute(
+        "CREATE INDEX cuindiri_idx4 ON ctcn.cuindiri USING btree (codice, toponimo, regexp_replace(indirizzo , '[^a-zA-Z0-9]','','g'));" # noqa
+    )
+    op.create_index(
+        "cuindiri_idx5",
+        "cuindiri",
+        ["indirizzo"],
+        schema="ctcn",
+        postgresql_using="btree",
+    )
 
 
 def downgrade() -> None:
@@ -56,6 +73,24 @@ def downgrade() -> None:
     )
     op.drop_index(
         "cuindiri_idx2",
+        table_name="cuindiri",
+        schema="ctcn",
+        postgresql_using="btree",
+    )
+    op.drop_index(
+        "cuindiri_idx3",
+        table_name="cuindiri",
+        schema="ctcn",
+        postgresql_using="btree",
+    )
+    op.drop_index(
+        "cuindiri_idx4",
+        table_name="cuindiri",
+        schema="ctcn",
+        postgresql_using="btree",
+    )
+    op.drop_index(
+        "cuindiri_idx5",
         table_name="cuindiri",
         schema="ctcn",
         postgresql_using="btree",
