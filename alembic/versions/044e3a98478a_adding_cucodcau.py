@@ -17,13 +17,14 @@ depends_on = None
 
 
 def upgrade() -> None:
-        op.create_table(
+    op.create_table(
         "cucodcau",
         sa.Column("cod_causa", sa.String(length=3), nullable=False),
-        sa.Column("descrizion", sa.String(length=65), nullable=False),
+        sa.Column("descrizion", sa.String(length=255), nullable=False),
         sa.PrimaryKeyConstraint("cod_causa", name="cucodcau_pkey"),
         schema="ctcn",
     )
+
 
 def downgrade() -> None:
     op.drop_table("cucodcau", schema="ctcn")
