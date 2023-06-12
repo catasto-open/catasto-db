@@ -1,0 +1,2218 @@
+[
+    {
+        "codice": 1,
+        "toponimo": "ALZATA"
+    },
+    {
+        "codice": 2,
+        "toponimo": "ANDRONA"
+    },
+    {
+        "codice": 4,
+        "toponimo": "ARCHIVOLTO"
+    },
+    {
+        "codice": 6,
+        "toponimo": "ARCO"
+    },
+    {
+        "codice": 8,
+        "toponimo": "ASCENSORE"
+    },
+    {
+        "codice": 10,
+        "toponimo": "ATRIO"
+    },
+    {
+        "codice": 12,
+        "toponimo": "BACINO"
+    },
+    {
+        "codice": 14,
+        "toponimo": "BAGLIO"
+    },
+    {
+        "codice": 16,
+        "toponimo": "BANCHINA"
+    },
+    {
+        "codice": 18,
+        "toponimo": "BASTIONI"
+    },
+    {
+        "codice": 20,
+        "toponimo": "BORGATA"
+    },
+    {
+        "codice": 22,
+        "toponimo": "BORGHETTO"
+    },
+    {
+        "codice": 24,
+        "toponimo": "BORGO"
+    },
+    {
+        "codice": 26,
+        "toponimo": "CALATA"
+    },
+    {
+        "codice": 28,
+        "toponimo": "CALLE"
+    },
+    {
+        "codice": 30,
+        "toponimo": "CALLESELLA"
+    },
+    {
+        "codice": 32,
+        "toponimo": "CAMPASSO"
+    },
+    {
+        "codice": 34,
+        "toponimo": "CAMPAZZO"
+    },
+    {
+        "codice": 36,
+        "toponimo": "CAMPIELLO"
+    },
+    {
+        "codice": 38,
+        "toponimo": "CAMPO"
+    },
+    {
+        "codice": 40,
+        "toponimo": "CASALE"
+    },
+    {
+        "codice": 42,
+        "toponimo": "CASE"
+    },
+    {
+        "codice": 44,
+        "toponimo": "CAVA"
+    },
+    {
+        "codice": 46,
+        "toponimo": "CAVALCAVIA"
+    },
+    {
+        "codice": 48,
+        "toponimo": "CHIASSO"
+    },
+    {
+        "codice": 50,
+        "toponimo": "CIRCONVALLAZIONE"
+    },
+    {
+        "codice": 52,
+        "toponimo": "CLIVIO"
+    },
+    {
+        "codice": 54,
+        "toponimo": "CONTRADA"
+    },
+    {
+        "codice": 56,
+        "toponimo": "CORSETTO"
+    },
+    {
+        "codice": 58,
+        "toponimo": "CORSO"
+    },
+    {
+        "codice": 60,
+        "toponimo": "CORTE"
+    },
+    {
+        "codice": 62,
+        "toponimo": "CORTICELLA"
+    },
+    {
+        "codice": 64,
+        "toponimo": "CORTILE"
+    },
+    {
+        "codice": 66,
+        "toponimo": "CUPA"
+    },
+    {
+        "codice": 68,
+        "toponimo": "DIRAMAZIONE"
+    },
+    {
+        "codice": 70,
+        "toponimo": "DISCESA"
+    },
+    {
+        "codice": 72,
+        "toponimo": "FONDACO"
+    },
+    {
+        "codice": 74,
+        "toponimo": "FONDAMENTA"
+    },
+    {
+        "codice": 76,
+        "toponimo": "FONDO"
+    },
+    {
+        "codice": 77,
+        "toponimo": "FRAZIONE"
+    },
+    {
+        "codice": 78,
+        "toponimo": "GALLERIA"
+    },
+    {
+        "codice": 80,
+        "toponimo": "GIARDINO"
+    },
+    {
+        "codice": 82,
+        "toponimo": "GRADINI"
+    },
+    {
+        "codice": 84,
+        "toponimo": "GRADONI"
+    },
+    {
+        "codice": 86,
+        "toponimo": "LARGO"
+    },
+    {
+        "codice": 88,
+        "toponimo": "LISTA"
+    },
+    {
+        "codice": 90,
+        "toponimo": "LOCALITA'"
+    },
+    {
+        "codice": 92,
+        "toponimo": "LOGGE"
+    },
+    {
+        "codice": 94,
+        "toponimo": "LUNGADIGE"
+    },
+    {
+        "codice": 96,
+        "toponimo": "LUNGARGINE"
+    },
+    {
+        "codice": 98,
+        "toponimo": "LUNGARNO"
+    },
+    {
+        "codice": 100,
+        "toponimo": "LUNGODORA"
+    },
+    {
+        "codice": 102,
+        "toponimo": "LUNGOMARE"
+    },
+    {
+        "codice": 106,
+        "toponimo": "LUNGOPO"
+    },
+    {
+        "codice": 108,
+        "toponimo": "LUNGOSTURA"
+    },
+    {
+        "codice": 110,
+        "toponimo": "LUNGOTEVERE"
+    },
+    {
+        "codice": 112,
+        "toponimo": "MASSERIA"
+    },
+    {
+        "codice": 114,
+        "toponimo": "MERCATO"
+    },
+    {
+        "codice": 116,
+        "toponimo": "MOLO"
+    },
+    {
+        "codice": 118,
+        "toponimo": "MULATTIERA"
+    },
+    {
+        "codice": 120,
+        "toponimo": "MURA"
+    },
+    {
+        "codice": 122,
+        "toponimo": "PARCO"
+    },
+    {
+        "codice": 124,
+        "toponimo": "PASSAGGIO"
+    },
+    {
+        "codice": 126,
+        "toponimo": "PASSEGGIATA"
+    },
+    {
+        "codice": 128,
+        "toponimo": "PASSETTO"
+    },
+    {
+        "codice": 130,
+        "toponimo": "PIAZZA"
+    },
+    {
+        "codice": 132,
+        "toponimo": "PIAZZALE"
+    },
+    {
+        "codice": 134,
+        "toponimo": "PIAZZETTA"
+    },
+    {
+        "codice": 136,
+        "toponimo": "PISCINA"
+    },
+    {
+        "codice": 138,
+        "toponimo": "PONTE"
+    },
+    {
+        "codice": 140,
+        "toponimo": "PONTILE"
+    },
+    {
+        "codice": 142,
+        "toponimo": "PORTA"
+    },
+    {
+        "codice": 144,
+        "toponimo": "PORTICO"
+    },
+    {
+        "codice": 146,
+        "toponimo": "PORTO"
+    },
+    {
+        "codice": 148,
+        "toponimo": "PROLUNGAMENTO"
+    },
+    {
+        "codice": 150,
+        "toponimo": "QUARTIERE"
+    },
+    {
+        "codice": 152,
+        "toponimo": "RAMI"
+    },
+    {
+        "codice": 154,
+        "toponimo": "RAMO"
+    },
+    {
+        "codice": 156,
+        "toponimo": "RAMPA"
+    },
+    {
+        "codice": 158,
+        "toponimo": "RAMPE"
+    },
+    {
+        "codice": 160,
+        "toponimo": "RECINTO"
+    },
+    {
+        "codice": 162,
+        "toponimo": "RIONE"
+    },
+    {
+        "codice": 164,
+        "toponimo": "RIVA"
+    },
+    {
+        "codice": 166,
+        "toponimo": "RIVIERA"
+    },
+    {
+        "codice": 168,
+        "toponimo": "ROTONDA"
+    },
+    {
+        "codice": 170,
+        "toponimo": "RUA"
+    },
+    {
+        "codice": 172,
+        "toponimo": "SALITA"
+    },
+    {
+        "codice": 174,
+        "toponimo": "SL"
+    },
+    {
+        "codice": 176,
+        "toponimo": "SALIZZATA"
+    },
+    {
+        "codice": 178,
+        "toponimo": "SCALA"
+    },
+    {
+        "codice": 180,
+        "toponimo": "SCALE"
+    },
+    {
+        "codice": 182,
+        "toponimo": "SCALEA"
+    },
+    {
+        "codice": 184,
+        "toponimo": "SCALETTA"
+    },
+    {
+        "codice": 186,
+        "toponimo": "SCALETTE"
+    },
+    {
+        "codice": 188,
+        "toponimo": "SCALI"
+    },
+    {
+        "codice": 190,
+        "toponimo": "SCALINATA"
+    },
+    {
+        "codice": 192,
+        "toponimo": "SCALONE"
+    },
+    {
+        "codice": 194,
+        "toponimo": "SDRUCCIOLO"
+    },
+    {
+        "codice": 196,
+        "toponimo": "SENTIERO"
+    },
+    {
+        "codice": 198,
+        "toponimo": "SESTRIERI"
+    },
+    {
+        "codice": 200,
+        "toponimo": "SITO"
+    },
+    {
+        "codice": 202,
+        "toponimo": "SOBBORGO"
+    },
+    {
+        "codice": 204,
+        "toponimo": "SOTTOPORTICO"
+    },
+    {
+        "codice": 206,
+        "toponimo": "SOTTOVIA"
+    },
+    {
+        "codice": 208,
+        "toponimo": "SPIANATA"
+    },
+    {
+        "codice": 210,
+        "toponimo": "STRADA"
+    },
+    {
+        "codice": 212,
+        "toponimo": "STRADALE"
+    },
+    {
+        "codice": 214,
+        "toponimo": "STRADELLA"
+    },
+    {
+        "codice": 216,
+        "toponimo": "STRADONE"
+    },
+    {
+        "codice": 218,
+        "toponimo": "SUPPORTICO"
+    },
+    {
+        "codice": 220,
+        "toponimo": "SVINCOLO"
+    },
+    {
+        "codice": 222,
+        "toponimo": "TRATTO"
+    },
+    {
+        "codice": 224,
+        "toponimo": "TRAVERSA"
+    },
+    {
+        "codice": 226,
+        "toponimo": "TRAVERSA VIA"
+    },
+    {
+        "codice": 228,
+        "toponimo": "TRESANDA"
+    },
+    {
+        "codice": 230,
+        "toponimo": "TRONCO"
+    },
+    {
+        "codice": 232,
+        "toponimo": "VALLONE"
+    },
+    {
+        "codice": 234,
+        "toponimo": "VARCO"
+    },
+    {
+        "codice": 236,
+        "toponimo": "VIA"
+    },
+    {
+        "codice": 238,
+        "toponimo": "VIADOTTO"
+    },
+    {
+        "codice": 240,
+        "toponimo": "VIALE"
+    },
+    {
+        "codice": 242,
+        "toponimo": "VIALETTO"
+    },
+    {
+        "codice": 244,
+        "toponimo": "VICO"
+    },
+    {
+        "codice": 246,
+        "toponimo": "VICOLETTO"
+    },
+    {
+        "codice": 248,
+        "toponimo": "VICOLO"
+    },
+    {
+        "codice": 250,
+        "toponimo": "VILLAGGIO"
+    },
+    {
+        "codice": 252,
+        "toponimo": "VIOTTOLO"
+    },
+    {
+        "codice": 254,
+        "toponimo": "VIUZZO"
+    },
+    {
+        "codice": 256,
+        "toponimo": "VO"
+    },
+    {
+        "codice": 258,
+        "toponimo": "VOLTA"
+    },
+    {
+        "codice": 260,
+        "toponimo": "PASSO"
+    },
+    {
+        "codice": 262,
+        "toponimo": "FORO"
+    },
+    {
+        "codice": 264,
+        "toponimo": "RIPA"
+    },
+    {
+        "codice": 266,
+        "toponimo": "RACCORDO"
+    },
+    {
+        "codice": 268,
+        "toponimo": "ALZAIA"
+    },
+    {
+        "codice": 300,
+        "toponimo": "ACCESSO"
+    },
+    {
+        "codice": 301,
+        "toponimo": "ACCESSO A CORSO"
+    },
+    {
+        "codice": 302,
+        "toponimo": "ACCESSO ALLA PIAZZA"
+    },
+    {
+        "codice": 303,
+        "toponimo": "ACCESSO ALLA VIA"
+    },
+    {
+        "codice": 304,
+        "toponimo": "ACCESSO VIALE"
+    },
+    {
+        "codice": 305,
+        "toponimo": "ACCESSO PRIVATO"
+    },
+    {
+        "codice": 306,
+        "toponimo": "ACCESSO STRADA"
+    },
+    {
+        "codice": 307,
+        "toponimo": "ACCESSO TRAVERSA"
+    },
+    {
+        "codice": 308,
+        "toponimo": "ALLEE"
+    },
+    {
+        "codice": 309,
+        "toponimo": "ALVEO"
+    },
+    {
+        "codice": 310,
+        "toponimo": "ANDRONE"
+    },
+    {
+        "codice": 311,
+        "toponimo": "ANGIPORTO"
+    },
+    {
+        "codice": 312,
+        "toponimo": "ARGINE"
+    },
+    {
+        "codice": 313,
+        "toponimo": "ARGINE DESTRO"
+    },
+    {
+        "codice": 314,
+        "toponimo": "ARGINE DI CANALE"
+    },
+    {
+        "codice": 315,
+        "toponimo": "ARGINE SINISTRO"
+    },
+    {
+        "codice": 316,
+        "toponimo": "AUTOSTRADA"
+    },
+    {
+        "codice": 317,
+        "toponimo": "AVENUE"
+    },
+    {
+        "codice": 318,
+        "toponimo": "BALUARDO"
+    },
+    {
+        "codice": 319,
+        "toponimo": "BARRIERA"
+    },
+    {
+        "codice": 320,
+        "toponimo": "BASTIONE"
+    },
+    {
+        "codice": 321,
+        "toponimo": "BASTIONI DI PORTA"
+    },
+    {
+        "codice": 322,
+        "toponimo": "BATTERIA"
+    },
+    {
+        "codice": 323,
+        "toponimo": "BISAGNO"
+    },
+    {
+        "codice": 324,
+        "toponimo": "BOCCA"
+    },
+    {
+        "codice": 325,
+        "toponimo": "BOULEVARD"
+    },
+    {
+        "codice": 326,
+        "toponimo": "CA'"
+    },
+    {
+        "codice": 327,
+        "toponimo": "CALA"
+    },
+    {
+        "codice": 328,
+        "toponimo": "CALETTA"
+    },
+    {
+        "codice": 329,
+        "toponimo": "CALLE DESTRA"
+    },
+    {
+        "codice": 330,
+        "toponimo": "CALLE LARGA"
+    },
+    {
+        "codice": 331,
+        "toponimo": "CALLE LITORANEA"
+    },
+    {
+        "codice": 332,
+        "toponimo": "CALLE SINISTRA"
+    },
+    {
+        "codice": 333,
+        "toponimo": "CALLE STRETTA"
+    },
+    {
+        "codice": 334,
+        "toponimo": "CALLESELLA DESTRA"
+    },
+    {
+        "codice": 335,
+        "toponimo": "CALLESELLA LARGA"
+    },
+    {
+        "codice": 336,
+        "toponimo": "CALLESELLA SINISTRA"
+    },
+    {
+        "codice": 337,
+        "toponimo": "CALLESELLE"
+    },
+    {
+        "codice": 338,
+        "toponimo": "CALLESELLE LARGHE"
+    },
+    {
+        "codice": 339,
+        "toponimo": "CALLESELLE STRETTE"
+    },
+    {
+        "codice": 340,
+        "toponimo": "CANALE"
+    },
+    {
+        "codice": 341,
+        "toponimo": "CANALE LARGO"
+    },
+    {
+        "codice": 342,
+        "toponimo": "CANTO"
+    },
+    {
+        "codice": 343,
+        "toponimo": "CANTONE"
+    },
+    {
+        "codice": 344,
+        "toponimo": "CAPO"
+    },
+    {
+        "codice": 345,
+        "toponimo": "CARRARA"
+    },
+    {
+        "codice": 346,
+        "toponimo": "CASCINA"
+    },
+    {
+        "codice": 347,
+        "toponimo": "CASE SPARSE"
+    },
+    {
+        "codice": 348,
+        "toponimo": "CAVALCAVIA DESTRO"
+    },
+    {
+        "codice": 349,
+        "toponimo": "CAVALCAVIA SINISTRO"
+    },
+    {
+        "codice": 350,
+        "toponimo": "CAVONE"
+    },
+    {
+        "codice": 351,
+        "toponimo": "CHIASSETTO"
+    },
+    {
+        "codice": 352,
+        "toponimo": "CHIASSUOLO"
+    },
+    {
+        "codice": 353,
+        "toponimo": "CIRCONVALLAZIONE DESTRA"
+    },
+    {
+        "codice": 354,
+        "toponimo": "CIRCONVALLAZIONE ESTERNA"
+    },
+    {
+        "codice": 355,
+        "toponimo": "CIRCONVALLAZIONE ESTRAMURALE"
+    },
+    {
+        "codice": 356,
+        "toponimo": "CIRCONVALLAZIONE INTERNA"
+    },
+    {
+        "codice": 357,
+        "toponimo": "CIRCONVALLAZIONE SINISTRA"
+    },
+    {
+        "codice": 358,
+        "toponimo": "CLAUSTRO"
+    },
+    {
+        "codice": 359,
+        "toponimo": "CLIVO"
+    },
+    {
+        "codice": 360,
+        "toponimo": "COMUNALE"
+    },
+    {
+        "codice": 361,
+        "toponimo": "CONTRA'"
+    },
+    {
+        "codice": 362,
+        "toponimo": "CORO"
+    },
+    {
+        "codice": 363,
+        "toponimo": "CORSIA"
+    },
+    {
+        "codice": 364,
+        "toponimo": "CORSIA DESTRA"
+    },
+    {
+        "codice": 365,
+        "toponimo": "CORSIA SINISTRA"
+    },
+    {
+        "codice": 366,
+        "toponimo": "CORSO PARALLELO"
+    },
+    {
+        "codice": 367,
+        "toponimo": "CORTINA"
+    },
+    {
+        "codice": 368,
+        "toponimo": "COSTA"
+    },
+    {
+        "codice": 369,
+        "toponimo": "COSTARELLA"
+    },
+    {
+        "codice": 370,
+        "toponimo": "CROSA"
+    },
+    {
+        "codice": 371,
+        "toponimo": "CROSINO"
+    },
+    {
+        "codice": 372,
+        "toponimo": "DARSENA"
+    },
+    {
+        "codice": 373,
+        "toponimo": "DIRAMAZIONE DEL CORSO"
+    },
+    {
+        "codice": 374,
+        "toponimo": "DIRAMAZIONE DEL VIALE"
+    },
+    {
+        "codice": 375,
+        "toponimo": "DIRAMAZIONE DI VIA"
+    },
+    {
+        "codice": 377,
+        "toponimo": "DIRUPO"
+    },
+    {
+        "codice": 378,
+        "toponimo": "DISTACCO"
+    },
+    {
+        "codice": 379,
+        "toponimo": "DORSO"
+    },
+    {
+        "codice": 380,
+        "toponimo": "EMICICLO"
+    },
+    {
+        "codice": 381,
+        "toponimo": "ERTA"
+    },
+    {
+        "codice": 382,
+        "toponimo": "FORTE"
+    },
+    {
+        "codice": 383,
+        "toponimo": "FOSSA"
+    },
+    {
+        "codice": 384,
+        "toponimo": "FOSSATO"
+    },
+    {
+        "codice": 385,
+        "toponimo": "FOSSO"
+    },
+    {
+        "codice": 386,
+        "toponimo": "GALLERIA DI CORSO"
+    },
+    {
+        "codice": 387,
+        "toponimo": "GRADINATA"
+    },
+    {
+        "codice": 388,
+        "toponimo": "GRADINATA DESTRA"
+    },
+    {
+        "codice": 389,
+        "toponimo": "GRADINATA SINISTRA"
+    },
+    {
+        "codice": 390,
+        "toponimo": "GRADINATA SUPERIORE"
+    },
+    {
+        "codice": 391,
+        "toponimo": "GRADINATE"
+    },
+    {
+        "codice": 392,
+        "toponimo": "GRADINATE SUPERIORI"
+    },
+    {
+        "codice": 393,
+        "toponimo": "GRANVIALE"
+    },
+    {
+        "codice": 394,
+        "toponimo": "LARGHETTO"
+    },
+    {
+        "codice": 395,
+        "toponimo": "LATERALE DI CORSO"
+    },
+    {
+        "codice": 396,
+        "toponimo": "LATERALE DI VIA"
+    },
+    {
+        "codice": 397,
+        "toponimo": "LATERALE DI VIALE"
+    },
+    {
+        "codice": 398,
+        "toponimo": "LIDO"
+    },
+    {
+        "codice": 399,
+        "toponimo": "LOGGIA"
+    },
+    {
+        "codice": 400,
+        "toponimo": "LUNGADIGE DESTRO"
+    },
+    {
+        "codice": 401,
+        "toponimo": "LUNGADIGE SINISTRO"
+    },
+    {
+        "codice": 402,
+        "toponimo": "LUNGARGINE DESTRO"
+    },
+    {
+        "codice": 403,
+        "toponimo": "LUNGARGINE SINISTRO"
+    },
+    {
+        "codice": 404,
+        "toponimo": "LUNGARNO DESTRO"
+    },
+    {
+        "codice": 405,
+        "toponimo": "LUNGARNO SINISTRO"
+    },
+    {
+        "codice": 406,
+        "toponimo": "LUNGOBISAGNO"
+    },
+    {
+        "codice": 407,
+        "toponimo": "LUNGOBISAGNO DESTRO"
+    },
+    {
+        "codice": 408,
+        "toponimo": "LUNGOBISAGNO SINISTRO"
+    },
+    {
+        "codice": 409,
+        "toponimo": "LUNGOCRATI"
+    },
+    {
+        "codice": 410,
+        "toponimo": "LUNGOCRATI DESTRO"
+    },
+    {
+        "codice": 411,
+        "toponimo": "LUNGOCRATI SINISTRO"
+    },
+    {
+        "codice": 412,
+        "toponimo": "LUNGODORA DESTRO"
+    },
+    {
+        "codice": 413,
+        "toponimo": "LUNGODORA SINISTRO"
+    },
+    {
+        "codice": 414,
+        "toponimo": "LUNGOFRIGIDO"
+    },
+    {
+        "codice": 415,
+        "toponimo": "LUNGOFRIGIDO DESTRO"
+    },
+    {
+        "codice": 416,
+        "toponimo": "LUNGOFRIGIDO SINISTRO"
+    },
+    {
+        "codice": 417,
+        "toponimo": "LUNGOGESSO"
+    },
+    {
+        "codice": 418,
+        "toponimo": "LUNGOGESSO DESTRO"
+    },
+    {
+        "codice": 419,
+        "toponimo": "LUNGOGESSO SINISTRO"
+    },
+    {
+        "codice": 420,
+        "toponimo": "LUNGOISARCO"
+    },
+    {
+        "codice": 421,
+        "toponimo": "LUNGOISARCO DESTRO"
+    },
+    {
+        "codice": 422,
+        "toponimo": "LUNGOISARCO SINISTRO"
+    },
+    {
+        "codice": 423,
+        "toponimo": "LUNGOLAGO"
+    },
+    {
+        "codice": 424,
+        "toponimo": "LUNGOLAGO DESTRO"
+    },
+    {
+        "codice": 425,
+        "toponimo": "LUNGOLAGO SINISTRO"
+    },
+    {
+        "codice": 426,
+        "toponimo": "LUNGOLARIO"
+    },
+    {
+        "codice": 427,
+        "toponimo": "LUNGOLARIO DESTRO"
+    },
+    {
+        "codice": 428,
+        "toponimo": "LUNGOLARIO SINISTRO"
+    },
+    {
+        "codice": 429,
+        "toponimo": "LUNGOMALLERO"
+    },
+    {
+        "codice": 430,
+        "toponimo": "LUNGOMALLERO DESTRO"
+    },
+    {
+        "codice": 431,
+        "toponimo": "LUNGOPARCO"
+    },
+    {
+        "codice": 432,
+        "toponimo": "LUNGOPO DESTRO"
+    },
+    {
+        "codice": 433,
+        "toponimo": "LUNGOPO SINISTRO"
+    },
+    {
+        "codice": 434,
+        "toponimo": "LUNGOSTURA DESTRO"
+    },
+    {
+        "codice": 435,
+        "toponimo": "LUNGOSTURA SINISTRO"
+    },
+    {
+        "codice": 436,
+        "toponimo": "LUNGOTALVERE"
+    },
+    {
+        "codice": 437,
+        "toponimo": "LUNGOTALVERE DESTRO"
+    },
+    {
+        "codice": 438,
+        "toponimo": "LUNGOTALVERE SINISTRO"
+    },
+    {
+        "codice": 439,
+        "toponimo": "LUNGOTEVERE DESTRO"
+    },
+    {
+        "codice": 440,
+        "toponimo": "LUNGOTEVERE SINISTRO"
+    },
+    {
+        "codice": 441,
+        "toponimo": "LUNGOTICINO"
+    },
+    {
+        "codice": 442,
+        "toponimo": "LUNGOTICINO DESTRO"
+    },
+    {
+        "codice": 443,
+        "toponimo": "LUNGOTICINO SINISTRO"
+    },
+    {
+        "codice": 444,
+        "toponimo": "LUNGOTORRENTE"
+    },
+    {
+        "codice": 445,
+        "toponimo": "LUNGOTORRENTE DESTRO"
+    },
+    {
+        "codice": 446,
+        "toponimo": "LUNGOTORRENTE SINISTRO"
+    },
+    {
+        "codice": 447,
+        "toponimo": "LUNGOTRONTO"
+    },
+    {
+        "codice": 448,
+        "toponimo": "LUNGOTRONTO DESTRO"
+    },
+    {
+        "codice": 449,
+        "toponimo": "LUNGOTRONTO SINISTRO"
+    },
+    {
+        "codice": 450,
+        "toponimo": "MARZARIA"
+    },
+    {
+        "codice": 451,
+        "toponimo": "MASSERIA VECCHIA"
+    },
+    {
+        "codice": 452,
+        "toponimo": "MERCERIA"
+    },
+    {
+        "codice": 453,
+        "toponimo": "MOLO ANTICO"
+    },
+    {
+        "codice": 454,
+        "toponimo": "MURAZZI"
+    },
+    {
+        "codice": 455,
+        "toponimo": "MURE"
+    },
+    {
+        "codice": 456,
+        "toponimo": "PARALLELA DESTRA"
+    },
+    {
+        "codice": 457,
+        "toponimo": "PARALLELA SINISTRA"
+    },
+    {
+        "codice": 458,
+        "toponimo": "PASSEGGIO"
+    },
+    {
+        "codice": 459,
+        "toponimo": "PENDICE"
+    },
+    {
+        "codice": 460,
+        "toponimo": "PENDIO"
+    },
+    {
+        "codice": 461,
+        "toponimo": "PENNINATO"
+    },
+    {
+        "codice": 462,
+        "toponimo": "PIAGGIA"
+    },
+    {
+        "codice": 463,
+        "toponimo": "PIANO"
+    },
+    {
+        "codice": 464,
+        "toponimo": "PIATTAFORMA"
+    },
+    {
+        "codice": 465,
+        "toponimo": "PIAZZA BELVEDERE"
+    },
+    {
+        "codice": 466,
+        "toponimo": "PIAZZA CHIUSA"
+    },
+    {
+        "codice": 467,
+        "toponimo": "PIAZZA COMUNALE"
+    },
+    {
+        "codice": 468,
+        "toponimo": "PIAZZA INFERIORE"
+    },
+    {
+        "codice": 469,
+        "toponimo": "PIAZZOLA"
+    },
+    {
+        "codice": 470,
+        "toponimo": "PLACE"
+    },
+    {
+        "codice": 471,
+        "toponimo": "POGGIO"
+    },
+    {
+        "codice": 472,
+        "toponimo": "PORTELLA"
+    },
+    {
+        "codice": 473,
+        "toponimo": "PORTICATO"
+    },
+    {
+        "codice": 474,
+        "toponimo": "PORTICCIOLO"
+    },
+    {
+        "codice": 475,
+        "toponimo": "PORTICHETTI"
+    },
+    {
+        "codice": 476,
+        "toponimo": "PORTICI"
+    },
+    {
+        "codice": 477,
+        "toponimo": "PRATO"
+    },
+    {
+        "codice": 478,
+        "toponimo": "PROLUNGAMENTO DI CORSO"
+    },
+    {
+        "codice": 479,
+        "toponimo": "PROLUNGAMENTO DEL VIALE"
+    },
+    {
+        "codice": 480,
+        "toponimo": "PROLUNGAMENTO DELLA VIA"
+    },
+    {
+        "codice": 481,
+        "toponimo": "PROVINCIALE"
+    },
+    {
+        "codice": 482,
+        "toponimo": "QUADRATO"
+    },
+    {
+        "codice": 483,
+        "toponimo": "RAMPA DEL CORSO"
+    },
+    {
+        "codice": 484,
+        "toponimo": "RAMPA DEL VIALE"
+    },
+    {
+        "codice": 485,
+        "toponimo": "RAMPA PIAZZA"
+    },
+    {
+        "codice": 486,
+        "toponimo": "RAMPA VIA"
+    },
+    {
+        "codice": 487,
+        "toponimo": "RAMPA DESTRA"
+    },
+    {
+        "codice": 488,
+        "toponimo": "RAMPA SINISTRA"
+    },
+    {
+        "codice": 489,
+        "toponimo": "RAMPA STRADA"
+    },
+    {
+        "codice": 490,
+        "toponimo": "RIALTO"
+    },
+    {
+        "codice": 491,
+        "toponimo": "RIGASTE"
+    },
+    {
+        "codice": 492,
+        "toponimo": "RIO"
+    },
+    {
+        "codice": 493,
+        "toponimo": "RIO TERRA'"
+    },
+    {
+        "codice": 494,
+        "toponimo": "RIPARTO"
+    },
+    {
+        "codice": 495,
+        "toponimo": "RIVETTA"
+    },
+    {
+        "codice": 496,
+        "toponimo": "RONCO"
+    },
+    {
+        "codice": 497,
+        "toponimo": "RONDO"
+    },
+    {
+        "codice": 498,
+        "toponimo": "ROUTE"
+    },
+    {
+        "codice": 499,
+        "toponimo": "RUE"
+    },
+    {
+        "codice": 500,
+        "toponimo": "RUGA"
+    },
+    {
+        "codice": 501,
+        "toponimo": "RUGA DESTRA"
+    },
+    {
+        "codice": 502,
+        "toponimo": "RUGA SINISTRA"
+    },
+    {
+        "codice": 503,
+        "toponimo": "RUGHETTA"
+    },
+    {
+        "codice": 504,
+        "toponimo": "RUGHETTA DESTRA"
+    },
+    {
+        "codice": 505,
+        "toponimo": "RUGHETTA SINISTRA"
+    },
+    {
+        "codice": 506,
+        "toponimo": "SALITA DESTRA"
+    },
+    {
+        "codice": 507,
+        "toponimo": "SALITA PER CORSO"
+    },
+    {
+        "codice": 508,
+        "toponimo": "SALITA PER PIAZZA"
+    },
+    {
+        "codice": 509,
+        "toponimo": "SALITA PER VIA"
+    },
+    {
+        "codice": 510,
+        "toponimo": "SALITA PER VIALE"
+    },
+    {
+        "codice": 511,
+        "toponimo": "SALITA SINISTRA"
+    },
+    {
+        "codice": 512,
+        "toponimo": "SALITA SUPERIORE"
+    },
+    {
+        "codice": 513,
+        "toponimo": "SALIZZATA DESTRA"
+    },
+    {
+        "codice": 514,
+        "toponimo": "SALIZADA SINISTRA"
+    },
+    {
+        "codice": 515,
+        "toponimo": "SBARCATOIO"
+    },
+    {
+        "codice": 516,
+        "toponimo": "SCALA DESTRA"
+    },
+    {
+        "codice": 517,
+        "toponimo": "SCALA SINISTRA"
+    },
+    {
+        "codice": 518,
+        "toponimo": "SCALEO"
+    },
+    {
+        "codice": 519,
+        "toponimo": "SCALETTA DESTRA"
+    },
+    {
+        "codice": 520,
+        "toponimo": "SCALETTA SINISTRA"
+    },
+    {
+        "codice": 521,
+        "toponimo": "SCALINATA DESTRA"
+    },
+    {
+        "codice": 522,
+        "toponimo": "SCALINATA SINISTRA"
+    },
+    {
+        "codice": 523,
+        "toponimo": "SCALO"
+    },
+    {
+        "codice": 524,
+        "toponimo": "SCESA"
+    },
+    {
+        "codice": 525,
+        "toponimo": "SCESE"
+    },
+    {
+        "codice": 526,
+        "toponimo": "SELCIATO"
+    },
+    {
+        "codice": 527,
+        "toponimo": "SENTIERO PANORAMICO"
+    },
+    {
+        "codice": 528,
+        "toponimo": "SESTIERE"
+    },
+    {
+        "codice": 529,
+        "toponimo": "SOTTOPASSAGGI"
+    },
+    {
+        "codice": 530,
+        "toponimo": "SOTTOPASSAGGIO"
+    },
+    {
+        "codice": 531,
+        "toponimo": "SOTTOPASSO"
+    },
+    {
+        "codice": 532,
+        "toponimo": "SPALTO"
+    },
+    {
+        "codice": 533,
+        "toponimo": "SPIAGGIA"
+    },
+    {
+        "codice": 534,
+        "toponimo": "SPIAZZO"
+    },
+    {
+        "codice": 535,
+        "toponimo": "STATALE"
+    },
+    {
+        "codice": 536,
+        "toponimo": "STAZZO"
+    },
+    {
+        "codice": 537,
+        "toponimo": "STRADA ACCORCIATOIA"
+    },
+    {
+        "codice": 538,
+        "toponimo": "STRADA ALTA"
+    },
+    {
+        "codice": 539,
+        "toponimo": "STRADA ANTICA"
+    },
+    {
+        "codice": 540,
+        "toponimo": "STRADA ARGINALE"
+    },
+    {
+        "codice": 541,
+        "toponimo": "STRADA BASSA"
+    },
+    {
+        "codice": 542,
+        "toponimo": "STRADA CANTONIERA"
+    },
+    {
+        "codice": 543,
+        "toponimo": "STRADA CHIUSA"
+    },
+    {
+        "codice": 544,
+        "toponimo": "STRADA CIECA"
+    },
+    {
+        "codice": 545,
+        "toponimo": "STRADA CIRCOLARE"
+    },
+    {
+        "codice": 546,
+        "toponimo": "STRADA COMUNALE"
+    },
+    {
+        "codice": 547,
+        "toponimo": "STRADA CONSORZIALE"
+    },
+    {
+        "codice": 548,
+        "toponimo": "STRADA DESTRA"
+    },
+    {
+        "codice": 549,
+        "toponimo": "STRADA DI LEVANTE"
+    },
+    {
+        "codice": 550,
+        "toponimo": "STRADA DI PONENTE"
+    },
+    {
+        "codice": 551,
+        "toponimo": "STRADA ESTERNA"
+    },
+    {
+        "codice": 552,
+        "toponimo": "STRADA EXTRAMURALE"
+    },
+    {
+        "codice": 553,
+        "toponimo": "STRADA INFERIORE"
+    },
+    {
+        "codice": 554,
+        "toponimo": "STRADA INTERCOMUNALE"
+    },
+    {
+        "codice": 555,
+        "toponimo": "STRADA INTERNA"
+    },
+    {
+        "codice": 556,
+        "toponimo": "STRADA INTERPODERALE"
+    },
+    {
+        "codice": 557,
+        "toponimo": "STRADA LARGA"
+    },
+    {
+        "codice": 558,
+        "toponimo": "STRADA LATERALE"
+    },
+    {
+        "codice": 559,
+        "toponimo": "STRADA LITORANEA"
+    },
+    {
+        "codice": 560,
+        "toponimo": "STRADA MULATTIERA"
+    },
+    {
+        "codice": 561,
+        "toponimo": "STRADA NUOVA"
+    },
+    {
+        "codice": 562,
+        "toponimo": "STRADA PANORAMICA"
+    },
+    {
+        "codice": 563,
+        "toponimo": "STRADA PARALLELA"
+    },
+    {
+        "codice": 564,
+        "toponimo": "STRADA PEDEMONTANA"
+    },
+    {
+        "codice": 565,
+        "toponimo": "STRADA PRIVATA"
+    },
+    {
+        "codice": 566,
+        "toponimo": "STRADA PROVINCIALE"
+    },
+    {
+        "codice": 567,
+        "toponimo": "STRADA ROMANA"
+    },
+    {
+        "codice": 568,
+        "toponimo": "STRADA ROTABILE"
+    },
+    {
+        "codice": 569,
+        "toponimo": "STRADA RURALE"
+    },
+    {
+        "codice": 570,
+        "toponimo": "STRADA SINISTRA"
+    },
+    {
+        "codice": 571,
+        "toponimo": "STRADA STATALE"
+    },
+    {
+        "codice": 572,
+        "toponimo": "STRADA STORTA"
+    },
+    {
+        "codice": 573,
+        "toponimo": "STRADA STRETTA"
+    },
+    {
+        "codice": 574,
+        "toponimo": "STRADA SUPERIORE"
+    },
+    {
+        "codice": 575,
+        "toponimo": "STRADA TANGENZIALE"
+    },
+    {
+        "codice": 576,
+        "toponimo": "STRADA TRASVERSALE"
+    },
+    {
+        "codice": 577,
+        "toponimo": "STRADA TRAVERSA"
+    },
+    {
+        "codice": 578,
+        "toponimo": "STRADA VECCHIA"
+    },
+    {
+        "codice": 579,
+        "toponimo": "STRADA VICINALE"
+    },
+    {
+        "codice": 580,
+        "toponimo": "STRADELLA DESTRA"
+    },
+    {
+        "codice": 581,
+        "toponimo": "STRADELLA SINISTRA"
+    },
+    {
+        "codice": 582,
+        "toponimo": "STRETTO"
+    },
+    {
+        "codice": 583,
+        "toponimo": "STRETTOIA"
+    },
+    {
+        "codice": 584,
+        "toponimo": "STRETTOIA DESTRA"
+    },
+    {
+        "codice": 585,
+        "toponimo": "STRETTOIA SINISTRA"
+    },
+    {
+        "codice": 586,
+        "toponimo": "STRETTOLA"
+    },
+    {
+        "codice": 587,
+        "toponimo": "STURA"
+    },
+    {
+        "codice": 588,
+        "toponimo": "SUPERSTRADA"
+    },
+    {
+        "codice": 589,
+        "toponimo": "TANGENZIALE"
+    },
+    {
+        "codice": 590,
+        "toponimo": "TERRAZZA"
+    },
+    {
+        "codice": 591,
+        "toponimo": "TRASVERSALE DEL CORSO"
+    },
+    {
+        "codice": 592,
+        "toponimo": "TRASVERSALE DI VIALE"
+    },
+    {
+        "codice": 593,
+        "toponimo": "TRASVERSALE VIA"
+    },
+    {
+        "codice": 594,
+        "toponimo": "TRAVERSALE PRIVATA"
+    },
+    {
+        "codice": 595,
+        "toponimo": "TRASVERSALE PROVINCIALE"
+    },
+    {
+        "codice": 596,
+        "toponimo": "TRAVERSALE STRADA"
+    },
+    {
+        "codice": 597,
+        "toponimo": "TRATTURO"
+    },
+    {
+        "codice": 598,
+        "toponimo": "TRAVERSA CORSO"
+    },
+    {
+        "codice": 599,
+        "toponimo": "TRAVERSA DEL VIALE"
+    },
+    {
+        "codice": 600,
+        "toponimo": "TRAVERSA DEL VILLAGGIO"
+    },
+    {
+        "codice": 601,
+        "toponimo": "TRAVERSA DELLA LOCALITA'"
+    },
+    {
+        "codice": 602,
+        "toponimo": "TRAVERSA DI VIA"
+    },
+    {
+        "codice": 603,
+        "toponimo": "TRAVERSA PRIVATA"
+    },
+    {
+        "codice": 604,
+        "toponimo": "TRAVERSA STRADA"
+    },
+    {
+        "codice": 605,
+        "toponimo": "VALCO"
+    },
+    {
+        "codice": 606,
+        "toponimo": "VALICO"
+    },
+    {
+        "codice": 607,
+        "toponimo": "VALLE"
+    },
+    {
+        "codice": 608,
+        "toponimo": "VIA ACCORCIATOIA"
+    },
+    {
+        "codice": 609,
+        "toponimo": "VIA ALTA"
+    },
+    {
+        "codice": 610,
+        "toponimo": "VIA ANTICA"
+    },
+    {
+        "codice": 611,
+        "toponimo": "VIA ARGINALE"
+    },
+    {
+        "codice": 612,
+        "toponimo": "VIA BASSA"
+    },
+    {
+        "codice": 613,
+        "toponimo": "VIA BELVEDERE"
+    },
+    {
+        "codice": 614,
+        "toponimo": "VIA CANTONIERA"
+    },
+    {
+        "codice": 615,
+        "toponimo": "VIA CHIUSA"
+    },
+    {
+        "codice": 616,
+        "toponimo": "VIA CIECA"
+    },
+    {
+        "codice": 617,
+        "toponimo": "VIA CIRCOLARE"
+    },
+    {
+        "codice": 618,
+        "toponimo": "VIA CIRCUMVALLAZIONE"
+    },
+    {
+        "codice": 619,
+        "toponimo": "VIA COMUNALE"
+    },
+    {
+        "codice": 620,
+        "toponimo": "VIA CONSORZIALE"
+    },
+    {
+        "codice": 621,
+        "toponimo": "VIA DESTRA"
+    },
+    {
+        "codice": 622,
+        "toponimo": "VIA DI LEVANTE"
+    },
+    {
+        "codice": 623,
+        "toponimo": "VIA DI PONENTE"
+    },
+    {
+        "codice": 624,
+        "toponimo": "VIA ESTERNA"
+    },
+    {
+        "codice": 625,
+        "toponimo": "VIA ESTRAMURALE"
+    },
+    {
+        "codice": 626,
+        "toponimo": "VIA INFERIORE"
+    },
+    {
+        "codice": 627,
+        "toponimo": "VIA INTERCOMUNALE"
+    },
+    {
+        "codice": 628,
+        "toponimo": "VIA INTERNA"
+    },
+    {
+        "codice": 629,
+        "toponimo": "VIA INTERPODERALE"
+    },
+    {
+        "codice": 630,
+        "toponimo": "VIA LARGA"
+    },
+    {
+        "codice": 631,
+        "toponimo": "VIA LATERALE"
+    },
+    {
+        "codice": 632,
+        "toponimo": "VIA LITORANEA"
+    },
+    {
+        "codice": 633,
+        "toponimo": "VIA LUNGOMARE"
+    },
+    {
+        "codice": 634,
+        "toponimo": "VIA MULATTIERA"
+    },
+    {
+        "codice": 635,
+        "toponimo": "VIA NUOVA"
+    },
+    {
+        "codice": 636,
+        "toponimo": "VIA PANORAMICA"
+    },
+    {
+        "codice": 637,
+        "toponimo": "VIA PARALLELA"
+    },
+    {
+        "codice": 638,
+        "toponimo": "VIA PEDEMONTANA"
+    },
+    {
+        "codice": 639,
+        "toponimo": "VIA PRIVATA"
+    },
+    {
+        "codice": 640,
+        "toponimo": "VIA PROVINCIALE"
+    },
+    {
+        "codice": 641,
+        "toponimo": "VIA ROMANA"
+    },
+    {
+        "codice": 642,
+        "toponimo": "VIA ROTABILE"
+    },
+    {
+        "codice": 643,
+        "toponimo": "VIA RURALE"
+    },
+    {
+        "codice": 644,
+        "toponimo": "VIA SINISTRA"
+    },
+    {
+        "codice": 645,
+        "toponimo": "VIA STATALE"
+    },
+    {
+        "codice": 646,
+        "toponimo": "VIA STORTA"
+    },
+    {
+        "codice": 647,
+        "toponimo": "VIA STRETTA"
+    },
+    {
+        "codice": 648,
+        "toponimo": "VIA SUPERIORE"
+    },
+    {
+        "codice": 649,
+        "toponimo": "VIA TANGENZIALE"
+    },
+    {
+        "codice": 650,
+        "toponimo": "VIA TRASVERSALE"
+    },
+    {
+        "codice": 651,
+        "toponimo": "VIA TRAVERSA"
+    },
+    {
+        "codice": 652,
+        "toponimo": "VIA VECCHIA"
+    },
+    {
+        "codice": 653,
+        "toponimo": "VIA VICINALE"
+    },
+    {
+        "codice": 654,
+        "toponimo": "VIALE BELVEDERE"
+    },
+    {
+        "codice": 655,
+        "toponimo": "VIALE LITORANEO"
+    },
+    {
+        "codice": 656,
+        "toponimo": "VIALE LUNGOMARE"
+    },
+    {
+        "codice": 657,
+        "toponimo": "VIALONE"
+    },
+    {
+        "codice": 658,
+        "toponimo": "VICO ALTO"
+    },
+    {
+        "codice": 659,
+        "toponimo": "VICO BASSO"
+    },
+    {
+        "codice": 660,
+        "toponimo": "VICO BELVEDERE"
+    },
+    {
+        "codice": 661,
+        "toponimo": "VICO CHIUSO"
+    },
+    {
+        "codice": 662,
+        "toponimo": "VICO CIECO"
+    },
+    {
+        "codice": 663,
+        "toponimo": "VICO DRITTO"
+    },
+    {
+        "codice": 664,
+        "toponimo": "VICO INFERIORE"
+    },
+    {
+        "codice": 665,
+        "toponimo": "VICO LUNGO"
+    },
+    {
+        "codice": 666,
+        "toponimo": "VICO NUOVO"
+    },
+    {
+        "codice": 667,
+        "toponimo": "VICO PRIVATO"
+    },
+    {
+        "codice": 668,
+        "toponimo": "VICO STORTO"
+    },
+    {
+        "codice": 669,
+        "toponimo": "VICO STRETTO"
+    },
+    {
+        "codice": 670,
+        "toponimo": "VICO VECCHIO"
+    },
+    {
+        "codice": 671,
+        "toponimo": "VICOLETTO CHIUSO"
+    },
+    {
+        "codice": 672,
+        "toponimo": "VICOLETTO CIECO"
+    },
+    {
+        "codice": 673,
+        "toponimo": "VICOLETTO DRITTO"
+    },
+    {
+        "codice": 674,
+        "toponimo": "VICOLETTO INFERIORE"
+    },
+    {
+        "codice": 675,
+        "toponimo": "VICOLETTO LUNGO"
+    },
+    {
+        "codice": 676,
+        "toponimo": "VICOLETTO NUOVO"
+    },
+    {
+        "codice": 677,
+        "toponimo": "VICOLETTO PRIVATO"
+    },
+    {
+        "codice": 678,
+        "toponimo": "VICOLETTO STORTO"
+    },
+    {
+        "codice": 679,
+        "toponimo": "VICOLETTO STRETTO"
+    },
+    {
+        "codice": 680,
+        "toponimo": "VICOLETTO VECCHIO"
+    },
+    {
+        "codice": 681,
+        "toponimo": "VICOLO ALTO"
+    },
+    {
+        "codice": 682,
+        "toponimo": "VICOLO BASSO"
+    },
+    {
+        "codice": 683,
+        "toponimo": "VICOLO BELVEDERE"
+    },
+    {
+        "codice": 684,
+        "toponimo": "VICOLO CHIUSO"
+    },
+    {
+        "codice": 685,
+        "toponimo": "VICOLO CIECO"
+    },
+    {
+        "codice": 686,
+        "toponimo": "VICOLO DRITTO"
+    },
+    {
+        "codice": 687,
+        "toponimo": "VICOLO INFERIORE"
+    },
+    {
+        "codice": 688,
+        "toponimo": "VICOLO LUNGO"
+    },
+    {
+        "codice": 689,
+        "toponimo": "VICOLO NUOVO"
+    },
+    {
+        "codice": 690,
+        "toponimo": "VICOLO PRIVATO"
+    },
+    {
+        "codice": 691,
+        "toponimo": "VICOLO STORTO"
+    },
+    {
+        "codice": 692,
+        "toponimo": "VICOLO STRETTO"
+    },
+    {
+        "codice": 693,
+        "toponimo": "VICOLO VECCHIO"
+    },
+    {
+        "codice": 694,
+        "toponimo": "VIELLA"
+    },
+    {
+        "codice": 695,
+        "toponimo": "VIETTA"
+    },
+    {
+        "codice": 696,
+        "toponimo": "VIOTTOLA"
+    },
+    {
+        "codice": 697,
+        "toponimo": "VIUZZA"
+    },
+    {
+        "codice": 698,
+        "toponimo": "VO'"
+    },
+    {
+        "codice": 699,
+        "toponimo": "VOCABOLO"
+    },
+    {
+        "codice": 700,
+        "toponimo": "VOLTE"
+    },
+    {
+        "codice": 701,
+        "toponimo": "VOLTO"
+    },
+    {
+        "codice": 702,
+        "toponimo": "VOLTONE"
+    },
+    {
+        "codice": 703,
+        "toponimo": "ZIPA"
+    },
+    {
+        "codice": 704,
+        "toponimo": "COLLE"
+    },
+    {
+        "codice": 705,
+        "toponimo": "ZONA"
+    },
+    {
+        "codice": 706,
+        "toponimo": "REGIONE"
+    },
+    {
+        "codice": 707,
+        "toponimo": "PODERE"
+    },
+    {
+        "codice": 708,
+        "toponimo": "PASSO PRIVATO"
+    },
+    {
+        "codice": 709,
+        "toponimo": "SALITA INFERIORE"
+    },
+    {
+        "codice": 710,
+        "toponimo": "CUPA VICINALE"
+    },
+    {
+        "codice": 711,
+        "toponimo": "CUPA VECCHIA"
+    },
+    {
+        "codice": 712,
+        "toponimo": "GALLERIA PRIVATA"
+    },
+    {
+        "codice": 713,
+        "toponimo": "LARGO PRIVATO"
+    },
+    {
+        "codice": 714,
+        "toponimo": "PENDINO"
+    },
+    {
+        "codice": 715,
+        "toponimo": "PENNINATA"
+    },
+    {
+        "codice": 716,
+        "toponimo": "TONDO"
+    },
+    {
+        "codice": 717,
+        "toponimo": "VANELLA"
+    },
+    {
+        "codice": 718,
+        "toponimo": "VIALE PRIVATO"
+    },
+    {
+        "codice": 719,
+        "toponimo": "VICO ROTTO"
+    }
+]

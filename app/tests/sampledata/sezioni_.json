@@ -1,0 +1,37 @@
+[
+    {
+        "codice": "H501",
+        "sezione": "A",
+        "comune": "SEZIONE A",
+        "catasto": "T",
+        "stato": "Comune attivo"
+    },
+    {
+        "codice": "H501",
+        "sezione": "B",
+        "comune": "SEZIONE B",
+        "catasto": "T",
+        "stato": "Comune attivo"
+    },
+    {
+        "codice": "H501",
+        "sezione": "C",
+        "comune": "SEZIONE C",
+        "catasto": "T",
+        "stato": "Comune attivo"
+    },
+    {
+        "codice": "H501",
+        "sezione": "D",
+        "comune": "SEZIONE D",
+        "catasto": "T",
+        "stato": "Comune attivo"
+    },
+    {
+        "codice": "H501",
+        "sezione": "Z",
+        "comune": "SEZIONE DI PROVA",
+        "catasto": "T",
+        "stato": "Comune attivo"
+    }
+]

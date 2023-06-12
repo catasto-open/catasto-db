@@ -1,0 +1,54 @@
+[
+    {
+        "codice": "H501",
+        "sezione": " ",
+        "immobile": 4500693,
+        "tipo_imm": "F",
+        "progressiv": 1,
+        "toponimo": 236,
+        "indirizzo": "INDONESIA",
+        "civico1": "000039",
+        "civico2": null,
+        "civico3": null,
+        "cod_strada": "9936"
+    },
+    {
+        "codice": "H501",
+        "sezione": " ",
+        "immobile": 5053,
+        "tipo_imm": "F",
+        "progressiv": 2,
+        "toponimo": 236,
+        "indirizzo": "DEI COLLI DI BACCANELLO",
+        "civico1": "18",
+        "civico2": null,
+        "civico3": null,
+        "cod_strada": "4019"
+    },
+    {
+        "codice": "H501",
+        "sezione": " ",
+        "immobile": 5054,
+        "tipo_imm": "F",
+        "progressiv": 2,
+        "toponimo": 236,
+        "indirizzo": "DEI COLLI DI BACCANELLO",
+        "civico1": "18",
+        "civico2": null,
+        "civico3": null,
+        "cod_strada": "4019"
+    },
+    {
+        "codice": "H501",
+        "sezione": " ",
+        "immobile": 5055,
+        "tipo_imm": "F",
+        "progressiv": 2,
+        "toponimo": 236,
+        "indirizzo": "DEI COLLI DI BACCANELLO",
+        "civico1": "18",
+        "civico2": null,
+        "civico3": null,
+        "cod_strada": "4019"
+    }
+]

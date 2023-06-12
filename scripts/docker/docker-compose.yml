@@ -1,0 +1,65 @@
+version: '3.9'
+
+volumes:
+  geoserver-data:
+  geo-db-data:
+networks:
+  catasto-open-network:
+services:
+  db:
+    container_name: ${COMPOSE_PROJECT_NAME}-db
+    image: kartoza/postgis:${POSTGIS_VERSION_TAG}
+    volumes:
+      - geo-db-data:/var/lib/postgresql
+    ports:
+      - ${POSTGRES_HOST_PORT}:${POSTGRES_CONTAINER_PORT}
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASS=${POSTGRES_PASS}
+      - ALLOW_IP_RANGE=0.0.0.0/0
+      - FORCE_SSL=TRUE
+    restart: on-failure
+    healthcheck:
+      test: "exit 0"
+
+  geoserver:
+    container_name: ${COMPOSE_PROJECT_NAME}-geoserver
+    image: kartoza/geoserver:${GS_VERSION}
+    volumes:
+      - geoserver-data:/opt/geoserver/data_dir
+    ports:
+      - ${GEOSERVER_HOST_PORT}:${GEOSERVER_CONTAINER_PORT}
+    restart: on-failure
+    environment:
+      - GEOSERVER_DATA_DIR=${GEOSERVER_DATA_DIR}
+      - GEOWEBCACHE_CACHE_DIR=${GEOWEBCACHE_CACHE_DIR}
+      - GEOSERVER_ADMIN_PASSWORD=${GEOSERVER_ADMIN_PASSWORD}
+      - GEOSERVER_ADMIN_USER=${GEOSERVER_ADMIN_USER}
+      - INITIAL_MEMORY=${INITIAL_MEMORY}
+      - MAXIMUM_MEMORY=${MAXIMUM_MEMORY}
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: curl --fail -s http://localhost:8080/ || exit 1
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      
+  catasto-api:
+    container_name: ${COMPOSE_PROJECT_NAME}-api
+    image: pascallike/catasto-api
+    ports:
+      - 5000:80
+    restart: on-failure
+    environment:
+      - ENV_STATE=dev
+      - DEV_SISCAT_DB_SERVER_HOST=catasto-open-db
+      - DEV_SISCAT_DB_SERVER_PORT=5432
+      - DEV_SISCAT_DB_NAME=catasto
+      - DEV_SISCAT_DB_USER=docker
+      - DEV_SISCAT_DB_PASSWORD=docker
+    depends_on:
+      db:
+        condition: service_healthy

@@ -1,0 +1,96 @@
+{
+    "general": [
+        {
+            "citycode": "H501",
+            "section": "D",
+            "sheet": "18",
+            "number": "202",
+            "extent": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            1407834.87983499,
+                            5139040.85061375
+                        ],
+                        [
+                            1407834.87983499,
+                            5139068.64614048
+                        ],
+                        [
+                            1407850.41028722,
+                            5139068.64614048
+                        ],
+                        [
+                            1407850.41028722,
+                            5139040.85061375
+                        ],
+                        [
+                            1407834.87983499,
+                            5139040.85061375
+                        ]
+                    ]
+                ]
+            },
+            "city": "ROMA (RM) (H501)",
+            "subordinate": "5",
+            "right": "Proprieta'",
+            "part": "500/1000",
+            "classification": "zona 6, cat. C/2",
+            "class": "9",
+            "consistency": "37 mq",
+            "income": "149,05",
+            "lot": null,
+            "propertytype": "Fabbricati",
+            "immobile": 5053,
+            "startdate": "1994-11-15",
+            "enddate": "2022-12-14"
+        },
+        {
+            "citycode": "H501",
+            "section": "D",
+            "sheet": "18",
+            "number": "202",
+            "extent": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            1407834.87983499,
+                            5139040.85061375
+                        ],
+                        [
+                            1407834.87983499,
+                            5139068.64614048
+                        ],
+                        [
+                            1407850.41028722,
+                            5139068.64614048
+                        ],
+                        [
+                            1407850.41028722,
+                            5139040.85061375
+                        ],
+                        [
+                            1407834.87983499,
+                            5139040.85061375
+                        ]
+                    ]
+                ]
+            },
+            "city": "ROMA (RM) (H501)",
+            "subordinate": "6",
+            "right": null,
+            "part": "",
+            "classification": "zona 6, cat. A/2",
+            "class": "5",
+            "consistency": "5,5 vani",
+            "income": "766,94",
+            "lot": null,
+            "propertytype": "Fabbricati",
+            "immobile": 5054,
+            "startdate": "1994-11-15",
+            "enddate": "2022-12-14"
+        }
+    ]
+}

@@ -1,0 +1,47 @@
+[
+    {
+        "codice": "H501",
+        "sezione": "D",
+        "soggetto": 24519,
+        "tipo_sog": "G",
+        "denominaz": "FOO S.P.A",
+        "sede": "H501",
+        "codfiscale": "11111111110"
+    },
+    {
+        "codice": "H501",
+        "sezione": " ",
+        "soggetto": 24519,
+        "tipo_sog": "G",
+        "denominaz": "FOO S.P.A",
+        "sede": "H501",
+        "codfiscale": "11111111110"
+    },
+    {
+        "codice": "H501",
+        "sezione": " ",
+        "soggetto": 377075,
+        "tipo_sog": "G",
+        "denominaz": "TEST S.R.L PRIMO",
+        "sede": "H501",
+        "codfiscale": "11111111111"
+    },
+    {
+        "codice": "H501",
+        "sezione": " ",
+        "soggetto": 377076,
+        "tipo_sog": "G",
+        "denominaz": "TEST S.R.L SECONDO",
+        "sede": "H501",
+        "codfiscale": "11111111112"
+    },
+    {
+        "codice": "H501",
+        "sezione": " ",
+        "soggetto": 377077,
+        "tipo_sog": "G",
+        "denominaz": "TEST S.R.L TERZO",
+        "sede": "H501",
+        "codfiscale": "11111111113"
+    }
+]

@@ -1,0 +1,71 @@
+{
+    "H501-434170-T": [
+        {
+            "nominative": "ROSSI MARIO",
+            "fiscalcode": "AAAAAAAAAAAAAAAA",
+            "city": "ROMA",
+            "right": "Proprieta'",
+            "part": "1000/1000",
+            "startdate": "1976-11-20",
+            "enddate": "2022-12-14"
+        }
+    ],
+    "H501-5054-F": [
+        {
+            "nominative": "ALICE SECONDA",
+            "fiscalcode": "AAAAAAAAAAAAAAA2",
+            "city": "ROMA",
+            "right": null,
+            "part": "",
+            "startdate": "1994-11-15",
+            "enddate": "2022-12-14"
+        },
+        {
+            "nominative": "BOB PRIMO",
+            "fiscalcode": "BBBBBBBBBBBBBBBB",
+            "city": "ROMA",
+            "right": null,
+            "part": "",
+            "startdate": "1994-11-15",
+            "enddate": "2022-12-14"
+        },
+        {
+            "nominative": "FOO S.P.A",
+            "fiscalcode": "11111111110",
+            "city": "ROMA",
+            "right": "CIASCUNO PER I PROPRI DIRITTI",
+            "part": "",
+            "startdate": "1994-11-15",
+            "enddate": "2022-12-14"
+        }
+    ],
+    "H501-4500693-F": [
+        {
+            "nominative": "TEST S.R.L PRIMO",
+            "fiscalcode": "11111111111",
+            "city": "ROMA",
+            "right": "Proprieta'",
+            "part": "1/3",
+            "startdate": "1966-11-15",
+            "enddate": "2022-12-14"
+        },
+        {
+            "nominative": "TEST S.R.L SECONDO",
+            "fiscalcode": "11111111112",
+            "city": "ROMA",
+            "right": "Proprieta'",
+            "part": "1/3",
+            "startdate": "1966-11-15",
+            "enddate": "2022-12-14"
+        },
+        {
+            "nominative": "TEST S.R.L TERZO",
+            "fiscalcode": "11111111113",
+            "city": "ROMA",
+            "right": "Proprieta'",
+            "part": "1/3",
+            "startdate": "1966-11-15",
+            "enddate": "2022-12-14"
+        }
+    ]
+}

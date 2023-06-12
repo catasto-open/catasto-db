@@ -1,0 +1,22 @@
+[sqlfluff]
+verbose = 0
+nocolor = False
+dialect = postgres
+templater = jinja
+rules = None
+# ignore L016 temporarily
+exclude_rules = L016
+recurse = 0
+output_line_length = 80
+runaway_limit = 10
+ignore_templated_areas = True
+# Comma separated list of file extensions to lint.
+
+# NB: This config will only apply in the root folder.
+sql_file_exts = .sql,.sql.j2,.dml,.ddl
+
+[sqlfluff:rules]
+
+[sqlfluff:rules:L016]
+ignore_comment_clauses = True
+ignore_comment_lines = True

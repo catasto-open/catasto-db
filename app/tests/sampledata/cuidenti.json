@@ -1,0 +1,54 @@
+[
+    {
+        "codice": "H501",
+        "sezione": " ",
+        "immobile": 4500693,
+        "tipo_imm": "F",
+        "progressiv": 1,
+        "sez_urbana": null,
+        "foglio": "0856",
+        "numero": "00155",
+        "denominato": null,
+        "subalterno": "0006",
+        "edificiale": null
+    },
+    {
+        "codice": "H501",
+        "sezione": " ",
+        "immobile": 5053,
+        "tipo_imm": "F",
+        "progressiv": 2,
+        "sez_urbana": null,
+        "foglio": "0018",
+        "numero": "00202",
+        "denominato": null,
+        "subalterno": "0005",
+        "edificiale": null
+    },
+    {
+        "codice": "H501",
+        "sezione": " ",
+        "immobile": 5054,
+        "tipo_imm": "F",
+        "progressiv": 2,
+        "sez_urbana": null,
+        "foglio": "0018",
+        "numero": "00202",
+        "denominato": null,
+        "subalterno": "0006",
+        "edificiale": null
+    },
+    {
+        "codice": "H501",
+        "sezione": " ",
+        "immobile": 5055,
+        "tipo_imm": "F",
+        "progressiv": 2,
+        "sez_urbana": null,
+        "foglio": "0018",
+        "numero": "00202",
+        "denominato": null,
+        "subalterno": "0007",
+        "edificiale": null
+    }
+]
