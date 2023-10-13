@@ -53,7 +53,7 @@ def upgrade() -> None:
         sa.Column("con_progre", sa.String(length=3), nullable=True),
         sa.Column("con_anno", sa.Integer(), nullable=True),
         sa.Column("partita", sa.String(length=7), nullable=True),
-        sa.Column("annotazion", sa.String(length=200), nullable=True),
+        sa.Column("annotazion", sa.String(length=500), nullable=True),
         sa.Column("mutaz_iniz", sa.Integer(), nullable=True),
         sa.Column("mutaz_fine", sa.Integer(), nullable=True),
         sa.Column("gen_causa", sa.String(length=3), nullable=True),
