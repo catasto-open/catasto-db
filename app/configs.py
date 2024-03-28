@@ -164,7 +164,7 @@ class AppConfig(BaseModel):
         st_setsrid(st_extent(f.geom),25833),3857))
         as extent
     from ctcn.v_fabbricati vf
-        right join ctmp.fabbricati f
+        left join ctmp.fabbricati f
         on
             f.comune = vf.codice
             and f.foglio = vf.foglio
@@ -253,7 +253,7 @@ class AppConfig(BaseModel):
                     st_union(p.geom),25833),3857))
                     as extent
     from ctcn.v_terreni vt
-        right join ctmp.particelle p
+        left join ctmp.particelle p
         on
             p.comune = vt.codice
             and p.foglio = vt.foglio::text
@@ -435,15 +435,15 @@ class AppConfig(BaseModel):
                 from ctmp.particelle p
             )
             as lands
-            inner join ctcn.v_soggetti_terreni vst
+            right join ctcn.v_soggetti_terreni vst
             on
                 lands.number = vst.particella
                 and lands.cityCode = vst.codice
                 and lands.sheet = vst.foglio
-                where vst.soggetto in ({0})
-                    and vst.tipo_sog='{1}'
-                    and vst.data_inizio <= ('now'::text)::date
-                    and vst.data_fine_f >= ('now'::text)::date
+            where vst.soggetto in ({0})
+                and vst.tipo_sog='{1}'
+                and vst.data_inizio <= ('now'::text)::date
+                and vst.data_fine_f >= ('now'::text)::date
     )
     order by 1,2,3,4
     """
@@ -1011,7 +1011,7 @@ class AppConfig(BaseModel):
                 from ctmp.particelle p
             )
             as lands
-            inner join ctcn.v_soggetti_terreni vst
+            right join ctcn.v_soggetti_terreni vst
             on
                 lands.number = vst.particella
                 and lands.cityCode = vst.codice
@@ -1051,7 +1051,7 @@ class AppConfig(BaseModel):
         st_setsrid(st_extent(f.geom),25833),3857))
         as extent
     from ctcn.v_fabbricati vf
-        right join ctmp.fabbricati f
+        left join ctmp.fabbricati f
         on
             f.comune = vf.codice
             and f.foglio = vf.foglio
@@ -1084,7 +1084,7 @@ class AppConfig(BaseModel):
         st_setsrid(st_extent(f.geom),25833),3857))
         as extent
     from ctcn.v_fabbricati vf
-        right join ctmp.fabbricati f
+        left join ctmp.fabbricati f
         on
             f.comune = vf.codice
             and f.foglio = vf.foglio
@@ -1125,7 +1125,7 @@ class AppConfig(BaseModel):
         st_setsrid(st_extent(f.geom),25833),3857))
         as extent
     from ctcn.v_fabbricati vf
-        right join ctmp.fabbricati f
+        left join ctmp.fabbricati f
         on
             f.comune = vf.codice
             and f.foglio = vf.foglio
@@ -1150,7 +1150,7 @@ class AppConfig(BaseModel):
         st_setsrid(st_extent(f.geom),25833),3857))
         as extent
     from ctcn.v_fabbricati vf
-        right join ctmp.fabbricati f
+        left join ctmp.fabbricati f
         on
             f.comune = vf.codice
             and f.foglio = vf.foglio
@@ -1186,7 +1186,7 @@ class AppConfig(BaseModel):
                     st_extent(p.geom),25833),3857))
                         as extent
     from ctcn.v_terreni vt
-        right join ctmp.particelle p
+        left join ctmp.particelle p
         on
             p.comune = vt.codice
             and p.foglio = vt.foglio::text
@@ -1214,7 +1214,7 @@ class AppConfig(BaseModel):
                     st_extent(p.geom),25833),3857))
                         as extent
     from ctcn.v_terreni vt
-        right join ctmp.particelle p
+        left join ctmp.particelle p
         on
             p.comune = vt.codice
             and p.foglio = vt.foglio::text
